@@ -1,0 +1,30 @@
+<p-card header="Solicitar nova senha" subheader="Resetar senha atual.">
+  <div class="p-grid p-col-10 p-jc-center">
+
+    <div class="p-field p-col-12 p-mt-5">
+        <div class="p-float-label">
+            <input type="email"
+            pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*"
+            name="sender_email" [(ngModel)]="Email.sender_email"  pInputText >
+            <label>Email</label>
+        </div>
+    </div>
+
+    <div class="p-field p-col-10 p-mt-1">
+         {{this.MessageFinal}}
+    </div>
+    <div class="p-field p-col-10 p-mt-1">
+
+      <ngx-recaptcha2 class="p-mt-3"  [siteKey]="siteKey"
+      (success)="handleSuccess($event)"
+      formControlName="recaptcha"></ngx-recaptcha2>
+
+       <button pButton class="p-mt-3 p-ml-3 p-button-outlined p-button-raised p-button-text p-shadow-3 p-button-lg"  label="Enviar" type="button" (click)="sendEmail()"></button>
+    </div>
+</div>
+</p-card>
+
+
+
+
+

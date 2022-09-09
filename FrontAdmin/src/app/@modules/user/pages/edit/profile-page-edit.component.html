@@ -1,0 +1,71 @@
+<br>
+ <div class="p-d-flex p-ai-center p-jc-center">  
+
+      
+      <div class="p-d-flex p-flex-wrap p-ai-center p-jc-center message-submit">
+        <app-photo-upload (onUpload)="download()" [fileUrl]="picture" [imageName]="userEntity.username"></app-photo-upload>
+  
+        <div class="p-grid p-col-10 p-jc-center">
+          <div class="p-field p-col-10 p-mt-1">            
+              <div class="p-float-label">
+                <input pInputText class="input" type="text" name="document" [(ngModel)]="userEntity.document"/>
+                <label>CNPJ</label>
+              </div>           
+          </div>
+
+           <div class="p-field p-col-10 p-mt-1">
+              <div class="p-float-label">
+                  <input pInputText class="input" type="text" name="mail2" [(ngModel)]="userEntity.username"/>
+                  <label>Usuário</label>                
+              </div>
+            </div>
+
+            <div class="p-field p-col-10 p-mt-1">
+              <div class="p-float-label">
+                  <input pInputText class="input" type="text" name="mail" [(ngModel)]="userEntity.mail"/>
+                  <label>Email</label>                
+              </div>
+            </div>
+            <div class="p-field p-col-10 p-mt-1">
+                <div class="p-float-label">
+                    <input pInputText class="input" type="text" name="uf" [(ngModel)]="userEntity.uf" />
+                    <label>UF</label>
+                </div>
+              </div>
+              <div class="p-field p-col-10 p-mt-1">
+                <div class="p-float-label">
+                    <input pInputText class="input" type="text" name="city" [(ngModel)]="userEntity.city" />
+                    <label>Cidade</label>
+                </div>
+              </div>
+
+              <div class="p-field p-col-10 p-mt-1">
+                <div class="p-float-label">
+                    <input pInputText class="input" type="text" name="fone" [(ngModel)]="userEntity.fone" />
+                    <label>Telefone</label>
+                </div>
+              </div>
+
+              <div class="p-field p-col-10 p-mt-1">
+                <div class="p-float-label">
+                  <p-dropdown [options]="sectors" placeholder="Setor" [(ngModel)]="userEntity.sectorId" optionLabel="name"  optionValue="id"></p-dropdown>              
+                </div>
+              </div>
+
+              <div class="p-field p-col-10 p-mt-1">
+                <div class="p-float-label">
+                    <p-dropdown [options]="companySize" placeholder="Porte" [(ngModel)]="userEntity.companySizeId" optionLabel="name" optionValue="id"></p-dropdown>  
+                 </div>
+              </div>  
+
+            <div class="p-field p-col-10 p-mt-1">
+              <div class="p-float-label">
+                <button pButton class="p-button-lg p-button-raised p-button-success p-mr-3" label="Alterar" type="button" (click)="save()" ></button>
+              </div>
+            </div>    
+        </div>  
+      </div> 
+    
+  </div>  
+
+ 

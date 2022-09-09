@@ -1,0 +1,12 @@
+<div class="full-page-fixed not-selectable z-index-999">
+    <ggm-l-polygon-animate></ggm-l-polygon-animate>
+    <div class="message-box">
+      <h1>{{errorCode}}</h1>
+      <p>{{errorMessage}}</p>
+      <div class="buttons-con" *ngIf="linkHome">
+        <div class="action-link-wrap">
+          <a href="/" class="link-button">Ir para Pagina Inicial</a>
+        </div>
+      </div>
+    </div>
+  </div>

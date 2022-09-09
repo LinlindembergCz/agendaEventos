@@ -1,0 +1,39 @@
+<div class="carousel-home-index" >
+  
+    <p-carousel 
+        [value]="imgs"  
+        [autoplayInterval]="3500" 
+        [circular]="true" 
+        styleClass="carousel-responsive" 
+        [showIndicators]="false"
+        >
+        <ng-template let-item pTemplate="item">
+        <div class="banner-item  p-ai-center p-jc-center" [ngStyle]="{'background': 'url('+ item.image + ') no-repeat'}">
+        </div>
+        </ng-template>
+    </p-carousel>
+
+    <div *ngIf="fileName===''">
+        <div class="LEARN">   
+            LEARN 
+            <div class="barLearn"></div>
+            <div class="textBar">Concentração, conhecimento e aprendizado validado. </div>
+        </div >
+
+        <div class="ATTEND">    
+            ATTEND
+            <div class="barAttend"></div>
+            <div class="textBar">Produção, criação participativa e colaborativa </div>
+        </div>
+
+        <div class="BUSINESS">  
+            BUSINESS  
+            <div class="barBusiness"></div>
+            <div class="textBar">Conexão, hub de negócios e acessos a mercados.</div>
+        </div> 
+    </div>
+
+
+</div>
+
+

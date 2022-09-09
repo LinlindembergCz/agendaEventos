@@ -1,0 +1,90 @@
+.framePeriodo{// Frame 2512
+  //border: 1px solid;
+  /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 5px;
+  
+  width: 100%;
+  height: 80px;
+  
+  
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+
+.frameOptionsPeriodo{/* Frame 5863 */
+  /* Auto layout */
+  //border: 1px solid;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 12px;    
+  width: 100%;
+  height: 25px;    
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.frameInputPeriodo{/* Frame 5864 */
+  //border: 1px solid;
+  /* Auto layout */
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 8px;  
+  width: 100%;
+  height: 40px;  
+  /* Inside auto layout */
+  flex: none;
+  order: 2;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.buttonApply{
+  border: 1px solid;
+  box-sizing: border-box;  
+  align-items: center;
+  height: 36px;
+  background: #FFF028; 
+  color:black; 
+  border: 0px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+ /*
+  
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+ 
+
+::-webkit-scrollbar-thumb {
+  background: red; 
+  border-radius: 10px;
+}
+
+ 
+::-webkit-scrollbar-thumb:hover {
+  background: #b30000; 
+}
+*/

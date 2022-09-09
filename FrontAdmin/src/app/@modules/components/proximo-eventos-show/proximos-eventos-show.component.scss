@@ -1,0 +1,176 @@
+.frameProximoEvento{/* Frame 5902 */
+    //border: 1px solid;
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 32px 24px;
+gap: 24px;
+
+position: absolute;
+width: 416px;
+height: 817px;
+left: 64px;
+top: 237px;
+
+/* Tailwind/white */
+background: #FFFFFF;
+
+/* Sombra */
+box-shadow: 0px 1px 2px -1px rgba(16, 24, 40, 0.15), 0px 1px 3px rgba(16, 24, 40, 0.1);
+border-radius: 10px;}
+
+.frameEventlabList{
+ /* Frame 5901 */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 16px;
+
+width: 368px;
+height: 578px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 0;
+}
+ 
+.frameEventlabitemDetails{/* Frame 5630 */
+    //border-top:1px solid;
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 16px;    
+    width: 368px;
+    height:100px;   
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+
+
+
+.frameDate{/* Frame 5628 */
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 4px;   
+    width: 82px;
+    height: 70px;   
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+    
+.frameDateDays{/* Frame 2501 */
+    /* Auto layout */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 8px;
+    gap: 4px;    
+    width: 82px;
+    height: 42px;    
+    /* Tailwind/slate/50 */
+    background: #F8FAFC;
+    border-radius: 50px;
+    
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.frameDivisor{
+    align-items: left; width:1px; height:100%;background-color: #F89E5A; color:#F89E5A;border-color:#F89E5A ;
+    }
+
+.frameEventlabitemDetailsCenter{
+    //border-top:1px solid;
+    /* Frame 5629 */    
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    //padding: 0px;
+    //gap: 4px;   
+    width: 254px;
+    height: 83px;   
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 1;
+    }
+
+
+.eventlabtime{/* 14:00 - 18:00 */
+    //border-top:1px solid;
+    width: 93px;
+    //height: 5px;    
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    //line-height: 21px;    
+    /* Cores da Marca/Cores pasteis/Cinza */
+    color: #525F6B;        
+    /* Inside auto layout */
+    //flex: none;
+    //order: 0;
+    //flex-grow: 0;
+    }
+
+.eventlabName{/* Creative Workshop */
+    //border-top:1px solid;
+    width: 254px;
+    //height: 5px;    
+    /* Heading / H5 */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    //line-height: 30px;    
+    /* identical to box height, or 150% */    
+    /* Cores da Marca/Variações da Marca/Laranja/4 */
+    color: #C45F13;   
+    /* Inside auto layout */
+    //flex: none;
+    //order: 1;
+    //align-self: stretch;
+    //flex-grow: 0;
+}
+
+.eventlabSummary{/* Isabela Eventos LTDA */
+    //border-top:1px solid;
+    width: 254px;
+    //height: 5px;    
+    /* Body / Small */
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    //line-height: 150%;    
+    /* identical to box height, or 24px */    
+    /* Tailwind/slate/600 */
+    color: #475569;   
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    //align-self: stretch;
+    flex-grow: 0;
+}
+

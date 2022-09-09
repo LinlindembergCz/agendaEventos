@@ -1,0 +1,286 @@
+.frameMain{
+  position: absolute;
+  width: 1440px;
+  height: 1116px;
+  left: 0px;
+  top: 2791px;
+}
+
+.frameMainBody{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 40px;
+  position: absolute;
+  width: 1152px;
+  height: 900px;
+  left: 144px;
+  top: 136px;
+}
+
+.frameNaPratica{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 56px;
+  width: 928px;
+  height: 294px;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.frameTitleNaPratica{
+  width: 373px;
+  height: 69px;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.frameTextoNaPratica{
+  width: 930px;
+  height: 209px;
+  /* Body / Big */
+  font-family: 'PT Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+  /* or 30px */
+  /* Cores da Marca/Tipografia/Preto */
+  color: #263746;
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.frameLetrasLAB{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 32px 16px;
+  gap: 24px;
+  width: 1152px;
+  height: 566px;
+  /* Tailwind/slate/50 */
+  background: #F8FAFC;
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+}
+
+.frameListLetrasLAB{display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 16px;
+  
+  width: 100px;
+  height: 502px;
+  
+  background: #F8FAFC;
+  
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;}
+
+  .frameLetraL{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 0px;
+    gap: 8px;
+
+    width: 100px;
+    height: 156.67px;
+
+    background: rgba(235, 137, 63, 0.8);
+
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 1;
+  }
+
+  .frameLetraA{display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 8px;
+    gap: 8px;
+    
+    width: 100px;
+    height: 156.67px;
+    
+    /* Cores da Marca/Cores principais/Verde */
+    background: #50AF46;
+    
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    align-self: stretch;
+    flex-grow: 1;
+  }
+
+  .frameLetraB{
+    display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+padding: 16px 8px;
+gap: 8px;
+
+width: 100px;
+height: 156.67px;
+
+/* Cores da Marca/Cores principais/Rosa */
+background: #ED4D9A;
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+align-self: stretch;
+flex-grow: 1;
+  }
+
+.frameSignificadoLetra{//frame5789
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 32px;
+
+  width: 996px;
+  height: 502px;
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 1;
+}
+
+.frameLetraSelecionada{//frame5788
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px;
+  gap: 10px;
+  width: 247px;
+  height: 82px;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+
+.frameTextoLetraSelecionada{//frame 5783
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 32px;
+  width: 996px;
+  height: 388px;
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.frameTextoLetraSelecionadaCabecalho{
+  width: 996px;
+  height: 60px;
+  /* Heading / H5 */
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 30px;
+  /* or 150% */
+  /* Cores da Marca/Tipografia/Preto */
+  color: #263746;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+}
+
+.frameTextoLetraSelecionadaConteudoCentral
+{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 56px;
+
+  width: 996px;
+  height: 132px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+}
+
+.frameTextoLetraSelecionadaConteudoCentralEsquerdo{display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 8px;
+  
+  width: 470px;
+  height: 132px;
+  
+  
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 1;
+}
+
+.frameTextoLetraSelecionadaConteudoCentralDireito{display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 8px;
+  
+  width: 470px;
+  height: 132px;
+  
+  
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 1;
+}
+
+.frameTextoLetraSelecionadaConteudoRodape{
+  display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 8px;
+
+width: 464px;
+height: 132px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 2;
+flex-grow: 0;
+}

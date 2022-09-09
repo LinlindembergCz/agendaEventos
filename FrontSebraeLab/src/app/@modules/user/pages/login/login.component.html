@@ -1,0 +1,41 @@
+<div class="p-d-flex p-ai-center p-jc-center">
+  <p-card header="Login" subheader="Seja Bem Vindo!" class="p-col" styleClass="p-col">
+    <div class="p-d-flex p-ai-center p-jc-center">
+      <div class="p-d-fluid p-d-grid p-formgrid">
+        <div class="p-field p-col-12 p-mt-5">
+          <div class="p-float-label">
+              <input pInputText class="input p-inputtext-lg" type="text" name="userName" [(ngModel)]="login.userName"/>
+              <label>Usuário</label>
+          </div>
+        </div>
+        <div class="p-field p-col-12 p-mt-3">
+            <div class="p-float-label">
+                <input pInputText class="input p-inputtext-lg" type="password" name="secret" [(ngModel)]="login.secret"  />
+                <label>Senha</label>
+            </div>
+        </div>
+
+        <div class="p-field p-col-10">
+            <label><u><a title="Esqueci a Senha" href="user/forgeted">Esqueceu sua senha?</a></u></label>
+            <router-outlet></router-outlet>
+        </div>
+
+        <div class="p-field p-col-12">
+          <ngx-recaptcha2  [siteKey]="siteKey"
+          (success)="handleSuccess($event)"></ngx-recaptcha2>
+          <br>
+            <button pButton class="p-button-lg p-button-raised p-button-success p-mr-3"  (click)="LogIn();" >Entrar</button>
+            <button pButton class="p-button-lg p-button-raised p-button-primary" (click)="openUser();" >Registrar</button>
+        </div>
+      </div>
+    </div>
+  </p-card>
+</div>
+
+
+
+<div ClassName="">
+   <a href="/">Home</a>
+   <a href="/user">User</a>
+</div>
+<router-outlet></router-outlet>

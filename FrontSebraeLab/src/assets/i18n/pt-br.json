@@ -1,0 +1,93 @@
+{
+    "common": {
+        "help": "Ajuda",
+        "enterTo": "Entrar com",
+        "App": "Aplicativo",
+        "next": "Próxima"
+    },
+    "login": {
+            "signin": "Acessar",
+            "signup": "Registrar",
+            "accessTo": "Acesse com:",
+            "otherAccess": "ou entre com sua conta:",
+            "forggetUser": "Equeceu seu usuário?",
+            "forggetPassword": "Equeceu a senha?",
+            "userInputLabel": "E-mail / Usuário"
+        },
+    "routes": {
+            "dashboard": {
+               "index": "Dashboard"     
+            },
+            "codedata": {
+                "politicalParty": "Partidos Políticos",
+                "situation": "Situações",
+                "commission": "Comissão",
+                "actiondescription": "Descrição Ação - Solicitação",
+                "council": "Conselho",
+                "actionSolicitationLike": "Solicitação - Como",
+                "actionSolicitationForWhom": "Solicitação - Para quem",
+                "actionSolicitation": "Solicitação - Quem Solicitou",
+                "positioning": "Posicionamento",
+                "projectStatus": "Status do Projeto",
+                "projectType": "Tipo de projeto",
+                "seem": "Parecer",
+                "syndicate": "Sindicatos"
+            },
+            "parliamentary": {
+                "index": "Parlamentares"      
+            } ,
+            "project": {
+                "index": "Projetos & Ações"      
+            }                 
+        },
+    "password": {
+        "label": "Senha",
+        "confirmlabel": "Confime sua Senha",
+        "promptLabel": "Digite sua senha.",
+        "weakLabel": "Fraca",
+        "mediumLabel": "Média",
+        "strongLabel": "Forte"
+    },
+    "primeng": {
+        "startsWith": "Starts with",
+        "contains": "Contains",
+        "notContains": "Not contains",
+        "endsWith": "Ends with",
+        "equals": "Equals",
+        "notEquals": "Not equals",
+        "noFilter": "No Filter",
+        "lt": "Less than",
+        "lte": "Less than or equal to",
+        "gt": "Greater than",
+        "gte": "Great then or equals",
+        "is": "Is",
+        "isNot": "Is not",
+        "before": "Before",
+        "after": "After",
+        "clear": "Limpar",
+        "apply": "Aplicar",
+        "matchAll": "Match All",
+        "matchAny": "Corresponder ",
+        "addRule": "Adicionar Regra",
+        "removeRule": "Remover Regra",
+        "accept": "Sim",
+        "reject": "Não",
+        "choose": "Trocar",
+        "upload": "Carregar",
+        "cancel": "Cancelar",
+        "dayNames": ["Domingo", "Segunda", "Terça-Feira", "Quarta-Feira", "Quinta-Feira", "Sexta-Feira", "Sábado"],
+        "dayNamesShort": ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sab"],
+        "dayNamesMin": ["Do","Se","Te","Qu","Qu","Se","Sa"],
+        "monthNames": ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho","Agosto", "Setembro", "Outubro", "Novembro", "Dezembro"],
+        "monthNamesShort": ["Jan", "Fev", "Mar", "Abr", "Mai", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
+        "today": "Hoje",
+        "weekHeader": "Se",
+        "weak": "Semana",
+        "medium": "Médio",
+        "strong": "Forte",
+        "passwordPrompt": "Coloque a senha",
+        "emptyMessage": "Vazio",
+        "emptyFilterMessage": "Vazio",
+        "selectedItemsLabel": "{0} items selecionados"
+    }
+}

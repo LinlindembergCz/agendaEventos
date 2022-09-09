@@ -1,0 +1,21 @@
+<div class="carousel-home-index" >
+  
+    <p-carousel 
+        [value]="imgs"  
+        [autoplayInterval]="0" 
+        [circular]="false" 
+        styleClass="carousel-responsive" 
+        [showIndicators]="false"        
+        >
+        <ng-template let-item pTemplate="item">
+        <div class="banner-item  p-ai-center p-jc-center" [ngStyle]="{'background': 'url('+ item.image + ') no-repeat'}">
+        </div>
+        </ng-template>
+    </p-carousel>
+
+
+
+
+</div>
+
+

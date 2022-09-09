@@ -1,0 +1,14 @@
+// Base App CSS 
+@import 'assets/css/animations.scss';
+@import 'assets/css/fonts.scss';
+@import 'assets/css/common.scss';
+@import 'assets/css/base.scss';
+@import 'assets/css/themes.scss';
+
+
+.p-dropdown-item,
+.p-dropdown-label,
+.p-multiselect-label,
+.p-multiselect-item {
+    text-transform: uppercase;
+}

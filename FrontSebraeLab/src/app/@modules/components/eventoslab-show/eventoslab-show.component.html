@@ -1,0 +1,60 @@
+<div id="eventoslab"></div>
+
+<div class="frameMain">
+      
+   <div class="frameEventlab">
+        <div class="frameEventslabDescription">
+            
+            <div class="frameTitle p-field">
+                <div class="title">Eventos no LAB</div>
+            </div>
+            <div class="frameText p-field">
+                Geramos conexões que propiciam parcerias e novos negócios. Estimulamos a cocriação e o aprimoramento de produtos, processos, serviços e novos modelos de negócio, além do desenvolvimento de estratégias, capacitações com metodologias inovadoras e promoção da cultura da inovação.
+            </div>
+        </div>
+
+        <div class="frameEventlabDetails">            
+            
+            <div class="framebuttons">                           
+                <button pButton type="button" label="Esta semana" class="p-button-rounded p-button-outlined" ></button> 
+                <button pButton type="button" label="Próxima semana" class="p-button-rounded p-button-outlined" ></button>
+                <button pButton type="button" label="Este mês" class="p-button-rounded p-button-outlined" ></button>
+                <button pButton type="button" label="próximo mês" class="p-button-rounded p-button-outlined" ></button>
+                <button pButton type="button" label="Agenda completa" class="p-button-rounded p-button-outlined" ></button>
+            </div>
+                        
+            <div class="frameEventslablist">
+                
+             <!--<div class="frameEventlabItemGroup">-->                 
+                    <p-dataView [value]="eventslab">
+                        <ng-template let-eventlab pTemplate="listItem">              
+                            <div class="frameEventlabItem">                         
+                                   <div class="frameEventlabitemDetails">                                    
+                                        <div class="frameEventlabitemDetailsCenter">
+                                            <div class="frameDate">
+                                               <div class="frameDateDays"> {{eventlab.dateStart}}<div style=" color: #C45F13;">></div>{{eventlab.dateEnd}}</div> 
+                                            </div>                                    
+                                            <p-divider layout="vertical" class="frameDivisor"></p-divider>
+
+                                            <div class="frameHour">
+
+                                                <div class="eventlabTime">{{eventlab.hourStart}} - {{eventlab.hourEnd}}</div><br>
+                                                <div class=" eventlabName">{{eventlab.name}}</div><br>
+                                                <div class="eventlabSummary">{{eventlab.summary}}</div><br>
+                                            </div>        
+                                        </div>                                         
+                                        <div class="frameEventlabSubscribe">
+                                           <a>Inscreva-se ></a> 
+                                        </div>                      
+                                    </div>
+                                                      
+                                </div>  
+                                <div style="background: #F8FAFC">&nbsp;&nbsp;&nbsp;</div>             
+                       </ng-template>
+                    </p-dataView>                    
+                <!--</div>-->
+            </div>
+            <div class="confira">confira nossa agenda!<img src="/assets/imgs/arrow-right.png"/></div>
+        </div>
+    </div>
+</div>

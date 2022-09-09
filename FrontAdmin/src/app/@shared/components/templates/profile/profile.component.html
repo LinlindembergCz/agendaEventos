@@ -1,0 +1,27 @@
+<div class="profile p-px-2 not-selectable" (click)="click()" *ngIf="!breakline">
+    <div class="p-col-fixed profile-image-wrapper" style="width: {{size.toString()}}px;">
+        <img class="circle p-shadow-2" src="assets/imgs/profile-user.jpg" width="100%" *ngIf="src === undefined" />
+        <img class="circle p-shadow-2" src="{{src}}" width="100%" *ngIf="src !== undefined" />
+    </div>
+    <div class="p-col p-text-left p-text-nowrap profile-info-wrapper">
+        <h3>
+            {{label !== undefined ? label : ''}}
+            <i class="{{icon}}" *ngIf="icon !== undefined"></i>
+        </h3>
+    </div>
+</div>
+<div class="profile p-px-2 not-selectable p-d-flex p-flex-column" (click)="click()" *ngIf="breakline">
+        <div class="p-d-flex p-jc-center">
+            <div class="p-col-fixed profile-image-wrapper" style="width: {{size.toString()}}px;">
+                <img class="circle p-shadow-2" src="assets/imgs/profile-user.jpg" width="100%" *ngIf="src === undefined" />
+                <img class="circle p-shadow-2" src="{{src}}" width="100%" *ngIf="src !== undefined" />
+            </div>
+        </div>
+        <div class="p-d-flex p-jc-center p-text-left p-text-nowrap profile-info-wrapper" style="padding-top: 8px;">
+            <h3>
+                {{label !== undefined ? label : ''}}
+                <i class="{{icon}}" *ngIf="icon !== undefined"></i>
+            </h3>
+        </div>
+</div>
+<ng-content select="[menu]"></ng-content>

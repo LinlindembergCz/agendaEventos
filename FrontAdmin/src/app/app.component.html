@@ -1,0 +1,8 @@
+<p-blockUI [blocked]="hasLoading">
+    <p-progressSpinner strokeWidth="6" animationDuration=".8s"></p-progressSpinner>
+</p-blockUI>
+
+<div class="ui-fluid ng-main " [ngClass]="theme">
+  <p-toast position="top-right"></p-toast>
+  <router-outlet></router-outlet> 
+</div>

@@ -1,0 +1,90 @@
+<div class="p-d-flex p-ai-center p-jc-center">
+  <p-card header="Registro de Novo Usuário" subheader="Realize o cadastro da sua empresa no Representa+" class="p-lg-8 p-sm-12 p-md-8">
+    <div class="p-fluid p-formgrid p-col-12">
+      <div class="p-field p-md-8 p-lg-6 p-sm-12 p-x p-mt-3">
+        <div class="p-float-label">
+          <p-inputMask mask="99.999.999/9999-99" name="CNPJ"  [(ngModel)]="userEntity.document"  tabindex="-1" ></p-inputMask>
+          <label>CNPJ</label>
+        </div>
+      </div>
+      <div class="p-field p-md-8 p-lg-6 p-sm-12 p-mt-3">
+        <div class="p-float-label">
+            <input pInputText class="input" type="text" name="username" [(ngModel)]="userEntity.username" maxlength="20"/>
+            <label>Razão Social</label>
+        </div>
+      </div>
+      <div class="p-field p-md-8 p-lg-6 p-sm-12 p-mt-3">
+        <div class="p-float-label">
+            <input pInputText class="input" type="text" name="username" [(ngModel)]="userEntity.username" maxlength="20"/>
+            <label>Nome Fantasia</label>
+        </div>
+      </div>
+      <div class="p-field p-md-8 p-lg-6 p-sm-12 p-mt-3">
+          <div class="p-float-label">
+              <input pInputText class="input" type="text" name="username" [(ngModel)]="userEntity.username" maxlength="20"/>
+              <label>Nome Responsável</label>
+          </div>
+      </div>
+      <div class="p-field p-md-8 p-lg-6 p-sm-12 p-mt-3">
+        <div class="p-float-label">
+          <input type="email"
+          pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*"
+          name="mail" [(ngModel)]="userEntity.mail"  pInputText maxlength="50">
+           <label>E-mail</label>
+        </div>
+      </div>
+      <div class="p-field p-md-8 p-lg-6 p-sm-12 p-mt-3">
+          <div class="p-float-label">
+            <p-dropdown appendTo="body" [options]="ufsList"  [(ngModel)]="userEntity.uf" optionLabel="nome" optionValue="sigla" name="uf" (onChange)="ToListCities(userEntity.uf)">UFs</p-dropdown>
+            <label>UF</label>
+          </div>
+        </div>
+        <div class="p-field p-md-8 p-lg-6 p-sm-12 p-mt-3">
+          <div class="p-float-label">
+            <p-dropdown appendTo="body" [options]="cityList"  [(ngModel)]="userEntity.city" optionLabel="nome" optionValue="nome" name="city" ></p-dropdown>
+            <label>Cidade</label>
+          </div>
+        </div>
+        <div class="p-field p-md-8 p-lg-6 p-sm-12 p-mt-3">
+          <div class="p-float-label">
+              <p-inputMask mask="(99)99999-9999"  name="fone"  [(ngModel)]="userEntity.fone"></p-inputMask>
+               <label>Telefone</label>
+          </div>
+        </div>
+        <div class="p-field p-md-8 p-lg-6 p-sm-12 p-mt-1">
+          <label>Setor</label>
+          <p-dropdown appendTo="body" [options]="sectors"  [(ngModel)]="userEntity.sectorId" optionLabel="name"  optionValue="id" ></p-dropdown>
+        </div>
+        <div class="p-field p-md-8 p-lg-6 p-sm-12 p-mt-1">
+          <label>Porte</label>
+          <p-dropdown appendTo="body" [options]="companySize"  [(ngModel)]="userEntity.companySizeId" optionLabel="name" optionValue="id"></p-dropdown>
+        </div>
+        <div class="p-field p-md-8 p-lg-6 p-sm-12 p-mt-3">
+          <div class="p-float-label">
+              <input pInputText class="input" type="password" name="secret" [(ngModel)]="userEntity.secret"  />
+              <label>Senha </label>
+          </div>
+          <small>(min 6 carateres, números e letras)</small>
+        </div>
+        <div class="p-field p-md-8 p-lg-6 p-sm-12 p-mt-3">
+          <div class="p-float-label">
+              <input pInputText class="input" type="password" name="secret2" [(ngModel)]="secret2"/>
+              <label>Confirme a Senha </label>
+          </div>
+        </div>
+        <div class="p-field p-col-12 p-mt-3">
+          <p-checkbox [(ngModel)]="userEntity.acceptTerms" [binary]="true" name="acceptTerms" inputId="acceptTerms"></p-checkbox>
+          <label for="acceptTerms" class="p-ml-1">Li e estou de acordo com os <b><u> <a href="javascript:void(0)" (click)="showTerms()">Termos de Uso.</a></u></b></label>
+        </div>
+        <div class="p-d-flex p-ai-center p-jc-center p-col-12 p-mt-3">
+            <button pButton class="p-md-8 p-lg-6 p-sm-12 p-button-lg p-button-raised p-button-success p-mr-3" label="Registrar" type="button" (click)="save()" *ngIf="userEntity.acceptTerms==true"></button>
+        </div>
+    </div>
+  </p-card>
+</div>
+<p-dialog position="center" [style]="{minWidth: '65vw', maxWidth: '80vw'}" [(visible)]="showDialog" header="Termos de Uso" [modal]="true" [blockScroll]="true" [maximizable]="true" styleClass="p-fluid" (onHide)="hideModalReload()">
+    <app-terms *ngIf="showDialog"></app-terms>
+    <p-footer>
+      <button pButton pRipple label="Fechar" icon="pi pi-times" class="p-button-text p-button-info" (click)="hideModalReload()"></button>
+  </p-footer>
+</p-dialog>

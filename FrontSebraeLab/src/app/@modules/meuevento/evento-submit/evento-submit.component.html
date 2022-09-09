@@ -1,0 +1,122 @@
+
+
+<p-accordion  expandIcon = "pi" collapseIcon = "pi" (onOpen)="onTabOpen($event)">
+
+  <p-accordionTab [selected]="activeIndex==0 || loadAllTabs" [disabled]="activeIndex!=0">
+    <ng-template pTemplate="header">
+      <img src="./assets/imgs/tab1_active.png"/>
+    </ng-template>
+    <ng-template pTemplate="content">
+      <div class="titleInput">
+        <b>Datas do evento</b>
+        
+      </div>
+      <div class="titleInput">
+        <label>Selecione um ou mais dias</label> 
+      </div>
+      <!--<div>
+           <div><p-radioButton name="opt" value="val1" [(ngModel)]="optionDate" inputId="opt1" label="Dia indisponível/ocupado"></p-radioButton></div>
+           <div><p-radioButton name="opt" value="val2" [(ngModel)]="optionDate" inputId="opt2" label="Dia com pelo menos um período já reservado"></p-radioButton></div>
+           <div><p-radioButton name="opt" value="val3" [(ngModel)]="optionDate" inputId="opt3" label="Dia selecionado"></p-radioButton></div>
+      </div>-->
+      <p></p>
+      <div>
+        <div class="frameInput p-field">
+          <div><label>Nome do evento</label></div>
+          <input type="text" pInputText [style]="{'width':'354px','height': '48px'}" placeholder="Nome do evento" [(ngModel)]="nomeEvento"/>
+        </div>
+        <div class="frameInput p-field">
+          <div><label>Número de participantes</label></div>
+            <p-inputNumber placeholder="Nº de Participantes" [min]="0" [max]="30" [style]="{'width':'354px','height': '48px'}" [(ngModel)]="numeroParticipantes"></p-inputNumber>
+        </div>
+        <div >Capacidade máxima para 30 inscritos.</div>
+        <div class="frameButton">        
+          <button pButton type="button" label="Confirmar" class="buttonConfirmar p-button-outlined" (click)="nextTab(1)"></button>
+        </div>
+      </div>
+      
+    </ng-template>
+  </p-accordionTab>
+  <p-accordionTab [selected]="activeIndex==1 || loadAllTabs" [disabled]="activeIndex!=1">
+    <ng-template pTemplate="header">
+      <div *ngIf="activeIndex>=1">
+          <img src="./assets/imgs/tab2_active.png"/>
+      </div>
+      <div *ngIf="activeIndex<1">
+        <img src="./assets/imgs/tab2_inactive.png"/>
+    </div>
+    </ng-template>
+    <ng-template pTemplate="content">
+
+      <div class="p-field">
+        <div><label>Nome completo</label></div>
+        <input type="text" pInputText 
+        [style]="{'width':'354px','height': '48px'}" 
+        placeholder="Escreva seu nome completo"  />
+      </div>
+
+      <div class="p-field">
+        <div><label>E-mail</label></div>
+        <input type="email" pInputText 
+        [style]="{'width':'354px','height': '48px'}" 
+        pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" 
+        placeholder="Escreva seu e-mail de contato" 
+           >
+        
+      </div>
+
+      <div class="p-field">
+        <div><label>Institutição</label></div>
+        <input type="text" pInputText 
+        [style]="{'width':'354px','height': '48px'}"
+        placeholder="Escreva o nome da sua instituição"/>
+      </div>
+
+      <div class="p-field">
+        <div><label>Contato</label></div>
+        <input type="text" mask="(99)99999-9999" pInputText 
+        [style]="{'width':'354px','height': '48px'}"
+        placeholder="(xx)xxxxx-xxxx"/>
+      </div>
+
+      <div class="frameButton">        
+        <button pButton type="button" label="Etapa Anterior" class="buttonEtapaAnterior p-button-outlined" (click)="priorTab(1)"></button>
+        <button pButton type="button" label="Confirmar" class="buttonConfirmar p-button-outlined" (click)="nextTab(2)"></button>
+      </div>
+    </ng-template>
+  </p-accordionTab>
+  <p-accordionTab [selected]="activeIndex==2 || loadAllTabs" [disabled]="activeIndex!=2">
+    <ng-template pTemplate="header">
+       <div *ngIf="activeIndex==2">
+          <img src="./assets/imgs/tab3_active.png"/>
+       </div>
+       <div *ngIf="activeIndex!=2">
+          <img src="./assets/imgs/tab3_inactive.png"/>
+       </div>    
+    </ng-template>
+    <ng-template pTemplate="content">
+      <div>
+           <div><label>Tipo de evento</label></div>
+           <p-multiSelect [options]="tiposEnvento" [(ngModel)]="tipoEvento" optionLabel="name" placeholder="Escolha tipo de evento"
+           [style]="{'width':'354px','height': '48px'}"  ></p-multiSelect>
+      </div>
+      <div>
+        <div><label>Descrição do evento</label></div>
+        <textarea [style]="{'width':'434px','height': '186px'}" placeholder="conte para nós sobre o seu evento"></textarea>
+      </div>
+      <div>
+        <div><label>Link para inscrições</label></div>
+        <input type="text" pInputText
+          placeholder="Insira link das inscrições"/>
+      </div>
+      <div>
+        <b>Importante:</b>Verifique todos os dados antes de enviar.
+      </div>
+      <div class="frameButton">        
+        <button pButton type="button" label="Etapa Anterior" class="buttonEtapaAnterior p-button-outlined" (click)="priorTab(2)"></button>
+        <button pButton type="button" label="Enviar" class="buttonConfirmar p-button-outlined" (click)="send()"></button>
+      </div>
+
+    </ng-template> 
+  </p-accordionTab>
+</p-accordion>

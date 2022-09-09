@@ -1,0 +1,38 @@
+<div class="frameMain p-d-flex p-ai-center p-jc-center">
+  <div header="Entre em sua conta!" subheader="" class="frame-container">
+    <div class="p-d-flex p-ai-center p-jc-center">
+      <div class="p-d-fluid p-d-grid p-formgrid">
+        <div class="p-field p-col-12 p-mt-5">
+          <div class="p-float-label">
+              <input pInputText class="input p-inputtext-lg" type="text" name="userName" [(ngModel)]="login.userName"/>
+              <label>Login (E-mail)</label>
+          </div>
+        </div>
+        <div class="p-field p-col-12 p-mt-3">
+            <div class="p-float-label">
+                <input pInputText class="input p-inputtext-lg" type="password" name="secret" [(ngModel)]="login.secret"  />
+                <label>Senha</label>
+            </div>
+        </div>
+
+
+
+        <div class="p-field p-col-12">
+          <!--<ngx-recaptcha2  [siteKey]="siteKey"
+          (success)="handleSuccess($event)"></ngx-recaptcha2>-->
+          <br>
+            <button pButton class="p-button-lg p-button-raised p-button-warning p-mr-10"  (click)="logIn();" >Entrar</button>
+            <!--<button pButton class="p-button-lg p-button-raised p-button-primary" (click)="openUser();" >Registrar</button>-->
+        </div>
+
+        <div class="p-field p-col-10">
+          <label><u><a title="Esqueci a Senha" href="user/forgeted">Esqueceu sua senha?</a></u></label>
+          <router-outlet></router-outlet>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

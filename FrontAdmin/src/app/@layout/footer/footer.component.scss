@@ -1,0 +1,156 @@
+.frameMain{display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 0px 32px;
+    gap: 32px;    
+    width: 1440px;
+    height: 258px;    
+    /* Cores da Marca/Tipografia/Preto */
+    background: #263746;    
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.frameCenter{/* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 40px;    
+    width: 1093px;
+    height: 137.61px;   
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.frameLinks{display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 32px;
+    
+    width: 526px;
+    height: 96.61px;
+    
+    
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.frameDireitos{display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px;
+    gap: 631px;    
+    width: 1093px;
+    height: 24px;   
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+}
+
+.frameLogo{width: 105.44px;
+    height: 40.61px;   
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.frameMenu{display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 40px;
+    
+    width: 526px;
+    height: 24px;
+}
+
+.lineBotton{width: 1093px;
+    height: 1px;
+    
+    /* Default / White */
+    background: #FFFFFF;
+    opacity: 0.2;
+    
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.lineTop{width: 1440px;
+    height: 1px;
+    
+    /* Default / White */
+    background: #FFFFFF;
+    opacity: 0.2;
+    
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0;
+}
+@media (min-width: 992px) {
+    div[role=header] {
+        .header-top {
+            .logo {
+                font-size: 4rem;
+            }
+        }
+    }
+    .menu-link {
+        display: none;
+    }
+    .menu-list {
+        list-style: none;
+        display: inline-flex;
+        padding: 0;
+        margin: 0;
+        align-items: center;
+        li {
+            margin-left: 1rem;          
+            margin-right: 1rem;
+       
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 16px;
+            line-height: 150%;
+            
+            /* identical to box height, or 24px */
+            text-align: center;
+            color: #F8FAFC;
+        }
+        li:hover, li:focus {
+            color: #004E9B;
+            cursor: pointer;
+        }
+
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+    div[role=header] {
+        .header-top {
+            .logo {
+                font-size:4rem;
+            }
+        }
+    }
+    .menu-link {
+        display: none;
+    }
+ }

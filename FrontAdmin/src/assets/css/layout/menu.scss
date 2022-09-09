@@ -1,0 +1,127 @@
+.p-sidebar {
+    background: #FFF;
+    font-family: -apple-system, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol;
+    color: rgba(48, 48, 49, 0.6);
+    padding: 0.8rem;
+    border: none;
+    box-shadow: none;
+    .p-slider .p-slider-range {
+        background: #797b7d;
+    }
+    .p-slider .p-slider-handle {
+        background:  #888e9a;
+        border: 2px solid  #767e86;
+    }
+}
+
+.main-menu {
+    .p-sidebar-left {
+        width: 17rem;
+        overflow: auto;
+        margin-top: 63px;
+        padding-left: 0;
+        margin-left: 0;
+        box-shadow: 10px 0px 7px -8px rgb(0 0 0 / 75%);
+        .profile {
+            .circle {
+                border: 3px solid #FFF !important;
+            }
+            .profile-info-wrapper {
+                font-family: Roboto;
+                font-style: normal;
+                font-weight: 300;
+                font-size: .9em;
+                line-height: 21px;
+                color: #FFF;
+                letter-spacing: .1em;
+            }
+        }
+        .list {
+            padding-top: 0;
+            margin-bottom: 40px;
+            .p-panelmenu {                
+                color: rgb(153, 149, 149);
+                border: none;
+                background: transparent;
+                width: 100%;
+                .p-panelmenu-header-link {
+                    padding: 16px;
+                    width: 17rem;
+                    border: 0;
+                    color: rgba(255, 255, 255, 0.7) !important;
+                    background: #01407bdb;
+                    margin-bottom: 2px;
+                    font-family: Roboto;
+                        font-size: 15px;
+                       line-height: 1.2em;
+                        text-transform: capitalize;
+                        vertical-align: middle;
+                        padding-left: 4px;
+
+                }
+                .p-panelmenu-content {
+                    background: #01407bdb;
+                    border: 0;
+                    border-bottom: 1px solid #005eb8;
+                    border-top: 1px solid #005eb8;
+                }
+                .p-menuitem-link {
+                    padding: 16px;
+                    width: 17rem;
+                    border: 0;
+                    margin-bottom: 2px;
+                    .p-menuitem-text {
+                        color: rgba(255, 255, 255, 0.7) !important;
+                        font-family: Roboto;
+                        font-size: 15px;
+                        font-weight: lighter;
+                        line-height: 1.2em;
+                        text-transform: capitalize;
+                        vertical-align: middle;
+                        padding-left: 4px;
+                    }
+                    .p-menuitem-icon {
+                        color: #c7c0c0b3;
+                        font-size: 1.3em;
+                        text-align: end;
+                        line-height: 1.2em;
+                        vertical-align: middle;
+                        width: 1.2em;
+                    }
+                }    
+                .p-menuitem-link:hover {                  
+                    background: #005eb8;  
+                    .p-menuitem-text {
+                        color: #FFF !important;
+                    }
+                    .p-menuitem-icon {
+                        color: #FFF;
+                    }
+                }
+                .p-menuitem-link-active {
+                    background: #fff;
+                    color: #f7931f;                
+                    .p-menuitem-text {
+                        color: #f7931f !important;
+                        font-weight: 700;
+                    }
+                    .p-menuitem-icon {
+                        color: #f7931f;
+                        font-weight: 700;
+                    }
+                }                
+            }
+            .p-button {
+                border-right: 0;
+                border-top-right-radius: 0;
+                border-bottom-right-radius: 0;
+                border: 2px solid #FFF !important;
+                color: var(--menubar-text-color);
+                margin-bottom: 6px;
+                text-transform: uppercase;
+                font-size: 1.1em;
+                font-weight: 500;
+            }
+        }
+    }
+}

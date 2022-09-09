@@ -1,0 +1,77 @@
+
+::ng-deep .p-accordion .p-accordion-header .p-accordion-header-link  {
+    background-color: white;
+   outline: none;
+  box-shadow: none; 
+  }
+
+  .frameButton{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 24px;
+    gap: 8px;
+    width: 416px;
+    height: 57px;
+    /* Cores da Marca/Cores principais/Amarelo */
+    border-radius: 8px;
+    /* Inside auto layout */
+    flex: none;
+    order: 2;
+    flex-grow: 0;
+  }
+
+  .buttonEtapaAnterior{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 8px;    
+    width: 189px;
+    height: 44px;    
+    /* Cores da Marca/Tipografia/Preto */
+    border: 1px solid #263746;
+    border-radius: 8px;    
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 1;
+    color: black;
+  }
+
+  .buttonConfirmar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 8px;    
+    width: 189px;
+    height: 44px;    
+    /* Cores da Marca/Variações da Marca/Amarelo/2 */
+    background: #E9CF2E;
+    border-radius: 8px;    
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 1;
+    border-color: #E9CF2E;
+    color:black;
+  }
+
+  .titleInput{width: 200px;
+    height: 24px;    
+    font-family: 'Poppins';
+    font-style: bold;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;   
+    /* identical to box height, or 24px */    
+    /* Cores da Marca/Tipografia/Preto */
+    color: #263746;   
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;}

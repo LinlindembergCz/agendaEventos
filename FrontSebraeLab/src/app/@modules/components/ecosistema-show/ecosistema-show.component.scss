@@ -1,0 +1,111 @@
+.frameMain{//position: absolute;
+    width: 1440px;
+    height: 513px;
+    left: 0px;
+    top: 4421px;    
+    background: #F9F8F8;
+    align-items: center; 
+    text-align: center;
+}
+
+
+.frameText{position: absolute;
+    width: 575px;
+    height: 60px;
+    left: 428px;
+    top: 4605px;
+    justify-content: center;    
+    /* Body / Big */
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 150%;    
+    /* or 30px */
+    text-align: center;
+    
+    /* Tailwind/slate/600 */
+    color: #475569;
+}
+
+.frameWhois{display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    gap: 8px;    
+    position: absolute;
+    border-radius: 4px;
+
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 34px;
+    
+    /* identical to box height, or 142% */
+    text-align: center;
+    
+    /* Cores da Marca/Tipografia/Preto */
+    color: #263746;
+}
+
+.frameSociedade{    
+    width: 240px;
+    height: 85px;
+    left: 176px;
+    top: 4607px;
+    border: 1px solid #ED4D9A;
+}
+
+.frameEmpreendedores{    
+    width: 240px;
+    height: 119px;
+    left: 176px;
+    top: 4716px;
+    border: 1px solid #F89E5A;
+}
+
+.frameAmbientes{    
+    width: 240px;
+    height: 153px;
+    left: 459px;
+    top: 4682px;
+    border: 1px solid #50AF46;
+}
+
+.frameInstituicoes{    
+    width: 240px;
+    height: 153px;
+    left: 742px;
+    top: 4682px;
+    border: 1px solid #D2BA29;
+}
+
+.frameColaboradores{    
+    width: 240px;
+    height: 119px;
+    left: 1024px;
+    top: 4607px;
+    border: 1px solid #F89E5A;
+}
+
+.frameGoverno{    
+    width: 240px;
+    height: 85px;
+    left: 1025px;
+    top: 4750px;    
+    border: 1px solid #ED4D9A;
+}
+
+.frameTitle{position: absolute;
+    width: 254.97px;
+    height: 58.47px;
+    left: 593px;
+    top: 4514px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    color: #263746;
+}

@@ -1,0 +1,103 @@
+.frameSebraelab{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+  gap: 32px;
+  
+  position: absolute;
+  width: 864px;
+  height: 296px;
+  left: 288px;
+  top: 1152px;
+}
+
+
+
+
+.frameTitle{
+  width: 639px;
+height: 85px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+
+.title{position: absolute;
+  width: 601.09px;
+  height: 65.88px;
+  left: 112.5px;
+  top: 0px;
+  
+  /* Heading/H1 */
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 56px;
+  line-height: 66px;
+  
+  /* identical to box height, or 118% */
+  display: flex;
+  align-items: center;
+  
+  /* Cores da Marca/Tipografia/Preto */
+  color: #263746;}
+
+  .frameText{
+
+    width: 864px;
+  height: 90px;
+  
+  /* Body / Big */
+  font-family: 'PT Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 150%;
+  
+  /* or 30px */
+  text-align: center;
+  
+  /* Tailwind/slate/700 */
+  color: #334155;
+  
+  
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+  }
+
+
+.frameButton{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 24px;
+  gap: 8px;
+  width: 416px;
+  height: 57px;
+  /* Cores da Marca/Cores principais/Amarelo */
+  border-radius: 8px;
+  /* Inside auto layout */
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}
+
+.buttonSaibaMais{
+  width: 416px;
+  height: 57px;
+  background: #FFF028; 
+  color: #263746;
+  border: 0px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+}

@@ -1,0 +1,47 @@
+.bu-selected {
+    font-size: .8em;
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
+.course-menu {
+    border-radius: 4px;
+    .detail {
+        padding: 0;
+        margin: 0;
+    }
+    .icons {
+        color: #005eb8;
+        font-size: .9em;
+        line-height: 1.4em;
+        vertical-align: middle;
+        text-align: left;
+        padding: 0;
+        padding-left: 8px;
+        text-transform: uppercase;
+        i {
+            color: rgb(255, 119, 40);
+            margin-right: 6px;
+            font-size: 1.2em;
+            line-height: 1.4em;
+            vertical-align: middle;
+            text-align: start;
+        }
+    }
+    .title {
+        text-transform: uppercase;
+        font-size: 1.2em;
+        color: rgb(255, 119, 40);
+        min-height: 60px;
+        margin-top: 0;
+        padding-top: 6px;
+        vertical-align: middle;
+        text-align: center;
+        small {
+            color: #005eb8;
+            display: block;
+            margin-top: 2px;
+        }
+    }
+}

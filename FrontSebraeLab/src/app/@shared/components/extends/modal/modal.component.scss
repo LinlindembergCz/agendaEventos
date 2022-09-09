@@ -1,0 +1,295 @@
+.modal-backdrop:not(.show) {
+    visibility: hidden;
+ }
+
+ .modal-backdrop {
+    z-index: 1002;
+ }
+
+ .modal-dialog {
+    z-index: 1003;
+ }
+
+::ng-deep.modal-group .modal .modal-dialog-centered, ::ng-deep.modal-schedule .modal .modal-dialog-centered {
+    width: 80% !important;
+}
+.modal {    
+    z-index: 1001;
+    visibility: hidden;
+    overflow: auto;
+
+    .modal-content {
+        -webkit-box-shadow: 0px 0px 30px 1px rgba(74,47,74,1);
+        -moz-box-shadow: 0px 0px 30px 1px rgba(74,47,74,1);
+        box-shadow: 0px 0px 30px 1px rgba(74,47,74,1);
+        border-radius: 10px;
+    }
+    
+    .modal-title {
+        color: #033260;
+        font-size: 1.2rem;
+        line-height: 1.2rem;
+        margin-left: 4px;
+        width: 100%;
+        text-align: initial;
+        vertical-align: top;
+    }
+    
+    .modal-header {
+        // padding: 24px 24px 0 24px;
+        align-items: center;
+        justify-content: flex-end;
+        border: 0px;
+        border-bottom: 1px solid #ececec;
+        -webkit-box-shadow:0px 1px 1px #d3d3d3;
+        -moz-box-shadow:0px 1px 1px #d3d3d3;
+        box-shadow:0px 1px 1px #d3d3d3;
+
+        .close {
+            color: #004a8d !important;
+            opacity: 1;
+            font-size: 24px;
+            margin-right: 0 !important;
+            &:hover {
+                color: #f26265 !important; 
+                animation: pulseBorderBlue 2s infinite;
+            }
+        }
+    }
+
+    .modal-body {
+        padding-top: 10px;
+
+        h4 {
+            font-size: 30px;
+            font-weight: 300;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            color: #014990;
+            margin: 0 0 24px 30px;
+        }
+        .modal-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            border-top: 0;
+            padding: 0px 27px;
+            margin-bottom: 25px;
+            
+            .btn {
+                width: 48%;
+                border-radius: 1.5rem;
+                padding: 15px auto;
+
+                &.btn-save {
+                    border-color: #f78b1e;
+                    color: #f78b1e;
+
+                    &:hover {
+                        background-color: #f78b1e;
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+    
+    .modal-footer {
+        padding: 0.4rem;       
+    }
+    
+    .modal-header .close {
+        padding: 0.3rem;
+        margin: -0.6rem;
+    }
+}
+
+.modal-dialog-centered {
+    max-width: 95%;
+    min-width: 260px;
+}
+
+.modal.show {
+    visibility: visible;
+}
+
+.modal-to-left,
+.modal-to-right {    
+    .modal-footer,
+    .modal-header {
+        border-left: 0;
+        border-right: 0;
+        border-radius: 0;
+    }       
+    .modal-dialog {
+        max-width: 35%;
+        min-width: 260px;
+        // width: 30%;
+        margin: 0;
+        position: fixed;    
+        top: 0;
+        bottom: 0;
+    }    
+    .modal-content {
+        height: calc(100%) !important;
+        min-height: calc(100%) !important;
+        max-height: calc(100%) !important;
+        margin: 0;
+        border: 0;
+        border-radius: 0;
+    }
+}
+
+.modal-to-left {
+    .modal-dialog {
+        left: 0;
+    }
+    .modal-content {   
+        border-right: 1px;    
+        -webkit-box-shadow: 4px 0px 10px 1px rgba(74,47,74,1);
+        -moz-box-shadow: 4px 0px 10px 1px rgba(74,47,74,1);
+        box-shadow: 4px 0px 10px 1px rgba(74,47,74,1);
+    }
+}
+
+.modal-to-right {
+    .modal-dialog {
+        right: 0;
+    }
+    .modal-content {
+        border-left: 1px;
+        -webkit-box-shadow: -4px 0px 10px 1px rgba(74,47,74,1);
+        -moz-box-shadow: -4px 0px 10px 1px rgba(74,47,74,1);
+        box-shadow: -4px 0px 10px 1px rgba(74,47,74,1);
+    }
+}
+
+.modal-to-down {
+    .modal-dialog { 
+        margin: 0;
+        margin-left: 10%;
+        margin-right: 10%;
+        height: calc(100%);
+        min-height: calc(100%);
+    }
+    .modal-content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: calc(50%);
+        min-height: 300px;
+        max-height: calc(60%);
+        -webkit-box-shadow: 0px 0px 30px 1px rgba(74,47,74,1);
+        -moz-box-shadow: 0px 0px 30px 1px rgba(74,47,74,1);
+        box-shadow: 0px 0px 30px 1px rgba(74,47,74,1);
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom: 0;
+    }
+}
+
+@media (min-width: 500px)
+{
+    .modal-dialog {
+      max-width: 90%;
+    }
+}
+
+@media (min-width: 576px)
+{
+    .modal-dialog {
+      max-width: 540px;
+    }
+}
+@media (min-width: 768px)
+{
+  .modal-dialog {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px)
+{
+  .modal-dialog {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px)
+{
+  .modal-dialog {
+      max-width: 1140px;
+  }
+}
+
+ /* Animation */
+
+.modal.modal-to-center.show { 
+    .modal-dialog {
+        -webkit-animation-name: zoomIn;
+        animation-name: zoomIn;
+        -webkit-animation-duration: 0.5s;
+        animation-duration: 0.5s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+}
+.modal.modal-to-center:not(.show) {
+    .modal-dialog {
+        -webkit-animation-name: zoomOut;
+        animation-name: zoomOut;
+        -webkit-animation-duration: 0.5s;
+        animation-duration: 0.5s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+}
+.modal.modal-to-right {
+    .modal-dialog { 
+        -webkit-animation-name: slideInRight;
+        animation-name: slideInRight;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+}
+.modal.modal-to-right:not(.show) {
+    .modal-dialog {
+        -webkit-animation-name: fadeOutRight;
+        animation-name: fadeOutRight;
+    }
+  }
+.modal.modal-to-left { 
+    .modal-dialog {
+        -webkit-animation-name: slideInLeft;
+        animation-name: slideInLeft;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+}
+.modal.modal-to-left:not(.show) {
+    .modal-dialog {
+        -webkit-animation-name: fadeOutLeft;
+        animation-name: fadeOutLeft;
+    }
+}
+.modal.modal-to-down { 
+    .modal-dialog {
+        -webkit-animation-name: slideInUp;
+        animation-name: slideInUp;
+        -webkit-animation-duration: 1s;
+        animation-duration: 1s;
+        -webkit-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
+}
+.modal.modal-to-down:not(.show) {
+    .modal-dialog {
+        -webkit-animation-name: fadeOutDown;
+        animation-name: fadeOutDown;
+    }
+}

@@ -1,0 +1,213 @@
+.frameMain{display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    
+    position: absolute;
+    width: 1440px;
+    height: 1015px;
+    left: 0px;
+    top: 4934px;
+}
+
+.frameContact{display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 64px;
+    gap: 262px;
+    
+    width: 1440px;
+    height: 757px;
+    
+    /* Cores da Marca/Tipografia/Preto */
+    background: #263746;
+    
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.frameContactDescription{    
+width: 444px;
+height: 275px;
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+
+.frameTitle{
+    position: absolute;
+width: 444px;
+height: 66px;
+left: 64px;
+top: 241px;
+
+/* Heading/H1 */
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 56px;
+line-height: 66px;
+
+/* identical to box height, or 118% */
+
+color: #FFFFFF;
+}
+
+.frameText{position: absolute;
+    width: 437px;
+    height: 136px;
+    left: 64px;
+    top: 380px;
+    
+    /* Body / Normal */
+    font-family: 'PT Serif';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 150%;
+    
+    /* or 27px */
+    
+    color: #A6A6A6;
+}
+
+.frameSendMessage{display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 32px;
+    gap: 56px;
+    
+    width: 498px;
+    height: 629px;
+    
+    /* Tailwind/slate/700 */
+    background: #334155;
+    border-radius: 10px;
+    
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.frameSendMessageTitle{width: 214px;
+    height: 42px;
+    
+    /* Heading/H3 */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 32px;
+    line-height: 42px;
+    
+    /* identical to box height, or 131% */
+    
+    color: #FFFFFF;
+    
+    
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.frameFormSendeMessage{display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    gap: 40px;    
+    width: 434px;
+    height: 467px;   
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+}
+
+.frameInputs{display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 16px;
+    
+    width: 434px;
+    height: 370px;
+    
+    
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;}
+
+.frameInput{display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 4px;
+    
+    width: 434px;
+    height: 76px;
+    
+    
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.frameInputTextArea{display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 4px;
+    
+    width: 434px;
+    height: 186px;
+    
+    
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+
+.titleInput{font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    
+    /* identical to box height, or 24px */
+    
+    color: #FFFFFF;
+    
+    
+    /* Inside auto layout */
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+}
+
+.sendeMesssage{display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 16px 24px;
+    gap: 8px;
+    
+    width: 434px;
+    height: 57px;
+    
+    /* Cores da Marca/Variações da Marca/Amarelo/2 */
+    background: #E9CF2E;
+    border-radius: 8px;
+    
+    /* Inside auto layout */
+    flex: none;
+    order: 1;
+    flex-grow: 0;}

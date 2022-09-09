@@ -1,0 +1,30 @@
+<div class="p-grid ">
+    <p-fileUpload 
+        [name]="getImageName()" 
+        [url]="getUrl(true)"
+        (onSelect)="onBeforeUpload($event, true)"
+        (onError)="uploadErrorImage($event)"
+        (onUpload)="uploadSuccesImage($event)"
+        accept="image/*" 
+        [auto]="true" 
+        chooseIcon="pi pi-upload"
+        chooseLabel="Carregar Foto"
+        maxFileSize="4000000">
+            <ng-template pTemplate="toolbar">
+            </ng-template>
+            <ng-template let-file pTemplate="file">
+                <div *ngIf="uploadImageError">
+                    <p-message severity="error" text="Falha ao realizar upload da imagem."></p-message>
+                </div>
+                <div *ngIf="!uploadImageError || file.objectURL !== undefined">
+                    <img [src]="file.objectURL" class="image-preview" />
+                </div>
+            </ng-template>
+            <ng-template pTemplate="content" let-files>    
+                <div *ngIf="fileUrl !== undefined">
+                    <img [src]="fileUrl" class="image-preview circular--portrait" />
+                </div>       
+                <i class="icon-profile pi pi-user" *ngIf="files.length === 0 && fileUrl === undefined"></i>              
+            </ng-template>
+        </p-fileUpload>
+</div>

@@ -1,0 +1,181 @@
+.carousel-home-index {
+  background: transparent linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4))
+  //linear-gradient(180deg, #0c5eaf 0%, #004182 100%) 0% 0% no-repeat padding-box;
+}
+
+.frameCard{position: absolute;
+  width: 1030px;
+  height: 309px;
+  left: 208px;
+  top: 731px;}
+
+.banner-item {
+    height: 756px;
+    left: 0px;
+    top: 0px;
+    background-repeat: no-repeat;
+    background-size: cover !important;
+    background-position: center !important;
+    width: 100%;
+    .details {
+      width: 100%;
+      height: 400px;
+      max-width: 1140px;
+      color: #FFF;
+      h2 {
+        color: #FFF;
+        display: block;
+      }
+      p {
+          display: block;
+      }
+      .card-text {
+          max-width: 600px;
+          background: rgba(0, 0, 0, 0.233);
+          border-radius: .6rem;
+          text-shadow: 1px 1px #727272;
+          p {
+              font-size: .9rem;
+              font-weight: normal;
+          }
+      }
+    }
+}
+
+.banner-item:hover {
+  cursor: pointer;
+}
+
+.LEARN {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 32px;
+  gap: 13px;
+
+  position: absolute;
+  width: 300px;
+  height: 218px;
+  left: 208px;
+  top: 800px;
+  background: #FFFFFF;
+  /* shadow XXL */
+  box-shadow: 0px 25px 50px -12px rgba(16, 24, 40, 0.15);
+  border-radius: 4px;
+}
+
+.barLearn{
+  width: 236px;
+height: 16px;
+
+/* Cores da Marca/Cores principais/Laranja */
+background: #F89E5A;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+}
+
+.ATTEND{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 32px;
+  gap: 13px;
+  position: absolute;
+  width: 300px;
+  height: 218px;
+  left: 573px;
+  top: 731px;
+  background: #FFFFFF;
+  /* shadow XXL */
+  box-shadow: 0px 25px 50px -12px rgba(16, 24, 40, 0.15);
+  border-radius: 4px;
+}
+
+.barAttend{
+  width: 236px;
+height: 16px;
+
+/* Cores da Marca/Cores principais/Verde */
+background: #50AF46;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+}
+
+.BUSINESS{
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 32px;
+  gap: 13px;
+
+  position: absolute;
+  width: 300px;
+  height: 218px;
+  left: 938px;
+  top: 800px;
+
+  background: #FFFFFF;
+
+  /* shadow XXL */
+  box-shadow: 0px 25px 50px -12px rgba(16, 24, 40, 0.15);
+  border-radius: 4px;
+}
+
+.barBusiness{
+  width: 236px;
+height: 16px;
+
+/* Cores da Marca/Cores principais/Rosa */
+background: #ED4D9A;
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
+
+}
+
+
+.textBar{width: 236px;
+  height: 54px;
+  
+  /* Body / Normal */
+  font-family: 'PT Serif';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 150%;
+  
+  /* or 27px */
+  text-align: center;
+  
+  /* Cores da Marca/Cores pasteis/Cinza */
+  color: #525F6B;
+  
+  
+  /* Inside auto layout */
+  flex: none;
+  order: 2;
+  align-self: stretch;
+  flex-grow: 0;}
