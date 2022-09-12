@@ -15,7 +15,7 @@
             Imagem de capa
         </div>        
         <div>
-            <p-inputSwitch [(ngModel)]="imagemPersonalizada"></p-inputSwitch>  Imagem personalizada desativada (será utilizada uma imagem padrão como capa do evento).
+            <p-inputSwitch [(ngModel)]="evento.imagempersonalida"></p-inputSwitch>  Imagem personalizada desativada (será utilizada uma imagem padrão como capa do evento).
         </div>
     </div>
 
@@ -29,68 +29,66 @@
             <div class="frameTituloEvento p-col-12">
                 <div class="p-col-8">
                     <span class="p-float-label">
-                        <input id="float-input" type="text" pInputText style="width: '80%'"> 
+                        <input id="float-input" type="text" pInputText style="width: '80%'" [(ngModel)]="evento.titulo"> 
                         <label for="float-input">Título do evento</label>
                     </span>
                 </div>
                 <div class="p-col-2">
                     <span class="p-float-label">
-                        <p-inputNumber></p-inputNumber>
+                        <p-inputNumber [(ngModel)]="evento.numeroparticipantes"></p-inputNumber>
                         <label for="float-input">Nº de participantes</label>
                     </span>                    
                 </div>               
             </div>
 
-            <div *ngFor="let periodo of periodos">
+            <div *ngFor="let dia of evento.dias">
                 <div class="frameEventoDias p-col-12">
                     <div class="p-col-3">
-                        <p-calendar showIcon="true" placeholder="Dia do evento"></p-calendar>
+                        <p-calendar dateFormat="dd-mm-yy" showIcon="true" placeholder="Dia do evento" [(ngModel)]="dia.data"></p-calendar>
                     </div>
                     <div class="p-col-5">    
-                        <p-checkbox name="manha" value="Manhã" label="Manhã" ></p-checkbox>&nbsp;
-                        <p-checkbox name="tarde" value="Tarde" label="Tarde" ></p-checkbox>&nbsp;
-                        <p-checkbox name="noite" value="Noite" label="Noite" ></p-checkbox>&nbsp;
-                        <p-checkbox name="diainteiro" value="Dia inteiro" label="Dia Inteiro"></p-checkbox>
+                        <p-checkbox name="manha" value="Manhã" label="Manhã" [(ngModel)]="dia.option"></p-checkbox>&nbsp;
+                        <p-checkbox name="tarde" value="Tarde" label="Tarde" [(ngModel)]="dia.option"></p-checkbox>&nbsp;
+                        <p-checkbox name="noite" value="Noite" label="Noite" [(ngModel)]="dia.option"></p-checkbox>&nbsp;
+                        <p-checkbox name="diainteiro" value="Dia inteiro" label="Dia Inteiro" [(ngModel)]="dia.option"></p-checkbox>
                     </div>
                     <div class="p-col-2"> 
                         <span style="width: '70px'">
                             <label >Hora Início</label>
-                            <p-inputMask   mask="99:99" name="horaInicio"></p-inputMask>                           
+                            <p-inputMask   mask="99:99" name="horaInicio" [(ngModel)]="dia.horaInicio"></p-inputMask>                          
                         </span>
                     </div>
                     <div class="p-col-2"> 
                         <span  style="width: '70px'">
                             <label >Hora Fim</label>
-                            <p-inputMask   mask="99:99" name="horaFim" ></p-inputMask>
-                            
+                            <p-inputMask   mask="99:99" name="horaFim" [(ngModel)]="dia.horaFim"></p-inputMask>                            
                         </span>
                     </div>
                 </div>
             </div>
 
             <button pButton pRipple label="Adicionar dia" icon="pi pi-plus" class="p-button-text mr-2" (click)="adicionarDia()"></button>
-            <button pButton pRipple label="Adicionar dia" icon="pi pi-minus" class="p-button-text mr-2" (click)="removerDia()"></button>
+            <button pButton pRipple label="Remover dia" icon="pi pi-minus" class="p-button-text mr-2" (click)="removerDia()"></button>
 
            <div class="frameTipoEvento p-col-12">
                  <div class="p-col-6">
                     <span class="p-float-label">
-                        <p-multiSelect optionLabel="name"  [options]="tiposEnvento" [(ngModel)]="tipoEvento" 
+                        <p-multiSelect optionLabel="name"  [options]="tiposEnvento" [(ngModel)]="evento.tipoevento" 
                         [style]="{'width':'100%'}"></p-multiSelect>
                         <label for="float-input">Tipo de evento</label>
                     </span> 
                  </div>    
                  <div class="p-col-6">
                     <span class="p-float-label">
-                        <input type="text" pInputText style="width: '90%'"/>
+                        <input type="text" pInputText style="width: '90%'"  [(ngModel)]="evento.linksparainscricao" />
                         <label for="float-input">Link para inscrições</label>
                     </span>                      
-                 </div>
-                 
+                 </div>                 
             </div>
 
             <div class="frameEventoDescricao p-col-12">                
                 <span class="p-float-label">
-                   <textarea pInputTextarea [rows]="10" [cols]="125" pInputTextarea autoResize="autoResize"></textarea>
+                   <textarea pInputTextarea [rows]="10" [cols]="135" pInputTextarea autoResize="autoResize" [(ngModel)]="evento.descricaoevento" ></textarea>
                    <label for="float-input">Descricao do evento</label>
                </span>                 
            </div> 
@@ -105,37 +103,42 @@
            
             <div class="p-field p-col-12">
                 <span class="p-float-label">
-                    <input type="text" pInputText style="width: 100%;" />
+                    <input type="text" pInputText style="width: 100%;" [(ngModel)]="evento.nomecompleto"/>
                     <label for="float-input">Nome completo</label>
                 </span>  
             </div>
-            <div class="p-col-12">
+            <div class="p-field p-col-12">
                 <span class="p-float-label">
-                    <input type="text" pInputText style="width: 100%;" />
+                    <input type="text" pInputText style="width: 100%;" [(ngModel)]="evento.email"/>
                     <label for="float-input">E-mail</label>
                 </span>  
             </div>                 
-            <div class="p-col-12">
+            <div class="p-field p-col-12">
                 <span class="p-float-label">
-                    <input type="text" pInputText style="width: 100%;" />
+                    <input type="text" pInputText style="width: 100%;" [(ngModel)]="evento.instituicao"/>
                     <label for="float-input">Instituição</label>
                 </span>  
             </div>                 
-            <div class="p-col-12">
+            <div class="p-field p-col-12">
                 <span class="p-float-label">
-                    <input type="text" pInputText style="width: 100%;" />
+                    <input type="text" pInputText style="width: 100%;" [(ngModel)]="evento.contato"/>
                     <label for="float-input">Contato</label>
                 </span>  
             </div>
+
+            <div class="p-col-12">
+                <p-inputSwitch [(ngModel)]="evento.publicaosite"></p-inputSwitch>  Publicação no site ativada (o evento será público e visível para todos que acessarem o site)  
+            </div>
            
        </div> 
-
+       <div class="p-col-12" style="text-align: right;">
+           <button pButton class="p-button-lg p-button-raised p-button-outlined p-mr-10">Cancelar</button>&nbsp;&nbsp;
+           <button pButton class="p-button-lg p-button-raised p-button-warning p-mr-10" (click)="salvar()">Salvar</button>
+       </div>
     </div>
-
-    
-
-
 </div>
+
+<p-toast position="top-right"></p-toast>
 
 
   

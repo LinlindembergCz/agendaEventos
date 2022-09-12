@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\portalsebrae\\Api\\Sebralab\\Sebralab\\Sebralab.csproj": {}
+    "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\Sebralab\\Sebralab.csproj": {}
   },
   "projects": {
-    "C:\\portalsebrae\\Api\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj": {
+    "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\portalsebrae\\Api\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj",
+        "projectUniqueName": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj",
         "projectName": "SebraeLab.Core",
-        "projectPath": "C:\\portalsebrae\\Api\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj",
+        "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj",
         "packagesPath": "C:\\Users\\lcaraujo1\\.nuget\\packages\\",
-        "outputPath": "C:\\portalsebrae\\Api\\Sebralab\\SebraeLab.core\\obj\\",
+        "outputPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lcaraujo1\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -58,14 +58,14 @@
         }
       }
     },
-    "C:\\portalsebrae\\Api\\Sebralab\\Sebralab\\Sebralab.csproj": {
+    "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\Sebralab\\Sebralab.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\portalsebrae\\Api\\Sebralab\\Sebralab\\Sebralab.csproj",
+        "projectUniqueName": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\Sebralab\\Sebralab.csproj",
         "projectName": "Sebralab",
-        "projectPath": "C:\\portalsebrae\\Api\\Sebralab\\Sebralab\\Sebralab.csproj",
+        "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\Sebralab\\Sebralab.csproj",
         "packagesPath": "C:\\Users\\lcaraujo1\\.nuget\\packages\\",
-        "outputPath": "C:\\portalsebrae\\Api\\Sebralab\\Sebralab\\obj\\",
+        "outputPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\Sebralab\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lcaraujo1\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -82,8 +82,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\portalsebrae\\Api\\Sebralab\\sebraelab.core\\sebraelab.core.csproj": {
-                "projectPath": "C:\\portalsebrae\\Api\\Sebralab\\sebraelab.core\\sebraelab.core.csproj"
+              "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\sebraelab.core\\sebraelab.core.csproj": {
+                "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\sebraelab.core\\sebraelab.core.csproj"
               }
             }
           }

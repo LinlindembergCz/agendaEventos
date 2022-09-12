@@ -20,18 +20,12 @@ export class FullCalendarioShowComponent implements OnInit {
 
   constructor(
     private http: RequestPromiseService,
-    private router: Router
+    private router: Router,
+    private service: EventService
     
     ){}
 
     
-    getEvents() 
-    {  
-        /* this.http.get<any>("assets/data","eventsFullCalendar.json")
-        .then(res => <any[]>res.data)
-        .then(data => { return data; });*/
-    }
-
 
 
     OpenNovoEvento()
@@ -41,7 +35,12 @@ export class FullCalendarioShowComponent implements OnInit {
 
     ngOnInit(): void {   
 
-    this.options = {  height: '550px',         
+
+      let eventos :any = this.service.getEvents();
+      
+
+
+      this.options = {  height: '550px',         
                       
                       //initialDate : '2022-01-01',
                       headerToolbar: {left: 'prev,next,today',
@@ -52,7 +51,7 @@ export class FullCalendarioShowComponent implements OnInit {
                       selectMirror: true,
                       dayMaxEvents: true,
                       locale:['pt-BR'],
-                      events:[
+                      events: [
                         {
                            
                           title: "13:00 - 15:00",

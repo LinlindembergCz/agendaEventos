@@ -64,7 +64,7 @@
       },
       "SebraeLab.Core/1.0.0": {
         "runtime": {
-          "SebraeLab.core.dll": {}
+          "SebraeLab.Core.dll": {}
         }
       }
     }

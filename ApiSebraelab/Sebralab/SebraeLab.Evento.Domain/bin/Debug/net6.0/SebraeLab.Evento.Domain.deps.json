@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v6.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v6.0": {
+      "SebraeLab.Evento.Domain/1.0.0": {
+        "dependencies": {
+          "SebraeLab.Core": "1.0.0"
+        },
+        "runtime": {
+          "SebraeLab.Evento.Domain.dll": {}
+        }
+      },
+      "SebraeLab.Core/1.0.0": {
+        "runtime": {
+          "SebraeLab.Core.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "SebraeLab.Evento.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SebraeLab.Core/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

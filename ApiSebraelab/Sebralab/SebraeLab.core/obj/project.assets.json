@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\portalsebrae\\Api\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj",
+      "projectUniqueName": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj",
       "projectName": "SebraeLab.Core",
-      "projectPath": "C:\\portalsebrae\\Api\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj",
+      "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj",
       "packagesPath": "C:\\Users\\lcaraujo1\\.nuget\\packages\\",
-      "outputPath": "C:\\portalsebrae\\Api\\Sebralab\\SebraeLab.core\\obj\\",
+      "outputPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.core\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\lcaraujo1\\AppData\\Roaming\\NuGet\\NuGet.Config",

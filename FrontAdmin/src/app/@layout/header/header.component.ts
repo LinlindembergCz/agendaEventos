@@ -79,14 +79,14 @@ export class HeaderComponent implements OnInit {
   }
 
   showHome() {
-    this.router.navigate(['']);
+    this.router.navigate(['index']);
   }
 
   showAgenda() {
     this.router.navigate(['agenda']);
   }
     
-  Login() {
+  showLogin() {
     this.router.navigate(['/user/login']);
 
   }

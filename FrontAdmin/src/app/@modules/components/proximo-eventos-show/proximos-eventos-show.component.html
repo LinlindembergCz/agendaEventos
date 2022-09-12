@@ -2,12 +2,7 @@
     PROXIMO EVENTOS
 </div>
 
-
-
-
-
-<div class="frameEventlabList"> 
-    
+<div class="frameEventlabList">    
     
     <span class="p-input-icon-right " >
         <i class="pi pi-search"></i>
@@ -15,34 +10,21 @@
     </span>
 
 
-<p-dataView [value]="eventslab">
+<p-dataView [value]="eventslab" [paginator]="true" [rows]="5">
     <ng-template let-eventlab pTemplate="listItem">                                       
-                <div class="frameEventlabitemDetails">                    
-                    <div class="frameDate">
-                        <div class="frameDateDays"> 
-                            {{eventlab.dateStart}}<div style=" color: #C45F13;">></div>{{eventlab.dateEnd}}
-                        </div> 
-                    </div>
-                    <div class="frameEventlabitemDetailsCenter">            
-                        
-                            <div class="eventlabTime">{{eventlab.hourStart}} - {{eventlab.hourEnd}}</div><br>
-                            <div class=" eventlabName">{{eventlab.name}}</div><br>
-                            <div class="eventlabSummary">{{eventlab.summary}}</div><br>
-                    </div>                                          
-                </div>                       
+        <div class="frameEventlabitemDetails">                    
+            <div class="frameDate">
+                <div class="frameDateDays"> 
+                    {{eventlab.dateStart}}<div style=" color: #C45F13;">></div>{{eventlab.dateEnd}}
+                </div> 
+            </div>
+            <div class="frameEventlabitemDetailsCenter">                       
+                    <div class="eventlabTime">{{eventlab.hourStart}} - {{eventlab.hourEnd}}</div><br>
+                    <div class=" eventlabName">{{eventlab.name}}</div><br>
+                    <div class="eventlabSummary">{{eventlab.summary}}</div><br>
+            </div>                                          
+        </div>                       
     </ng-template>
-
-    <ng-template pTemplate="paginatorleft" let-state>
-        {{state.first}}
-        <button type="button" pButton icon="pi-refresh"></button>
-    </ng-template>
-    <ng-template pTemplate="paginatorright">
-        <button type="button" pButton icon="pi-cloud-upload"></button>
-    </ng-template>
-    <ng-template let-item pTemplate="paginatordropdownitem">
-        {{item.value}} - per page
-    </ng-template>
-
 </p-dataView> 
 </div>   
 

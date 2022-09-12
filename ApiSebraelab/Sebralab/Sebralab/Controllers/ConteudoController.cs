@@ -1,7 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
-using sebraelab.core.domain;
 using sebraelab.core.comunication;
-
+using SebraeLab.Core.DomainObjects;
 
 namespace Sebralab.Controllers
 {
