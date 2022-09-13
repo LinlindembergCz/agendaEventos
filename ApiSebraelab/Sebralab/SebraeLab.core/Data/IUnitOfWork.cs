@@ -4,6 +4,6 @@ namespace SebraeLab.Core.Data
 {
     public interface IUnitOfWork
     {
-        Task<bool> Commit();
+        bool Commit();
     }
 }

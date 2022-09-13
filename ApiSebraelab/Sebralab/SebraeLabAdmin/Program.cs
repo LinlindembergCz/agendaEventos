@@ -4,17 +4,16 @@ using SebraeLab.Evento.Data;
 using SebraeLab.Evento.Data.Repository;
 using SebraeLab.Evento.App.Services;
 using AutoMapper;
-
+using SebraeLab.Evento.App.AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+builder.Services.AddAutoMapper(typeof(DomainToViewModelMappingProfile), 
+                               typeof(ViewModelToDomainMappingProfile));
+
 DependencyInjection.RegisterServices(builder.Services);
-
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-
-/*builder.Services.AddScoped<IEventoSebraeLabRepository, EventoSebraeLabRepository>();
-builder.Services.AddScoped<IEventoSebraeLabAppService, EventoSebraeLabAppService>();
-builder.Services.AddScoped<EventoSebraeLabContext>();*/
 
 // Add services to the container.
 builder.Services.AddDbContext<EventoSebraeLabContext>(options =>

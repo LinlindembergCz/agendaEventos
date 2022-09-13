@@ -10,10 +10,10 @@ namespace SebraeLab.Evento.Data.Repository
 {
     public interface IEventoSebraeLabRepository : IRepository<EventoSebraeLab>
     {
-        Task<IEnumerable<EventoSebraeLab>> ObterTodos();
-        Task<EventoSebraeLab> ObterPorId(Guid id);
-        void Adicionar(EventoSebraeLab evento);
-        void Atualizar(EventoSebraeLab evento);
+        Task<List<EventoSebraeLab>> GetAll();
+        Task<EventoSebraeLab> GetById(Guid id);
+        void Add(EventoSebraeLab evento);
+        void Update(EventoSebraeLab evento);
 
     }
 }

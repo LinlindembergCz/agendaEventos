@@ -9,9 +9,11 @@ namespace NerdStore.Catalogo.Data.Mappings
         public void Configure(EntityTypeBuilder<DiaEventoSebraeLab> builder)
         {
             builder.HasKey(c => c.Id);
-           // 1 : N
-            builder.HasOne(c => c.Evento)
-                .WithMany(c => c.Dias);
+            // 1 : N
+            // builder.HasOne(c => c.Evento)
+            //    .WithMany(c => c.Dias);
+
+            builder.HasOne(c => c.Evento).WithMany(c => c.Dias);
 
             builder.ToTable("DiasEventoSebraeLab");
         }

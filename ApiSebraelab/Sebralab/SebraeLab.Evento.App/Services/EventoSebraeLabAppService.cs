@@ -20,36 +20,36 @@ namespace SebraeLab.Evento.App.Services
             _mapper = mapper;
            }
 
-        public async Task<EventoSebraeLabViewModel> ObterPorId(Guid id)
+        public async Task<EventoSebraeLabViewModel> GetById(Guid id)
         {
-            return _mapper.Map<EventoSebraeLabViewModel>(await _eventosebraelabRepository.ObterPorId(id));
+            return _mapper.Map<EventoSebraeLabViewModel>(await _eventosebraelabRepository.GetById(id));
         }
 
-        public async Task<IEnumerable<EventoSebraeLabViewModel>> ObterTodos()
-        {
-            return _mapper.Map<IEnumerable<EventoSebraeLabViewModel>>(await _eventosebraelabRepository.ObterTodos());
-        }
 
-        public async Task AdicionarEvento(EventoSebraeLabViewModel eventosebraelabViewModel)
+        public async Task<List<EventoSebraeLabViewModel>> GetAll()
+        {
+            return _mapper.Map<List<EventoSebraeLabViewModel>>(await _eventosebraelabRepository.GetAll());
+        }       
+
+        public void Add(EventoSebraeLabViewModel eventosebraelabViewModel)
         {
             var evento = _mapper.Map<EventoSebraeLab>(eventosebraelabViewModel);
-            _eventosebraelabRepository.Adicionar(evento);
+            _eventosebraelabRepository.Add(evento);
 
-            await _eventosebraelabRepository.UnitOfWork.Commit();
+             _eventosebraelabRepository.UnitOfWork.Commit();
         }
 
-        public async Task AtualizarEvento(EventoSebraeLabViewModel eventosebraelabViewModel)
+        public void Update(EventoSebraeLabViewModel eventosebraelabViewModel)
         {
             var evento = _mapper.Map<EventoSebraeLab>(eventosebraelabViewModel);
-            _eventosebraelabRepository.Atualizar(evento);
+            _eventosebraelabRepository.Update(evento);
 
-            await _eventosebraelabRepository.UnitOfWork.Commit();
+            _eventosebraelabRepository.UnitOfWork.Commit();
         }
 
         public void Dispose()
         {
-            //_eventosebraelabRepository?.Dispose();
-
+            _eventosebraelabRepository?.Dispose();
         }
 
     }

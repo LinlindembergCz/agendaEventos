@@ -25,24 +25,27 @@ namespace SebraeLab.Evento.Data.Migrations
             modelBuilder.Entity("SebraeLab.Evento.Domain.DiaEventoSebraeLab", b =>
                 {
                     b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("Data")
+                    b.Property<DateTime?>("Data")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("HoraFim")
-                        .IsRequired()
+                    b.Property<Guid>("Eventoid")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Horafim")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("HoraInicio")
-                        .IsRequired()
+                    b.Property<string>("Horainicio")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Option")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Eventoid");
 
                     b.ToTable("DiasEventoSebraeLab", (string)null);
                 });
@@ -54,7 +57,6 @@ namespace SebraeLab.Evento.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Contato")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Descricaoevento")
@@ -62,32 +64,27 @@ namespace SebraeLab.Evento.Data.Migrations
                         .HasColumnType("varchar(500)");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("Imagempersonalida")
+                    b.Property<bool?>("Imagempersonalida")
                         .HasColumnType("bit");
 
                     b.Property<string>("Instituicao")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Linksparainscricao")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nomecompleto")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Numeroparticipantes")
+                    b.Property<int?>("Numeroparticipantes")
                         .HasColumnType("int");
 
-                    b.Property<bool>("Publicaosite")
+                    b.Property<bool?>("Publicaosite")
                         .HasColumnType("bit");
 
                     b.Property<string>("Tipoevento")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Titulo")
@@ -103,7 +100,7 @@ namespace SebraeLab.Evento.Data.Migrations
                 {
                     b.HasOne("SebraeLab.Evento.Domain.EventoSebraeLab", "Evento")
                         .WithMany("Dias")
-                        .HasForeignKey("Id")
+                        .HasForeignKey("Eventoid")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

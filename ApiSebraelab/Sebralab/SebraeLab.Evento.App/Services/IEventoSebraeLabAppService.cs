@@ -7,14 +7,13 @@ using System.Threading.Tasks;
 
 namespace SebraeLab.Evento.App.Services
 {
-    public interface IEventoSebraeLabAppService  : IDisposable
+    public interface IEventoSebraeLabAppService : IDisposable
     {
-        Task<IEnumerable<EventoSebraeLabViewModel>> ObterTodos();
+        Task<List<EventoSebraeLabViewModel>> GetAll();
+        Task<EventoSebraeLabViewModel> GetById(Guid id);
 
-        Task<EventoSebraeLabViewModel> ObterPorId(Guid id);
-
-        Task AdicionarEvento(EventoSebraeLabViewModel eventosebraelabViewModel);
-        Task AtualizarEvento(EventoSebraeLabViewModel eventosebraelabViewModel);
+        void Add(EventoSebraeLabViewModel eventosebraelabViewModel);
+        void Update(EventoSebraeLabViewModel eventosebraelabViewModel);
 
     }
 }

@@ -5,26 +5,25 @@ namespace SebraeLab.Evento.Domain
 {
     public class EventoSebraeLab : Entity
     {
-        public string Titulo { get; private set; }
-        public int Numeroparticipantes { get; private set; }
-        public  string Tipoevento { get; private set; }
-        public string Linksparainscricao { get; private set; }
-        public string Descricaoevento { get; private set; }
+        public string? Titulo { get; private set; } 
+        public int? Numeroparticipantes { get; private set; }
+        public  string? Tipoevento { get; private set; }
+        public string? Linksparainscricao { get; private set; }
+        public string? Descricaoevento { get; private set; }
 
-        private readonly List<DiaEventoSebraeLab> _dias;
-        public IReadOnlyCollection<DiaEventoSebraeLab> Dias => _dias;
+        //private List<DiaEventoSebraeLab>? _dias;
+        public List<DiaEventoSebraeLab>? Dias { get; private set; }
+        public string? Nomecompleto { get; private set; }
+        public string? Email { get; private set; }
+        public string? Instituicao { get; private set; }
+        public string? Contato { get; private set; }
 
-        public string Nomecompleto { get; private set; }
-        public string Email { get; private set; }
-        public string Instituicao { get; private set; }
-        public string Contato { get; private set; }
+        public bool? Imagempersonalida { get; private set; }
+        public bool? Publicaosite { get; private set; }
 
-        public bool Imagempersonalida { get; private set; }
-        public bool Publicaosite { get; private set; }
-
-        protected EventoSebraeLab()
+        public EventoSebraeLab()
         {
-            _dias = new List<DiaEventoSebraeLab>();
+            Dias = new List<DiaEventoSebraeLab>();
         }
 
         public EventoSebraeLab(string titulo ,
@@ -37,7 +36,9 @@ namespace SebraeLab.Evento.Domain
                       string instituicao ,
                       string contato,
                       bool imagempersonalida ,
-                      bool publicaosite
+                      bool publicaosite//
+                     //, List<DiaEventoSebraeLab> dias
+            
         )
         {
            Titulo = titulo;
@@ -51,6 +52,7 @@ namespace SebraeLab.Evento.Domain
            Contato = contato;
            Imagempersonalida = imagempersonalida;
            Publicaosite = publicaosite;
+           //Dias = dias;
         }
 
     }

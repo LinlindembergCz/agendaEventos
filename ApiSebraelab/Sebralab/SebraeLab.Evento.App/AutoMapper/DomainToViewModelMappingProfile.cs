@@ -5,14 +5,13 @@ using AutoMapper;
 using SebraeLab.Evento.App.ViewModels;
 using SebraeLab.Evento.Domain;
 
-namespace NerdStore.Catalogo.Application.AutoMapper
+namespace SebraeLab.Evento.App.AutoMapper
 {
     public class DomainToViewModelMappingProfile : Profile
     {
         public DomainToViewModelMappingProfile()
         {
             CreateMap<EventoSebraeLab, EventoSebraeLabViewModel>();
-
         
         }
     }

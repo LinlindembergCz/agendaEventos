@@ -20,8 +20,8 @@ namespace NerdStore.Catalogo.Data.Mappings
 
 
             builder.HasMany(c => c.Dias)
-                    .WithOne(c => c.Evento)
-                    .HasForeignKey(c => c.Id);
+                .WithOne(c => c.Evento)
+                .HasForeignKey(c => c.Eventoid);
 
 
             builder.ToTable("EventosSebraeLab");

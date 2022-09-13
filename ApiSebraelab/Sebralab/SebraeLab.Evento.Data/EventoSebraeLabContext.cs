@@ -16,6 +16,8 @@ namespace SebraeLab.Evento.Data
 
         public DbSet<EventoSebraeLab> Eventos { get; set; }
 
+        public DbSet<DiaEventoSebraeLab> Dias { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             /* foreach (var property in modelBuilder.Model.GetEntityTypes().SelectMany(
@@ -25,7 +27,7 @@ namespace SebraeLab.Evento.Data
             modelBuilder.ApplyConfigurationsFromAssembly(typeof(EventoSebraeLabContext).Assembly);
         }
 
-        public async Task<bool> Commit()
+        public bool Commit()
         {
             /*foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("DataCadastro") != null))
             {
@@ -35,12 +37,12 @@ namespace SebraeLab.Evento.Data
                 }
 
                 if (entry.State == EntityState.Modified)
-                {
+                {a
                     entry.Property("DataCadastro").IsModified = false;
                 }
             }*/
 
-            return await base.SaveChangesAsync() > 0;
+            return base.SaveChanges() > 0;
         }
 
     }

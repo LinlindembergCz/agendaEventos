@@ -1,5 +1,5 @@
-C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.core\bin\Debug\net6.0\SebraeLab.Core.dll
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.core\bin\Debug\net6.0\SebraeLab.Core.deps.json
+C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.core\bin\Debug\net6.0\SebraeLab.Core.dll
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.core\bin\Debug\net6.0\SebraeLab.Core.pdb
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.core\obj\Debug\net6.0\SebraeLab.Core.csproj.AssemblyReference.cache
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.core\obj\Debug\net6.0\SebraeLab.Core.GeneratedMSBuildEditorConfig.editorconfig

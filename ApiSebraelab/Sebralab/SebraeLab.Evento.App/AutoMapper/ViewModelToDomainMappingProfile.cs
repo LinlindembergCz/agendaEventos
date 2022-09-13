@@ -2,7 +2,7 @@
 using SebraeLab.Evento.App.ViewModels;
 using SebraeLab.Evento.Domain;
 
-namespace NerdStore.Catalogo.Application.AutoMapper
+namespace SebraeLab.Evento.App.AutoMapper
 {
     public class ViewModelToDomainMappingProfile : Profile
     {
