@@ -1,8 +1,9 @@
 export class EventolabDias {
-    id:string;
-    name:string;
+    //id:string;
+    //name:string;
     data: Date; 
-    horaInicio: string;
-    horaFim: string;
+    horainicio: string;
+    horafim: string;
     option:string;
+
   }

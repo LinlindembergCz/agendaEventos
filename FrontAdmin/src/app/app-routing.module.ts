@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule, ExtraOptions, PreloadAllModules } from '@angular/router';
-import { AuthGuard } from './@bootstrap/security/auth.guard';
 import { BlankComponent } from './@layout/blank/blank.component';
 import { LayoutComponent } from './@layout/layout.component';
 import { AgendaComponent } from './@modules/agenda/agenda.component';

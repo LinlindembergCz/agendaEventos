@@ -3,12 +3,10 @@ import { AppComponent } from './app.component';
 import { UserIdleModule } from 'angular-user-idle';
 import { TranslateModule } from '@ngx-translate/core';
 import { UserIdleSettings, TranslateSettings } from './@bootstrap/scripts/global.const';
-import { AuthGuard } from './@bootstrap/security/auth.guard';
 
-import { BeforeLoaderProvider } from './@bootstrap/providers/before-loader.provider';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BootstrapModule } from './@bootstrap/bootstrap.module';
-import { AuthInterceptor } from './@bootstrap/security/auth.interceptor';
+
 import { MenuComponent } from './@layout/menu/menu.component';
 import { LayoutComponent } from './@layout/layout.component';
 import { BreadcrumpComponent } from './@layout/breadcrump/breadcrump.component';
@@ -44,19 +42,7 @@ registerLocaleData(ptBR);
     TranslateModule.forRoot(TranslateSettings()),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  providers: [
-    AuthGuard,
-    {
-      provide: APP_INITIALIZER,
-      useFactory: BeforeLoaderProvider,
-      deps: [ApplicationStateService],
-      multi: true
-    },
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true
-    },
+  providers: [    
     {provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL'},
     {
       provide: LOCALE_ID,

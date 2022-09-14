@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 import { CalendarioEditModule } from '../../../components/calendario-edit/calendario-edit.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins

@@ -35,13 +35,16 @@ namespace SebraeLab.Evento.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Horafim")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("varchar(5)");
 
                     b.Property<string>("Horainicio")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("varchar(5)");
 
                     b.Property<string>("Option")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
 
                     b.HasKey("Id");
 
@@ -57,26 +60,29 @@ namespace SebraeLab.Evento.Data.Migrations
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Contato")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("varchar(20)");
 
                     b.Property<string>("Descricaoevento")
                         .IsRequired()
-                        .HasColumnType("varchar(500)");
+                        .HasColumnType("varchar(2000)");
 
                     b.Property<string>("Email")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
 
                     b.Property<bool?>("Imagempersonalida")
                         .HasColumnType("bit");
 
                     b.Property<string>("Instituicao")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("Linksparainscricao")
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("varchar(50)");
 
                     b.Property<string>("Nomecompleto")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
 
                     b.Property<int?>("Numeroparticipantes")
                         .HasColumnType("int");
@@ -85,7 +91,8 @@ namespace SebraeLab.Evento.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Tipoevento")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasColumnType("varchar(150)");
 
                     b.Property<string>("Titulo")
                         .IsRequired()

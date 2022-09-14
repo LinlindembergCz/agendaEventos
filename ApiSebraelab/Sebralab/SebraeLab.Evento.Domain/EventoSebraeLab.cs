@@ -10,8 +10,6 @@ namespace SebraeLab.Evento.Domain
         public  string? Tipoevento { get; private set; }
         public string? Linksparainscricao { get; private set; }
         public string? Descricaoevento { get; private set; }
-
-        //private List<DiaEventoSebraeLab>? _dias;
         public List<DiaEventoSebraeLab>? Dias { get; private set; }
         public string? Nomecompleto { get; private set; }
         public string? Email { get; private set; }
@@ -36,14 +34,12 @@ namespace SebraeLab.Evento.Domain
                       string instituicao ,
                       string contato,
                       bool imagempersonalida ,
-                      bool publicaosite//
-                     //, List<DiaEventoSebraeLab> dias
+                      bool publicaosite
             
         )
         {
            Titulo = titulo;
            Numeroparticipantes = numeroparticipantes;
-           Tipoevento = tipoevento;
            Linksparainscricao= linksparainscricao;
            Descricaoevento =  descricaoevento;
            Nomecompleto = nomecompleto;
@@ -52,7 +48,7 @@ namespace SebraeLab.Evento.Domain
            Contato = contato;
            Imagempersonalida = imagempersonalida;
            Publicaosite = publicaosite;
-           //Dias = dias;
+           Tipoevento = tipoevento;
         }
 
     }

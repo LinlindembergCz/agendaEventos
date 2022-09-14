@@ -3,7 +3,7 @@ import { Component, OnInit,  AfterViewInit} from '@angular/core';
 import{ Eventolab } from '../../../../@core/models/eventolab.model';
 import {MessageService} from 'primeng/api';
 import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
-
+import { Router } from '@angular/router';
 
 interface TipoEvento {
   code: string,
@@ -23,7 +23,9 @@ export class EventoCreateComponent implements OnInit, AfterViewInit {
   tiposEnvento:TipoEvento[]=[];
 
   constructor(private messageService: MessageService,
-    private http :RequestPromiseService) { }
+    private http :RequestPromiseService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
 
@@ -44,29 +46,32 @@ export class EventoCreateComponent implements OnInit, AfterViewInit {
   adicionarDia()
   {
     this.evento.dias.push({
-      id:'0',
-      name:`data${this.indexComponent}`,
+      //id:'0',
+      //name:`data${this.indexComponent}`,
       data: null,
-      horaInicio: '00:00',
-      horaFim: '00:00',
+      horainicio: '00:00',
+      horafim: '00:00',
       option:''});
 
-    this.indexComponent++;
-    console.log(this.evento.dias)
+    this.indexComponent++;   
   }
 
   removerDia()
   {
-    this.evento.dias.pop();   
+    //this.evento.dias.pop();   
   }
 
   salvar()
-  {
-      console.log(this.evento)
+  {        
+     
+     let tipos = this.evento.tipoevento;
+     this.evento.dias.forEach( d=> d.option = JSON.stringify(d.option) );
+     this.evento.tipoevento = JSON.stringify(tipos);
 
-      this.messageService.add({severity:'warn', 
-      summary:'Service Message', 
-      detail:'Via MessageService'});
+     this.http.post<Eventolab>('http://localhost:1900/api','EventoSebraeLab', this.evento).finally
+     ( 
+      ()=>{ this.router.navigate(['/agenda']); })
+
   }
 
 }

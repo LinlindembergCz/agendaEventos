@@ -10,10 +10,19 @@ namespace NerdStore.Catalogo.Data.Mappings
         {
             builder.HasKey(c => c.Id);
             // 1 : N
-            // builder.HasOne(c => c.Evento)
-            //    .WithMany(c => c.Dias);
-
             builder.HasOne(c => c.Evento).WithMany(c => c.Dias);
+
+            builder.Property(c => c.Horainicio)
+                .IsRequired()
+                .HasColumnType("varchar(5)");
+
+            builder.Property(c => c.Horafim)
+                .IsRequired()
+                .HasColumnType("varchar(5)");
+
+            builder.Property(c => c.Option)
+               .IsRequired()
+               .HasColumnType("varchar(100)");
 
             builder.ToTable("DiasEventoSebraeLab");
         }

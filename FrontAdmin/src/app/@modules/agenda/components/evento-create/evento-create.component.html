@@ -55,13 +55,13 @@
                     <div class="p-col-2"> 
                         <span style="width: '70px'">
                             <label >Hora Início</label>
-                            <p-inputMask   mask="99:99" name="horaInicio" [(ngModel)]="dia.horaInicio"></p-inputMask>                          
+                            <p-inputMask   mask="99:99" name="horainicio" [(ngModel)]="dia.horainicio"></p-inputMask>                          
                         </span>
                     </div>
                     <div class="p-col-2"> 
                         <span  style="width: '70px'">
                             <label >Hora Fim</label>
-                            <p-inputMask   mask="99:99" name="horaFim" [(ngModel)]="dia.horaFim"></p-inputMask>                            
+                            <p-inputMask   mask="99:99" name="horafim" [(ngModel)]="dia.horafim"></p-inputMask>                            
                         </span>
                     </div>
                 </div>
@@ -136,6 +136,8 @@
            <button pButton class="p-button-lg p-button-raised p-button-warning p-mr-10" (click)="salvar()">Salvar</button>
        </div>
     </div>
+    
+
 </div>
 
 <p-toast position="top-right"></p-toast>

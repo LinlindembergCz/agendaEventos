@@ -5,6 +5,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace SebraeLab.Evento.App.ViewModels
 {
+    public class TipoEvento
+    {
+        public string code { get; set; }
+        public string name { get; set; }
+    }
     public class EventoSebraeLabViewModel
     {
         [Key]

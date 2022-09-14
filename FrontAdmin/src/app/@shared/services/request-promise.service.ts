@@ -66,6 +66,13 @@ export class RequestPromiseService {
   }
 
   get<T>(url: string, path: string) : Promise<T> {
+
+    /*const httpOptions = {headers: new HttpHeaders({ 
+      "Content-Type":  "application/json",
+      "Accept": "application/json",
+      'Access-Control-Allow-Origin':'*', 
+      'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS' })};*/
+
      let promise = new Promise<T>((resolve, reject) => {
         this.http.get<T>(`${url}/${path}`).toPromise()
         .catch((response) => {
@@ -105,6 +112,13 @@ export class RequestPromiseService {
  }
 
   post<T>(url: string, path: string, payload: any) : Promise<T> {
+
+    /*const httpOptions = {headers: new HttpHeaders({ 
+      "Content-Type":  "application/json",
+      "Accept": "application/json",
+      'Access-Control-Allow-Origin':'*', 
+      'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS' })};*/
+
     let promise = new Promise<T>((resolve, reject) => {
        this.http.post<T>(`${url}/${path}`, payload).toPromise()
        .catch((response) => {

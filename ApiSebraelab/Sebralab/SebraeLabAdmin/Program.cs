@@ -1,9 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SebraeLab.WebApp.Setup;
 using SebraeLab.Evento.Data;
-using SebraeLab.Evento.Data.Repository;
-using SebraeLab.Evento.App.Services;
-using AutoMapper;
 using SebraeLab.Evento.App.AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -35,7 +32,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
+//app.UseAuthorization();
+
+app.UseCors(cors => cors.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
 app.MapControllers();
 

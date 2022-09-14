@@ -17,6 +17,7 @@ namespace SebraeLab.Evento.Domain
         public DateTime? Data { get; private set; }
         public string? Horainicio { get; private set; }
         public string? Horafim { get; private set; }
+
         public string? Option { get; private set; }
 
         [JsonIgnore]
@@ -29,12 +30,12 @@ namespace SebraeLab.Evento.Domain
             DateTime? data, string? horainicio, string? horafim, string? option
             //, Guid id
             )
-        {           
+        {          
             //Eventoid = eventoid;
             Data = data;
             Horainicio = horainicio;
             Horafim = horafim;
-            Option = option;
+            Option = option;           
             //Id = id;
         }
     }
