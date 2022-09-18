@@ -26,12 +26,11 @@ namespace SebraeLab.Evento.Domain
         public DiaEventoSebraeLab() { }
 
         [JsonConstructor]
-        public DiaEventoSebraeLab( //Guid eventoid,
+        public DiaEventoSebraeLab( 
             DateTime? data, string? horainicio, string? horafim, string? option
             //, Guid id
             )
         {          
-            //Eventoid = eventoid;
             Data = data;
             Horainicio = horainicio;
             Horafim = horafim;

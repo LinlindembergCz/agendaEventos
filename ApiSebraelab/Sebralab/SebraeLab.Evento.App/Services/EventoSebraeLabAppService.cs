@@ -4,6 +4,7 @@ using SebraeLab.Evento.App.ViewModels;
 using SebraeLab.Evento.Domain;
 using SebraeLab.Evento.App.Services;
 using SebraeLab.Evento.Data.Repository;
+using Microsoft.AspNetCore.Mvc;
 
 namespace SebraeLab.Evento.App.Services
 {
@@ -29,22 +30,27 @@ namespace SebraeLab.Evento.App.Services
         public async Task<List<EventoSebraeLabViewModel>> GetAll()
         {
             return _mapper.Map<List<EventoSebraeLabViewModel>>(await _eventosebraelabRepository.GetAll());
-        }       
-
-        public void Add(EventoSebraeLabViewModel eventosebraelabViewModel)
-        {
-            var evento = _mapper.Map<EventoSebraeLab>(eventosebraelabViewModel);
-            _eventosebraelabRepository.Add(evento);
-
-             _eventosebraelabRepository.UnitOfWork.Commit();
         }
 
-        public void Update(EventoSebraeLabViewModel eventosebraelabViewModel)
+        public Task<bool> Add(EventoSebraeLabViewModel eventosebraelabViewModel)
+        {
+            var evento = _mapper.Map<EventoSebraeLab>(eventosebraelabViewModel);
+
+             _eventosebraelabRepository.Add(evento);    
+             _eventosebraelabRepository.UnitOfWork.Commit();
+
+            return Task.FromResult(true);
+                        
+        }
+
+        public Task<bool> Update(EventoSebraeLabViewModel eventosebraelabViewModel)
         {
             var evento = _mapper.Map<EventoSebraeLab>(eventosebraelabViewModel);
             _eventosebraelabRepository.Update(evento);
 
             _eventosebraelabRepository.UnitOfWork.Commit();
+
+            return Task.FromResult(true);
         }
 
         public void Dispose()

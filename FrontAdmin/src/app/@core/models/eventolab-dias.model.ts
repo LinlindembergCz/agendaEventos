@@ -1,6 +1,5 @@
 export class EventolabDias {
-    //id:string;
-    //name:string;
+    id?:string; 
     data: Date; 
     horainicio: string;
     horafim: string;

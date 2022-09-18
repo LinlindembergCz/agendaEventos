@@ -1,15 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Tooltip } from 'primeng/tooltip';
+import { Eventolab } from 'src/app/@core/models/eventolab.model';
 import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
+import { environment } from 'src/environments/environment';
 
 
 class Eventlab {
+  id: string;
   name: string ;
   hourStart: string ;
   hourEnd: string;
   summary: string;
   dateStart: string;
   dateEnd: string;
+  days:number;
+  tip:string;
 }
 
 @Component({
@@ -24,32 +30,55 @@ export class ProximosEventosShowComponent implements OnInit {
 
   constructor(
     private http: RequestPromiseService,
-    private route: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
      this.getInfo(); 
   }
 
+  showAlterarEvento(id: string)
+  {
+    this.router.navigate([`/alterarevento`], { queryParams: { id: id} } ) 
+  }
   
   getInfo() 
   { 
-      this.http.get<any>("assets/data","eventsLab.json").
-      then(x => {      
-            x.forEach(e => {  this.itens.push( {
-                              name: e.name,
-                              summary:e.summary, 
-                              hourStart: e.hourStart ,
-                              hourEnd: e.hourEnd, 
-                              dateStart: String(e.dateStart).substring(0,2), 
-                              dateEnd: String(e.dateEnd).substring(0,2) });
-                           }); 
-            this.eventslab = this.itens.sort(function (a, b) 
-            {
-              return (a.dateStart > b.dateStart) ?1:(a.dateStart < b.dateStart)?-1:0;
-            });  
-   
-          });
+      this.http.get<Eventolab[]>(environment.services.api,"EventoSebraeLab").
+      then(x => {  
+                   x.forEach( e=>{           
+
+                  let startEvent: any = e.dias[0];//primeiro evento
+                  let endEvent: any = e.dias[e.dias.length - 1];//ultimo evnto               
+                  let startDay : string = startEvent.data;//data inicial
+                  let endDay: string = endEvent.data;//data final   
+                  
+                  let days: string="";
+                  e.dias.forEach(d => days += String(d.data).substring(8,10)+'/' );
+
+                  this.itens.push({ id:e.id,
+                                    name: e.titulo,
+                                    summary:e.descricaoevento, 
+                                    hourStart: startEvent.horainicio ,
+                                    hourEnd: endEvent.horafim, 
+                                    dateStart:  startDay.substring(8,10), //primeiro dia
+                                    dateEnd: endDay.substring(8,10), //ultimo dia
+                                    days: e.dias.length,
+                                    tip: days
+                                  });
+                  });              
+                        
+              this.eventslab = this.itens;//.sort(function (a, b) 
+              //{
+             //   return (a.dateStart > b.dateStart) ?1:(a.dateStart < b.dateStart)?-1:0;
+             // }); 
+
+      });
+       
+
+
+
   }
 
 }

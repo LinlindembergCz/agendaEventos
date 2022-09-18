@@ -20,7 +20,6 @@ namespace SebraeLabAdmin.Controllers
             _serviceEventoSebraeLab = service;
         }
 
-
         // GET: api/<EventoSebraeLabController>
         [HttpGet]
         [AllowAnonymous]
@@ -39,23 +38,41 @@ namespace SebraeLabAdmin.Controllers
         // POST api/<EventoSebraeLabController>
         [HttpPost]
         [AllowAnonymous]
-        public void Post(EventoSebraeLabViewModel eventosebraelabViewModel)
+        public async Task<IActionResult> Post(EventoSebraeLabViewModel eventosebraelabViewModel)
         {
-            _serviceEventoSebraeLab.Add(eventosebraelabViewModel);          
-
+            try
+            {
+                await _serviceEventoSebraeLab.Add(eventosebraelabViewModel);
+                return Ok(new { msg = "eventsalvo com sucesso!" });
+            }
+            catch (Exception e)
+            {
+                return new ObjectResult("Falhou! Mensagem: " + e.Message);
+            }
+ 
         }
 
         // PUT api/<EventoSebraeLabController>/5
         [HttpPut("{id}")]
         [AllowAnonymous]
-        public void Put(int id, [FromBody] string value)
+        public async Task<IActionResult> Put(Guid id, EventoSebraeLabViewModel eventosebraelabViewModel)
         {
+            try
+            {
+                await _serviceEventoSebraeLab.Update(eventosebraelabViewModel);
+                return Ok(new { msg = "evento alterado com sucesso!" });
+            }
+            catch (Exception e)
+            {
+                return new ObjectResult("Falhou! Mensagem: " + e.Message);
+            }
         }
 
         // DELETE api/<EventoSebraeLabController>/5
+
         [HttpDelete("{id}")]
         [AllowAnonymous]
-        public void Delete(int id)
+        public void Delete(Guid id)
         {
         }
     }

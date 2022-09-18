@@ -2,7 +2,9 @@ import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@
 import { ActivatedRoute, Router } from '@angular/router';
 //import { EventBooking } from '../reserve-submit/model/EventBooking-model';
 import { CalendarOptions } from '@fullcalendar/angular'; // useful for typechecking
+import { Eventolab } from 'src/app/@core/models/eventolab.model';
 import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
+import { environment } from 'src/environments/environment';
 import { EventService } from './Events-service.component';
 
 @Component({
@@ -28,56 +30,50 @@ export class FullCalendarioShowComponent implements OnInit {
     
 
 
-    OpenNovoEvento()
+    ShowNovoEvento()
     {
       this.router.navigate(['/novoevento']);
     }
 
     ngOnInit(): void {   
 
-
-      let eventos :any = this.service.getEvents();
+      let eventos :any[]=[];
+      const colors =["yellow", "green",  "blue", "red"]
       
+      this.http.get<Eventolab[]>(environment.services.api,"EventoSebraeLab").then
+      ( e=>{ 
+               e.forEach( d=>{
+                         d.dias.forEach( x=>{
 
+                                  let data =  String(x.data).substring(0,10)
+                                  eventos.push( {                           
+                                    title: `${x.horainicio} - ${x.horafim}`,
+                                    date: data,
+                                    color: colors[Math.floor(Math.random() * (3 - 0 + 1) ) + 0]                                    
+                                  })
+                              })           
+                      })
+            }).finally(
 
-      this.options = {  height: '550px',         
+              ()=>{
+
+                this.options = {  height: '550px',         
                       
                       //initialDate : '2022-01-01',
                       headerToolbar: {left: 'prev,next,today',
                                       center: 'title',
-                                      right: 'dayGridMonth,timeGridWeek,timeGridDay'},
+                                      right: ''},
                       editable: false,
                       selectable:true,
                       selectMirror: true,
                       dayMaxEvents: true,
                       locale:['pt-BR'],
-                      events: [
-                        {
-                           
-                          title: "13:00 - 15:00",
-                          date: "2022-09-01",
-                          color: "yellow"
-                        },
-                        {
-                           
-                          title: "15:30 - 17:00",
-                          date: "2022-09-01",
-                          color: "green"
-                        },
-                        
-                        {
-                             
-                          title: "13:00 - 17:00",
-                          date: "2022-09-02",
-                          textColor: "pink"
-                        },
-                        {
-                            
-                          title: "08:00 - 12:00",
-                          date: "2022-09-07"
-                        }]
-                      
+                      events: eventos                      
                     };
+              }
+            )
+
+      
 
 
   }

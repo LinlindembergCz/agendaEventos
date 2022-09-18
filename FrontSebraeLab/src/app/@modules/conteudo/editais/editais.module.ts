@@ -19,11 +19,13 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { DialogModule } from 'primeng/dialog';
 import { RadioButtonModule} from 'primeng/radiobutton';
 import { EditaisComponent } from './editais.component';
+import { BannersShowModule } from '../../components/banners-show/banners-show.module';
 
 @NgModule({
   declarations: [EditaisComponent
     ],
   imports: [
+    BannersShowModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,

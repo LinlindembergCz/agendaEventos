@@ -6,22 +6,34 @@
     
     <span class="p-input-icon-right " >
         <i class="pi pi-search"></i>
-        <input type="text" pInputText  placeholder="Search" style="width:'350px'">         
+        <input type="text" pInputText  placeholder="Search" style="width:'350px'" tooltip="teste" >         
     </span>
 
 
+
+<label> ">" dias Consecutivos , ... dias Alternados</label>
+
 <p-dataView [value]="eventslab" [paginator]="true" [rows]="5">
     <ng-template let-eventlab pTemplate="listItem">                                       
-        <div class="frameEventlabitemDetails">                    
-            <div class="frameDate">
-                <div class="frameDateDays"> 
-                    {{eventlab.dateStart}}<div style=" color: #C45F13;">></div>{{eventlab.dateEnd}}
+        <div class="frameEventlabitemDetails " style="cursor: pointer;" 
+        (click)="showAlterarEvento(eventlab.id)"
+        onmouseover="this.style.background='#EAF7FC';" 
+        onmouseout="this.style.background='white';"
+        >                    
+            
+            <div class="frameDate " >
+                <div class="frameDateDays" title="{{eventlab.tip}}">                      
+                    <div>{{eventlab.dateStart}}</div>
+                    <div style=" color: #C45F13;" *ngIf="(eventlab.dateEnd - eventlab.dateStart > 0 ) && (eventlab.days>1) && (eventlab.days > eventlab.dateEnd - eventlab.dateStart)">></div>
+                    <div *ngIf="(eventlab.dateEnd - eventlab.dateStart + 1 > eventlab.days ) && (eventlab.days > eventlab.dateEnd - eventlab.dateStart)  ">,</div>
+                    <div *ngIf="(eventlab.dateEnd - eventlab.dateStart + 1 > eventlab.days ) ">...</div>
+                    <div *ngIf="(eventlab.dateEnd - eventlab.dateStart > 0 )">{{eventlab.dateEnd}}</div>
                 </div> 
             </div>
             <div class="frameEventlabitemDetailsCenter">                       
-                    <div class="eventlabTime">{{eventlab.hourStart}} - {{eventlab.hourEnd}}</div><br>
-                    <div class=" eventlabName">{{eventlab.name}}</div><br>
-                    <div class="eventlabSummary">{{eventlab.summary}}</div><br>
+                <div class="eventlabTime">{{eventlab.hourStart}} - {{eventlab.hourEnd}}</div><br>
+                <div class=" eventlabName">{{eventlab.name}}</div><br>
+                <div class="eventlabSummary">{{eventlab.summary}}</div><br>
             </div>                                          
         </div>                       
     </ng-template>

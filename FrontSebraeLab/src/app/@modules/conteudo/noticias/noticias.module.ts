@@ -19,11 +19,13 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { DialogModule } from 'primeng/dialog';
 import { RadioButtonModule} from 'primeng/radiobutton';
 import { NoticiasComponent } from './noticias.component';
+import { BannersShowModule } from '../../components/banners-show/banners-show.module';
 
 @NgModule({
   declarations: [NoticiasComponent
     ],
   imports: [
+    BannersShowModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,

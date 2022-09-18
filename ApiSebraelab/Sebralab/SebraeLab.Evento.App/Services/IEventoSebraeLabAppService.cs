@@ -1,4 +1,5 @@
-﻿using SebraeLab.Evento.App.ViewModels;
+﻿using Microsoft.AspNetCore.Mvc;
+using SebraeLab.Evento.App.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,8 @@ namespace SebraeLab.Evento.App.Services
         Task<List<EventoSebraeLabViewModel>> GetAll();
         Task<EventoSebraeLabViewModel> GetById(Guid id);
 
-        void Add(EventoSebraeLabViewModel eventosebraelabViewModel);
-        void Update(EventoSebraeLabViewModel eventosebraelabViewModel);
+        Task<bool> Add(EventoSebraeLabViewModel eventosebraelabViewModel);
+        Task<bool> Update(EventoSebraeLabViewModel eventosebraelabViewModel);
 
     }
 }

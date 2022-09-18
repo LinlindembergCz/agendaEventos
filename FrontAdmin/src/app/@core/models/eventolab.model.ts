@@ -2,7 +2,7 @@ import { EventolabDias } from "./eventolab-dias.model";
 
 export class  Eventolab 
 {
-    //id: string;
+    id: string;
     titulo: string;
     numeroparticipantes: number;
     tipoevento: string;

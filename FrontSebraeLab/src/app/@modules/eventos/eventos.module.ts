@@ -20,11 +20,13 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { DialogModule } from 'primeng/dialog';
 import { RadioButtonModule} from 'primeng/radiobutton';
 import { EventosComponent } from './eventos.component';
+import { BannersShowModule } from '../components/banners-show/banners-show.module';
 
 @NgModule({
   declarations: [EventosComponent
     ],
   imports: [
+    BannersShowModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,

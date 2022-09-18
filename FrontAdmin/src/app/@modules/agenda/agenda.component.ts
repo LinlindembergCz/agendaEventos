@@ -25,9 +25,5 @@ export class AgendaComponent implements OnInit {
 
   }
 
-  //OpenNovoEvento()
-  //{
-  //  this.router.navigate(['/novoevento']);
-  //}
 
 }

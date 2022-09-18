@@ -24,7 +24,8 @@ namespace SebraeLab.Evento.Domain
             Dias = new List<DiaEventoSebraeLab>();
         }
 
-        public EventoSebraeLab(string titulo ,
+        public EventoSebraeLab(
+                      string titulo ,
                       int numeroparticipantes,
                       string tipoevento,
                       string linksparainscricao ,

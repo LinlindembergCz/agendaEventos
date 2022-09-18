@@ -16,17 +16,19 @@
         </div>        
         <div>
             <p-inputSwitch [(ngModel)]="evento.imagempersonalida"></p-inputSwitch>  
-           Imagem personalizada desativada (será utilizada uma imagem padrão como capa do evento).
+            IMAGEM: {{evento.imagempersonalida}} Imagem personalizada desativada (será utilizada uma imagem padrão como capa do evento).
         </div>
-        <div class="frameTituloTopico" *ngIf="evento.imagempersonalida" style="text-align:center;">
-            <div style="font-size: 20px;"><label>Imagem de Capa</label></div>
-            <div style="font-size: 16px;"><label>Tamanho 600px de largura e 315px de altura</label></div>
-        <img src="../../../../../assets/imgs/ExemploImagemCapa.png" style="width:'900px';height:'237px'"/>
-       
-        </div>
+        
+        <div *ngIf="evento.imagempersonalida" style="align-items:center;">
+                <label>Imagem de Capa</label>
+                <label>Tamanho 600px de largura e 315px de altura</label>
+                <img src="../../../../../assets/imgs/ExemploImagemCapa.png" style="width:'900px';height:'237px'"/>
 
+               AQUI: <app-photo-upload (onUpload)="download()" 
+                [fileUrl]="picture" [imageName]="evento.titulo">
+                </app-photo-upload>
+        </div>
     </div>
-
 
     <div class="frameSobreEvento">
        
@@ -143,7 +145,7 @@
        </div> 
        <div class="p-col-12" style="text-align: right;">
            <button pButton class="p-button-lg p-button-raised p-button-outlined p-mr-10">Cancelar</button>&nbsp;&nbsp;
-           <button pButton class="p-button-lg p-button-raised p-button-warning p-mr-10" (click)="salvar()">Salvar</button>
+           <button pButton class="p-button-lg p-button-raised p-button-warning p-mr-10" (click)="salvar(evento.id)">Salvar</button>
        </div>
     </div>
     

@@ -21,7 +21,7 @@ namespace SebraeLab.Evento.Data.Repository
 
         public async Task<List<EventoSebraeLab>> GetAll()
         {
-            return await _context.Eventos.Include(e => e.Dias).AsNoTracking().ToListAsync();
+            return await _context.Eventos.Include(e => e.Dias.OrderBy( o=>o.Data) ).AsNoTracking().ToListAsync();
         }
 
         public async Task<EventoSebraeLab> GetById(Guid id)
@@ -33,7 +33,7 @@ namespace SebraeLab.Evento.Data.Repository
         public void Add(EventoSebraeLab evento)
         {
             _context.Eventos.Add(evento);
-        }
+         }
 
         public void Update(EventoSebraeLab produto)
         {

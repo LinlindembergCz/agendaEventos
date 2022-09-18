@@ -38,11 +38,11 @@ export class EventoSubmit implements AfterViewInit, OnInit  {
         ];
 
         this.tiposEnvento = [
-            
-            {name: 'Workshop', code: '1'},
-            {name: 'Curso', code: '2'},
-            {name: 'Evento Fechado', code: '3'},
-            {name: 'Outros', code: '4'},
+            {name: 'Palestra', code: '1'},
+            {name: 'Workshop', code: '2'},
+            {name: 'Curso', code: '3'},
+            {name: 'Evento Fechado', code: '4'},
+            {name: 'Outros', code: '5'},
         ]
     }
 

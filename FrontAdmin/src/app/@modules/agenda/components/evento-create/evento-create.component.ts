@@ -2,13 +2,14 @@ import { Component, OnInit,  AfterViewInit} from '@angular/core';
 
 import{ Eventolab } from '../../../../@core/models/eventolab.model';
 import {MessageService} from 'primeng/api';
-import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
+
 import { Router } from '@angular/router';
+import { RequestPromiseService } from '../../../../@shared/services/request-promise.service';
+import { environment } from '../../../../../environments/environment';
 
 interface TipoEvento {
   code: string,
-  name: string   
-}
+  name: string}
 
 @Component({
   selector: 'app-evento-create',
@@ -46,8 +47,6 @@ export class EventoCreateComponent implements OnInit, AfterViewInit {
   adicionarDia()
   {
     this.evento.dias.push({
-      //id:'0',
-      //name:`data${this.indexComponent}`,
       data: null,
       horainicio: '00:00',
       horafim: '00:00',
@@ -58,17 +57,17 @@ export class EventoCreateComponent implements OnInit, AfterViewInit {
 
   removerDia()
   {
-    //this.evento.dias.pop();   
+    this.evento.dias.pop();   
   }
 
   salvar()
-  {        
-     
-     let tipos = this.evento.tipoevento;
+  {       
      this.evento.dias.forEach( d=> d.option = JSON.stringify(d.option) );
+
+     let tipos = this.evento.tipoevento;
      this.evento.tipoevento = JSON.stringify(tipos);
 
-     this.http.post<Eventolab>('http://localhost:1900/api','EventoSebraeLab', this.evento).finally
+     this.http.post<Eventolab>(environment.services.api,'EventoSebraeLab', this.evento).finally
      ( 
       ()=>{ this.router.navigate(['/agenda']); })
 
