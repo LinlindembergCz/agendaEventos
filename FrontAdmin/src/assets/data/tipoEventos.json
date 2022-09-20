@@ -1,0 +1,11 @@
+[
+    {"name": "Palestra", "code": "0"},
+    
+    {"name": "Workshop", "code": "1"},
+    
+    {"name": "Curso", "code": "2"},
+     
+    {"name": "Evento Fechado", "code": "3"},
+    
+    {"name": "Outros", "code": "4"}
+] 

@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
 
 namespace SebraeLab.Evento.Data.Repository
 {
@@ -24,16 +25,32 @@ namespace SebraeLab.Evento.Data.Repository
             return await _context.Eventos.Include(e => e.Dias.OrderBy( o=>o.Data) ).AsNoTracking().ToListAsync();
         }
 
+        public async Task<List<BloqueioDia>> GetAllDiasBloqueados()
+        {
+            return await _context.Bloqueio.AsNoTracking().ToListAsync();
+        }
+
+
+        //public async Task<IEnumerable<EventoSebraeLab>> GetById(Guid id)
         public async Task<EventoSebraeLab> GetById(Guid id)
         {
-            return await _context.Eventos.AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
+            return await _context.Eventos.Include(e => e.Dias.OrderBy(o => o.Data)).AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
+            //.Where(p => p.Id == id).ToListAsync();
+            //FirstOrDefaultAsync(p => p.Id == id);
+
+            //return await _context.Pedidos.AsNoTracking().Where(p => p.ClienteId == clienteId).ToListAsync();
             //return await _context.Produtos.FindAsync(id);
         }
 
         public void Add(EventoSebraeLab evento)
         {
             _context.Eventos.Add(evento);
-         }
+        }
+
+        public void AddBloqueio(BloqueioDia bloqueio)
+        {
+            _context.Bloqueio.Add(bloqueio);
+        }
 
         public void Update(EventoSebraeLab produto)
         {

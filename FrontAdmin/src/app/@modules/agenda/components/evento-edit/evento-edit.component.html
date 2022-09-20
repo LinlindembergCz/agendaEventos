@@ -5,7 +5,7 @@
 <div class="frameMain">
     <div class="frameNovoEvento">
         <div class="frameTituloNovoEvento">
-            NOVO EVENTO
+            EDITAR EVENTO
         </div>
         <div class="linha"></div>
     </div>
@@ -24,9 +24,7 @@
                 <label>Tamanho 600px de largura e 315px de altura</label>
                 <img src="../../../../../assets/imgs/ExemploImagemCapa.png" style="width:'900px';height:'237px'"/>
 
-               AQUI: <app-photo-upload (onUpload)="download()" 
-                [fileUrl]="picture" [imageName]="evento.titulo">
-                </app-photo-upload>
+                <app-photo-upload (onUpload)="download()" [fileUrl]="picture" [imageName]="evento.titulo"></app-photo-upload>
         </div>
     </div>
 
@@ -55,7 +53,7 @@
             <div *ngFor="let dia of evento.dias">
                 <div class="frameEventoDias p-col-12">
                     <div class="p-col-3">
-                        <p-calendar dateFormat="dd-mm-yy" showIcon="true" placeholder="Dia do evento" [(ngModel)]="dia.data"></p-calendar>
+                       <p-calendar dateFormat="dd-mm-yy" showIcon="true" placeholder="Dia do evento" [(ngModel)]="dia.data"></p-calendar>
                     </div>
                     <div class="p-col-5">    
                         <p-checkbox name="manha" value="Manhã" label="Manhã" [(ngModel)]="dia.option"></p-checkbox>&nbsp;
@@ -84,9 +82,12 @@
            <div class="frameTipoEvento p-col-12">
                  <div class="p-col-6">
                     <span class="p-float-label">
-                        <p-multiSelect optionLabel="name"  [options]="tiposEnvento" 
+                       <!-- <p-multiSelect optionLabel="name"  [options]="tiposEnvento" 
                         [(ngModel)]="evento.tipoevento" 
-                        [style]="{'width':'100%'}"></p-multiSelect>
+                        [style]="{'width':'100%'}"></p-multiSelect>-->
+                        <p-dropdown optionLabel="name"  [options]="tiposEvento" 
+                        [(ngModel)]="tipoEvento" optionLabel="name"
+                        [style]="{'width':'100%'}"></p-dropdown>
                         <label for="float-input">Tipo de evento</label>
                     </span> 
                  </div>    
@@ -103,9 +104,7 @@
                    <textarea pInputTextarea [rows]="10" [cols]="135" pInputTextarea autoResize="autoResize" [(ngModel)]="evento.descricaoevento" ></textarea>
                    <label for="float-input">Descricao do evento</label>
                </span>                 
-           </div> 
-
-            
+           </div>            
         </div>
         
         <div class="frameSobreOrganizador p-grid">

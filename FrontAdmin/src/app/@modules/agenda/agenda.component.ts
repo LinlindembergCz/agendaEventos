@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CalendarOptions } from '@fullcalendar/angular'; // useful for typechecking
 import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-agenda',
@@ -23,6 +24,13 @@ export class AgendaComponent implements OnInit {
   ngOnInit(): void {
     
 
+  }
+
+
+  bloquear(diasBloqueados: any)
+  {
+    console.log( diasBloqueados )
+    this.http.post(environment.services.api,"Bloqueio", diasBloqueados );
   }
 
 

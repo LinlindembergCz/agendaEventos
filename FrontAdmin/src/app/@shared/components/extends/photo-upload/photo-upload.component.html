@@ -1,6 +1,7 @@
 <form >
 <div class="p-grid ">
     <p-fileUpload 
+        mode="basic"
         [name]="getImageName()" 
         [url]="getUrl(true)"
         (onSelect)="onBeforeUpload($event, true)"
@@ -9,7 +10,7 @@
         accept="image/*" 
         [auto]="true" 
         chooseIcon="pi pi-upload"
-        chooseLabel="Carregar Foto"
+        chooseLabel="Editar"
         maxFileSize="4000000">
             <ng-template pTemplate="toolbar">
             </ng-template>

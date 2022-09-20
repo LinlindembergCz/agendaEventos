@@ -39,7 +39,9 @@ namespace NerdStore.Catalogo.Data.Mappings
             builder.Property(c => c.Tipoevento)
                 .IsRequired()
                 .HasColumnType("varchar(150)");
-            
+
+            builder.Property(c => c.Status)          
+            .HasColumnType("varchar(10)");
 
             builder.HasMany(c => c.Dias)
                 .WithOne(c => c.Evento)

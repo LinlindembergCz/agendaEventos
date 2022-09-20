@@ -1,6 +1,7 @@
 ﻿using SebraeLab.Core.DomainObjects;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,8 @@ namespace SebraeLab.Evento.Domain
 
         public string? Option { get; private set; }
 
+        public string? Status { get; private set; }
+
         [JsonIgnore]
         public EventoSebraeLab? Evento { get; set; }
 
@@ -27,14 +30,15 @@ namespace SebraeLab.Evento.Domain
 
         [JsonConstructor]
         public DiaEventoSebraeLab( 
-            DateTime? data, string? horainicio, string? horafim, string? option
+            DateTime? data, string? horainicio, string? horafim, string? option, string? status
             //, Guid id
             )
         {          
             Data = data;
             Horainicio = horainicio;
             Horafim = horafim;
-            Option = option;           
+            Option = option;
+            Status = status;
             //Id = id;
         }
     }

@@ -10,7 +10,33 @@
 
    <full-calendar  [options]="options"></full-calendar>    
 </div>
+
+<p-dialog 
+    position="center"
+    header="Selecione no calendario os dias que deseja bloquear a agenda." 
+    blockScroll="false"
+    [breakpoints]="{ '715px': '89%' }" 
+    [style]="{ width: '30%' }"
+    [(visible)]="DialogEventDateShowing" 
+    [modal]="false" 
+    styleClass="p-fluid">
+
+    <p-calendar dateFormat="dd-mm-yy" 
+                selectionMode="multiple"
+                showIcon="true" placeholder="Dia do evento" [inline]="true" 
+                [(ngModel)]="diasBloqueados"   
+                format="yy-mm-dd">
+    </p-calendar>
+    
+    <div style="border: 1px solid; align-items:center">
+        <button pButton type="button"  label="Aplicar" class="buttonApply p-button-outlined" (click)="applicarBloqueio()"></button>
+    </div>
+
+</p-dialog> 
+
 <div>
-    <button pButton type="button" class="p-button-outlined">Bloquear</button>  Selecione no calendario os dias que deseja bloquear a agenda.
+    <button pButton type="button" class="p-button-outlined" (click)="showDialogEventDate()"   >Bloquear</button>  
 </div>
+
+
     

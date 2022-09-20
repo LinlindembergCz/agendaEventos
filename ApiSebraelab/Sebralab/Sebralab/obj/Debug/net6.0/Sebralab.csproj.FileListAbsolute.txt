@@ -27,3 +27,6 @@ C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\obj\Debug\net6.0\refint\Sebralab
 C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\obj\Debug\net6.0\Sebralab.pdb
 C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\obj\Debug\net6.0\Sebralab.genruntimeconfig.cache
 C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\obj\Debug\net6.0\ref\Sebralab.dll
+C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\bin\Debug\net6.0\FluentValidation.dll
+C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\bin\Debug\net6.0\MediatR.dll
+C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\bin\Debug\net6.0\MediatR.Contracts.dll

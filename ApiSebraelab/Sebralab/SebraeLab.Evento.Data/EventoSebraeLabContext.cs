@@ -18,6 +18,8 @@ namespace SebraeLab.Evento.Data
 
         public DbSet<DiaEventoSebraeLab> Dias { get; set; }
 
+        public DbSet<BloqueioDia> Bloqueio { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             /* foreach (var property in modelBuilder.Model.GetEntityTypes().SelectMany(
@@ -29,7 +31,7 @@ namespace SebraeLab.Evento.Data
 
         public bool Commit()
         {
-            /*foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("DataCadastro") != null))
+            foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("DataCadastro") != null))
             {
                 if (entry.State == EntityState.Added)
                 {
@@ -37,10 +39,10 @@ namespace SebraeLab.Evento.Data
                 }
 
                 if (entry.State == EntityState.Modified)
-                {a
+                {
                     entry.Property("DataCadastro").IsModified = false;
                 }
-            }*/
+            }
 
             return base.SaveChanges() > 0;
         }

@@ -22,6 +22,20 @@ namespace SebraeLab.Evento.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("SebraeLab.Evento.Domain.BloqueioDia", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Data")
+                        .HasColumnType("datetime");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BloqueioDias", (string)null);
+                });
+
             modelBuilder.Entity("SebraeLab.Evento.Domain.DiaEventoSebraeLab", b =>
                 {
                     b.Property<Guid>("Id")
@@ -46,6 +60,9 @@ namespace SebraeLab.Evento.Data.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(100)");
 
+                    b.Property<string>("Status")
+                        .HasColumnType("varchar(10)");
+
                     b.HasKey("Id");
 
                     b.HasIndex("Eventoid");
@@ -62,6 +79,9 @@ namespace SebraeLab.Evento.Data.Migrations
                     b.Property<string>("Contato")
                         .IsRequired()
                         .HasColumnType("varchar(20)");
+
+                    b.Property<DateTime>("DataCadastro")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Descricaoevento")
                         .IsRequired()
@@ -89,6 +109,9 @@ namespace SebraeLab.Evento.Data.Migrations
 
                     b.Property<bool?>("Publicaosite")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Status")
+                        .HasColumnType("varchar(10)");
 
                     b.Property<string>("Tipoevento")
                         .IsRequired()

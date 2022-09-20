@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "1xrul/Tak/3H9a3KFkoc73Dc/CIC7umz+MnyMMS9BG22/iebaI/D1UJzhN0FYGlrl73ElN7c2mGVM1oz7sMaCw==",
+  "dgSpecHash": "BeIHAzUHwyzuhdRiyo43nUrKuDvJutZoHakK7J4cbv7CSYSJjNHwewd2F1uiwZMnE5oNebUx63ml6wbvmd+gSw==",
   "success": true,
   "projectFilePath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\lcaraujo1\\.nuget\\packages\\fluentvalidation\\11.1.0\\fluentvalidation.11.1.0.nupkg.sha512",
+    "C:\\Users\\lcaraujo1\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\lcaraujo1\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

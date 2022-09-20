@@ -3,6 +3,7 @@ using SebraeLab.Core.DomainObjects;
 
 namespace SebraeLab.Evento.Domain
 {
+
     public class EventoSebraeLab : Entity
     {
         public string? Titulo { get; private set; } 
@@ -15,9 +16,10 @@ namespace SebraeLab.Evento.Domain
         public string? Email { get; private set; }
         public string? Instituicao { get; private set; }
         public string? Contato { get; private set; }
-
         public bool? Imagempersonalida { get; private set; }
         public bool? Publicaosite { get; private set; }
+        public string? Status { get; private set; }
+        public DateTime DataCadastro { get; private set; }
 
         public EventoSebraeLab()
         {
@@ -35,8 +37,8 @@ namespace SebraeLab.Evento.Domain
                       string instituicao ,
                       string contato,
                       bool imagempersonalida ,
-                      bool publicaosite
-            
+                      bool publicaosite,
+                      string status
         )
         {
            Titulo = titulo;
@@ -50,6 +52,16 @@ namespace SebraeLab.Evento.Domain
            Imagempersonalida = imagempersonalida;
            Publicaosite = publicaosite;
            Tipoevento = tipoevento;
+           Status = status;
+        }
+
+        public void Iniciar()
+        {
+            Status = "Aberto";
+        }
+        public void Bloquear()
+        {
+            Status = "Bloqueado";
         }
 
     }

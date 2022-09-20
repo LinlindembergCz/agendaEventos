@@ -5,7 +5,11 @@ import { CalendarOptions } from '@fullcalendar/angular'; // useful for typecheck
 import { Eventolab } from 'src/app/@core/models/eventolab.model';
 import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
 import { environment } from 'src/environments/environment';
-import { EventService } from './Events-service.component';
+
+
+export class EventBooking {
+  Days?: Date[]=[];
+}
 
 @Component({
   selector: 'app-fullcalendario-show',
@@ -20,64 +24,95 @@ export class FullCalendarioShowComponent implements OnInit {
   };
   header: any;
 
+  tiposEvento:any[]=[];
+
+  @Input() public diasBloqueados: Date[]=[new Date()];
+
+  @Output() clickBloqueio = new EventEmitter<Date[]>();
+
+  DialogEventDateShowing:boolean = false;
+
   constructor(
     private http: RequestPromiseService,
-    private router: Router,
-    private service: EventService
-    
-    ){}
+    private router: Router   
+    ){}   
 
-    
+  ngOnInit(): void {   
+    this.loadTipoEventos();      
 
+    this.loadDiasBloqueados();
 
-    ShowNovoEvento()
-    {
-      this.router.navigate(['/novoevento']);
-    }
-
-    ngOnInit(): void {   
-
-      let eventos :any[]=[];
-      const colors =["yellow", "green",  "blue", "red"]
-      
-      this.http.get<Eventolab[]>(environment.services.api,"EventoSebraeLab").then
-      ( e=>{ 
-               e.forEach( d=>{
-                         d.dias.forEach( x=>{
-
-                                  let data =  String(x.data).substring(0,10)
-                                  eventos.push( {                           
-                                    title: `${x.horainicio} - ${x.horafim}`,
-                                    date: data,
-                                    color: colors[Math.floor(Math.random() * (3 - 0 + 1) ) + 0]                                    
-                                  })
-                              })           
-                      })
-            }).finally(
-
-              ()=>{
-
-                this.options = {  height: '550px',         
-                      
-                      //initialDate : '2022-01-01',
-                      headerToolbar: {left: 'prev,next,today',
-                                      center: 'title',
-                                      right: ''},
-                      editable: false,
-                      selectable:true,
-                      selectMirror: true,
-                      dayMaxEvents: true,
-                      locale:['pt-BR'],
-                      events: eventos                      
-                    };
-              }
-            )
-
-      
-
-
+    this.loadEventos();     
   }
 
+  ShowNovoEvento()
+  {
+    this.router.navigate(['/novoevento']);
+  }
+
+  loadTipoEventos()
+  {
+    this.http.get<any>("../../../assets/data", "tipoEventos.json").
+    then(x => { this.tiposEvento = x; }); 
+  }
+
+  loadDiasBloqueados()
+  {
+    this.http.get<any[]>(environment.services.api,"Bloqueio").
+    then(x=>{
+      this.diasBloqueados = []
+      x.forEach(d=> {this.diasBloqueados.push(new Date(d.data))})
+      });
+  }
+
+
+  loadEventos() 
+  {
+    let eventos :any[]=[];
+    const colors =["yellow", "green",  "blue", "red","orange"];
+
+    this.http.get<Eventolab[]>(environment.services.api,"EventoSebraeLab").then
+    ( e=>{        
+          e.forEach( d=>{       
+              d.dias.forEach( x=>{
+                      let data =  String(x.data).substring(0,10)
+                      eventos.push( {                           
+                        title: `${x.horainicio} - ${x.horafim}`,
+                        date: data,
+                        color: colors[this.tiposEvento.findIndex(x=>x.name==d.tipoevento)]                                    
+                      })
+                  })           
+                })
+          }).finally(
+            ()=>{
+             this.options = { height: '550px',
+                              headerToolbar: {left: 'prev,next,today',center: 'title',right: ''},
+                              editable: false,
+                              selectable:true,
+                              selectMirror: true,
+                              dayMaxEvents: true,
+                              locale:['pt-BR'],
+                              events: eventos,                  
+                              };
+            }
+          )
+  }
+
+  showDialogEventDate()
+  {
+    this.DialogEventDateShowing = true;
+  }
+
+  hideDialogEventDate()
+  {
+    this.DialogEventDateShowing = false;
+  }
+  
+  applicarBloqueio()
+  {
+    this.clickBloqueio.next(this.diasBloqueados);
+    this.hideDialogEventDate();
+  }
 
 
 

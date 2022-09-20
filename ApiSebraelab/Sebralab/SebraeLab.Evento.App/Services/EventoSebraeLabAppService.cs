@@ -5,6 +5,7 @@ using SebraeLab.Evento.Domain;
 using SebraeLab.Evento.App.Services;
 using SebraeLab.Evento.Data.Repository;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace SebraeLab.Evento.App.Services
 {
@@ -13,13 +14,13 @@ namespace SebraeLab.Evento.App.Services
         private readonly IEventoSebraeLabRepository _eventosebraelabRepository;
         private readonly IMapper _mapper;
 
-        public EventoSebraeLabAppService(IEventoSebraeLabRepository eventosebraelabRepository, 
+        public EventoSebraeLabAppService(IEventoSebraeLabRepository eventosebraelabRepository,
                                  IMapper mapper
                              )
         {
             _eventosebraelabRepository = eventosebraelabRepository;
             _mapper = mapper;
-           }
+        }
 
         public async Task<EventoSebraeLabViewModel> GetById(Guid id)
         {
@@ -30,6 +31,11 @@ namespace SebraeLab.Evento.App.Services
         public async Task<List<EventoSebraeLabViewModel>> GetAll()
         {
             return _mapper.Map<List<EventoSebraeLabViewModel>>(await _eventosebraelabRepository.GetAll());
+        }
+
+        public async  Task<List<BloqueioDia>> GetAllDiasBloqueados()
+        {
+           return _mapper.Map<List<BloqueioDia>>(await _eventosebraelabRepository.GetAllDiasBloqueados());
         }
 
         public Task<bool> Add(EventoSebraeLabViewModel eventosebraelabViewModel)
@@ -50,6 +56,30 @@ namespace SebraeLab.Evento.App.Services
 
             _eventosebraelabRepository.UnitOfWork.Commit();
 
+            return Task.FromResult(true);
+        }
+
+       /* public async Task<bool> Bloquear(Guid id)
+        {
+            EventoSebraeLabViewModel evento = _mapper.Map<EventoSebraeLabViewModel>(await _eventosebraelabRepository.GetById(id));
+
+            evento.Status = "Bloqueado";
+
+            _eventosebraelabRepository.Update(_mapper.Map<EventoSebraeLab>(evento));
+
+            _eventosebraelabRepository.UnitOfWork.Commit();
+
+            return true;
+        }*/
+
+        public  Task<bool> BloquearDias(DateTime[] dates)
+        {
+            foreach (var item in dates)
+            {
+                var bloqueio = new BloqueioDia( item );
+                _eventosebraelabRepository.AddBloqueio( bloqueio );
+            }
+            _eventosebraelabRepository.UnitOfWork.Commit();
             return Task.FromResult(true);
         }
 

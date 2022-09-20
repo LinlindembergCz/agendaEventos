@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "RmIgfqEdEqK2IWN7xvv7xW9lawMtKWDuYRCPsd9TI2uvqQIDhL5rb9AA/6sHUyE/Q954F+MZTyX0W7REhUz7ng==",
+  "dgSpecHash": "ieZseH2L/2IMBqbocea9xwmbiYQN6Yy6Hvda2J/yz8nQZsXnnx2FjI8OiXb+IF73Mt7Z7+59EwTS05Vgvsd0zw==",
   "success": true,
   "projectFilePath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Evento.App\\SebraeLab.Evento.App.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lcaraujo1\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
+    "C:\\Users\\lcaraujo1\\.nuget\\packages\\fluentvalidation\\11.1.0\\fluentvalidation.11.1.0.nupkg.sha512",
+    "C:\\Users\\lcaraujo1\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\lcaraujo1\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
     "C:\\Users\\lcaraujo1\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\lcaraujo1\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\lcaraujo1\\.nuget\\packages\\microsoft.aspnetcore.mvc.abstractions\\2.2.0\\microsoft.aspnetcore.mvc.abstractions.2.2.0.nupkg.sha512",

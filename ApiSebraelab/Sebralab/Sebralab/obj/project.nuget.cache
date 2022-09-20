@@ -1,9 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "JNxkHvzfLwcwQ/gTcAsv0WWArMuhwmrvZPjti+bWqnuGzfnKl6oRj8ThJgO4aU6haEHZ+pSUhXcvEoUK8DR9dA==",
+  "dgSpecHash": "WMpXi/sUY1U7NhnKP0hPs2Wwc///X1oW/RsMEEkWIeNfKEokJdfipnqNFypHokwXamV5U6J8jnhstPtMlmuLAg==",
   "success": true,
   "projectFilePath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\Sebralab\\Sebralab.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\lcaraujo1\\.nuget\\packages\\fluentvalidation\\11.1.0\\fluentvalidation.11.1.0.nupkg.sha512",
+    "C:\\Users\\lcaraujo1\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\lcaraujo1\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
     "C:\\Users\\lcaraujo1\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\lcaraujo1\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\lcaraujo1\\.nuget\\packages\\swashbuckle.aspnetcore\\6.2.3\\swashbuckle.aspnetcore.6.2.3.nupkg.sha512",

@@ -1,12 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "qWIgHDpU/ckE+vaoYnAE3ejpr+v3GCYnIFTg4bIV6aT7CeB2Ll46//qXyj6yj02j3TJClDkr1ah6dCRzwgM9GQ==",
+  "dgSpecHash": "Jmhzyki2lrxHyeNoc/NAfyzH4JGUnY8k2J0GJ7EWlc8rw0olh5HaFlxxFUptN0geJwps6S6Rh1gA6JYao7PD1Q==",
   "success": true,
   "projectFilePath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLabAdmin\\SebraeLabAdmin.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lcaraujo1\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\lcaraujo1\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
+    "C:\\Users\\lcaraujo1\\.nuget\\packages\\fluentvalidation\\11.1.0\\fluentvalidation.11.1.0.nupkg.sha512",
     "C:\\Users\\lcaraujo1\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\lcaraujo1\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\lcaraujo1\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
     "C:\\Users\\lcaraujo1\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\lcaraujo1\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
     "C:\\Users\\lcaraujo1\\.nuget\\packages\\microsoft.aspnetcore.jsonpatch\\6.0.8\\microsoft.aspnetcore.jsonpatch.6.0.8.nupkg.sha512",

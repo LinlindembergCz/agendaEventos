@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "d+Nkdj7FM7VOO3W1kBXZDah4snUtZmxA66SHer8Kw4pSaOSxi+WsGrZIohjNNuBueYz8l3ebVZcFogFJF/l6YQ==",
+  "dgSpecHash": "0pjNq6LSY8/R3DuXrNGIyxX315PcosjyAb85Ih8XMiI22TSq2KatGwaNXFsh9cV3Vt3Tsh3J4Hwn/rMEeWEUWw==",
   "success": true,
   "projectFilePath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Evento.Data\\SebraeLab.Evento.Data.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\lcaraujo1\\.nuget\\packages\\fluentvalidation\\11.1.0\\fluentvalidation.11.1.0.nupkg.sha512",
     "C:\\Users\\lcaraujo1\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\lcaraujo1\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\lcaraujo1\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
     "C:\\Users\\lcaraujo1\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\lcaraujo1\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\lcaraujo1\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",

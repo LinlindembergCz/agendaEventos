@@ -10,8 +10,13 @@
     <div class="frameFULLAgenda p-d-flex p-ai-flex p-jc-center">
         <div class="p-d-flex p-ai-center p-jc-center">
             <div class="p-d-fluid " style="width:'900px';">
-                <app-fullcalendario-show></app-fullcalendario-show>            
-            </div>       
+                <app-fullcalendario-show
+                (clickBloqueio)="bloquear($event)"
+                ></app-fullcalendario-show>            
+                
+            </div>  
+ 
+
         </div>  
     </div>
 </div>

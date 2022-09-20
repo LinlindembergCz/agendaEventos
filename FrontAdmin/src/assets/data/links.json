@@ -1,18 +1,18 @@
 [
     { 
       "name":"noticias",
-      "link":"http://fecomercio-rs.org.br/category/noticias/"
+      "link":""
     },
     { 
       "name":"videos",
-      "link":"https://www.youtube.com/channel/UCtE03NSYiPyHGlGz2U_2CxQ"
+      "link":""
     },
     { 
       "name":"podcast",
-      "link":"https://open.spotify.com/show/6WiyzUGTWQoF4rQYut0Zjd"
+      "link":""
     },
     { 
       "name":"artigos",
-      "link":"https://fecomercio-rs.org.br/pesquisas/"
+      "link":""
     }
 ]

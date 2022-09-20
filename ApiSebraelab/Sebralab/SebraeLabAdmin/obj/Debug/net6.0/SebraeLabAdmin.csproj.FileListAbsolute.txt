@@ -1,3 +1,4 @@
+C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\appsettings.Development.json
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\appsettings.json
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\SebraeLabAdmin.exe
@@ -7,7 +8,10 @@ C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\SebraeLab
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\SebraeLabAdmin.pdb
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\AutoMapper.dll
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\FluentValidation.dll
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\Humanizer.dll
+C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\MediatR.dll
+C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\MediatR.Contracts.dll
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
@@ -36,7 +40,6 @@ C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\System.Se
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\System.Security.Permissions.dll
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\System.Windows.Extensions.dll
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll

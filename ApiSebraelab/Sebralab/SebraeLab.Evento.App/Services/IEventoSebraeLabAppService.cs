@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SebraeLab.Evento.App.ViewModels;
+using SebraeLab.Evento.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,11 @@ namespace SebraeLab.Evento.App.Services
 
         Task<bool> Add(EventoSebraeLabViewModel eventosebraelabViewModel);
         Task<bool> Update(EventoSebraeLabViewModel eventosebraelabViewModel);
+
+        //Task<bool> Bloquear(Guid id);
+
+        Task<bool> BloquearDias(DateTime[] dates );
+        Task<List<BloqueioDia>> GetAllDiasBloqueados();
 
     }
 }

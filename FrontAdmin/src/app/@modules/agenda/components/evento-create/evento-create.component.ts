@@ -7,10 +7,6 @@ import { Router } from '@angular/router';
 import { RequestPromiseService } from '../../../../@shared/services/request-promise.service';
 import { environment } from '../../../../../environments/environment';
 
-interface TipoEvento {
-  code: string,
-  name: string}
-
 @Component({
   selector: 'app-evento-create',
   templateUrl: './evento-create.component.html',
@@ -18,10 +14,13 @@ interface TipoEvento {
 })
 export class EventoCreateComponent implements OnInit, AfterViewInit {
 
-  indexComponent:number=0;
-  evento: Eventolab;
+  //indexComponent:number=0;
+  evento: Eventolab; 
 
-  tiposEnvento:TipoEvento[]=[];
+  diasBloqueados: Date[]=[new Date()];
+
+  tiposEvento:any[]=[];
+  tipoEvento:any= {name: "Palestra", code: "0"};
 
   constructor(private messageService: MessageService,
     private http :RequestPromiseService,
@@ -32,11 +31,12 @@ export class EventoCreateComponent implements OnInit, AfterViewInit {
 
     this.evento = new Eventolab();
     
-    this.tiposEnvento =   [{name: 'Palestra', code: '1'},
-                           {name: 'Workshop', code: '2'},
-                           {name: 'Curso', code: '3'},
-                           {name: 'Evento Fechado', code: '4'},
-                           {name: 'Outros', code: '5'}] 
+    this.http.get<any>("../../../assets/data", "tipoEventos.json").
+    then(x => { this.tiposEvento = x; });     
+    
+    this.loadDiasBloqueados();
+    
+
   }
 
   ngAfterViewInit()
@@ -44,15 +44,19 @@ export class EventoCreateComponent implements OnInit, AfterViewInit {
 
   }
 
+  
+  loadDiasBloqueados()
+  {
+    this.http.get<any[]>(environment.services.api,"Bloqueio").
+    then(x=>{
+      this.diasBloqueados = []
+      x.forEach(d=> {this.diasBloqueados.push(new Date(d.data))})
+      });
+  }
+
   adicionarDia()
   {
-    this.evento.dias.push({
-      data: null,
-      horainicio: '00:00',
-      horafim: '00:00',
-      option:''});
-
-    this.indexComponent++;   
+    this.evento.dias.push({data: null, horainicio: '00:00', horafim: '00:00',  option:''});
   }
 
   removerDia()
@@ -60,16 +64,14 @@ export class EventoCreateComponent implements OnInit, AfterViewInit {
     this.evento.dias.pop();   
   }
 
-  salvar()
+  salvarEvento()
   {       
      this.evento.dias.forEach( d=> d.option = JSON.stringify(d.option) );
-
-     let tipos = this.evento.tipoevento;
-     this.evento.tipoevento = JSON.stringify(tipos);
+     this.evento.tipoevento = this.tipoEvento.name;    
 
      this.http.post<Eventolab>(environment.services.api,'EventoSebraeLab', this.evento).finally
      ( 
-      ()=>{ this.router.navigate(['/agenda']); })
+      ()=>{ this.router.navigate(['/agenda']); })     
 
   }
 

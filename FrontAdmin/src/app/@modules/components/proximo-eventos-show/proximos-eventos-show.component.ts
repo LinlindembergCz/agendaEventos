@@ -51,8 +51,8 @@ export class ProximosEventosShowComponent implements OnInit {
 
                   let startEvent: any = e.dias[0];//primeiro evento
                   let endEvent: any = e.dias[e.dias.length - 1];//ultimo evnto               
-                  let startDay : string = startEvent.data;//data inicial
-                  let endDay: string = endEvent.data;//data final   
+                  let startDay : string = startEvent?.data;//data inicial
+                  let endDay: string = endEvent?.data;//data final   
                   
                   let days: string="";
                   e.dias.forEach(d => days += String(d.data).substring(8,10)+'/' );
@@ -60,10 +60,10 @@ export class ProximosEventosShowComponent implements OnInit {
                   this.itens.push({ id:e.id,
                                     name: e.titulo,
                                     summary:e.descricaoevento, 
-                                    hourStart: startEvent.horainicio ,
-                                    hourEnd: endEvent.horafim, 
-                                    dateStart:  startDay.substring(8,10), //primeiro dia
-                                    dateEnd: endDay.substring(8,10), //ultimo dia
+                                    hourStart: startEvent?.horainicio ,
+                                    hourEnd: endEvent?.horafim, 
+                                    dateStart:  startDay?.substring(8,10), //primeiro dia
+                                    dateEnd: endDay?.substring(8,10), //ultimo dia
                                     days: e.dias.length,
                                     tip: days
                                   });

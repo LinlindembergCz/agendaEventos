@@ -20,8 +20,8 @@ namespace SebraeLab.Evento.App.ViewModels
         public string Contato { get;  set; }
         public bool Imagempersonalida { get;  set; }
         public bool Publicaosite { get;  set; }
-
         public List<DiaEventoSebraeLab>? Dias { get; set; }
+        public string? Status { get; set; }
 
 
         public EventoSebraeLabViewModel() {

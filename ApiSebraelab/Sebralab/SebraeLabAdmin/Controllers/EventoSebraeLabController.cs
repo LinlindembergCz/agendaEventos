@@ -75,5 +75,21 @@ namespace SebraeLabAdmin.Controllers
         public void Delete(Guid id)
         {
         }
+
+        // PATCH api/<EventoSebraeLabController>/5
+      /*  [HttpPatch("Bloquear/{id}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> Bloquear(Guid id)
+        {
+            try
+            {
+                await _serviceEventoSebraeLab.Bloquear(id);
+                return Ok(new { msg = "evento alterado com sucesso!" });
+            }
+            catch (Exception e)
+            {
+                return new ObjectResult("Falhou! Mensagem: " + e.Message);
+            }
+        }*/
     }
 }

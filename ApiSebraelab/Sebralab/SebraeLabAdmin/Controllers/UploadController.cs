@@ -22,11 +22,10 @@ namespace SebraeLabAdmin.Controllers
         [HttpPost]
         [Route("api/upload/image")]
         [AllowAnonymous]
-        public virtual async Task<IActionResult> UploadImage()//([FromForm] IFormFile? image_file)
+        public virtual async Task<IActionResult> UploadImage()
         {
 
             IFormFile image_file  = Request.Form.Files[0];
-
 
             if (image_file.Length > 0)
             {

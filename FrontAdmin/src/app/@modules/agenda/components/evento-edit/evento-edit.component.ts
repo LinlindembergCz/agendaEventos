@@ -11,10 +11,6 @@ import { HttpEventType, HttpHeaderResponse, HttpResponse } from '@angular/common
 import { FileService } from 'src/app/@modules/user/services/file.service';
 
 
-interface TipoEvento {
-  code: string,
-  name: string}
-
 @Component({
   selector: 'app-evento-edit',
   templateUrl: './evento-edit.component.html',
@@ -29,7 +25,8 @@ export class EventoEditComponent implements OnInit, AfterViewInit {
   private fileUrl: string = "";
   public progress: number;
 
-  tiposEnvento:TipoEvento[]=[];
+  tiposEvento:any[]=[];
+  tipoEvento:any={};
 
   constructor(private messageService: MessageService,
     private http :RequestPromiseService,
@@ -49,17 +46,21 @@ export class EventoEditComponent implements OnInit, AfterViewInit {
       this.http.get<Eventolab>(environment.services.api,
         `EventoSebraeLab/${params['id']}`).
         then( e=> {
-          console.log(e);
+                
+          //Ajuste para o componete Calendar reconhecer o tipo
+          e.dias.forEach( d=>{ d.data = new Date(String(d.data));})
+
           this.evento = e;
-        });
+
+          this.http.get<any>("../../../assets/data", "tipoEventos.json").
+           then(x => { this.tiposEvento = x;        
+            this.tipoEvento = this.tiposEvento.find(x=>x.name== e.tipoevento) 
+          });     
+       });
       });
 
     
-    this.tiposEnvento =   [{name: 'Palestra', code: '1'},
-                           {name: 'Workshop', code: '2'},
-                           {name: 'Curso', code: '3'},
-                           {name: 'Evento Fechado', code: '4'},
-                           {name: 'Outros', code: '5'}] 
+      
   }
 
   ngAfterViewInit()
@@ -69,13 +70,7 @@ export class EventoEditComponent implements OnInit, AfterViewInit {
 
   adicionarDia()
   {
-    this.evento.dias.push({
-      data: null,
-      horainicio: '00:00',
-      horafim: '00:00',
-      option:''});
-
-    this.indexComponent++;   
+    this.evento.dias.push({ data: null, horainicio: '00:00', horafim: '00:00', option:''}); 
   }
 
   removerDia()
@@ -85,14 +80,13 @@ export class EventoEditComponent implements OnInit, AfterViewInit {
 
   salvar(id: string)
   {       
-     this.evento.dias.forEach( d=> d.option = JSON.stringify(d.option) );
 
-     let tipos = this.evento.tipoevento;
-     this.evento.tipoevento = JSON.stringify(tipos);
+    this.evento.dias.forEach( d=> d.option = JSON.stringify(d.option ));
+    this.evento.tipoevento = this.tipoEvento.name;    
 
-     this.http.put<Eventolab>(environment.services.api,`EventoSebraeLab?id${id}`, this.evento).finally
-     ( 
-      ()=>{ this.router.navigate(['/agenda']); })
+    this.http.put<Eventolab>(environment.services.api,`EventoSebraeLab/${id}`, this.evento).finally
+    ( 
+     ()=>{ this.router.navigate(['/agenda']); }) 
 
   }
 

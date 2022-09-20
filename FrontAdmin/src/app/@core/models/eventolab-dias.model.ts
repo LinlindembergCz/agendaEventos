@@ -3,6 +3,6 @@ export class EventolabDias {
     data: Date; 
     horainicio: string;
     horafim: string;
-    option:string;
+    option: string;
 
   }
