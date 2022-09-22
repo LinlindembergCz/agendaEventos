@@ -1,6 +1,197 @@
+.frameProximoEvento{/* Frame 5902 */
+
+    /* Auto layout */
+   // display: flex;
+    //flex-direction: column;
+    //align-items: flex-start;
+    padding: 32px 24px;
+    gap: 24px;
+    
+    position: absolute;
+    width: 30%;
+    height: 100%;
+    left: 15px;
+    top: 100px;
+    
+    /* Tailwind/white */
+    background: #FFFFFF;
+    
+    /* Sombra */
+    box-shadow: 0px 1px 2px -1px rgba(16, 24, 40, 0.15), 0px 1px 3px rgba(16, 24, 40, 0.1);
+    border-radius: 10px;
+}
 
 
 
+.frameListaEventos{
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 0px;
+gap: 16px;
+
+width: 368px;
+height: 550px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+}
 
 
 
+.FramebuttonVerAgenda{
+    display: flex;
+flex-direction: column;
+align-items: center;
+
+
+width: 368px;
+height: 50px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 1;
+}
+
+.buttonVerAgenda{
+    //border: 1px solid;
+    width: 368px;
+    box-sizing: border-box;  
+    align-items: center;
+    height: 36px;
+    background: #FFF028; 
+    color:black; 
+    border: 0px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  .buttonVerAgenda{
+    //border: 1px solid;
+    width: 368px;
+    box-sizing: border-box;  
+    align-items: center;
+    height: 36px;
+    background: #FFF028; 
+    color:black; 
+    border: 0px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  .buttonVerConteudo{
+    //border: 1px solid;
+    width: 168px;
+    box-sizing: border-box;  
+    align-items: center;
+    height: 36px;
+    background: #FFF028; 
+    color:black; 
+    border: 0px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+
+.framePublicacoes{
+    //border: 1px solid;
+    /* Frame 5779 */
+    /* Auto layout */
+    display: flex;
+    //flex-direction: column;
+    //align-items: flex-start;
+   // padding: 32px 24px;
+   // gap: 24px;
+    position: absolute;
+    width: 65%;
+    height: 100%;
+    left: 450px;
+    top: 100px;
+    /* Tailwind/white */
+    background: #FFFFFF;
+    /* Sombra */
+    box-shadow: 0px 1px 2px -1px rgba(16, 24, 40, 0.15), 0px 1px 3px rgba(16, 24, 40, 0.1);
+    border-radius: 10px;
+}
+
+.frameUltimasPublicacoes{
+    //border: 1px solid;
+  /* Frame 5958 */
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 0px;
+left: 450px;
+gap: 24px;
+  width: 65%;
+height: 57px;
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+}
+
+.titleUltimasPublicacoes{
+    /* Últimas publicações */
+    //border: 1px solid;
+width: 750px;
+height: 42px;
+
+/* Heading/H3 */
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 600;
+font-size: 32px;
+line-height: 42px;
+
+/* identical to box height, or 131% */
+text-align: center;
+
+/* Cores da Marca/Tipografia/Preto */
+color: #263746;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+
+.frameConteudoPublicacoes{
+   // border: 1px solid;
+/* Conteúdo */
+
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 0px;
+gap: 24px;
+
+width: 816px;
+height: 552px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 1;
+
+}

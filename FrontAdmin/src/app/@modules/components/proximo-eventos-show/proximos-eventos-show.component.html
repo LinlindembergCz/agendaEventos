@@ -13,7 +13,7 @@
 
 <label> ">" dias Consecutivos , ... dias Alternados</label>
 
-<p-dataView [value]="eventslab" [paginator]="true" [rows]="5">
+<p-dataView [value]="eventslab" [paginator]="true" [rows]="4">
     <ng-template let-eventlab pTemplate="listItem">                                       
         <div class="frameEventlabitemDetails " style="cursor: pointer;" 
         (click)="showAlterarEvento(eventlab.id)"

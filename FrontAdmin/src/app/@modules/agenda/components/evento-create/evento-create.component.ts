@@ -66,6 +66,7 @@ export class EventoCreateComponent implements OnInit, AfterViewInit {
 
   salvarEvento()
   {       
+     //Convert o array em string
      this.evento.dias.forEach( d=> d.option = JSON.stringify(d.option) );
      this.evento.tipoevento = this.tipoEvento.name;    
 

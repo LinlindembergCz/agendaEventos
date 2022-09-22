@@ -3,6 +3,7 @@ import { Routes, RouterModule, ExtraOptions, PreloadAllModules } from '@angular/
 import { BlankComponent } from './@layout/blank/blank.component';
 import { LayoutComponent } from './@layout/layout.component';
 import { AgendaComponent } from './@modules/agenda/agenda.component';
+import { ConteudoComponent } from './@modules/conteudo/conteudo.component';
 import { LoginComponent } from './@modules/user/pages/login/login.component';
 
 
@@ -21,6 +22,11 @@ const routes: Routes = [
     path: 'agenda',
     component: AgendaComponent,
     loadChildren: () => import('./@modules/agenda/agenda.module').then(m => m.AgendaModule)
+  }, 
+  {
+    path: 'conteudo',
+    component: ConteudoComponent,
+    loadChildren: () => import('./@modules/conteudo/conteudo.module').then(m => m.ConteudoModule)
   }, 
  {
     path: 'login',

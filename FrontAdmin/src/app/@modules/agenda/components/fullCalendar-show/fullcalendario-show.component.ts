@@ -86,7 +86,7 @@ export class FullCalendarioShowComponent implements OnInit {
           }).finally(
             ()=>{
              this.options = { height: '550px',
-                              headerToolbar: {left: 'prev,next,today',center: 'title',right: ''},
+                              headerToolbar: {left: 'prev',center: 'title',right: 'next'},
                               editable: false,
                               selectable:true,
                               selectMirror: true,

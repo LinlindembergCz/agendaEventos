@@ -18,11 +18,8 @@ namespace SebraeLab.Evento.Domain
         public DateTime? Data { get; private set; }
         public string? Horainicio { get; private set; }
         public string? Horafim { get; private set; }
-
         public string? Option { get; private set; }
-
         public string? Status { get; private set; }
-
         [JsonIgnore]
         public EventoSebraeLab? Evento { get; set; }
 

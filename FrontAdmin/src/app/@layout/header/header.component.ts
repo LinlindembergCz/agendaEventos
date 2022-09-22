@@ -82,6 +82,11 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['index']);
   }
 
+  
+  showConteudo() {
+    this.router.navigate(['conteudo']);
+  }
+
   showAgenda() {
     this.router.navigate(['agenda']);
   }

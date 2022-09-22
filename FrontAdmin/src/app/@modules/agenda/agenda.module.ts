@@ -6,7 +6,7 @@ import { FooterModule } from '../../@layout/footer/footer.module';
 import { HeaderModule } from '../../@layout/header/header.module';
 
 import { AgendaComponent } from './agenda.component';
-import { NgPrimeExportsModule } from 'src/app/@bootstrap/scripts/ngprime.exports';
+import { NgPrimeExportsModule } from '../../@bootstrap/scripts/ngprime.exports';
 import { BannersShowModule } from '../components/banners-show/banners-show.module';
 import { ProximosEventosShowModule } from '../components/proximo-eventos-show/proximos-eventos-show.module';
 import { FullCalendarioShowModule } from './components/fullCalendar-show/fullcalendario-show.module';

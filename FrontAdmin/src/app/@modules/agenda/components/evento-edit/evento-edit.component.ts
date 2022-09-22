@@ -45,10 +45,13 @@ export class EventoEditComponent implements OnInit, AfterViewInit {
 
       this.http.get<Eventolab>(environment.services.api,
         `EventoSebraeLab/${params['id']}`).
-        then( e=> {
-                
-          //Ajuste para o componete Calendar reconhecer o tipo
-          e.dias.forEach( d=>{ d.data = new Date(String(d.data));})
+        then( e=> {          
+          e.dias.forEach( d=>{ 
+            //Ajuste para o componete Calendar reconhecer o tipo
+            d.data = new Date(String(d.data));
+            //Convert o string em Array
+            d.option = JSON.parse(d.option);
+          })
 
           this.evento = e;
 
@@ -80,13 +83,12 @@ export class EventoEditComponent implements OnInit, AfterViewInit {
 
   salvar(id: string)
   {       
-
+    //Convert o array em string
     this.evento.dias.forEach( d=> d.option = JSON.stringify(d.option ));
     this.evento.tipoevento = this.tipoEvento.name;    
 
-    this.http.put<Eventolab>(environment.services.api,`EventoSebraeLab/${id}`, this.evento).finally
-    ( 
-     ()=>{ this.router.navigate(['/agenda']); }) 
+    this.http.put<Eventolab>(environment.services.api,`EventoSebraeLab/${id}`, 
+    this.evento).finally ( ()=>{ this.router.navigate(['/agenda']); }) 
 
   }
 
