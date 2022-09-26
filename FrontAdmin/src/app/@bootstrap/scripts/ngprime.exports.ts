@@ -41,7 +41,6 @@ import {ConfirmPopupModule} from 'primeng/confirmpopup';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {FileUploadModule} from 'primeng/fileupload';
 import {PanelMenuModule} from 'primeng/panelmenu';
-import {EditorModule} from 'primeng/editor';
 import {ChipsModule} from 'primeng/chips';
 import {SelectButtonModule} from 'primeng/selectbutton';
 import { TagModule } from 'primeng/tag';
@@ -49,6 +48,7 @@ import {PaginatorModule} from 'primeng/paginator';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {SplitButtonModule} from 'primeng/splitbutton';
 import {DataViewModule} from 'primeng/dataview';
+
 
 @NgModule({
     exports: [
@@ -94,12 +94,12 @@ import {DataViewModule} from 'primeng/dataview';
         InputSwitchModule,
         FileUploadModule,
         PanelMenuModule,
-        EditorModule,
         TagModule, 
         ChipsModule,
         PaginatorModule,
         SelectButtonModule,
         RadioButtonModule
+
     ],
     providers: [
         MessageService,

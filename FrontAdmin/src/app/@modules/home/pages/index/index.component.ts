@@ -38,4 +38,8 @@ export class IndexComponent implements OnInit {
     this.router.navigate(['agenda']);
   }
 
+  showConteudo() {
+    this.router.navigate(['conteudo']);
+  }
+
 }

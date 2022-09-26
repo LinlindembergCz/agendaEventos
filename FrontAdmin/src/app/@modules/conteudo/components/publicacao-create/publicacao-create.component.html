@@ -1,0 +1,94 @@
+<app-header></app-header> 
+
+<div class="frameMain">
+
+    <div class="frameSobreEvento">
+        <div class="frameEventoDetails p-grid p-fluid">    
+            
+            <div class="p-col-6">
+                <span class="p-float-label">
+                    <p-dropdown optionLabel="name"  [options]="tiposPublicacao" 
+                    [(ngModel)]="tipoPublicacao" 
+                    [style]="{'width':'100%'}"></p-dropdown>
+                    <label for="float-input">Tipo de publicacao</label>
+                </span> 
+            </div> 
+
+            <div class="frameTituloEvento p-col-12">
+                <div class="p-col-12">
+                    <span class="p-float-label">
+                        <input id="float-input" type="text" pInputText  [(ngModel)]="conteudo.titulo"> 
+                        <label for="float-input">Título</label>
+                    </span>
+                </div>    
+            </div>
+
+            <div class="frameTituloEvento p-col-12">
+                <div class="p-col-12">
+                    <span class="p-float-label">
+                        <input id="float-input" type="text" pInputText [(ngModel)]="conteudo.subtitulo"> 
+                        <label for="float-input">Sub Título</label>
+                    </span>
+                </div>    
+            </div>
+
+            <div class="frameImagemCapa p-col-12">
+                <div class="frameTituloTopico">
+                     Imagem de capa
+                 </div>        
+                 <div class="frameTituloTopico" style="text-align:center;">
+                     <div style="font-size: 20px;"><label>Imagem de Capa</label></div>
+                     <div style="font-size: 16px;"><label>Tamanho 600px de largura e 315px de altura</label></div>
+                 <img src="../../../../../assets/imgs/ExemploImagemCapa.png" style="width:'900px';height:'237px'"/>
+                
+                 </div>
+         
+             </div>
+
+             <div class="frameTituloEvento p-col-12">
+                <div class="p-col-12">
+                    <span class="p-float-label">
+                        <input id="float-input" type="text" pInputText [(ngModel)]="conteudo.legenda"> 
+                        <label for="float-input">Legenda(opcional)</label>
+                    </span>
+                </div>    
+            </div>
+
+            <div class="frameEventoDescricao p-col-12">                
+               <span class="p-float-label">
+                   <textarea pInputTextarea [rows]="10" [cols]="141" pInputTextarea autoResize="autoResize" [(ngModel)]="conteudo.descricao" ></textarea>
+                   <label for="float-input">Escreva aqui o corpo do texto da sua publicação</label>
+               </span> 
+              <!-- <app-code lang="markup" ngNonBindable ngPreserveWhitespaces>
+               <p-editor [(ngModel)]="text2" [style]="'height':'320px'">
+                    <ng-template pTemplate="header">
+                        <span class="ql-format-group">
+                            <span title="Bold" class="ql-format-button ql-bold"></span>
+                            <span class="ql-format-separator"></span>
+                            <span title="Italic" class="ql-format-button ql-italic"></span>
+                            <span class="ql-format-separator"></span>
+                            <span title="Underline" class="ql-format-button ql-underline"></span>
+                            <span class="ql-format-separator"></span>
+                            <span title="Strikethrough" class="ql-format-button ql-strike"></span>
+                        </span>
+                    </ng-template>
+                </p-editor>
+                </app-code>-->
+           </div>      
+           <div class="p-col-12">
+            <p-inputSwitch [(ngModel)]="conteudo.personalizadodesativado"></p-inputSwitch> Botão personalizado desativado.  
+           </div>       
+        </div>              
+ 
+       <div class="p-col-12" style="text-align: right;">
+           <button pButton class="p-button-lg p-button-raised p-button-outlined p-mr-10">Salvar como rascunho</button>&nbsp;&nbsp;
+           <button pButton class="p-button-lg p-button-raised p-button-warning p-mr-10" (click)="salvarEvento()">Visualizar e publicar</button>
+       </div>
+
+    </div>
+    
+
+</div>
+
+<p-toast position="top-right"></p-toast>
+

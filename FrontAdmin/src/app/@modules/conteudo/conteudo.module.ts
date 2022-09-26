@@ -8,14 +8,16 @@ import { HeaderModule } from '../../@layout/header/header.module';
 import { NgPrimeExportsModule } from '../../@bootstrap/scripts/ngprime.exports';
 import { ConteudoComponent } from './conteudo.component';
 import { BannersShowModule } from '../components/banners-show/banners-show.module';
-
+import { ConteudoRountingModule } from './conteudo-routing.module';
+import { PublicacaoCreateComponent } from './components/publicacao-create/puclicacao-create.component';
+import { PublicacaoEditComponent } from './components/publicacao-edit/publicacao-edit.component';
+import { PublicacaoListComponent } from './components/publicacao-list/publicacao-list.component';
 
 @NgModule({
-  declarations: [ConteudoComponent
-    ],
-    exports: [ConteudoComponent],
+  declarations: [ConteudoComponent, PublicacaoCreateComponent, PublicacaoEditComponent ],
+    exports: [PublicacaoCreateComponent, PublicacaoEditComponent],
   imports: [
-
+    ConteudoRountingModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
@@ -23,6 +25,7 @@ import { BannersShowModule } from '../components/banners-show/banners-show.modul
     HeaderModule,
     NgPrimeExportsModule,
     BannersShowModule,
+   
 
   ],
   providers: []

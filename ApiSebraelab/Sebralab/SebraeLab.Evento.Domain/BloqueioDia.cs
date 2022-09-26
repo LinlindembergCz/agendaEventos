@@ -11,6 +11,8 @@ namespace SebraeLab.Evento.Domain
     {
         public DateTime Data { get; private set; }
 
+        public DateTime DataCadastro { get; private set; }
+
         public BloqueioDia()
         {
             

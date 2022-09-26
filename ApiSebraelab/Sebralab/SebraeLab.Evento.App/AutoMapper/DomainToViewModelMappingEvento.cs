@@ -7,9 +7,9 @@ using SebraeLab.Evento.Domain;
 
 namespace SebraeLab.Evento.App.AutoMapper
 {
-    public class DomainToViewModelMappingProfile : Profile
+    public class DomainToViewModelMappingEvento : Profile
     {
-        public DomainToViewModelMappingProfile()
+        public DomainToViewModelMappingEvento()
         {
             CreateMap<EventoSebraeLab, EventoSebraeLabViewModel>();
         

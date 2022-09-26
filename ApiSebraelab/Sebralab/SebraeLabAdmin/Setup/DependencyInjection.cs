@@ -4,7 +4,9 @@ using Microsoft.Extensions.DependencyInjection;
 using SebraeLab.Evento.Data.Repository;
 using SebraeLab.Evento.App.Services;
 using SebraeLab.Evento.Data;
-
+using SebraeLab.Conteudo.Data.Repository;
+using SebraeLab.Conteudo.App.Services;
+using SebraeLab.Conteudo.Data;
 
 namespace SebraeLab.WebApp.Setup
 {
@@ -14,7 +16,15 @@ namespace SebraeLab.WebApp.Setup
         {
             services.AddScoped<IEventoSebraeLabRepository, EventoSebraeLabRepository>();
             services.AddScoped<IEventoSebraeLabAppService, EventoSebraeLabAppService>();
+
+            services.AddScoped<IConteudoSebraeLabRepository, ConteudoSebraeLabRepository>();
+            services.AddScoped<IConteudoSebraeLabAppService, ConteudoSebraeLabAppService>();
+
             services.AddScoped<EventoSebraeLabContext>();
+
+            services.AddScoped<ConteudoSebraeLabContext>();
+
+            services.AddScoped<ApplicationDbContext>();
         }
     }
 }

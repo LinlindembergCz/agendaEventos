@@ -4,21 +4,21 @@ import { IndexComponent } from './pages/index/index.component';
 import { HomeRountingModule } from './home-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgPrimeExportsModule } from 'src/app/@bootstrap/scripts/ngprime.exports';
-import { CalendarioEditModule } from '../components/calendario-edit/calendario-edit.module'; 
 import { BannersShowModule } from '../components/banners-show/banners-show.module'; 
 import { FooterModule } from '../../@layout/footer/footer.module';
 import { HeaderModule } from '../../@layout/header/header.module';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { CommonExportsModule } from 'src/app/@bootstrap/scripts/common.exports';
-import { ProximosEventosShowModule } from '../components/proximo-eventos-show/proximos-eventos-show.module';
+import { EventoListModule } from '../agenda/components/evento-list/evento-list.module';
+import { PublicacaoListModule } from '../../@modules/conteudo/components/publicacao-list/publicacao-list.module';
 
 
 @NgModule({
   declarations: [IndexComponent ],
   imports: [
-    ProximosEventosShowModule,
+    EventoListModule,
+    PublicacaoListModule,
     BannersShowModule,
-    CalendarioEditModule,
     CommonModule,
     CommonExportsModule,
     FormsModule,

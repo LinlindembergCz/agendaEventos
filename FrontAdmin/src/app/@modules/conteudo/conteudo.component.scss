@@ -2,7 +2,6 @@
     /* Gerenciar conteúdos */
 /* Auto layout */
 //display: flex;
-border: 1px solid;
 flex-direction: column;
 justify-content: center;
 align-items: center;
@@ -13,12 +12,12 @@ position: absolute;
 width: 100%;
 height: 1172px;
 left: 0px;
-top: 185px;
+top: 140px;
 }
 
 .frameGerenciadorConteudo{
     /* Top */
-    border: 1px solid;
+
 /* Auto layout */
 //display: flex;
 flex-direction: row;
@@ -41,7 +40,7 @@ flex-grow: 0;
 }
 
 .frameTitleGerenciadorConteudo{/* Gerenciar conteúdos */
-    border: 1px solid;
+
     width: 255px;
     height: 34px;
     
@@ -66,24 +65,187 @@ flex-grow: 0;
 }
 
 .frameConteudo{/* Body */
-    border: 1px solid;
+   
     /* Auto layout */
     //display: flex;
     flex-direction: column;
     align-items: center;
     padding: 24px 32px;
     gap: 40px;
-    
-    width: 100%;
-    height: 912px;
+
     
     /* Tailwind/white */
     background: #FFFFFF;
     border-radius: 10px;
     
-    /* Inside auto layout */
-    flex: none;
-
-    flex-grow: 0;
 }
 
+.frameNovoConteudo{/* Btn */
+    background: #FFF028; 
+    color:black; 
+    border: 0px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;    
+}
+
+.frameNovoContinuar{/* Btn */
+    background: #ED4D9A;; 
+    color:White;  
+    border: 0px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;    
+}
+
+
+.frameConteudoPublicacoes{
+    // border: 1px solid;
+ /* Conteúdo */
+ 
+ /* Auto layout */
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+ padding: 0px;
+ gap: 24px; 
+ width: 100%;
+ height: 552px;
+  /* Inside auto layout */ 
+ }
+
+
+ .framePublicacao{/* Auto layout */
+    //display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 20px;
+    gap: 8px;
+    
+    width: 760px;
+}
+
+.frameImagem{
+    /* Rectangle 11 */
+
+width: 225px;
+
+
+border-radius: 4px 4px 0px 0px;
+
+/* Inside auto layout */
+flex: none;
+align-self: stretch;
+flex-grow: 0;
+}
+
+.frameDescricaoPuclicacao{/* Frame 5607 */
+
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px 20px;
+    gap: 8px;
+    
+    width: 100%;
+    height: 110px;
+    
+    
+ 
+}
+
+.frameDescricao{
+    /* Prêmio IEL de Estágio destaca melhores práticas na Bahia */
+
+width: 100%;
+height: 56px;
+
+/* Heading/H6 */
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+
+line-height: 28px;
+
+/* or 156% */
+
+/* Cores da Marca/Tipografia/Preto */
+color: #263746;
+
+
+
+}
+
+.frameButtonsFiltro {
+    /* Frame 5895 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: space-between;
+align-items: center;
+padding: 0px;
+gap: 86px;
+
+width: 100%;
+height: 48px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+align-self: stretch;
+flex-grow: 0;
+
+}
+
+.frameButtons{
+    /* Filtro */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 16px;
+
+width: 472px;
+height: 48px;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+
+.pbutton {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    height: 48px;
+    background-color: #ED4D9A; 
+    color: #F8FAFC;
+  }
+
+.framePesquisar{
+    /* Busca */
+
+/* Auto layout */
+//display: flex;
+//flex-direction: row;
+//justify-content: space-between;
+//align-items: center;
+padding: 8px 16px;
+//gap: 2px;
+
+width: 305px;
+height: 48px;
+
+/* Tailwind/slate/100 */
+background: #F1F5F9;
+border-radius: 88px;
+
+/* Inside auto layout */
+
+}

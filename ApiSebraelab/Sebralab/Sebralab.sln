@@ -15,13 +15,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EventosLab", "EventosLab", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Conteudo", "Conteudo", "{7A8CF7DF-7D48-482A-BDC6-B95B57F4EA5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SebraeLabAdmin", "SebraeLabAdmin\SebraeLabAdmin.csproj", "{A34529BD-03CB-4353-B0C2-1F288DCFBC66}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SebraeLabAdmin", "SebraeLabAdmin\SebraeLabAdmin.csproj", "{A34529BD-03CB-4353-B0C2-1F288DCFBC66}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SebraeLab.Evento.App", "SebraeLab.Evento.App\SebraeLab.Evento.App.csproj", "{8B7CB0B5-7B34-4979-94F2-ACF6F5EC2B62}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SebraeLab.Evento.App", "SebraeLab.Evento.App\SebraeLab.Evento.App.csproj", "{8B7CB0B5-7B34-4979-94F2-ACF6F5EC2B62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SebraeLab.Evento.Data", "SebraeLab.Evento.Data\SebraeLab.Evento.Data.csproj", "{D4E8EC3A-B2D6-45FD-98CF-2A6C5F133663}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SebraeLab.Evento.Data", "SebraeLab.Evento.Data\SebraeLab.Evento.Data.csproj", "{D4E8EC3A-B2D6-45FD-98CF-2A6C5F133663}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SebraeLab.Evento.Domain", "SebraeLab.Evento.Domain\SebraeLab.Evento.Domain.csproj", "{3822FB87-0C1E-4A81-AB23-EBC813A918E5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SebraeLab.Evento.Domain", "SebraeLab.Evento.Domain\SebraeLab.Evento.Domain.csproj", "{3822FB87-0C1E-4A81-AB23-EBC813A918E5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SebraeLab.Conteudo.App", "..\..\ApiAdmin\SebraeLab\SebraeLab.Conteudo.App\SebraeLab.Conteudo.App.csproj", "{C50C67D7-369C-4E2D-8C09-926E1B2385E6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SebraeLab.Conteudo.Data", "..\..\ApiAdmin\SebraeLab\SebraeLab.Conteudo.Data\SebraeLab.Conteudo.Data.csproj", "{B60683B8-E6FE-4727-9844-66E259CD2F46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SebraeLab.Conteudo.Domain", "SebraeLab.Conteudo.Domain\SebraeLab.Conteudo.Domain.csproj", "{2A10F2ED-C995-4640-8C12-0E7E53ACA1D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -53,6 +59,18 @@ Global
 		{3822FB87-0C1E-4A81-AB23-EBC813A918E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3822FB87-0C1E-4A81-AB23-EBC813A918E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3822FB87-0C1E-4A81-AB23-EBC813A918E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C50C67D7-369C-4E2D-8C09-926E1B2385E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C50C67D7-369C-4E2D-8C09-926E1B2385E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C50C67D7-369C-4E2D-8C09-926E1B2385E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C50C67D7-369C-4E2D-8C09-926E1B2385E6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B60683B8-E6FE-4727-9844-66E259CD2F46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B60683B8-E6FE-4727-9844-66E259CD2F46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B60683B8-E6FE-4727-9844-66E259CD2F46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B60683B8-E6FE-4727-9844-66E259CD2F46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A10F2ED-C995-4640-8C12-0E7E53ACA1D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A10F2ED-C995-4640-8C12-0E7E53ACA1D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A10F2ED-C995-4640-8C12-0E7E53ACA1D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A10F2ED-C995-4640-8C12-0E7E53ACA1D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +83,9 @@ Global
 		{8B7CB0B5-7B34-4979-94F2-ACF6F5EC2B62} = {60E66F16-D74A-4DAD-A8EC-E8BB5D4A9BE0}
 		{D4E8EC3A-B2D6-45FD-98CF-2A6C5F133663} = {60E66F16-D74A-4DAD-A8EC-E8BB5D4A9BE0}
 		{3822FB87-0C1E-4A81-AB23-EBC813A918E5} = {60E66F16-D74A-4DAD-A8EC-E8BB5D4A9BE0}
+		{C50C67D7-369C-4E2D-8C09-926E1B2385E6} = {7A8CF7DF-7D48-482A-BDC6-B95B57F4EA5A}
+		{B60683B8-E6FE-4727-9844-66E259CD2F46} = {7A8CF7DF-7D48-482A-BDC6-B95B57F4EA5A}
+		{2A10F2ED-C995-4640-8C12-0E7E53ACA1D9} = {7A8CF7DF-7D48-482A-BDC6-B95B57F4EA5A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7ACED538-9EBD-43F2-A845-DAAD45F1D51D}

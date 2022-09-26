@@ -13,6 +13,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 
+
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
   interactionPlugin
@@ -31,8 +32,12 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     HeaderModule,
     ReactiveFormsModule,
     FormsModule,
+
         
   ],
   providers: []
 })
-export class EventoCreateModule { }
+export class EventoCreateModule { 
+
+
+}

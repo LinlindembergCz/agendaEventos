@@ -1076,6 +1076,53 @@
           }
         }
       },
+      "SebraeLab.Conteudo.App/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Abstractions": "2.2.0",
+          "SebraeLab.Conteudo.Data": "1.0.0",
+          "SebraeLab.Conteudo.Domain": "1.0.0",
+          "SebraeLab.Core": "1.0.0",
+          "automapper": "11.0.1"
+        },
+        "compile": {
+          "bin/placeholder/SebraeLab.Conteudo.App.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SebraeLab.Conteudo.App.dll": {}
+        }
+      },
+      "SebraeLab.Conteudo.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.8",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.8",
+          "Microsoft.EntityFrameworkCore.sqlserver": "6.0.8",
+          "SebraeLab.Conteudo.Domain": "1.0.0",
+          "SebraeLab.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SebraeLab.Conteudo.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SebraeLab.Conteudo.Data.dll": {}
+        }
+      },
+      "SebraeLab.Conteudo.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "SebraeLab.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SebraeLab.Conteudo.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SebraeLab.Conteudo.Domain.dll": {}
+        }
+      },
       "SebraeLab.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -2723,6 +2770,21 @@
         "version.txt"
       ]
     },
+    "SebraeLab.Conteudo.App/1.0.0": {
+      "type": "project",
+      "path": "../../../ApiAdmin/SebraeLab/SebraeLab.Conteudo.App/SebraeLab.Conteudo.App.csproj",
+      "msbuildProject": "../../../ApiAdmin/SebraeLab/SebraeLab.Conteudo.App/SebraeLab.Conteudo.App.csproj"
+    },
+    "SebraeLab.Conteudo.Data/1.0.0": {
+      "type": "project",
+      "path": "../../../ApiAdmin/SebraeLab/SebraeLab.Conteudo.Data/SebraeLab.Conteudo.Data.csproj",
+      "msbuildProject": "../../../ApiAdmin/SebraeLab/SebraeLab.Conteudo.Data/SebraeLab.Conteudo.Data.csproj"
+    },
+    "SebraeLab.Conteudo.Domain/1.0.0": {
+      "type": "project",
+      "path": "../SebraeLab.Conteudo.Domain/SebraeLab.Conteudo.Domain.csproj",
+      "msbuildProject": "../SebraeLab.Conteudo.Domain/SebraeLab.Conteudo.Domain.csproj"
+    },
     "SebraeLab.Core/1.0.0": {
       "type": "project",
       "path": "../SebraeLab.core/SebraeLab.Core.csproj",
@@ -2749,6 +2811,10 @@
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 11.0.0",
       "Microsoft.AspNetCore.JsonPatch >= 6.0.8",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.8",
+      "SebraeLab.Conteudo.App >= 1.0.0",
+      "SebraeLab.Conteudo.Data >= 1.0.0",
+      "SebraeLab.Conteudo.Domain >= 1.0.0",
+      "SebraeLab.Core >= 1.0.0",
       "SebraeLab.Evento.App >= 1.0.0",
       "SebraeLab.Evento.Data >= 1.0.0",
       "SebraeLab.Evento.Domain >= 1.0.0",
@@ -2783,6 +2849,18 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
+            "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.App\\SebraeLab.Conteudo.App.csproj": {
+              "projectPath": "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.App\\SebraeLab.Conteudo.App.csproj"
+            },
+            "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.Data\\SebraeLab.Conteudo.Data.csproj": {
+              "projectPath": "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.Data\\SebraeLab.Conteudo.Data.csproj"
+            },
+            "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Domain\\SebraeLab.Conteudo.Domain.csproj": {
+              "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Domain\\SebraeLab.Conteudo.Domain.csproj"
+            },
+            "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj": {
+              "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj"
+            },
             "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Evento.App\\SebraeLab.Evento.App.csproj": {
               "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Evento.App\\SebraeLab.Evento.App.csproj"
             },

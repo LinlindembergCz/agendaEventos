@@ -15,6 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\ApiAdmin\SebraeLab\SebraeLab.Conteudo.App\SebraeLab.Conteudo.App.csproj" />
+    <ProjectReference Include="..\..\..\ApiAdmin\SebraeLab\SebraeLab.Conteudo.Data\SebraeLab.Conteudo.Data.csproj" />
+    <ProjectReference Include="..\SebraeLab.Conteudo.Domain\SebraeLab.Conteudo.Domain.csproj" />
+    <ProjectReference Include="..\SebraeLab.core\SebraeLab.Core.csproj" />
     <ProjectReference Include="..\SebraeLab.Evento.App\SebraeLab.Evento.App.csproj" />
     <ProjectReference Include="..\SebraeLab.Evento.Data\SebraeLab.Evento.Data.csproj" />
     <ProjectReference Include="..\SebraeLab.Evento.Domain\SebraeLab.Evento.Domain.csproj" />

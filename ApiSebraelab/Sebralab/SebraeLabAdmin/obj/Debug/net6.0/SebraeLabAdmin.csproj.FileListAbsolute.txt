@@ -74,3 +74,9 @@ C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\obj\Debug\net6.0\refint\Se
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\obj\Debug\net6.0\SebraeLabAdmin.pdb
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\obj\Debug\net6.0\SebraeLabAdmin.genruntimeconfig.cache
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\obj\Debug\net6.0\ref\SebraeLabAdmin.dll
+C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\SebraeLab.Conteudo.App.dll
+C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\SebraeLab.Conteudo.Data.dll
+C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\SebraeLab.Conteudo.Domain.dll
+C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\SebraeLab.Conteudo.App.pdb
+C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\SebraeLab.Conteudo.Data.pdb
+C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\SebraeLab.Conteudo.Domain.pdb

@@ -52,9 +52,9 @@ namespace SebraeLab.Evento.Data.Repository
             _context.Bloqueio.Add(bloqueio);
         }
 
-        public void Update(EventoSebraeLab produto)
+        public void Update(EventoSebraeLab evento)
         {
-            _context.Eventos.Update(produto);
+            _context.Eventos.Update(evento);
         }
 
         public void Dispose()

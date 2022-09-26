@@ -19,6 +19,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { UserModule } from './@modules/user/user.module';
 import { AgendaModule } from './@modules/agenda/agenda.module';
+import { ConteudoModule } from './@modules/conteudo/conteudo.module';
 
 
 registerLocaleData(ptBR);
@@ -37,6 +38,7 @@ registerLocaleData(ptBR);
   imports: [
     UserModule,
     AgendaModule,
+    ConteudoModule,
     BootstrapModule,
     UserIdleModule.forRoot(UserIdleSettings()),
     TranslateModule.forRoot(TranslateSettings()),

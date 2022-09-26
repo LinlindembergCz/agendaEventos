@@ -19,11 +19,11 @@ class Eventlab {
 }
 
 @Component({
-  selector: 'app-proximos-eventos-show',
-  templateUrl: './proximos-eventos-show.component.html',
-  styleUrls: ['./proximos-eventos-show.component.scss']
+  selector: 'app-evento-list',
+  templateUrl: './evento-list.component.html',
+  styleUrls: ['./evento-list.component.scss']
 })
-export class ProximosEventosShowComponent implements OnInit {
+export class EventoListComponent implements OnInit {
 
   eventslab: Eventlab[] = [];
   itens: any[]=[];

@@ -1,30 +1,84 @@
 
 <app-header></app-header> 
 <app-banners-show fileName="assets/banners/BannerConteudo.jpg"></app-banners-show>
-
 <div class="frameMain">
-    inicio
-    <div class="frameGerenciadorConteudo">
+    <div class="frameGerenciadorConteudo p-grid">
         <div class="frameTitleGerenciadorConteudo">
             Gerenciador de conteúdos
         </div>
+        <button pButton type="button"  label="Criar novo conteúdo" class="frameNovoConteudo p-button-outlined" (click)="ShowNovoConteudo()"></button>
+     
+    </div>
+    <p></p>
 
-       <div class="frameConteudo">
-            <p-tabView>
-                <p-tabPanel header="Header 1">
-                   Notícias
-                </p-tabPanel>
-                <p-tabPanel header="Header 2">
-                    EBooks
-                </p-tabPanel>
-                <p-tabPanel header="Header 3">
-                    Editais
-                </p-tabPanel>
-                <p-tabPanel header="Header 4">
-                    Outros
-                </p-tabPanel>
-            </p-tabView>
+    <div class="frameConteudo">
+        <div class="frameButtonsFiltro">
+            <div class="frameButtons">                        
+                    <button pButton type="button" label="Notícias" class="pbutton p-button-rounded p-button-outlined" (click)="filterNoticias()"></button> 
+                    <button pButton type="button" label="Ebooks" class="pbutton p-button-rounded p-button-outlined" (click)="filterEbooks()" ></button>
+                    <button pButton type="button" label="Editais" class="pbutton p-button-rounded p-button-outlined" (click)="filterEditais()" ></button>
+                    <button pButton type="button" label="Outros" class="pbutton p-button-rounded p-button-outlined" (click)="filterOutros()" ></button>
+           </div>
+            
+           <div class="framePesquisar">
+                <span class=" p-input-icon-right" >
+                    <i class="pi pi-search" style="cursor: pointer"></i>
+                    <input type="text" pInputText placeholder="Pesquisar" style="width:'270px;background: #F1F5F9;border:0px;'"  >         
+                </span>             
+           </div> 
         </div>
+        <p></p>
+        <p-tabView>
+            <p-tabPanel header="Rascunhos">
+                  <div class="frameConteudoPublicacoes" >
+                    <p-dataView [value]="rascunhos" [rows]="4" [paginator]="true" [loading]="false">
+                        <ng-template let-rascunho pTemplate="listItem">                            
+                            <p-card  styleClass="p-card-shadow" [style]="{'width': '79rem', 'margin-bottom': '0.5em', 'background-color':'#F8FAFC' }">
+                               <div class="p-grid p-col-12">
+                                    <div class="p-col-3" >
+                                       <!-- <img src="../../../assets/photos/Rectangle 11.png">-->
+                                    </div>
+                                    <div class="p-col-7" >                                   
+                                        <div>
+                                            {{rascunho.descricao}} 
+                                        </div>                                                                            
+                                    </div>   
+                                    <div class="p-col-2">
+                                        <button pButton type="button"  label="Excluir" class="p-button-outlined" (click)="removerConteudo(rascunho.id)"></button>&nbsp;
+                                        <button pButton type="button"  label="Continuar" class="frameNovoContinuar p-button-outlined" (click)="showEditConteudo(rascunho.id)"></button>
+                                    </div>              
+                               </div> 
+                                
+                            </p-card>
+                        </ng-template>
+                    </p-dataView> 
+                </div>  
+            </p-tabPanel>
+            <p-tabPanel header="Publicados">
+                <div class="frameConteudoPublicacoes">
+                    <p-dataView [value]="publicados" [rows]="4" [paginator]="true" [loading]="false">
+                        <ng-template let-publicado pTemplate="listItem">                            
+                            <p-card  styleClass="p-card-shadow" [style]="{'width': '79rem', 'margin-bottom': '0.5em', 'background-color':'#F8FAFC' }">
+                                <div class="p-grid p-col-12">
+                                    <div class="p-col-3" >
+                                       <!-- <img src="../../../assets/photos/Rectangle 11.png">-->
+                                    </div>
+                                    <div class="p-col-7" >                                   
+                                        <div>
+                                            {{publicado.descricao}} 
+                                        </div>                                                                            
+                                    </div>   
+                                    <div class="p-col-2">
+                                        <button pButton type="button"  label="Excluir" class="p-button-outlined"></button>&nbsp;
+                                        <button pButton type="button"  label="Continuar" class="frameNovoContinuar p-button-outlined"></button>
+                                    </div>              
+                               </div>                               
+                            </p-card>
+                        </ng-template>
+                    </p-dataView> 
+                </div>  
+            </p-tabPanel>
+        </p-tabView>
     </div>
 
 

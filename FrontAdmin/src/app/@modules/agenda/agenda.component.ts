@@ -5,7 +5,7 @@ import { RequestPromiseService } from 'src/app/@shared/services/request-promise.
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-agenda',
+  selector: 'app-agenda-list',
   templateUrl: './agenda.component.html',
   styleUrls: ['./agenda.component.scss']
 })
