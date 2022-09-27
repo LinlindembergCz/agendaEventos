@@ -22,26 +22,17 @@ export class ConteudoComponent implements OnInit {
   {}
 
   ngOnInit(): void {
+    this.loadConteudos();
+  }
 
+  loadConteudos(): void {
     this.http.get<any[]>(environment.services.api,"ConteudoSebraeLab").
       then(x => {  
-        console.log(x)
-        this.conteudos = x;
-        this.publicados = x.filter( f=>f.status !="Rascunho");
-        this.rascunhos =x.filter( f=>f.status =="Rascunho");
+                  console.log(x)
+                  this.conteudos = x;
+                  this.publicados = x.filter( f=>f.status !="Rascunho");
+                  this.rascunhos =x.filter( f=>f.status =="Rascunho");                 
                 });
-
-        /*this.publicados = [{descricao: "UFJF publica novo edital para vestibular e Pism para o Curso de Música"},
-                        {descricao: "Pesquisa da Unicamp busca mapear dificuldades de surdos em serviços de saúde na Região Metropolitana de Campinas"},
-                        {descricao: "Como vai funcionar a próxima edição do Sebraelab"},      
-                        {descricao: "8 em cada 10 professores da rede pública relatou dificuldade em atender alunos com deficiência na pandemia, aponta pesquisa do Cetic"},] */
- 
-         /*this.rascunhos =[{descricao: "Como vai funcionar a próxima edição do Sebraelab"},      
-                        {descricao: "8 em cada 10 professores da rede pública relatou dificuldade em atender alunos com deficiência na pandemia, aponta pesquisa do Cetic"},
-                        {descricao: "UFJF publica novo edital para vestibular e Pism para o Curso de Música"},
-                        {descricao: "Pesquisa da Unicamp busca mapear dificuldades de surdos em serviços de saúde na Região Metropolitana de Campinas"},] */
- 
-
   }
 
   ShowNovoConteudo()
@@ -54,36 +45,17 @@ export class ConteudoComponent implements OnInit {
     this.router.navigate([`/alterarpublicacao`], { queryParams: { id: id} } ) 
   }
 
-  RemoveConteudo(id: string)
+  removeConteudo(id: string)
   {
-    
+    this.http.delete(environment.services.api,`ConteudoSebraeLab/${id}`,null).finally
+    ( ()=>{ this.loadConteudos(); })   
   }
 
   applyFilter(tipopublicacao: string )
   {
     this.publicados = this.conteudos.filter( f=>f.status !="Rascunho" && f.tipopublicacao==tipopublicacao);
     this.rascunhos = this.conteudos.filter( f=>f.status =="Rascunho"  && f.tipopublicacao==tipopublicacao);
-  }
-
-  filterNoticias()
-  {
-    this.applyFilter( "Noticia");
-  }
-
-  filterEbooks()
-  {
-    this.applyFilter( "Ebook");
-  }
-
-  filterEditais()
-  {
-    this.applyFilter( "Edital");
-  }
-
-  filterOutros()
-  {
-    this.applyFilter( "Outro");
-  }
+  } 
 
 
 }

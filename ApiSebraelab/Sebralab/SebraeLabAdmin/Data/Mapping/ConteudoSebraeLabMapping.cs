@@ -27,8 +27,8 @@ namespace SebraeLab.Conteudo.Data.Mappings
             builder.Property(p => p.Status).IsRequired()
             .HasConversion(new ConversorStatusConteudo());
 
-            builder.Property(p => p.Tipopublicacao).IsRequired()          
-            .HasConversion(new ConversorTipoPublicacao());
+            builder.Property(p => p.Tipopublicacao).IsRequired().HasMaxLength(2)                
+            .HasConversion(new ConversorTipoPublicacao()).HasColumnType("nvarchar(2)");
 
             builder.ToTable("ConteudosSebraeLab");
         }

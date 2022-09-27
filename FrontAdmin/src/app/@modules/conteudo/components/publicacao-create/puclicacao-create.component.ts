@@ -6,31 +6,22 @@ import {MessageService} from 'primeng/api';
 import { Router } from '@angular/router';
 import { RequestPromiseService } from '../../../../@shared/services/request-promise.service';
 import { environment } from '../../../../../environments/environment';
+import {Publicacao} from '../../../../@core/models/publicacao.model';
 
+import {TiposPublicacao} from '../../../../@core/enums/tiposPublicacao';
+         TiposPublicacao
 @Component({
   selector: 'app-publicacao-create',
   templateUrl: './publicacao-create.component.html',
   styleUrls: ['./publicacao-create.component.scss']
 })
-export class PublicacaoCreateComponent implements OnInit, AfterViewInit {
+export class PublicacaoCreateComponent implements OnInit, AfterViewInit {  
 
-  tipoPublicacao: any;
-  conteudo: any={ titulo:"",
-                  subtitulo:"",
-                  legenda:"",
-                  descricao:"",
-                  personalizadodesativado: false, 
-                  status:"Rascunho", 
-                  tipopublicacao:"" }; 
+  conteudo: Publicacao = new Publicacao(); 
 
-  tiposPublicacao: any[]=[{name:" "}, {name:"Noticia"},{name:"Ebook"},{name:"Edital"},{name:"Outro"}];
+  tiposPublicacao : typeof TiposPublicacao = TiposPublicacao;
+  tipoPublicacao: any={ name: "(nenhum)" }  
 
-  text1: string = '';
-    
-  text2: string; 
-
-
-  
   constructor(private messageService: MessageService,
     private http :RequestPromiseService,
     private router: Router
@@ -45,8 +36,7 @@ export class PublicacaoCreateComponent implements OnInit, AfterViewInit {
 
   } 
 
-
-  salvarEvento()
+  save()
   {       
      //Convert o array em string
      this.conteudo.tipopublicacao = this.tipoPublicacao.name; 

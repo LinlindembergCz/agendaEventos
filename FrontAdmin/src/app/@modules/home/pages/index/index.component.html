@@ -4,8 +4,7 @@
     <div class="frameProximoEvento"> 
         <div class="frameListaEventos">
             <app-evento-list></app-evento-list>
-        </div>   
-     
+        </div>     
          <div class="FramebuttonVerAgenda">        
             <button pButton type="button"  label="Ver agenda" class="buttonVerAgenda p-button-outlined" (click)="showAgenda()"></button>
          </div>
@@ -16,20 +15,10 @@
             <div class="p-d-fluid " style="width:'800px';">
                 <div class="frameUltimasPublicacoes titleUltimasPublicacoes">
                     Últimas publicações         
-                        <button pButton type="button"  label="Ver conteúdos" class="buttonVerConteudo p-button-outlined" (click)="showConteudo()"></button>
-          
-                </div>
+                    <button pButton type="button"  label="Ver conteúdos" class="buttonVerConteudo p-button-outlined" (click)="showConteudo()"></button>
+                 </div>
                 <div class="frameConteudoPublicacoes">
                     <app-publicacao-list></app-publicacao-list>
-                    <!--<p-dataView [value]="publicacoes" [rows]="4">
-                        <ng-template let-publicacao pTemplate="listItem">                            
-                            <p-card  styleClass="p-card-shadow" [style]="{'width': '55rem', 'margin-bottom': '0.5em', 'background-color':'#F8FAFC' }">
-                                <div>                                   
-                                    {{publicacao.descricao}}                                     
-                                </div>                                      
-                            </p-card>
-                        </ng-template>
-                    </p-dataView> -->
                 </div>                
             </div>  
         </div>  

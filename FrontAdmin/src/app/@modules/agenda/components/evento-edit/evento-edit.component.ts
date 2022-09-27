@@ -71,17 +71,17 @@ export class EventoEditComponent implements OnInit, AfterViewInit {
 
   }
 
-  adicionarDia()
+  addDia()
   {
     this.evento.dias.push({ data: null, horainicio: '00:00', horafim: '00:00', option:''}); 
   }
 
-  removerDia()
+  removeDia()
   {
     this.evento.dias.pop();   
   }
 
-  salvar(id: string)
+  save(id: string)
   {       
     //Convert o array em string
     this.evento.dias.forEach( d=> d.option = JSON.stringify(d.option ));

@@ -72,8 +72,17 @@ namespace SebraeLabAdmin.Controllers
 
         [HttpDelete("{id}")]
         [AllowAnonymous]
-        public void Delete(Guid id)
+        public async Task<IActionResult> Delete(Guid id)
         {
+            try
+            {
+                await _serviceConteudoSebraeLab.Remove(id);
+                return Ok(new { msg = "conteúdo excluido com sucesso!" });
+            }
+            catch (Exception e)
+            {
+                return new ObjectResult("Falhou! Mensagem: " + e.Message);
+            }
         }
 
         // PATCH api/<EventoSebraeLabController>/5

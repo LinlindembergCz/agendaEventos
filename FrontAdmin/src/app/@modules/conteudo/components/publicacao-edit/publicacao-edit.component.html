@@ -10,7 +10,7 @@
                     <p-dropdown optionLabel="name"  [options]="tiposPublicacao" 
                     [(ngModel)]="tipoPublicacao" 
                     [style]="{'width':'100%'}"></p-dropdown>
-                    <label for="float-input">Tipo de publicacao</label>
+                    <label for="float-input">Tipo de publicação</label>
                 </span> 
             </div> 
 
@@ -40,7 +40,7 @@
                      <div style="font-size: 20px;"><label>Imagem de Capa</label></div>
                      <div style="font-size: 16px;"><label>Tamanho 600px de largura e 315px de altura</label></div>
                  <img src="../../../../../assets/imgs/ExemploImagemCapa.png" style="width:'900px';height:'237px'"/>
-                
+                 <app-photo-upload (onUpload)="download()" [fileUrl]="picture" [imageName]="conteudo.titulo"></app-photo-upload>
                  </div>
          
              </div>
@@ -82,7 +82,7 @@
  
        <div class="p-col-12" style="text-align: right;">
            <button pButton class="p-button-lg p-button-raised p-button-outlined p-mr-10">Salvar como rascunho</button>&nbsp;&nbsp;
-           <button pButton class="p-button-lg p-button-raised p-button-warning p-mr-10" (click)="salvarEvento()">Visualizar e publicar</button>
+           <button pButton class="p-button-lg p-button-raised p-button-warning p-mr-10" (click)="save(conteudo.id)">Visualizar e publicar</button>
        </div>
 
     </div>

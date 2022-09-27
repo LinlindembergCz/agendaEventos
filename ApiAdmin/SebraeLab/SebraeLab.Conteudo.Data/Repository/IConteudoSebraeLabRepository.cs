@@ -9,5 +9,6 @@ namespace SebraeLab.Conteudo.Data.Repository
         Task<ConteudoSebraeLab> GetById(Guid id);        
         void Add(ConteudoSebraeLab conteudo);
         void Update(ConteudoSebraeLab conteudo);
+        void Remove(ConteudoSebraeLab conteudo);
     }
 }

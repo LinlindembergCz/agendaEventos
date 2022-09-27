@@ -41,6 +41,11 @@ namespace SebraeLab.Conteudo.Data.Repository
             _context.Conteudos.Update(conteudo);
         }
 
+        public void Remove(ConteudoSebraeLab conteudo)
+        {
+            _context.Conteudos.Remove(conteudo);
+        }
+
         public void Dispose()
         {
             _context?.Dispose();

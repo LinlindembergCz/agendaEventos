@@ -15,8 +15,7 @@ namespace SebraeLab.Conteudo.App.Services
 
         Task<bool> Add(ConteudoSebraeLabViewModel conteudoebraelabViewModel);
         Task<bool> Update(ConteudoSebraeLabViewModel conteudoebraelabViewModel);
-
-
+        Task<bool> Remove(Guid id);
 
     }
 }

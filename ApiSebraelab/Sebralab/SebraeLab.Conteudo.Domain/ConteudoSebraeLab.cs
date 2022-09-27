@@ -19,6 +19,8 @@ namespace SebraeLab.Conteudo.Domain
         public TipoPublicacao Tipopublicacao { get; private set; }
         public DateTime DataCadastro { get; private set; }
 
+        public bool? Ativo { get; private set; }
+
         public ConteudoSebraeLab()
         {
 
@@ -31,7 +33,9 @@ namespace SebraeLab.Conteudo.Domain
                       bool personalizadodesativado,
                       StatusConteudo status,
                       string legenda,
-                      TipoPublicacao tipopublicacao
+                      TipoPublicacao tipopublicacao,
+                      bool? ativo
+
         )
         {
             Titulo = titulo;
@@ -41,6 +45,7 @@ namespace SebraeLab.Conteudo.Domain
             Status = status;
             Legenda = legenda;
             Tipopublicacao = tipopublicacao;
+            Ativo = ativo;
         }
 
     }
