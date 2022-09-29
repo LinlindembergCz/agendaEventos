@@ -22,6 +22,53 @@ namespace SebraeLab.Evento.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("SebraeLab.Bloqueio.Domain.Bloqueador", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime>("Datacadastro")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Motivo")
+                        .IsRequired()
+                        .HasColumnType("varchar(250)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Bloqueador", (string)null);
+                });
+
+            modelBuilder.Entity("SebraeLab.Bloqueio.Domain.DiaBloqueado", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("Bloqueadorid")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<DateTime?>("Data")
+                        .IsRequired()
+                        .HasColumnType("datetime");
+
+                    b.Property<string>("Horafim")
+                        .HasColumnType("varchar(5)");
+
+                    b.Property<string>("Horainicio")
+                        .HasColumnType("varchar(5)");
+
+                    b.Property<string>("Options")
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("Bloqueadorid");
+
+                    b.ToTable("DiasBloqueados", (string)null);
+                });
+
             modelBuilder.Entity("SebraeLab.Conteudo.Domain.ConteudoSebraeLab", b =>
                 {
                     b.Property<Guid>("Id")
@@ -31,7 +78,10 @@ namespace SebraeLab.Evento.Data.Migrations
                     b.Property<bool?>("Ativo")
                         .HasColumnType("bit");
 
-                    b.Property<DateTime>("DataCadastro")
+                    b.Property<DateTime>("Datacadastro")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("Datapublicacao")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Descricao")
@@ -63,23 +113,6 @@ namespace SebraeLab.Evento.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ConteudosSebraeLab", (string)null);
-                });
-
-            modelBuilder.Entity("SebraeLab.Evento.Domain.BloqueioDia", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<DateTime>("Data")
-                        .HasColumnType("datetime");
-
-                    b.Property<DateTime>("DataCadastro")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("BloqueioDias", (string)null);
                 });
 
             modelBuilder.Entity("SebraeLab.Evento.Domain.DiaEventoSebraeLab", b =>
@@ -126,7 +159,7 @@ namespace SebraeLab.Evento.Data.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(20)");
 
-                    b.Property<DateTime>("DataCadastro")
+                    b.Property<DateTime>("Datacadastro")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Descricaoevento")
@@ -172,6 +205,17 @@ namespace SebraeLab.Evento.Data.Migrations
                     b.ToTable("EventosSebraeLab", (string)null);
                 });
 
+            modelBuilder.Entity("SebraeLab.Bloqueio.Domain.DiaBloqueado", b =>
+                {
+                    b.HasOne("SebraeLab.Bloqueio.Domain.Bloqueador", "Bloqueador")
+                        .WithMany("Dias")
+                        .HasForeignKey("Bloqueadorid")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Bloqueador");
+                });
+
             modelBuilder.Entity("SebraeLab.Evento.Domain.DiaEventoSebraeLab", b =>
                 {
                     b.HasOne("SebraeLab.Evento.Domain.EventoSebraeLab", "Evento")
@@ -181,6 +225,11 @@ namespace SebraeLab.Evento.Data.Migrations
                         .IsRequired();
 
                     b.Navigation("Evento");
+                });
+
+            modelBuilder.Entity("SebraeLab.Bloqueio.Domain.Bloqueador", b =>
+                {
+                    b.Navigation("Dias");
                 });
 
             modelBuilder.Entity("SebraeLab.Evento.Domain.EventoSebraeLab", b =>

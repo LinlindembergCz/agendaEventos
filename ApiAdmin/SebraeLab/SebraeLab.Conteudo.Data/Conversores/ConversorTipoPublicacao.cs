@@ -18,14 +18,14 @@ namespace SebraeLab.Conteudo.Data
 
         static string ConverterParaOhBancoDeDados(TipoPublicacao status)
         {
-            return  status.ToString()[0..2];
+            return  status.ToString()[0..2].ToUpper();
         }
 
         static TipoPublicacao ConverterParaAplicacao(string value)
         {
             var tipo = Enum
                 .GetValues<TipoPublicacao>()
-                .FirstOrDefault(p=>p.ToString()[0..2] == value);   
+                .FirstOrDefault(p=>p.ToString()[0..2].ToUpper() == value.ToUpper());   
            
 
             return tipo;

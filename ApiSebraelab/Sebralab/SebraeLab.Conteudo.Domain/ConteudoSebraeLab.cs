@@ -17,7 +17,8 @@ namespace SebraeLab.Conteudo.Domain
 
         [Column(TypeName = "nvarchar(2)")]
         public TipoPublicacao Tipopublicacao { get; private set; }
-        public DateTime DataCadastro { get; private set; }
+        public DateTime Datacadastro { get; private set; }
+        public DateTime? Datapublicacao { get; private set; }
 
         public bool? Ativo { get; private set; }
 
@@ -34,7 +35,8 @@ namespace SebraeLab.Conteudo.Domain
                       StatusConteudo status,
                       string legenda,
                       TipoPublicacao tipopublicacao,
-                      bool? ativo
+                      bool? ativo,
+                      DateTime? datapublicacao
 
         )
         {
@@ -46,6 +48,23 @@ namespace SebraeLab.Conteudo.Domain
             Legenda = legenda;
             Tipopublicacao = tipopublicacao;
             Ativo = ativo;
+            Datapublicacao = datapublicacao;
+        }
+
+        public void Publish()
+        {
+            Status = StatusConteudo.Publicado;
+            Datapublicacao = DateTime.Now;
+        }
+
+        public void Inativar()
+        {
+            Ativo = false;
+        }
+
+        public void Ativar()
+        {
+            Ativo = true;
         }
 
     }

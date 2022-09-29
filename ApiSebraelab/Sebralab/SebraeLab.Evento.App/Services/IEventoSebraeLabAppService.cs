@@ -13,14 +13,10 @@ namespace SebraeLab.Evento.App.Services
     {
         Task<List<EventoSebraeLabViewModel>> GetAll();
         Task<EventoSebraeLabViewModel> GetById(Guid id);
-
         Task<bool> Add(EventoSebraeLabViewModel eventosebraelabViewModel);
         Task<bool> Update(EventoSebraeLabViewModel eventosebraelabViewModel);
+        
 
-        //Task<bool> Bloquear(Guid id);
-
-        Task<bool> BloquearDias(DateTime[] dates );
-        Task<List<BloqueioDia>> GetAllDiasBloqueados();
 
     }
 }

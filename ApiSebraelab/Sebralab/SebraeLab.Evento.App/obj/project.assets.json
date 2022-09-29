@@ -901,6 +901,19 @@
           }
         }
       },
+      "SebraeLab.Bloqueio.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "SebraeLab.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SebraeLab.Bloqueio.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SebraeLab.Bloqueio.Domain.dll": {}
+        }
+      },
       "SebraeLab.Core/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -922,6 +935,7 @@
           "Microsoft.EntityFrameworkCore": "6.0.8",
           "Microsoft.EntityFrameworkCore.Relational": "6.0.8",
           "Microsoft.EntityFrameworkCore.sqlserver": "6.0.8",
+          "SebraeLab.Bloqueio.Domain": "1.0.0",
           "SebraeLab.Core": "1.0.0",
           "SebraeLab.Evento.Domain": "1.0.0"
         },
@@ -2289,6 +2303,11 @@
         "useSharedDesignerContext.txt",
         "version.txt"
       ]
+    },
+    "SebraeLab.Bloqueio.Domain/1.0.0": {
+      "type": "project",
+      "path": "../SebraeLab.Bloqueio.Domain/SebraeLab.Bloqueio.Domain.csproj",
+      "msbuildProject": "../SebraeLab.Bloqueio.Domain/SebraeLab.Bloqueio.Domain.csproj"
     },
     "SebraeLab.Core/1.0.0": {
       "type": "project",

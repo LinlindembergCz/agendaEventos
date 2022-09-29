@@ -25,7 +25,6 @@ namespace SebraeLabAdmin.Controllers
         [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<ConteudoSebraeLabViewModel>>> Get() =>
            await _serviceConteudoSebraeLab.GetAll();
-     
 
         // GET api/<EventoSebraeLabController>/5
         [HttpGet("{id}")]
@@ -34,6 +33,11 @@ namespace SebraeLabAdmin.Controllers
         {
             return await _serviceConteudoSebraeLab.GetById(id);
         }
+
+        [HttpGet("Pesquisar")]
+        [AllowAnonymous]
+        public async Task<ActionResult<IEnumerable<ConteudoSebraeLabViewModel>>> Search([FromQuery] string search) =>
+           await _serviceConteudoSebraeLab.Search(search);
 
         // POST api/<EventoSebraeLabController>
         [HttpPost]
@@ -86,19 +90,50 @@ namespace SebraeLabAdmin.Controllers
         }
 
         // PATCH api/<EventoSebraeLabController>/5
-      /*  [HttpPatch("Bloquear/{id}")]
+        [HttpPatch("Desativar/{id}")]
         [AllowAnonymous]
-        public async Task<IActionResult> Bloquear(Guid id)
+        public async Task<IActionResult> Desativar(Guid id)
         {
             try
             {
-                await _serviceEventoSebraeLab.Bloquear(id);
-                return Ok(new { msg = "evento alterado com sucesso!" });
+                await _serviceConteudoSebraeLab.Inactive(id);
+                return Ok(new { msg = "conteudo desativado com sucesso!" });
             }
             catch (Exception e)
             {
                 return new ObjectResult("Falhou! Mensagem: " + e.Message);
             }
-        }*/
+        }
+
+        // PATCH api/<EventoSebraeLabController>/5
+        [HttpPatch("Ativar/{id}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> Ativar(Guid id)
+        {
+            try
+            {
+                await _serviceConteudoSebraeLab.Active(id);
+                return Ok(new { msg = "conteudo ativado com sucesso!" });
+            }
+            catch (Exception e)
+            {
+                return new ObjectResult("Falhou! Mensagem: " + e.Message);
+            }
+        }
+
+        [HttpPatch("Publicar/{id}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> Publish(Guid id)
+        {
+            try
+            {
+                await _serviceConteudoSebraeLab.Publish(id);
+                return Ok(new { msg = "conteudo publicado com sucesso!" });
+            }
+            catch (Exception e)
+            {
+                return new ObjectResult("Falhou! Mensagem: " + e.Message);
+            }
+        }
     }
 }

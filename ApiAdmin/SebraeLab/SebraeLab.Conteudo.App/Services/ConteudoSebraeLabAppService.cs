@@ -31,14 +31,17 @@ namespace SebraeLab.Conteudo.App.Services
             return _mapper.Map<List<ConteudoSebraeLabViewModel>>(await _repository.GetAll());
         }
 
+        public async Task<List<ConteudoSebraeLabViewModel>> Search(string search)
+        {
+            return _mapper.Map<List<ConteudoSebraeLabViewModel>>(await _repository.Search(search) );
+        }
+
 
         public Task<bool> Add(ConteudoSebraeLabViewModel conteudoebraelabViewModel)
         {
             var evento = _mapper.Map<ConteudoSebraeLab>(conteudoebraelabViewModel);
-
             _repository.Add(evento);
             _repository.UnitOfWork.Commit();
-
             return Task.FromResult(true);
                         
         }
@@ -47,21 +50,43 @@ namespace SebraeLab.Conteudo.App.Services
         {
             var evento = _mapper.Map<ConteudoSebraeLab>(conteudoebraelabViewModel);
             _repository.Update(evento);
-
             _repository.UnitOfWork.Commit();
-
             return Task.FromResult(true);
         }
 
         public async Task<bool> Remove(Guid id)
         {
             ConteudoSebraeLabViewModel conteudoViewModel = _mapper.Map<ConteudoSebraeLabViewModel>( await _repository.GetById(id));
-
             var conteudo = _mapper.Map<ConteudoSebraeLab>(conteudoViewModel);
             _repository.Remove(conteudo);
-
             _repository.UnitOfWork.Commit();
+            return true;
+        }
 
+        public async Task<bool> Inactive(Guid id)
+        {
+            ConteudoSebraeLab conteudo = await _repository.GetById(id);
+            conteudo.Inativar();            
+            _repository.Update(conteudo);
+            _repository.UnitOfWork.Commit();
+            return true;
+        }
+
+        public async Task<bool> Active(Guid id)
+        {
+            ConteudoSebraeLab conteudo = await _repository.GetById(id);
+            conteudo.Ativar();
+            _repository.Update(conteudo);
+            _repository.UnitOfWork.Commit();
+            return true;
+        }
+
+        public async Task<bool> Publish(Guid id)
+        {
+            ConteudoSebraeLab conteudo = await _repository.GetById(id);
+            conteudo.Publish();
+            _repository.Update(conteudo);
+            _repository.UnitOfWork.Commit();
             return true;
         }
 

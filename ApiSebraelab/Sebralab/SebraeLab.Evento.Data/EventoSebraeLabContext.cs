@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SebraeLab.Evento.Domain;
 using SebraeLab.Core.Data;
-
+using SebraeLab.Bloqueio.Domain;
 
 namespace SebraeLab.Evento.Data
 {
@@ -18,8 +18,6 @@ namespace SebraeLab.Evento.Data
 
         public DbSet<DiaEventoSebraeLab> Dias { get; set; }
 
-        public DbSet<BloqueioDia> Bloqueio { get; set; }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             /* foreach (var property in modelBuilder.Model.GetEntityTypes().SelectMany(
@@ -31,16 +29,16 @@ namespace SebraeLab.Evento.Data
 
         public bool Commit()
         {
-            foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("DataCadastro") != null))
+            foreach (var entry in ChangeTracker.Entries().Where(entry => entry.Entity.GetType().GetProperty("Datacadastro") != null))
             {
                 if (entry.State == EntityState.Added)
                 {
-                    entry.Property("DataCadastro").CurrentValue = DateTime.Now;
+                    entry.Property("Datacadastro").CurrentValue = DateTime.Now;
                 }
 
                 if (entry.State == EntityState.Modified)
                 {
-                    entry.Property("DataCadastro").IsModified = false;
+                    entry.Property("Datacadastro").IsModified = false;
                 }
             }
 

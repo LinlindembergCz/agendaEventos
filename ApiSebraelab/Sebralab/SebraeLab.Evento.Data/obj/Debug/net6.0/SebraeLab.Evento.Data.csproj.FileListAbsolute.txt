@@ -2,8 +2,10 @@ C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.Evento.Data\bin\Debug\net6.0\Se
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.Evento.Data\bin\Debug\net6.0\SebraeLab.Evento.Data.runtimeconfig.json
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.Evento.Data\bin\Debug\net6.0\SebraeLab.Evento.Data.dll
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.Evento.Data\bin\Debug\net6.0\SebraeLab.Evento.Data.pdb
+C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.Evento.Data\bin\Debug\net6.0\SebraeLab.Bloqueio.Domain.dll
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.Evento.Data\bin\Debug\net6.0\SebraeLab.Core.dll
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.Evento.Data\bin\Debug\net6.0\SebraeLab.Evento.Domain.dll
+C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.Evento.Data\bin\Debug\net6.0\SebraeLab.Bloqueio.Domain.pdb
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.Evento.Data\bin\Debug\net6.0\SebraeLab.Core.pdb
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.Evento.Data\bin\Debug\net6.0\SebraeLab.Evento.Domain.pdb
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.Evento.Data\obj\Debug\net6.0\SebraeLab.Evento.Data.csproj.AssemblyReference.cache

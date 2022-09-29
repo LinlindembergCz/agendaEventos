@@ -49,7 +49,6 @@ import {RadioButtonModule} from 'primeng/radiobutton';
 import {SplitButtonModule} from 'primeng/splitbutton';
 import {DataViewModule} from 'primeng/dataview';
 
-
 @NgModule({
     exports: [
         DataViewModule,

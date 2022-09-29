@@ -19,7 +19,7 @@ namespace SebraeLab.Evento.Domain
         public bool? Imagempersonalida { get; private set; }
         public bool? Publicaosite { get; private set; }
         public string? Status { get; private set; }
-        public DateTime DataCadastro { get; private set; }
+        public DateTime Datacadastro { get; private set; }
 
         public EventoSebraeLab()
         {
@@ -55,14 +55,7 @@ namespace SebraeLab.Evento.Domain
            Status = status;
         }
 
-        public void Iniciar()
-        {
-            Status = "Aberto";
-        }
-        public void Bloquear()
-        {
-            Status = "Bloqueado";
-        }
+
 
     }
 }

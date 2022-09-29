@@ -3,8 +3,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 //import { EventBooking } from '../reserve-submit/model/EventBooking-model';
 import { CalendarOptions } from '@fullcalendar/angular'; // useful for typechecking
 import { Eventolab } from 'src/app/@core/models/eventolab.model';
+import { Bloqueador } from 'src/app/@core/models/bloqueador.model';
 import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
 import { environment } from 'src/environments/environment';
+import { DiasBloqueado } from 'src/app/@core/models/diasBloqueados.model';
 
 
 export class EventBooking {
@@ -26,9 +28,11 @@ export class FullCalendarioShowComponent implements OnInit {
 
   tiposEvento:any[]=[];
 
+  motivoBloqueio: string='motivo do bloqueio';
+
   @Input() public diasBloqueados: Date[]=[new Date()];
 
-  @Output() clickBloqueio = new EventEmitter<Date[]>();
+  @Output() clickBloqueio = new EventEmitter<Bloqueador>();
 
   DialogEventDateShowing:boolean = false;
 
@@ -58,10 +62,13 @@ export class FullCalendarioShowComponent implements OnInit {
 
   loadDiasBloqueados()
   {
-    this.http.get<any[]>(environment.services.api,"Bloqueio").
+    this.http.get<any[]>(environment.services.api,"EventoSebraeLab/DiasBloqueados").
     then(x=>{
       this.diasBloqueados = []
-      x.forEach(d=> {this.diasBloqueados.push(new Date(d.data))})
+      //this.motivoBloqueio = x.motivo;
+      x.forEach(d=> {                       
+                       this.diasBloqueados.push(new Date(d.data))                       
+                    })
       });
   }
 
@@ -110,8 +117,20 @@ export class FullCalendarioShowComponent implements OnInit {
   
   applicarBloqueio()
   {
-    this.clickBloqueio.next(this.diasBloqueados);
-    this.hideDialogEventDate();
+
+    let diasParaBloqueio : DiasBloqueado[]=[];
+
+    this.diasBloqueados.forEach( d => 
+      {
+        diasParaBloqueio.push( {data: d, horainicio:'00:00',horafim:'00:00',options:''} ) 
+      })
+    
+    let bloqueador : Bloqueador = { id: null, motivo: this.motivoBloqueio, dias : diasParaBloqueio }
+    
+    console.log(bloqueador )
+
+    this.clickBloqueio.next(bloqueador);
+    //this.hideDialogEventDate();
   }
 
 

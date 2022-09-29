@@ -151,7 +151,7 @@ export class RequestPromiseService {
   return promise;
 }
 
-patch<T>(url: string, path: string, payload: any) : Promise<T> {
+patch<T>(url: string, path: string, payload?: any) : Promise<T> {
   let promise = new Promise<T>((resolve, reject) => {
      this.http.patch<T>(`${url}/${path}`, payload).toPromise()
      .catch((response) => {

@@ -53,7 +53,12 @@
             <div *ngFor="let dia of evento.dias">
                 <div class="frameEventoDias p-col-12">
                     <div class="p-col-3">
-                       <p-calendar dateFormat="dd-mm-yy" showIcon="true" placeholder="Dia do evento" [(ngModel)]="dia.data"></p-calendar>
+                       <p-calendar dateFormat="dd-mm-yy" 
+                                showIcon="true" 
+                                placeholder="Dia do evento" 
+                                [disabledDates]="diasBloqueados"
+                                [readonlyInput]="true"
+                                [(ngModel)]="dia.data"></p-calendar>
                     </div>
                     <div class="p-col-5">    
                         <p-checkbox name="manha" value="Manhã" label="Manhã" [(ngModel)]="dia.option"></p-checkbox>&nbsp;

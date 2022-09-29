@@ -1,7 +1,7 @@
 import { Component, OnInit,  AfterViewInit} from '@angular/core';
 
 import{ Eventolab } from '../../../../@core/models/eventolab.model';
-import {MessageService} from 'primeng/api';
+import {ConfirmationService, MessageService} from 'primeng/api';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RequestPromiseService } from '../../../../@shared/services/request-promise.service';
 import { environment } from '../../../../../environments/environment';
@@ -33,6 +33,7 @@ export class PublicacaoEditComponent implements OnInit, AfterViewInit {
     private route: ActivatedRoute,
     private _sanitizer: DomSanitizer,
     private fileService: FileService,
+    private confirmationService: ConfirmationService
 
     ) { }
 
@@ -64,6 +65,21 @@ export class PublicacaoEditComponent implements OnInit, AfterViewInit {
 
   }
 
+  publish(id: string)
+  {       
+    console.log( id )
+    this.confirmationService.confirm({
+      header: "Publicar conteúdo?",
+      message: 'O conteúdo da publicação ficarão disponíveis no site. <p></p> Tem certeza que deseja <b>publicar</b> esse conteúdo?',
+      accept: () => {          
+                       this.http.patch<Publicacao>(environment.services.api,`ConteudoSebraeLab/Publicar/${id}`).finally
+                      ( ()=>{ 
+                              this.messageService.add({severity:'info', summary:'Confirmação', detail:'O conteúdo foi publicado com sucesso!'});
+                            })  
+                  }
+      }); 
+  }
+  
   
   download(extention : string = ".jpg") {
     this.fileUrl = this.conteudo.titulo+extention;

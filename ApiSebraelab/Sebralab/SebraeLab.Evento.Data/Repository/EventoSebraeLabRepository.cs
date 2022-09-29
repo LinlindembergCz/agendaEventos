@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
+using SebraeLab.Bloqueio.Domain;
 
 namespace SebraeLab.Evento.Data.Repository
 {
@@ -25,12 +26,6 @@ namespace SebraeLab.Evento.Data.Repository
             return await _context.Eventos.Include(e => e.Dias.OrderBy( o=>o.Data) ).AsNoTracking().ToListAsync();
         }
 
-        public async Task<List<BloqueioDia>> GetAllDiasBloqueados()
-        {
-            return await _context.Bloqueio.AsNoTracking().ToListAsync();
-        }
-
-
         //public async Task<IEnumerable<EventoSebraeLab>> GetById(Guid id)
         public async Task<EventoSebraeLab> GetById(Guid id)
         {
@@ -47,10 +42,6 @@ namespace SebraeLab.Evento.Data.Repository
             _context.Eventos.Add(evento);
         }
 
-        public void AddBloqueio(BloqueioDia bloqueio)
-        {
-            _context.Bloqueio.Add(bloqueio);
-        }
 
         public void Update(EventoSebraeLab evento)
         {

@@ -47,7 +47,7 @@ export class EventoCreateComponent implements OnInit, AfterViewInit {
   
   loadDiasBloqueados()
   {
-    this.http.get<any[]>(environment.services.api,"Bloqueio").
+    this.http.get<any[]>(environment.services.api,"EventoSebraeLab/DiasBloqueados").
     then(x=>{
       this.diasBloqueados = []
       x.forEach(d=> {this.diasBloqueados.push(new Date(d.data))})

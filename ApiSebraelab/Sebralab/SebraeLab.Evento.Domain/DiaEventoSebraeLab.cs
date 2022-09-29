@@ -22,13 +22,11 @@ namespace SebraeLab.Evento.Domain
         public string? Status { get; private set; }
         [JsonIgnore]
         public EventoSebraeLab? Evento { get; set; }
-
         public DiaEventoSebraeLab() { }
 
         [JsonConstructor]
         public DiaEventoSebraeLab( 
             DateTime? data, string? horainicio, string? horafim, string? option, string? status
-            //, Guid id
             )
         {          
             Data = data;
@@ -36,7 +34,6 @@ namespace SebraeLab.Evento.Domain
             Horafim = horafim;
             Option = option;
             Status = status;
-            //Id = id;
         }
     }
 }

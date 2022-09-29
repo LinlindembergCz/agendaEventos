@@ -1076,6 +1076,53 @@
           }
         }
       },
+      "SebraeLab.Bloqueio.App/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Abstractions": "2.2.0",
+          "SebraeLab.Bloqueio.Data": "1.0.0",
+          "SebraeLab.Bloqueio.Domain": "1.0.0",
+          "SebraeLab.Core": "1.0.0",
+          "automapper": "11.0.1"
+        },
+        "compile": {
+          "bin/placeholder/SebraeLab.Bloqueio.App.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SebraeLab.Bloqueio.App.dll": {}
+        }
+      },
+      "SebraeLab.Bloqueio.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.8",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.8",
+          "Microsoft.EntityFrameworkCore.sqlserver": "6.0.8",
+          "SebraeLab.Bloqueio.Domain": "1.0.0",
+          "SebraeLab.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SebraeLab.Bloqueio.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SebraeLab.Bloqueio.Data.dll": {}
+        }
+      },
+      "SebraeLab.Bloqueio.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "SebraeLab.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SebraeLab.Bloqueio.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SebraeLab.Bloqueio.Domain.dll": {}
+        }
+      },
       "SebraeLab.Conteudo.App/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -1161,6 +1208,7 @@
           "Microsoft.EntityFrameworkCore": "6.0.8",
           "Microsoft.EntityFrameworkCore.Relational": "6.0.8",
           "Microsoft.EntityFrameworkCore.sqlserver": "6.0.8",
+          "SebraeLab.Bloqueio.Domain": "1.0.0",
           "SebraeLab.Core": "1.0.0",
           "SebraeLab.Evento.Domain": "1.0.0"
         },
@@ -2770,6 +2818,21 @@
         "version.txt"
       ]
     },
+    "SebraeLab.Bloqueio.App/1.0.0": {
+      "type": "project",
+      "path": "../SebraeLab.Bloqui.App/SebraeLab.Bloqueio.App.csproj",
+      "msbuildProject": "../SebraeLab.Bloqui.App/SebraeLab.Bloqueio.App.csproj"
+    },
+    "SebraeLab.Bloqueio.Data/1.0.0": {
+      "type": "project",
+      "path": "../SebraeLab.Bloqueio.Data/SebraeLab.Bloqueio.Data.csproj",
+      "msbuildProject": "../SebraeLab.Bloqueio.Data/SebraeLab.Bloqueio.Data.csproj"
+    },
+    "SebraeLab.Bloqueio.Domain/1.0.0": {
+      "type": "project",
+      "path": "../SebraeLab.Bloqueio.Domain/SebraeLab.Bloqueio.Domain.csproj",
+      "msbuildProject": "../SebraeLab.Bloqueio.Domain/SebraeLab.Bloqueio.Domain.csproj"
+    },
     "SebraeLab.Conteudo.App/1.0.0": {
       "type": "project",
       "path": "../../../ApiAdmin/SebraeLab/SebraeLab.Conteudo.App/SebraeLab.Conteudo.App.csproj",
@@ -2811,6 +2874,9 @@
       "AutoMapper.Extensions.Microsoft.DependencyInjection >= 11.0.0",
       "Microsoft.AspNetCore.JsonPatch >= 6.0.8",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.8",
+      "SebraeLab.Bloqueio.App >= 1.0.0",
+      "SebraeLab.Bloqueio.Data >= 1.0.0",
+      "SebraeLab.Bloqueio.Domain >= 1.0.0",
       "SebraeLab.Conteudo.App >= 1.0.0",
       "SebraeLab.Conteudo.Data >= 1.0.0",
       "SebraeLab.Conteudo.Domain >= 1.0.0",
@@ -2854,6 +2920,15 @@
             },
             "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.Data\\SebraeLab.Conteudo.Data.csproj": {
               "projectPath": "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.Data\\SebraeLab.Conteudo.Data.csproj"
+            },
+            "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Bloqueio.Data\\SebraeLab.Bloqueio.Data.csproj": {
+              "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Bloqueio.Data\\SebraeLab.Bloqueio.Data.csproj"
+            },
+            "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Bloqueio.Domain\\SebraeLab.Bloqueio.Domain.csproj": {
+              "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Bloqueio.Domain\\SebraeLab.Bloqueio.Domain.csproj"
+            },
+            "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Bloqui.App\\SebraeLab.Bloqueio.App.csproj": {
+              "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Bloqui.App\\SebraeLab.Bloqueio.App.csproj"
             },
             "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Domain\\SebraeLab.Conteudo.Domain.csproj": {
               "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Domain\\SebraeLab.Conteudo.Domain.csproj"

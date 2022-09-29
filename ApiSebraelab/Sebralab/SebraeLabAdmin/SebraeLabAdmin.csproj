@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\BloqueadorController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="automapper" Version="11.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.8" />
@@ -17,6 +21,9 @@
   <ItemGroup>
     <ProjectReference Include="..\..\..\ApiAdmin\SebraeLab\SebraeLab.Conteudo.App\SebraeLab.Conteudo.App.csproj" />
     <ProjectReference Include="..\..\..\ApiAdmin\SebraeLab\SebraeLab.Conteudo.Data\SebraeLab.Conteudo.Data.csproj" />
+    <ProjectReference Include="..\SebraeLab.Bloqueio.Data\SebraeLab.Bloqueio.Data.csproj" />
+    <ProjectReference Include="..\SebraeLab.Bloqueio.Domain\SebraeLab.Bloqueio.Domain.csproj" />
+    <ProjectReference Include="..\SebraeLab.Bloqui.App\SebraeLab.Bloqueio.App.csproj" />
     <ProjectReference Include="..\SebraeLab.Conteudo.Domain\SebraeLab.Conteudo.Domain.csproj" />
     <ProjectReference Include="..\SebraeLab.core\SebraeLab.Core.csproj" />
     <ProjectReference Include="..\SebraeLab.Evento.App\SebraeLab.Evento.App.csproj" />

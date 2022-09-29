@@ -10,24 +10,15 @@ namespace SebraeLabAdmin.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class BloqueioController : ControllerBase
+    public class BloqueadorController : ControllerBase
     {
         private readonly IEventoSebraeLabAppService _serviceEventoSebraeLab;
-        public BloqueioController(IEventoSebraeLabAppService service)
+        public BloqueadorController(IEventoSebraeLabAppService service)
         {
             _serviceEventoSebraeLab = service;
         }
 
-        [HttpGet]
-        [AllowAnonymous]
-        public async Task<ActionResult<IEnumerable<BloqueioDia>>> Get() => await _serviceEventoSebraeLab.GetAllDiasBloqueados();
 
-        // POST api/<ValuesController>
-        [HttpPost]
-        public void Post([FromBody] DateTime[] values)
-        {
-            _serviceEventoSebraeLab.BloquearDias(values);
-        }
     
     }
 }

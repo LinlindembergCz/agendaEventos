@@ -21,6 +21,9 @@ export class EventoEditComponent implements OnInit, AfterViewInit {
 
   indexComponent:number=0;
   evento: Eventolab;
+
+  diasBloqueados: Date[]=[new Date()];
+  
   picture: any ="";
   private fileUrl: string = "";
   public progress: number;
@@ -40,8 +43,9 @@ export class EventoEditComponent implements OnInit, AfterViewInit {
 
     this.evento = new Eventolab();
 
-    this.route.queryParams.subscribe(params => {
+    this.loadDiasBloqueados();
 
+    this.route.queryParams.subscribe(params => {
 
       this.http.get<Eventolab>(environment.services.api,
         `EventoSebraeLab/${params['id']}`).
@@ -69,6 +73,15 @@ export class EventoEditComponent implements OnInit, AfterViewInit {
   ngAfterViewInit()
   {  
 
+  }
+
+  loadDiasBloqueados()
+  {
+    this.http.get<any[]>(environment.services.api,"EventoSebraeLab/DiasBloqueados").
+    then(x=>{
+      this.diasBloqueados = []
+      x.forEach(d=> {this.diasBloqueados.push(new Date(d.data))})
+      });
   }
 
   addDia()

@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SebraeLab.Bloqueio.App.Services;
+using SebraeLab.Bloqueio.Domain;
+using SebraeLab.Blqoueio.App.ViewModels;
 using SebraeLab.Evento.App.Services;
 using SebraeLab.Evento.App.ViewModels;
-
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -14,10 +16,13 @@ namespace SebraeLabAdmin.Controllers
     public class EventoSebraeLabController : ControllerBase
     {
         private readonly IEventoSebraeLabAppService _serviceEventoSebraeLab;
+        private readonly IBloqueadorAppService _serviceBloqueio;
 
-        public EventoSebraeLabController(IEventoSebraeLabAppService service)
+        public EventoSebraeLabController(IEventoSebraeLabAppService service,
+                                         IBloqueadorAppService serviceBloqueio  )
         {
             _serviceEventoSebraeLab = service;
+            _serviceBloqueio = serviceBloqueio;
         }
 
         // GET: api/<EventoSebraeLabController>
@@ -76,20 +81,20 @@ namespace SebraeLabAdmin.Controllers
         {
         }
 
-        // PATCH api/<EventoSebraeLabController>/5
-      /*  [HttpPatch("Bloquear/{id}")]
+        [HttpGet]
+        [Route("DiasBloqueados")]
         [AllowAnonymous]
-        public async Task<IActionResult> Bloquear(Guid id)
+        public async Task<ActionResult<IEnumerable<DiaBloqueado>>> GetAllBloqueio() =>
+           await _serviceBloqueio.GetAllDiasBloqueado();
+
+        // POST api/<ValuesController>
+        [HttpPost]
+        [Route("DiasBloqueados")]
+        [AllowAnonymous]
+        public void Post(BloqueadorViewModel bloqueador)
         {
-            try
-            {
-                await _serviceEventoSebraeLab.Bloquear(id);
-                return Ok(new { msg = "evento alterado com sucesso!" });
-            }
-            catch (Exception e)
-            {
-                return new ObjectResult("Falhou! Mensagem: " + e.Message);
-            }
-        }*/
+            _serviceBloqueio.Add( bloqueador );
+        }
+
     }
 }

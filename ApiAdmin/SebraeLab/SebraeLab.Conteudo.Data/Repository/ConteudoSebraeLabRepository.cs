@@ -19,11 +19,17 @@ namespace SebraeLab.Conteudo.Data.Repository
         {
             return await _context.Conteudos.AsNoTracking().ToListAsync();
         }
-        
+
+        public async Task<List<ConteudoSebraeLab>> Search(string search)
+        {
+            return await _context.Conteudos.Where(c=> c.Descricao.Contains(search) || c.Titulo.Contains(search) )
+                .AsNoTracking().ToListAsync();
+        }
+
         //public async Task<IEnumerable<EventoSebraeLab>> GetById(Guid id)
         public async Task<ConteudoSebraeLab> GetById(Guid id)
         {
-            return await _context.Conteudos.AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
+            return await _context.Conteudos.FirstOrDefaultAsync(p => p.Id == id);
             //.Where(p => p.Id == id).ToListAsync();
             //FirstOrDefaultAsync(p => p.Id == id);
 

@@ -11,6 +11,9 @@
           "AutoMapper.Extensions.Microsoft.DependencyInjection": "11.0.0",
           "Microsoft.AspNetCore.JsonPatch": "6.0.8",
           "Microsoft.EntityFrameworkCore.Tools": "6.0.8",
+          "SebraeLab.Bloqueio.App": "1.0.0",
+          "SebraeLab.Bloqueio.Data": "1.0.0",
+          "SebraeLab.Bloqueio.Domain": "1.0.0",
           "SebraeLab.Conteudo.App": "1.0.0",
           "SebraeLab.Conteudo.Data": "1.0.0",
           "SebraeLab.Conteudo.Domain": "1.0.0",
@@ -589,6 +592,38 @@
           }
         }
       },
+      "SebraeLab.Bloqueio.App/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Abstractions": "2.2.0",
+          "SebraeLab.Bloqueio.Data": "1.0.0",
+          "SebraeLab.Bloqueio.Domain": "1.0.0",
+          "SebraeLab.Core": "1.0.0",
+          "AutoMapper": "11.0.1"
+        },
+        "runtime": {
+          "SebraeLab.Bloqueio.App.dll": {}
+        }
+      },
+      "SebraeLab.Bloqueio.Data/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.8",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.8",
+          "SebraeLab.Bloqueio.Domain": "1.0.0",
+          "SebraeLab.Core": "1.0.0"
+        },
+        "runtime": {
+          "SebraeLab.Bloqueio.Data.dll": {}
+        }
+      },
+      "SebraeLab.Bloqueio.Domain/1.0.0": {
+        "dependencies": {
+          "SebraeLab.Core": "1.0.0"
+        },
+        "runtime": {
+          "SebraeLab.Bloqueio.Domain.dll": {}
+        }
+      },
       "SebraeLab.Conteudo.App/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Mvc.Abstractions": "2.2.0",
@@ -647,6 +682,7 @@
           "Microsoft.EntityFrameworkCore": "6.0.8",
           "Microsoft.EntityFrameworkCore.Relational": "6.0.8",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.8",
+          "SebraeLab.Bloqueio.Domain": "1.0.0",
           "SebraeLab.Core": "1.0.0",
           "SebraeLab.Evento.Domain": "1.0.0"
         },
@@ -1110,6 +1146,21 @@
       "sha512": "sha512-CeWTdRNfRaSh0pm2gDTJFwVaXfTq6Xwv/sA887iwPTneW7oMtMlpvDIO+U60+3GWTB7Aom6oQwv5VZVUhQRdPQ==",
       "path": "system.windows.extensions/4.7.0",
       "hashPath": "system.windows.extensions.4.7.0.nupkg.sha512"
+    },
+    "SebraeLab.Bloqueio.App/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SebraeLab.Bloqueio.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SebraeLab.Bloqueio.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "SebraeLab.Conteudo.App/1.0.0": {
       "type": "project",
