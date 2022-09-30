@@ -11,7 +11,7 @@ namespace SebraeLab.Conteudo.Domain
         public string? Titulo { get; private set; }
         public string? Subtitulo { get; private set; }
         public string? Descricao { get; private set; }
-        public bool? Personalizadodesativado { get; private set; }
+        
         public StatusConteudo? Status { get; private set; }
         public string? Legenda { get; private set; }
 
@@ -19,9 +19,12 @@ namespace SebraeLab.Conteudo.Domain
         public TipoPublicacao Tipopublicacao { get; private set; }
         public DateTime Datacadastro { get; private set; }
         public DateTime? Datapublicacao { get; private set; }
-
         public bool? Ativo { get; private set; }
 
+        public bool? Personalizadodesativado { get; private set; }
+        public string? Titulochamada { get; private set; }
+        public string? Titulobotao { get; private set; }
+        public string? Linkredirecionamento { get; private set; }
         public ConteudoSebraeLab()
         {
 
@@ -36,7 +39,11 @@ namespace SebraeLab.Conteudo.Domain
                       string legenda,
                       TipoPublicacao tipopublicacao,
                       bool? ativo,
-                      DateTime? datapublicacao
+                      string? titulochamada,
+                      string? titulobotao,
+                      string? linkredirecionamento
+
+
 
         )
         {
@@ -48,7 +55,9 @@ namespace SebraeLab.Conteudo.Domain
             Legenda = legenda;
             Tipopublicacao = tipopublicacao;
             Ativo = ativo;
-            Datapublicacao = datapublicacao;
+            Titulochamada = titulochamada;
+            Titulobotao = titulobotao;
+            Linkredirecionamento = linkredirecionamento;
         }
 
         public void Publish()

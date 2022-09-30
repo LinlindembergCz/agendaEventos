@@ -76,7 +76,25 @@
            </div>      
            <div class="p-col-12">
             <p-inputSwitch [(ngModel)]="conteudo.personalizadodesativado"></p-inputSwitch> Botão personalizado desativado.  
-           </div>       
+           </div>     
+           <div class="p-col-12" *ngIf="conteudo.personalizadodesativado">
+            <span class="p-float-label">
+                <input id="float-input" type="text" pInputText [(ngModel)]="conteudo.titulochamada"> 
+                <label for="float-input">Título da chamada</label>
+            </span>
+            </div>   
+            <div class="p-col-12" *ngIf="conteudo.personalizadodesativado">
+                <span class="p-float-label">
+                    <input id="float-input" type="text" pInputText [(ngModel)]="conteudo.titulobotao"> 
+                    <label for="float-input">Título do botão</label>
+                </span>
+            </div> 
+            <div class="p-col-12" *ngIf="conteudo.personalizadodesativado">
+                <span class="p-float-label">
+                    <input id="float-input" type="text" pInputText [(ngModel)]="conteudo.linkredirecionamento"> 
+                    <label for="float-input">Link para redirecionamento</label>
+                </span>
+            </div>   
         </div>              
  
        <div class="p-col-12" style="text-align: right;">

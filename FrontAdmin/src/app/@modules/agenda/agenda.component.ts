@@ -35,23 +35,21 @@ export class AgendaComponent implements OnInit {
   {
     console.log("bloquear")
 
-    this.http.post(environment.services.api,"EventoSebraeLab/DiasBloqueados", bloqueador ).finally
+    /*this.http.post(environment.services.api,"EventoSebraeLab/DiasBloqueados", bloqueador ).finally
     ( ()=>{ 
             this.messageService.add({severity:'info', summary:'Confirmação', detail:'Datas Bloqueadas com sucesso!'});
-          })  
-
-
-  /*  this.confirmationService.confirm({
+          })*/
+      this.confirmationService.confirm({
       header: "Bloquear agenda ?",
       message: 'O(s) selecionado(s) ficarão indisponíveis para os usuários agendarem eventos. Essa ação é reversível.<p></p> Tem certeza que deseja <b>bloquear</b> esses dias?',
       accept: () => {   
-                        this.http.post(environment.services.api,"EventoSebraeLab/DiasBloqueados", bloqueador ).finally
+                        this.http.post(environment.services.api,"EventoSebraeLab/DiasBloqueados", bloqueador ).then
                         ( ()=>{ 
                                 this.messageService.add({severity:'info', summary:'Confirmação', detail:'Datas Bloqueadas com sucesso!'});
                               })                      
                             
                     }
-      });*/
+      });
 
     
   }

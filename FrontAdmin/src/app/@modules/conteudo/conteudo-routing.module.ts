@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ConteudoComponent } from './conteudo.component';
 import { PublicacaoCreateComponent } from './components/publicacao-create/puclicacao-create.component';
 import { PublicacaoEditComponent } from './components/publicacao-edit/publicacao-edit.component';
+import { PublicacaoViewComponent } from './components/publicacao-view/publicacao-view.component';
 
 
 
@@ -18,6 +19,10 @@ const routes: Routes = [
     {
       path: 'alterarpublicacao',
       component: PublicacaoEditComponent,
+    },
+    {
+      path: 'visualizarpublicacao',
+      component: PublicacaoViewComponent,
     },
 
  ];

@@ -60,24 +60,31 @@ export class PublicacaoEditComponent implements OnInit, AfterViewInit {
      //Convert o array em string
      this.conteudo.tipopublicacao = this.tipoPublicacao.name; 
 
-     this.http.put<Publicacao>(environment.services.api,`ConteudoSebraeLab/${id}`, this.conteudo).finally
-     ( ()=>{ this.router.navigate(['/conteudo']); })     
+     this.http.put<Publicacao>(environment.services.api,`ConteudoSebraeLab/${id}`, this.conteudo).then
+     ( ()=>{ this.router.navigate(['/conteudo']); }) 
+        
 
   }
 
+
+
   publish(id: string)
   {       
+    this.router.navigate([`/visualizarpublicacao`], { queryParams: { id: id} } );
+ 
+
+    /*
     console.log( id )
     this.confirmationService.confirm({
       header: "Publicar conteúdo?",
       message: 'O conteúdo da publicação ficarão disponíveis no site. <p></p> Tem certeza que deseja <b>publicar</b> esse conteúdo?',
       accept: () => {          
-                       this.http.patch<Publicacao>(environment.services.api,`ConteudoSebraeLab/Publicar/${id}`).finally
-                      ( ()=>{ 
+                       this.http.patch<any>(environment.services.api,`ConteudoSebraeLab/Publicar/${id}`).then
+                      ( (r)=>{   
                               this.messageService.add({severity:'info', summary:'Confirmação', detail:'O conteúdo foi publicado com sucesso!'});
                             })  
                   }
-      }); 
+      }); */
   }
   
   

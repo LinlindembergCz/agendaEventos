@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
-import { environment } from 'src/environments/environment';
+import { RequestPromiseService } from '../../../../../app/@shared/services/request-promise.service';
+import { environment } from '../../../../../environments/environment';
 
 
 

@@ -11,9 +11,10 @@ import { BannersShowModule } from '../components/banners-show/banners-show.modul
 import { ConteudoRountingModule } from './conteudo-routing.module';
 import { PublicacaoCreateComponent } from './components/publicacao-create/puclicacao-create.component';
 import { PublicacaoEditComponent } from './components/publicacao-edit/publicacao-edit.component';
+import { PublicacaoViewComponent } from './components/publicacao-view/publicacao-view.component';
 import { SharedModule } from 'src/app/@shared/shared.module';
 @NgModule({
-  declarations: [ConteudoComponent, PublicacaoCreateComponent, PublicacaoEditComponent ],
+  declarations: [ConteudoComponent, PublicacaoCreateComponent, PublicacaoEditComponent, PublicacaoViewComponent ],
     exports: [PublicacaoCreateComponent, PublicacaoEditComponent],
   imports: [
     ConteudoRountingModule,
@@ -24,8 +25,7 @@ import { SharedModule } from 'src/app/@shared/shared.module';
     HeaderModule,
     NgPrimeExportsModule,
     BannersShowModule,
-    SharedModule
-   
+    SharedModule  
 
   ],
   providers: []

@@ -56,7 +56,7 @@ export class ConteudoComponent implements OnInit {
       this.confirmationService.confirm({
       header: "Excluir permanentemente?",
       message: 'Essa ação não poderá ser desfeita, e ele será removido de nosso sistema.<p></p>Tem certeza que deseja <b>excluir permanentemente</b> esse conteúdo?',
-      accept: () => {   this.http.delete(environment.services.api,`ConteudoSebraeLab/${id}`,null).finally
+      accept: () => {   this.http.delete(environment.services.api,`ConteudoSebraeLab/${id}`,null).then
                         ( ()=>{ 
                                 this.loadConteudos(); 
                                 this.messageService.add({severity:'info', summary:'Confirmação', detail:'Conteúdo excluido com sucesso!'});
@@ -70,7 +70,7 @@ export class ConteudoComponent implements OnInit {
       header: "Desativar conteúdo?",
       message: 'As publicações desativadas não ficam disponíveis no site. Os conteúdos que forem desativados estarão salvos na área de “Rascunhos”. <p></p> Tem certeza que deseja <b>desativar</b> esse conteúdo?',
       accept: () => {          
-                      this.http.patch(environment.services.api,`ConteudoSebraeLab/Desativar/${id}`,null).finally
+                      this.http.patch(environment.services.api,`ConteudoSebraeLab/Desativar/${id}`,null).then
                       ( ()=>{ 
                               this.loadConteudos(); 
                               this.messageService.add({severity:'info', summary:'Confirmação', detail:'Conteúdo inativado com sucesso!'});

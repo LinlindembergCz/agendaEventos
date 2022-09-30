@@ -41,7 +41,7 @@ export class PublicacaoCreateComponent implements OnInit, AfterViewInit {
      //Convert o array em string
      this.conteudo.tipopublicacao = this.tipoPublicacao.name; 
 
-     this.http.post<any>(environment.services.api,'ConteudoSebraeLab', this.conteudo).finally
+     this.http.post<any>(environment.services.api,'ConteudoSebraeLab', this.conteudo).then
      ( ()=>{ this.router.navigate(['/conteudo']); })     
 
   }

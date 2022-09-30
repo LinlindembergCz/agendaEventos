@@ -17,8 +17,10 @@ namespace SebraeLab.Conteudo.App.ViewModels
         public string? Legenda { get; set; }
         public string? Tipopublicacao { get; set; }
         public bool? Ativo { get; set; }
-        public DateTime? Datapublicacao { get; set; }
-        
+        public string? Titulochamada { get; set; }
+        public string? Titulobotao { get; set; }
+        public string? Linkredirecionamento { get; set; }
+
         public ConteudoSebraeLabViewModel() {
 
            }

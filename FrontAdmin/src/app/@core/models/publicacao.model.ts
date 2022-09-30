@@ -9,5 +9,8 @@ export class  Publicacao
     status: string = 'Rascunho';
     tipopublicacao: string='NOTICIA';
     ativo: boolean = true; 
+    titulochamada: string;
+    titulobotao: string;
+    linkredirecionamento: string;
 }
 

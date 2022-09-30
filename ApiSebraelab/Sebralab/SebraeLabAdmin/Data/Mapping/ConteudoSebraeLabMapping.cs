@@ -21,7 +21,16 @@ namespace SebraeLab.Conteudo.Data.Mappings
 
             builder.Property(c => c.Legenda)
            .HasColumnType("varchar(150)");
-     
+
+            builder.Property(c => c.Titulochamada)
+            .HasColumnType("varchar(150)");
+
+            builder.Property(c => c.Titulobotao)
+            .HasColumnType("varchar(20)");
+
+            builder.Property(c => c.Linkredirecionamento)
+            .HasColumnType("varchar(300)"); 
+
             builder.Property(c => c.Descricao).IsRequired();
 
             builder.Property(p => p.Status).IsRequired()
