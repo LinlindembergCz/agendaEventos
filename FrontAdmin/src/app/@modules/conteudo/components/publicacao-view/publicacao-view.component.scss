@@ -1,6 +1,6 @@
 .frameMain{
     /* Rectangle 2544 */
-    border: 1px solid;
+    //border: 1px solid;
     position: absolute;
     width: 1440px;
     height: 2593px;
@@ -10,9 +10,7 @@
 }
 
 .framePreVisualizacao{  
-    border: 1px solid;  
-    /* Auto layout */
-    display: flex;
+   // border: 1px solid;  
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
@@ -25,10 +23,9 @@
 }
 
 .framePublicar{
-    border: 1px solid;
+    //border: 1px solid;
     /* Frame 5932 */    
-    /* Auto layout */
-    display: flex;
+
     flex-direction: column;
     align-items: flex-start;
     padding: 19px 32px;
@@ -48,31 +45,28 @@
     flex-grow: 0;
 }
 
-.frameConteudo{
-    border: 1px solid;
+.frameConteudo{    
     /* Novo evento */
+    /* Auto layout */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 64px 0px 48px;
+    gap: 40px;
 
-/* Auto layout */
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-padding: 64px 0px 48px;
-gap: 40px;
+    position: absolute;
+    width: 912px;
+    height: 2057px;
+    left: 264px;
+    top: 292px;
+    //overflow-y: scroll;
 
-position: absolute;
-width: 912px;
-height: 2057px;
-left: 264px;
-top: 292px;
-overflow-y: scroll;
-
-background: #FFFFFF;
-border-radius: 10px;
+    background: #FFFFFF;
+    border-radius: 10px;
 }
 
 .framePublicacao{
-    border: 1px solid;
-    /* Frame 5929 */
+/* Frame 5929 */
 
 /* Auto layout */
 display: flex;
@@ -83,7 +77,31 @@ gap: 64px;
 
 width: 912px;
 height: 1945px;
-overflow-y: scroll;
+//overflow-y: scroll;
+
+
+/* Inside auto layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+
+
+}
+
+.framePublicacao2{
+    /* Frame 5926 */
+
+/* Auto layout */
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: flex-start;
+padding: 8px;
+gap: 8px;
+
+width: 912px;
+height: 1945px;
+//overflow-y: scroll;
 
 
 /* Inside auto layout */
@@ -92,8 +110,7 @@ order: 0;
 flex-grow: 0;
 }
 
-.frameConteudoPublicacao{
-    border: 1px solid;
+.frameCorpo{
     /* Frame 5922 */
 
 /* Auto layout */
@@ -105,76 +122,54 @@ gap: 40px;
 
 width: 640px;
 height: 1929px;
-}
-
-.frameTitulo{
-    border: 1px solid;
-    /* Frame 5693 */
-
-/* Auto layout */
-display: flex;
-flex-direction: column;
-align-items: flex-start;
-padding: 0px;
-gap: 8px;
-
-width: 640px;
-height: 142px;
 
 
 /* Inside auto layout */
 flex: none;
 order: 0;
-align-self: stretch;
 flex-grow: 0;
+}
 
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 600;
-font-size: 40px;
-line-height: 50px;
 
-/* or 125% */
-display: flex;
-align-items: center;
-
-/* Tailwind/slate/900 */
-color: #0F172A;
+.frameTitulo{
+    //border: 1px solid;
+    /* Frame 5693 */
+    //flex-direction: column;
+    //align-items: center;
+    padding: 0px;
+    gap: 8px;
+    width: 640px;
+    height: 142px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 50px;
+    /* Tailwind/slate/900 */
+    color: #0F172A;
 }
 
 .frameSubTitulo{
-    border: 1px solid;
+    //border: 1px solid;
     width: 640px;
-height: 34px;
+    height: 34px;
 
-/* Heading/H4 */
-font-family: 'Poppins';
-font-style: normal;
-font-weight: 500;
-font-size: 24px;
-line-height: 34px;
-
-/* identical to box height, or 142% */
-
-/* Tailwind/slate/500 */
-color: #64748B;
-
-
-/* Inside auto layout */
-flex: none;
-order: 1;
-align-self: stretch;
-flex-grow: 0;
+    /* Heading/H4 */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 34px;
+    color: #64748B;
 }
 
 .frameCorpoConteudo{
-    border: 1px solid;
+    //border: 1px solid;
     /* Corpo */
 
 /* Auto layout */
-display: flex;
-flex-direction: column;
-align-items: flex-end;
+//flex-direction: column;
+//align-items: center;
 padding: 0px;
 gap: 72px;
 
@@ -182,20 +177,16 @@ width: 640px;
 height: 1747px;
 
 
-/* Inside auto layout */
-flex: none;
-order: 1;
-flex-grow: 0;
+
 }
 
 
 .frameImage{
-    border: 1px solid;
+    //border: 1px solid;
     /* Frame 5682 */
 
 /* Auto layout */
-display: flex;
-flex-direction: column;
+//flex-direction: column;
 justify-content: center;
 align-items: center;
 padding: 0px;
@@ -205,15 +196,11 @@ width: 640px;
 height: 355px;
 
 
-/* Inside auto layout */
-flex: none;
-order: 0;
-align-self: stretch;
-flex-grow: 0;
+
 }
 
 .frameLegenda{
-    border: 1px solid;
+    //border: 1px solid;
     /* Foto do nosso ambiente */
 
 width: 170px;
@@ -227,25 +214,19 @@ font-size: 16px;
 line-height: 150%;
 
 /* identical to box height, or 24px */
-display: flex;
-align-items: center;
+//align-items: center;
 
 /* Tailwind/slate/600 */
 color: #475569;
 
-
-/* Inside auto layout */
-flex: none;
-order: 1;
-flex-grow: 0;
 }
 .frameCorpoTexto{
-    border: 1px solid;
+    //border: 1px solid;
     /* Frame 5685 */
 
 /* Auto layout */
-display: flex;
-flex-direction: column;
+//display: flex;
+//flex-direction: column;
 justify-content: center;
 align-items: center;
 padding: 0px;
@@ -263,7 +244,7 @@ height: 1320px;
 }
 
 .frameVisualizacaoFoot{
-    border: 1px solid;
+    //border: 1px solid;
     /* Frame 5932 */
     /* Auto layout */
     display: flex;

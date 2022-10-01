@@ -22,6 +22,7 @@ export class PublicacaoEditComponent implements OnInit, AfterViewInit {
   tipoPublicacao: any;  
  
   conteudo:  Publicacao = new Publicacao(); 
+  text: string='<div>Hello World!</div><div>PrimeNG <b>Editor</b> Rocks</div><div><br></div>';
 
   picture: any ="";
   private fileUrl: string = "";

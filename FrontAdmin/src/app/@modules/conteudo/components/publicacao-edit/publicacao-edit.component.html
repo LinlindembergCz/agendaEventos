@@ -53,27 +53,15 @@
                 </div>    
             </div>
 
-            <div class="frameEventoDescricao p-col-12">                
-               <span class="p-float-label">
+            <div class="frameEventoDescricao">                
+              <!-- <span class="p-float-label">
                    <textarea pInputTextarea [rows]="10" [cols]="141" pInputTextarea autoResize="autoResize" [(ngModel)]="conteudo.descricao" ></textarea>
                    <label for="float-input">Escreva aqui o corpo do texto da sua publicação</label>
-               </span> 
-              <!-- <app-code lang="markup" ngNonBindable ngPreserveWhitespaces>
-               <p-editor [(ngModel)]="text2" [style]="'height':'320px'">
-                    <ng-template pTemplate="header">
-                        <span class="ql-format-group">
-                            <span title="Bold" class="ql-format-button ql-bold"></span>
-                            <span class="ql-format-separator"></span>
-                            <span title="Italic" class="ql-format-button ql-italic"></span>
-                            <span class="ql-format-separator"></span>
-                            <span title="Underline" class="ql-format-button ql-underline"></span>
-                            <span class="ql-format-separator"></span>
-                            <span title="Strikethrough" class="ql-format-button ql-strike"></span>
-                        </span>
-                    </ng-template>
-                </p-editor>
-                </app-code>-->
-           </div>      
+               </span> -->
+                    <p-editor [(ngModel)]="text" [style]="{'height':'500px', 'width':'900px'}" [(ngModel)]="conteudo.descricao">
+                    </p-editor>
+               </div> 
+               
            <div class="p-col-12">
             <p-inputSwitch [(ngModel)]="conteudo.personalizadodesativado"></p-inputSwitch> Botão personalizado desativado.  
            </div>     

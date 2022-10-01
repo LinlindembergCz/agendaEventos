@@ -48,6 +48,7 @@ import {PaginatorModule} from 'primeng/paginator';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {SplitButtonModule} from 'primeng/splitbutton';
 import {DataViewModule} from 'primeng/dataview';
+import {EditorModule} from 'primeng/editor';
 
 @NgModule({
     exports: [
@@ -97,7 +98,8 @@ import {DataViewModule} from 'primeng/dataview';
         ChipsModule,
         PaginatorModule,
         SelectButtonModule,
-        RadioButtonModule
+        RadioButtonModule,
+        EditorModule
 
     ],
     providers: [

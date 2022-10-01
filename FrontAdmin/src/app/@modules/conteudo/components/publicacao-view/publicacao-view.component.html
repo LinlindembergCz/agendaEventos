@@ -7,30 +7,30 @@
     </div>
 
     <div class="frameConteudo">
-        <div class="framePublicacao">
-            <div class="frameConteudoPublicacao">
-                <div class="frameTitulo">
-                    {{publicacao.titulo}}
-                    <div class="frameSubTitulo">
-                        {{publicacao.subtitulo}}
-                    </div> 
-                </div>  
-                
-                <div class="frameCorpoConteudo">
-                    <div class="frameImage">
-                        <div class="frameLegenda">
-                            {{publicacao.legenda}}
+        <div class="framePublicacao" >
+            <div class="framePublicacao2">
+                <div class="frameCorpo">
+                    <div class="frameTitulo">
+                        {{publicacao.titulo}}
+                        <div class="frameSubTitulo">
+                            {{publicacao.subtitulo}}
+                        </div> 
+                    </div>
+                    <div class="frameCorpoConteudo" >
+                        <div class="frameImage">
+                            <img src="../../../../../assets/imgs/ExemploImagemCapa.png" width="100%"/>
+                            <div class="frameLegenda">
+                                {{publicacao.legenda}}
+                            </div>
                         </div>
+                        <div class="frameCorpoTexto" [innerHTML]="publicacao.descricao">                    
+                        </div>                    
                     </div>
-
-                    <div class="frameCorpoTexto">
-                        {{publicacao.descricao}}
-                    </div>
-                    
                 </div>
-                       
             </div>
+
         </div>
+
     </div>
 
     <div class="frameVisualizacaoFoot">
