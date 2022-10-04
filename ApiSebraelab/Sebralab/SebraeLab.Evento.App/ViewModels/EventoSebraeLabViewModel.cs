@@ -9,7 +9,8 @@ namespace SebraeLab.Evento.App.ViewModels
     {
         [Key]
         public Guid? Id { get; set; }
-        public string Titulo { get; set; } 
+        public string Titulo { get; set; }
+        public string Subtitulo { get; set; }
         public int Numeroparticipantes { get;  set; }
         public string Tipoevento { get;  set; } 
         public string Linksparainscricao { get;  set; } 

@@ -10,6 +10,9 @@ namespace SebraeLab.Evento.Data.Mappings
         {
             builder.HasKey(c => c.Id);
 
+            builder.Property(p => p.Status)
+            .HasConversion(new ConversorStatus());
+
             builder.ToTable("EventosSebraeLab");
         }
     }

@@ -1,12 +1,14 @@
 ﻿using System;
 using SebraeLab.Core.DomainObjects;
+using SebraeLab.Evento.Domain.Enums;
 
 namespace SebraeLab.Evento.Domain
 {
 
     public class EventoSebraeLab : Entity
     {
-        public string? Titulo { get; private set; } 
+        public string? Titulo { get; private set; }
+        public string? Subtitulo { get; private set; }
         public int? Numeroparticipantes { get; private set; }
         public  string? Tipoevento { get; private set; }
         public string? Linksparainscricao { get; private set; }
@@ -18,7 +20,7 @@ namespace SebraeLab.Evento.Domain
         public string? Contato { get; private set; }
         public bool? Imagempersonalida { get; private set; }
         public bool? Publicaosite { get; private set; }
-        public string? Status { get; private set; }
+        public Status? Status { get; private set; }
         public DateTime Datacadastro { get; private set; }
 
         public EventoSebraeLab()
@@ -28,6 +30,7 @@ namespace SebraeLab.Evento.Domain
 
         public EventoSebraeLab(
                       string titulo ,
+                      string subtitulo,
                       int numeroparticipantes,
                       string tipoevento,
                       string linksparainscricao ,
@@ -38,7 +41,7 @@ namespace SebraeLab.Evento.Domain
                       string contato,
                       bool imagempersonalida ,
                       bool publicaosite,
-                      string status
+                      Status status
         )
         {
            Titulo = titulo;
@@ -53,6 +56,7 @@ namespace SebraeLab.Evento.Domain
            Publicaosite = publicaosite;
            Tipoevento = tipoevento;
            Status = status;
+           Subtitulo = subtitulo;
         }
 
 

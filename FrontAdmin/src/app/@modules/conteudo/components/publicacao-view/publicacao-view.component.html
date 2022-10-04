@@ -1,30 +1,64 @@
 <app-header></app-header> 
 <div class="frameMain">
+
     <div class="framePreVisualizacao">
-        <div class="framePublicar">        
-            Publicar
+
+        <div class="voltarparaconteudo" style="cursor: pointer;">              
+            <a href="javascript:history.back()">
+                <img src="../../../../../assets/imgs/chevron-return.png" >voltar para edição 
+            </a>
+        </div>
+        <div class="framePublicar p-grid">   
+            <div class="p-col-8">
+                <div class="PreVisualizar">Pré-visualização</div>
+                <div class="TextPreVisualizar">O conteúdo aparecerá desse modo no site, confira todo conteúdo antes de publicar.</div>
+            </div>   
+            <div class="frameBotaoPublicar p-col-2">
+                <div *ngIf="publicacao.status=='Rascunho'">
+                    <button pButton type="button"  label="Publicar" class="buttonPublicar p-button-outlined"              
+                    (click)="publish(publicacao.id)"></button>
+                </div>
+                <div *ngIf="publicacao.status=='Publicado'">
+                    <button pButton type="button"  label="Atualizar" class="buttonPublicar p-button-outlined"              
+                    (click)="save(publicacao.id)"></button>
+                </div>
+            </div>
         </div>
     </div>
 
     <div class="frameConteudo">
         <div class="framePublicacao" >
             <div class="framePublicacao2">
-                <div class="frameCorpo">
-                    <div class="frameTitulo">
+                <div class="frameCorpo p-grid">
+                    <div class="frameTitulo p-col-12">
                         {{publicacao.titulo}}
-                        <div class="frameSubTitulo">
-                            {{publicacao.subtitulo}}
-                        </div> 
+                         
                     </div>
-                    <div class="frameCorpoConteudo" >
-                        <div class="frameImage">
+                    <div class="frameSubTitulo p-col-12">
+                        {{publicacao.subtitulo}}
+                    </div>
+                    <div class="frameCorpoConteudo p-col-12" >
+                       <div class="frameImage">
                             <img src="../../../../../assets/imgs/ExemploImagemCapa.png" width="100%"/>
                             <div class="frameLegenda">
                                 {{publicacao.legenda}}
                             </div>
-                        </div>
-                        <div class="frameCorpoTexto" [innerHTML]="publicacao.descricao">                    
-                        </div>                    
+                        </div>                                 
+                    </div>
+
+                    <div class="p-col-12" [innerHTML]="publicacao.descricao">                    
+                    </div>  
+
+                    <div class="botaopersonalizado" *ngIf="publicacao.personalizadoativado">
+                        <h2>{{publicacao.titulochamada}}</h2>
+                         <p></p>
+                        <a href="{{publicacao.linkredirecionamento}}" target="_blank">
+                            <button pButton type="button" 
+                            label="{{publicacao.titulobotao}}" 
+                            class="p-button-outlined" 
+                            style="background:#E03C8B;color:#FFFFFF;border:0px;width: 190px;height: 44px;">
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -33,7 +67,27 @@
 
     </div>
 
-    <div class="frameVisualizacaoFoot">
-        Publicar
+    <div class="frameVisualizacaoFoot p-grid">
+        <div class="p-col-8">
+            <div class="PreVisualizar">Pré-visualização</div>
+            <div class="TextPreVisualizar">O conteúdo aparecerá desse modo no site, confira todo conteúdo antes de publicar.</div>
+        </div>   
+        <div class="frameBotaoPublicar p-col-2">
+            <div *ngIf="publicacao.status=='Rascunho'">
+                <button pButton type="button"  label="Publicar" class="buttonPublicar p-button-outlined"              
+                (click)="publish(publicacao.id)"></button>
+            </div>
+            <div *ngIf="publicacao.status=='Publicado'">
+                <button pButton type="button"  label="Atualizar" class="buttonPublicar p-button-outlined"              
+                (click)="save(publicacao.id)"></button>
+            </div>
+        </div>
     </div>
 </div>
+
+<p-confirmDialog #cd  [breakpoints]="{'560px': '75vw', '640px': '100vw'}" [style]="{width: '40vw'}">
+    <ng-template pTemplate="footer">
+        <button type="button" pButton icon="pi pi-times" label="Não" (click)="cd.reject()"></button>
+        <button type="button" class="p-button-danger" pButton icon="pi pi-check" label="Sim" (click)="cd.accept()"></button>
+    </ng-template>
+</p-confirmDialog>

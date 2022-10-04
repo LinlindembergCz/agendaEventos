@@ -1,0 +1,97 @@
+<div class="framePrevisualizacao">
+    <div class="voltarparaconteudo" style="cursor: pointer;">              
+        <a href="javascript:history.back()">
+            <img src="../../../../../assets/imgs/chevron-return.png" >voltar para edição 
+        </a>
+    </div>
+    <div class="frameConteudoPrevisualizacao">
+        <div class="frameConteudo2Previsualizacao">
+            <div class="frameConteudoTextoPrevisualizacao p-grid">
+                <div class="p-col-10">
+                    <div class="frameConteudoTituloPrevisualizacao">
+                        Pré-visualização
+                    </div>
+                    <div class="frameConteudoDescricaoPrevisualizacao">
+                        O evento aparecerá desse modo no site, confira todo conteúdo antes de publicar.
+                    </div>
+                </div>
+                <div class="frameBotaoPublicar p-col-2">
+                    <div *ngIf="evento.status=='Rascunho'">
+                        <button pButton type="button"  label="Publicar" class="buttonPublicar p-button-outlined"              
+                        (click)="publish(evento.id)"></button>
+                    </div>
+                    <div *ngIf="evento.status=='Publicado'">
+                        <button pButton type="button"  label="Atualizar" class="buttonPublicar p-button-outlined"              
+                        (click)="save(evento.id)"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="frameBanner">
+        <img src="../../../../../assets/imgs/ExemploImagemCapa.png" width="100%"/>
+        <div class="frameBannerEvento">            
+            <div class="frameBannerDetails p-grid">
+                <div class="p-col-12"> 
+                    <div class="frameBannerDatas">29> 30</div>Junho
+                </div>
+                <div class="frameBannerDetailsConteudoHoras p-col-12">08:30 - 12:30</div>
+                <div class="frameBannerDetailsConteudoTitulo p-col-12">{{evento.titulo}}</div>
+                <div class="frameBannerDetailsConteudoDescricao p-col-12">{{evento.subtitulo}}
+                   
+                </div>
+                <p></p>
+                <div class="p-col-6">
+                    <h2>GRATUIDO:</h2>
+                </div>
+                <div class="p-col-6">
+                    <button pButton type="button"  label="Inscreva-se" class="p-button-outlined"></button>
+                </div>
+            </div>
+         </div>        
+    </div>
+    <p></p><p></p>
+    <div class="p-grid">
+        <div class="p-col-5 p-row-1">
+            <div class="frameColuna1Descricao" [innerHTML]="evento.descricaoevento">                    
+            </div> 
+            <div class="frameOrganizador">
+                <h2>Sobre o organizador</h2>
+                {{evento.nomecompleto}}
+                <button pButton type="button"  label="Entre em contato" 
+                class="p-button-outlined"></button>
+            </div>
+        </div>
+        <div class="p-col-2 p-row-1"></div>
+        <div class="p-col-5 p-row-1">
+            Localizacao
+            <div>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1573.1460644727042!2d-40.299348074082765!3d-20.31710753356827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb83dba8fb6fbf9%3A0x2401255a85fb5a11!2sSebrae!5e0!3m2!1spt-BR!2sbr!4v1661954760069!5m2!1spt-BR!2sbr" width="416px" height="272px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+        <div class="p-col-5 p-row-2">
+            <h2>Data e horário</h2>
+            <div>
+                Domingo, 04 de Junho de 2022 das 14:00 até 18:00 (Horário de Brasília)
+            </div>
+        </div>
+        <div class="p-col-5 p-row-2">
+            <h2>Compartilhe</h2>
+            <div>
+                <img src="../../../../../assets/imgs/icon-facebook.png">    
+                <img src="../../../../../assets/imgs/icon-twitter.png">  
+                <img src="../../../../../assets/imgs/icon-zap.png">  
+                <img src="../../../../../assets/imgs/icon-telegram.png">  
+                <img src="../../../../../assets/imgs/icon-linkIn.png">  
+            </div>
+        </div>
+    
+    </div>
+
+
+</div>
+
+
+
+
+

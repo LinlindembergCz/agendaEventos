@@ -28,4 +28,4 @@ import { NgPrimeExportsModule } from '../../../../@bootstrap/scripts/ngprime.exp
   ],
   providers: []
 })
-export class PublicacaoListModule { }
+export class PublicacaoViewModule { }

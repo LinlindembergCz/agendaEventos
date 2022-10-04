@@ -14,10 +14,11 @@ import { FullCalendarioShowModule } from './components/fullCalendar-show/fullcal
 import { AgendaRountingModule } from './agenda-routing.module';
 import { EventoCreateComponent } from './components/evento-create/evento-create.component';
 import { EventoEditComponent } from './components/evento-edit/evento-edit.component';
+import { EventoViewComponent } from './components/evento-view/evento-view.component';
 import { SharedModule } from 'src/app/@shared/shared.module';
 
 @NgModule({
-  declarations: [AgendaComponent, EventoCreateComponent, EventoEditComponent, 
+  declarations: [AgendaComponent, EventoCreateComponent, EventoEditComponent, EventoViewComponent 
     ],
     exports: [EventoCreateComponent, EventoEditComponent],
   imports: [

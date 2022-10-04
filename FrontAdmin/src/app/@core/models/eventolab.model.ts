@@ -4,6 +4,7 @@ export class  Eventolab
 {
     id: string;
     titulo: string;
+    subtitulo: string;
     numeroparticipantes: number;
     tipoevento: string;
     linksparainscricao: string;
@@ -14,6 +15,6 @@ export class  Eventolab
     contato:string;
     imagempersonalida:boolean;
     publicaosite:boolean;
-
     dias: EventolabDias[]=[];
+    status: string = 'Rascunho';
 }

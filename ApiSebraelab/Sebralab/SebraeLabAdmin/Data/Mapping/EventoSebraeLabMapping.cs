@@ -14,9 +14,12 @@ namespace SebraeLab.Evento.Data.Mappings
                 .IsRequired()
                 .HasColumnType("varchar(250)");
 
+            builder.Property(c => c.Subtitulo)
+                  .HasColumnType("varchar(250)");
+
             builder.Property(c => c.Descricaoevento)
                 .IsRequired()
-                .HasColumnType("varchar(2000)");
+                .HasColumnType("varchar(max)");
 
             builder.Property(c => c.Contato)
                .IsRequired()
@@ -40,13 +43,11 @@ namespace SebraeLab.Evento.Data.Mappings
                 .IsRequired()
                 .HasColumnType("varchar(150)");
 
-            builder.Property(c => c.Status)          
-            .HasColumnType("varchar(10)");
+            builder.Property(p => p.Status).HasConversion(new ConversorStatus());
 
             builder.HasMany(c => c.Dias)
                 .WithOne(c => c.Evento)
                 .HasForeignKey(c => c.Eventoid);
-
 
             builder.ToTable("EventosSebraeLab");
         }

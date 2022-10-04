@@ -20,7 +20,7 @@ export class PublicacaoCreateComponent implements OnInit, AfterViewInit {
   conteudo: Publicacao = new Publicacao(); 
 
   tiposPublicacao : typeof TiposPublicacao = TiposPublicacao;
-  tipoPublicacao: any={ name: "(nenhum)" }  
+  tipoPublicacao: any={ name: "Selecionar" }  
 
   constructor(private messageService: MessageService,
     private http :RequestPromiseService,
@@ -33,7 +33,7 @@ export class PublicacaoCreateComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit()
   {  
-
+    window.scrollTo(0, 0);
   } 
 
   save()
@@ -45,5 +45,7 @@ export class PublicacaoCreateComponent implements OnInit, AfterViewInit {
      ( ()=>{ this.router.navigate(['/conteudo']); })     
 
   }
+
+
 
 }

@@ -94,7 +94,7 @@ namespace SebraeLab.Evento.Data.Migrations
                     b.Property<string>("Linkredirecionamento")
                         .HasColumnType("varchar(300)");
 
-                    b.Property<bool?>("Personalizadodesativado")
+                    b.Property<bool?>("Personalizadoativado")
                         .HasColumnType("bit");
 
                     b.Property<string>("Status")
@@ -173,7 +173,7 @@ namespace SebraeLab.Evento.Data.Migrations
 
                     b.Property<string>("Descricaoevento")
                         .IsRequired()
-                        .HasColumnType("varchar(2000)");
+                        .HasColumnType("varchar(max)");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -199,7 +199,10 @@ namespace SebraeLab.Evento.Data.Migrations
                         .HasColumnType("bit");
 
                     b.Property<string>("Status")
-                        .HasColumnType("varchar(10)");
+                        .HasColumnType("nvarchar(1)");
+
+                    b.Property<string>("Subtitulo")
+                        .HasColumnType("varchar(250)");
 
                     b.Property<string>("Tipoevento")
                         .IsRequired()

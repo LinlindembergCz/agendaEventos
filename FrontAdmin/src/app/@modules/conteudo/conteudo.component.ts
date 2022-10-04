@@ -93,6 +93,9 @@ export class ConteudoComponent implements OnInit {
 
   search( value: string )
   {
+    if ( value ==='')
+       this.loadConteudos()
+    else
     this.http.get<any[]>(environment.services.api,`ConteudoSebraeLab/Pesquisar?search=${value}`).
       then(x => {  
                   console.log(x)
@@ -101,6 +104,7 @@ export class ConteudoComponent implements OnInit {
                   this.rascunhos =x.filter( f=>f.status =="Rascunho");                 
                 });
   }
+
 
 
 }

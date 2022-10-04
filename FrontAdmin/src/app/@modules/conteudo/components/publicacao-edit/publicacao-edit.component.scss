@@ -42,28 +42,35 @@ flex-grow: 0;
 .frameTituloNovoEvento{
     /* Novo evento */
 
-width: 255px;
+//width: 100%;
 //height: 50px;
 
 /* Heading / H2 */
 font-family: 'Poppins';
 font-style: normal;
 font-weight: 600;
-font-size: 30px;
-line-height: 50px;
+color: #263746;
+//font-size: 30px;
+//line-height: 50px;
 
-/* identical to box height, or 125% */
-display: flex;
-align-items: center;
 
 /* Cores da Marca/Tipografia/Preto */
 color: #263746;
 
+}
 
-/* Inside auto layout */
-flex: none;
-//order: 1;
-flex-grow: 0;
+.voltarparaconteudo{
+    font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 150%;
+
+/* identical to box height, or 24px */
+text-align: center;
+
+/* Cores da Marca/Cores principais/Rosa */
+color: #ED4D9A;
 }
 
 .linha{width: 912px;
@@ -72,12 +79,6 @@ flex-grow: 0;
     /* Cores da Marca/Cores principais/Rosa */
     background: #ED4D9A;
     opacity: 0.5;
-    
-    /* Inside auto layout */
-    flex: none;
-    //order: 1;
-    align-self: stretch;
-    flex-grow: 0;
 }
 
 .frameImagemCapa{/* Frame 5948 */

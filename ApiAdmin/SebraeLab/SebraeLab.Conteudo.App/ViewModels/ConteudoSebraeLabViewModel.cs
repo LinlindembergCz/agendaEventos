@@ -12,7 +12,7 @@ namespace SebraeLab.Conteudo.App.ViewModels
         public string Titulo { get; set; }
         public string Subtitulo { get; set; }
         public string Descricao { get; set; }
-        public bool Personalizadodesativado { get; set; }
+        public bool Personalizadoativado { get; set; }
         public string? Status { get; set; }        
         public string? Legenda { get; set; }
         public string? Tipopublicacao { get; set; }

@@ -20,8 +20,7 @@ namespace SebraeLab.Conteudo.Domain
         public DateTime Datacadastro { get; private set; }
         public DateTime? Datapublicacao { get; private set; }
         public bool? Ativo { get; private set; }
-
-        public bool? Personalizadodesativado { get; private set; }
+        public bool? Personalizadoativado { get; private set; }
         public string? Titulochamada { get; private set; }
         public string? Titulobotao { get; private set; }
         public string? Linkredirecionamento { get; private set; }
@@ -34,7 +33,7 @@ namespace SebraeLab.Conteudo.Domain
                       string titulo,
                       string subtitulo,
                       string descricao,
-                      bool personalizadodesativado,
+                      bool personalizadoativado,
                       StatusConteudo status,
                       string legenda,
                       TipoPublicacao tipopublicacao,
@@ -50,7 +49,7 @@ namespace SebraeLab.Conteudo.Domain
             Titulo = titulo;
             Subtitulo = subtitulo;
             Descricao = descricao;
-            Personalizadodesativado = personalizadodesativado;
+            Personalizadoativado = personalizadoativado;
             Status = status;
             Legenda = legenda;
             Tipopublicacao = tipopublicacao;

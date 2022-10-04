@@ -105,6 +105,16 @@ export class EventoEditComponent implements OnInit, AfterViewInit {
 
   }
 
+  showPreview(id: string)
+  {       
+    this.router.navigate([`/visualizarevento`], { queryParams: { id: id} } ); 
+  }
+
+  showPublished(published: any)
+  {       
+    this.router.navigate([`/visualizarevento`], { queryParams: { data: JSON.stringify(published)} } ); 
+  }
+
   download(extention : string = ".jpg") {
     this.fileUrl = this.evento.titulo+extention;
     this.fileService.download(this.fileUrl).subscribe( (event) => {

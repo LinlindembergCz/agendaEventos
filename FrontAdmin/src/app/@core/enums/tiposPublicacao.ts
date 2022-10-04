@@ -1,4 +1,4 @@
-export const  TiposPublicacao = [{name:"(nenhum)"},
+export const  TiposPublicacao = [{name:"Selecionar"},
                                 {name:"Noticia"},
                                 {name:"Ebook"},
                                 {name:"Edital"},

@@ -59,7 +59,7 @@ export class EventoListComponent implements OnInit {
 
                   this.itens.push({ id:e.id,
                                     name: e.titulo,
-                                    summary:e.descricaoevento, 
+                                    summary:e.subtitulo, 
                                     hourStart: startEvent?.horainicio ,
                                     hourEnd: endEvent?.horafim, 
                                     dateStart:  startDay?.substring(8,10), //primeiro dia

@@ -3,16 +3,29 @@
 <div class="frameMain">
 
     <div class="frameSobreEvento">
-        <div class="frameEventoDetails p-grid p-fluid">    
+        <div class="frameEventoDetails p-grid p-fluid"> 
+            <div class="voltarparaconteudo" style="cursor: pointer;">              
+                <a href="javascript:history.back()">
+                    <img src="../../../../../assets/imgs/chevron-return.png" >voltar para conteúdo 
+                </a>
+            </div>
             
-            <div class="p-col-6">
-                <span class="p-float-label">
-                    <p-dropdown optionLabel="name"  [options]="tiposPublicacao" 
-                    [(ngModel)]="tipoPublicacao" 
-                    [style]="{'width':'100%'}"></p-dropdown>
-                    <label for="float-input">Tipo de publicação</label>
-                </span> 
-            </div> 
+            <div class="p-grid p-col-12">   
+                <div class="frameTituloNovoEvento p-col-6" ><h2>Nova publicação</h2></div>
+                <div class="frameTituloNovoEvento p-col-6" >
+                    <h2>
+                        <span class="p-float-label">
+                            <p-dropdown optionLabel="name"  [options]="tiposPublicacao" 
+                            [(ngModel)]="tipoPublicacao" 
+                            [style]="{'width':'100%'}"></p-dropdown>
+                            <label for="float-input">Tipo de publicação</label>
+                        </span> 
+                    </h2>                   
+                </div>
+            </div>
+
+            <div class="linha"></div>
+             
 
             <div class="frameTituloEvento p-col-12">
                 <div class="p-col-12">
@@ -55,43 +68,26 @@
             </div>
 
             <div class="frameEventoDescricao p-col-12">                
-               <span class="p-float-label">
-                   <textarea pInputTextarea [rows]="10" [cols]="141" pInputTextarea autoResize="autoResize" [(ngModel)]="conteudo.descricao" ></textarea>
-                   <label for="float-input">Escreva aqui o corpo do texto da sua publicação</label>
-               </span> 
-              <!-- <app-code lang="markup" ngNonBindable ngPreserveWhitespaces>
-               <p-editor [(ngModel)]="text2" [style]="'height':'320px'">
-                    <ng-template pTemplate="header">
-                        <span class="ql-format-group">
-                            <span title="Bold" class="ql-format-button ql-bold"></span>
-                            <span class="ql-format-separator"></span>
-                            <span title="Italic" class="ql-format-button ql-italic"></span>
-                            <span class="ql-format-separator"></span>
-                            <span title="Underline" class="ql-format-button ql-underline"></span>
-                            <span class="ql-format-separator"></span>
-                            <span title="Strikethrough" class="ql-format-button ql-strike"></span>
-                        </span>
-                    </ng-template>
+                <p-editor [style]="{'height':'500px', 'width':'900px'}" [(ngModel)]="conteudo.descricao">
                 </p-editor>
-                </app-code>-->
            </div>      
            <div class="p-col-12">
-            <p-inputSwitch [(ngModel)]="conteudo.personalizadodesativado"></p-inputSwitch> Botão personalizado desativado.  
+            <p-inputSwitch [(ngModel)]="conteudo.personalizadoativado"></p-inputSwitch> Botão personalizado ativado.  
            </div> 
        
-            <div class="p-col-12" *ngIf="conteudo.personalizadodesativado">
+            <div class="p-col-12" *ngIf="conteudo.personalizadoativado">
                 <span class="p-float-label">
                     <input id="float-input" type="text" pInputText [(ngModel)]="conteudo.titulochamada"> 
                     <label for="float-input">Título da chamada</label>
                 </span>
             </div>   
-            <div class="p-col-12" *ngIf="conteudo.personalizadodesativado">
+            <div class="p-col-12" *ngIf="conteudo.personalizadoativado">
                 <span class="p-float-label">
                     <input id="float-input" type="text" pInputText [(ngModel)]="conteudo.titulobotao"> 
                     <label for="float-input">Título do botão</label>
                 </span>
             </div> 
-            <div class="p-col-12" *ngIf="conteudo.personalizadodesativado">
+            <div class="p-col-12" *ngIf="conteudo.personalizadoativado">
                 <span class="p-float-label">
                     <input id="float-input" type="text" pInputText [(ngModel)]="conteudo.linkredirecionamento"> 
                     <label for="float-input">Link para redirecionamento</label>
@@ -102,7 +98,7 @@
  
        <div class="p-col-12" style="text-align: right;">
            <button pButton class="p-button-lg p-button-raised p-button-outlined p-mr-10" (click)="save()">Salvar como rascunho</button>&nbsp;&nbsp;
-           <button pButton class="p-button-lg p-button-raised p-button-warning p-mr-10" (click)="save()">Visualizar e publicar</button>
+          <!-- <button pButton class="p-button-lg p-button-raised p-button-warning p-mr-10" (click)="ShowPreview()">Visualizar e publicar</button>-->
        </div>
 
     </div>

@@ -29,7 +29,9 @@ namespace SebraeLab.Conteudo.Data.Mappings
             .HasColumnType("varchar(20)");
 
             builder.Property(c => c.Linkredirecionamento)
-            .HasColumnType("varchar(300)"); 
+            .HasColumnType("varchar(300)");
+
+            builder.Property(c => c.Personalizadoativado);            
 
             builder.Property(c => c.Descricao).IsRequired();
 
