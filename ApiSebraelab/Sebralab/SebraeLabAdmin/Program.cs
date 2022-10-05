@@ -1,9 +1,3 @@
-using Microsoft.EntityFrameworkCore;
-using SebraeLab.WebApp.Setup;
-using SebraeLab.Evento.Data;
-using SebraeLab.Evento.App.AutoMapper;
-using SebraeLab.Conteudo.App.AutoMapper;
-using SebraeLab.Conteudo.Data;
 using SebraeLabAdmin.Setup;
 
 var builder = WebApplication.CreateBuilder(args);

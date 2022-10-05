@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CalendarOptions } from '@fullcalendar/angular'; // useful for typechecking
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { Bloqueador } from 'src/app/@core/models/bloqueador.model';
-import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
+import { Bloqueador } from '../../@core/models/bloqueador.model';
+import { RequestPromiseService } from '../../@shared/services/request-promise.service';
 import { environment } from 'src/environments/environment';
 
 @Component({

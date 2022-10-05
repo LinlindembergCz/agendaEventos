@@ -1,13 +1,11 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserContextService } from 'src/app/@bootstrap/services/user-context.service';
-import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
+import { UserContextService } from '../../@bootstrap/services/user-context.service';
 import {User  } from '../../@core/models/struct/user.model';
-import {notification } from '../../@core/models/struct/notification.model';
-import { ApplicationStateService } from 'src/app/@bootstrap/services/application-state.service';
+import { ApplicationStateService } from '../../@bootstrap/services/application-state.service';
 import { MenuDataService } from '../@services/menu-data.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
-import { FileService } from 'src/app/@modules/user/services/file.service';
+import { FileService } from '../../@modules/user/services/file.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MenuItem } from 'primeng/api';
 

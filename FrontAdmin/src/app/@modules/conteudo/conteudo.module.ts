@@ -12,7 +12,7 @@ import { ConteudoRountingModule } from './conteudo-routing.module';
 import { PublicacaoCreateComponent } from './components/publicacao-create/puclicacao-create.component';
 import { PublicacaoEditComponent } from './components/publicacao-edit/publicacao-edit.component';
 import { PublicacaoViewComponent } from './components/publicacao-view/publicacao-view.component';
-import { SharedModule } from 'src/app/@shared/shared.module';
+import { SharedModule } from '../../@shared/shared.module';
 @NgModule({
   declarations: [ConteudoComponent, PublicacaoCreateComponent, PublicacaoEditComponent, PublicacaoViewComponent ],
     exports: [PublicacaoCreateComponent, PublicacaoEditComponent],

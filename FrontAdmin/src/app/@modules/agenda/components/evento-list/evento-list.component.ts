@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Tooltip } from 'primeng/tooltip';
-import { Eventolab } from 'src/app/@core/models/eventolab.model';
-import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
+import { Eventolab } from '../../../../@core/models/eventolab.model';
+import { RequestPromiseService } from '../../../../@shared/services/request-promise.service';
 import { environment } from 'src/environments/environment';
 
 

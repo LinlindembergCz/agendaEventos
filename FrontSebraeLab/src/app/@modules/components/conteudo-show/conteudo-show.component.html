@@ -7,17 +7,17 @@
         <div class="p-filed  confira">Confira as oportunidades imperdíveis para seu crescimento.</div>
     </div>
 
-    <p-dataView [value]="imgs">
-        <ng-template let-img pTemplate="listItem">
+    <p-dataView [value]="publicacoes" [paginator]="true" [rows]="4">
+        <ng-template let-publicacao pTemplate="listItem">
             <div class="imageItem">
-            <img src="{{img.image}}"/>          
+            <img src="assets/imgs/img1.png"/>     
 
             <div class="framenews">
                 <div class="p-field">
-                    Edital
+                    {{publicacao.tipopublicacao}} 
                 </div>
             
-                Prêmio IEL de Estágio destaca melhores práticas na Bahia<br><br>
+                {{publicacao.titulo}}<br><br>
             
                 <div class="p-field">
                     <a href="_blank">Saiba mais</a>

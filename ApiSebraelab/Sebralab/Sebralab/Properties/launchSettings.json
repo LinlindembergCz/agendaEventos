@@ -9,7 +9,7 @@
     }
   },
   "profiles": {
-    "Sebralab": {
+    /*"Sebralab": {
       "commandName": "Project",
       "dotnetRunMessages": true,
       "launchBrowser": true,
@@ -18,6 +18,14 @@
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
+    }*/ "Sebraelab": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "http://localhost:1901"
     },
     "IIS Express": {
       "commandName": "IISExpress",

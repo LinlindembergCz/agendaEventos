@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ToastService } from 'src/app/@bootstrap/services/toast.service';
-import { ProfilePageEditComponent } from 'src/app/@modules/user/pages/edit/profile-page-edit.component';
+import { ToastService } from '../../../../@bootstrap/services/toast.service';
+import { ProfilePageEditComponent } from '../../../../@modules/user/pages/edit/profile-page-edit.component';
 import { environment } from 'src/environments/environment';
 
 @Component({

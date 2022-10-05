@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
+import { RequestPromiseService } from '../../@shared/services/request-promise.service';
 import { environment } from '../../../environments/environment';
 
 

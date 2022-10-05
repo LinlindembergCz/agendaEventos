@@ -1,12 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
+import { RequestPromiseService } from '../../../../@shared/services/request-promise.service';
 import { environment } from 'src/environments/environment';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ToastService } from 'src/app/@bootstrap/services/toast.service';
-import { UserCreateModel, UserUpdateModel } from 'src/app/@modules/user/model/user.model';
+import { ToastService } from '../../../../@bootstrap/services/toast.service';
+import { UserCreateModel, UserUpdateModel } from '../../../../@modules/user/model/user.model';
 import { JWTTokenService } from '../../services/jwt.service';
-import { LoaderService } from 'src/app/@bootstrap/services/loader.service';
-import { UserContextService } from 'src/app/@bootstrap/services/user-context.service';
+import { LoaderService } from '../../../../@bootstrap/services/loader.service';
+import { UserContextService } from '../../../../@bootstrap/services/user-context.service';
 
 
 

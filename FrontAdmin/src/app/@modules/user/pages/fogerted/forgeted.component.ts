@@ -1,6 +1,6 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
+import { RequestPromiseService } from '../../../../@shared/services/request-promise.service';
 import { environment } from 'src/environments/environment';
 import { UserForgetedModel, UserUpdateModel } from '../../model/user.model';
 import { DOCUMENT } from '@angular/common';

@@ -6,10 +6,10 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { RequestPromiseService } from '../../../../@shared/services/request-promise.service';
 import { environment } from '../../../../../environments/environment';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Publicacao } from 'src/app/@core/models/publicacao.model';
+import { Publicacao } from '../../../../@core/models/publicacao.model';
 import {TiposPublicacao} from '../../../../@core/enums/tiposPublicacao';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
-import { FileService } from 'src/app/@modules/user/services/file.service';
+import { FileService } from '../../../../@modules/user/services/file.service';
 
 @Component({
   selector: 'app-publicacao-edit',

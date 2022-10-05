@@ -15,7 +15,7 @@ import { AgendaRountingModule } from './agenda-routing.module';
 import { EventoCreateComponent } from './components/evento-create/evento-create.component';
 import { EventoEditComponent } from './components/evento-edit/evento-edit.component';
 import { EventoViewComponent } from './components/evento-view/evento-view.component';
-import { SharedModule } from 'src/app/@shared/shared.module';
+import { SharedModule } from '../../@shared/shared.module';
 
 @NgModule({
   declarations: [AgendaComponent, EventoCreateComponent, EventoEditComponent, EventoViewComponent 

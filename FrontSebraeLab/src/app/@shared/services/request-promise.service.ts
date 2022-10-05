@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { ToastService } from '../../@bootstrap/services/toast.service';
-import { UserContextService } from 'src/app/@bootstrap/services/user-context.service';
+import { UserContextService } from '../../@bootstrap/services/user-context.service';
 
 
 @Injectable({
@@ -66,6 +66,13 @@ export class RequestPromiseService {
   }
 
   get<T>(url: string, path: string) : Promise<T> {
+
+    /*const httpOptions = {headers: new HttpHeaders({ 
+      "Content-Type":  "application/json",
+      "Accept": "application/json",
+      'Access-Control-Allow-Origin':'*', 
+      'Access-Control-Allow-Methods': 'GET, POST, PATCH, PUT, DELETE, OPTIONS' })};*/
+
      let promise = new Promise<T>((resolve, reject) => {
         this.http.get<T>(`${url}/${path}`).toPromise()
         .catch((response) => {
@@ -105,7 +112,8 @@ export class RequestPromiseService {
  }
 
   post<T>(url: string, path: string, payload: any) : Promise<T> {
-    let promise = new Promise<T>((resolve, reject) => {
+
+     let promise = new Promise<T>((resolve, reject) => {
        this.http.post<T>(`${url}/${path}`, payload).toPromise()
        .catch((response) => {
          this.showErrorStatusCode(response.status, response.error);
@@ -128,6 +136,24 @@ export class RequestPromiseService {
  put<T>(url: string, path: string, payload: any) : Promise<T> {
   let promise = new Promise<T>((resolve, reject) => {
      this.http.put<T>(`${url}/${path}`, payload).toPromise()
+     .catch((response) => {
+       this.showErrorStatusCode(response.status, response.error);
+     })
+     .then(
+       (data: T) => {
+            resolve(data);
+       },
+       (err: any) => {
+         reject(err);
+       }
+     );
+  });
+  return promise;
+}
+
+patch<T>(url: string, path: string, payload?: any) : Promise<T> {
+  let promise = new Promise<T>((resolve, reject) => {
+     this.http.patch<T>(`${url}/${path}`, payload).toPromise()
      .catch((response) => {
        this.showErrorStatusCode(response.status, response.error);
      })

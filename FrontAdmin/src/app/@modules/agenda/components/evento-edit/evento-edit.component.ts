@@ -8,7 +8,7 @@ import { environment } from '../../../../../environments/environment';
 import { DomSanitizer } from '@angular/platform-browser';
 
 import { HttpEventType, HttpHeaderResponse, HttpResponse } from '@angular/common/http';
-import { FileService } from 'src/app/@modules/user/services/file.service';
+import { FileService } from '../../../../@modules/user/services/file.service';
 
 
 @Component({

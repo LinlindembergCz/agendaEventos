@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { BehaviorSubject } from "rxjs";
-import {  User } from "src/app/@core/models/struct/user.model";
+import {  User } from "../../@core/models/struct/user.model";
 import { SessionService } from './session.service';
 
 const defaultUser = null;

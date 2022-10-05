@@ -8,8 +8,8 @@ export const environment = {
   FrameworkVersion: "5.8.4",
   VersionName: "Black Cat",
   services: {
-    zipcode: "http://homologacao-web.senacrs.com.br/zipcode/api",
-    api: "http://localhost:1900/api",
+    zipcode: "",
+    api: "http://localhost:1901/api",
     auth: 'https://desenvolvimento.senacrs.com.br/Auth',
   },
 };

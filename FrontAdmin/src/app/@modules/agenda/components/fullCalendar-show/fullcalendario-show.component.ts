@@ -2,11 +2,11 @@ import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@
 import { ActivatedRoute, Router } from '@angular/router';
 //import { EventBooking } from '../reserve-submit/model/EventBooking-model';
 import { CalendarOptions } from '@fullcalendar/angular'; // useful for typechecking
-import { Eventolab } from 'src/app/@core/models/eventolab.model';
-import { Bloqueador } from 'src/app/@core/models/bloqueador.model';
-import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
+import { Eventolab } from '../../../../@core/models/eventolab.model';
+import { Bloqueador } from '../../../../@core/models/bloqueador.model';
+import { RequestPromiseService } from '../../../../@shared/services/request-promise.service';
 import { environment } from 'src/environments/environment';
-import { DiasBloqueado } from 'src/app/@core/models/diasBloqueados.model';
+import { DiasBloqueado } from '../../../../@core/models/diasBloqueados.model';
 
 
 export class EventBooking {

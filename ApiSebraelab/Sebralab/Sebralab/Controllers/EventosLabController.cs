@@ -1,24 +1,38 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using sebraelab.core.comunication;
-using SebraeLab.Core.DomainObjects;
+using SebraeLab.Evento.App.Services;
+using SebraeLab.Evento.App.ViewModels;
 
-namespace Sebralab.Controllers
+// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+namespace SebraeLabAdmin.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("eventoslab")]
-    public class EventosLabController : ControllerBase
+    [AllowAnonymous]
+    public class EventoSebraeLabController : ControllerBase
     {
-        private readonly ILogger<EventosLabController> _logger;
-        private ISenderEmail _service;
-
-        public EventosLabController(ILogger<EventosLabController> logger
-            , ISenderEmail service)
+        private readonly IEventoSebraeLabAppService _serviceEventoSebraeLab;
+ 
+        public EventoSebraeLabController(IEventoSebraeLabAppService service)
         {
-            _logger = logger;
-            _service = service;
+            _serviceEventoSebraeLab = service;
         }
 
-        [HttpPost]
-        public async Task<bool> SendSugestion(MessengerEntity command) => await _service.SendMail(command);
+        // GET: api/<EventoSebraeLabController>
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<ActionResult<IEnumerable<EventoSebraeLabViewModel>>> Get() =>
+           await _serviceEventoSebraeLab.GetAll();
+
+
+        // GET api/<EventoSebraeLabController>/5
+        [HttpGet("{id}")]
+        [AllowAnonymous]
+        public async Task<ActionResult<EventoSebraeLabViewModel>> Get(Guid id)
+        {
+            return await _serviceEventoSebraeLab.GetById(id);
+        }
+
     }
 }

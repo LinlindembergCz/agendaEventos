@@ -1,24 +1,44 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using sebraelab.core.comunication;
-using SebraeLab.Core.DomainObjects;
+using SebraeLab.Conteudo.App.Services;
+using SebraeLab.Conteudo.App.ViewModels;
 
-namespace Sebralab.Controllers
+// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+namespace SebraeLab.Controllers
 {
+    [Route("api/[controller]")]
     [ApiController]
-    [Route("conteudo")]
-    public class ConteudoController : ControllerBase
+    [AllowAnonymous]
+    public class ConteudoSebraeLabController : ControllerBase
     {
-        private readonly ILogger<ConteudoController> _logger;
-        private ISenderEmail _service;
+        private readonly IConteudoSebraeLabAppService _serviceConteudoSebraeLab;
 
-        public ConteudoController(ILogger<ConteudoController> logger
-            , ISenderEmail service)
+        public ConteudoSebraeLabController(IConteudoSebraeLabAppService service)
         {
-            _logger = logger;
-            _service = service;
+            _serviceConteudoSebraeLab = service;
         }
 
-        [HttpPost]
-        public async Task<bool> SendSugestion(MessengerEntity command) => await _service.SendMail(command);
+        // GET: api/<EventoSebraeLabController>
+        [HttpGet]
+        [AllowAnonymous]
+        public async Task<ActionResult<IEnumerable<ConteudoSebraeLabViewModel>>> Get() =>
+           await _serviceConteudoSebraeLab.GetAll();
+
+        // GET api/<EventoSebraeLabController>/5
+        [HttpGet("{id}")]
+        [AllowAnonymous]
+        public async Task<ActionResult<ConteudoSebraeLabViewModel>> Get(Guid id)
+        {
+            return await _serviceConteudoSebraeLab.GetById(id);
+        }
+
+        [HttpGet("Pesquisar")]
+        [AllowAnonymous]
+        public async Task<ActionResult<IEnumerable<ConteudoSebraeLabViewModel>>> Search([FromQuery] string search) =>
+           await _serviceConteudoSebraeLab.Search(search);
+
+
+
     }
 }
