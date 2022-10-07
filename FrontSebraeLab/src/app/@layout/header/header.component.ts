@@ -104,22 +104,22 @@ export class HeaderComponent implements OnInit {
 
   showNoticias()
   {
-    this.router.navigate(['noticias']);
+    this.router.navigate(['publicacoes'], { queryParams: { tipo: 'Noticia'} });
   }
 
   showEBook()
   {
-    this.router.navigate(['ebook']);
+    this.router.navigate(['publicacoes'], { queryParams: { tipo: 'Ebook'} });
   }
 
   showEditais()
   {
-    this.router.navigate(['editais']);
+    this.router.navigate(['publicacoes'], { queryParams: { tipo: 'Edital'} });
   }
 
   showOutros()
   {
-    this.router.navigate(['outros']);
+    this.router.navigate(['publicacoes'], { queryParams: { tipo: 'Outro'} });
   }
   
   Login() {

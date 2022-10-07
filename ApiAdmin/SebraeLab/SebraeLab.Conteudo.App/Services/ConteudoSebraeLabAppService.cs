@@ -4,6 +4,7 @@ using SebraeLab.Conteudo.Domain;
 using SebraeLab.Conteudo.Data.Repository;
 using SebraeLab.Conteudo.App.ViewModels;
 using SebraeLab.Core.Data;
+using SebraeLab.Conteudo.Domain.Enums;
 
 namespace SebraeLab.Conteudo.App.Services
 {
@@ -23,6 +24,11 @@ namespace SebraeLab.Conteudo.App.Services
         public async Task<ConteudoSebraeLabViewModel> GetById(Guid id)
         {
             return _mapper.Map<ConteudoSebraeLabViewModel>(await _repository.GetById(id));
+        }
+
+        public async Task<List<ConteudoSebraeLabViewModel>> GetByTipo(TipoPublicacao tipo)
+        {
+            return _mapper.Map<List<ConteudoSebraeLabViewModel>>(await _repository.GetByTipo(tipo));
         }
 
 

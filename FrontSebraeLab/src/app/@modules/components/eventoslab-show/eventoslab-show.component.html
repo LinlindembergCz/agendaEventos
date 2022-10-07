@@ -40,14 +40,14 @@
                                             <p-divider layout="vertical" class="frameDivisor"></p-divider>
 
                                             <div class="frameHour">
-
                                                 <div class="eventlabTime">{{eventlab.hourStart}} - {{eventlab.hourEnd}}</div><br>
                                                 <div class=" eventlabName">{{eventlab.name}}</div><br>
                                                 <div class="eventlabSummary">{{eventlab.summary}}</div><br>
                                             </div>        
                                         </div>                                         
                                         <div class="frameEventlabSubscribe">
-                                           <a>Inscreva-se ></a> 
+                                           <a href="/evento?id={{eventlab.id}}">Inscreva-se ></a>                            
+                                           <router-outlet></router-outlet> 
                                         </div>                      
                                     </div>
                                                       

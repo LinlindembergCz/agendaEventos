@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using SebraeLab.Conteudo.App.Services;
 using SebraeLab.Conteudo.App.ViewModels;
+using SebraeLab.Conteudo.Domain.Enums;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -31,6 +32,14 @@ namespace SebraeLab.Controllers
         public async Task<ActionResult<ConteudoSebraeLabViewModel>> Get(Guid id)
         {
             return await _serviceConteudoSebraeLab.GetById(id);
+        }
+
+        // GET api/<EventoSebraeLabController>/5
+        [HttpGet("tipo/{tipo}")]
+        [AllowAnonymous]
+        public async Task<ActionResult<IEnumerable<ConteudoSebraeLabViewModel>>> GetByTipo(TipoPublicacao tipo)
+        {
+            return await _serviceConteudoSebraeLab.GetByTipo(tipo);
         }
 
         [HttpGet("Pesquisar")]

@@ -18,11 +18,11 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { InputMaskModule } from 'primeng/inputmask';
 import { DialogModule } from 'primeng/dialog';
 import { RadioButtonModule} from 'primeng/radiobutton';
-import { EditaisComponent } from './editais.component';
+import { PublicacoesComponent } from './publicacoes.component';
 import { BannersShowModule } from '../../components/banners-show/banners-show.module';
 
 @NgModule({
-  declarations: [EditaisComponent
+  declarations: [PublicacoesComponent
     ],
   imports: [
     BannersShowModule,
@@ -48,4 +48,4 @@ import { BannersShowModule } from '../../components/banners-show/banners-show.mo
   ],
   providers: []
 })
-export class EditaisModule { }
+export class PublicacoesModule { }

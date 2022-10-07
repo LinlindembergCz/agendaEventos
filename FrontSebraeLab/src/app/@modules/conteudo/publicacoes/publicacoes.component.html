@@ -1,0 +1,75 @@
+<div>  
+    <app-header></app-header> 
+    <img src="assets/banners/banner_conteudo.jpg">    
+        <div class="framecontent">       
+
+            <div class="frameButtonsFiltro">
+                <div class="frameButtons">                        
+                    <button pButton type="button" label="Notícias" 
+                    [ngClass]="tipoConteudo == 'Noticia' ? 'pbuttonSelect p-button-rounded p-button-outlined' : 'pbutton p-button-rounded p-button-outlined'"
+                    class="pbutton p-button-rounded p-button-outlined" 
+                    [disabled]="tipoConteudo!='Noticia'"
+                     ></button> 
+
+                    <button pButton type="button" label="Ebooks" 
+                    [ngClass]="tipoConteudo == 'Ebook' ? 'pbuttonSelect p-button-rounded p-button-outlined' : 'pbutton p-button-rounded p-button-outlined'"
+                    [disabled]="tipoConteudo!='Ebook'"
+                    ></button>
+
+                    <button pButton type="button" label="Editais" 
+                    [ngClass]="tipoConteudo == 'Edital' ? 'pbuttonSelect p-button-rounded p-button-outlined' : 'pbutton p-button-rounded p-button-outlined'"
+                    [disabled]="tipoConteudo!='Edital'"
+                    ></button>
+
+                    <button pButton type="button" label="Outros" 
+                    [ngClass]="tipoConteudo == 'Outro' ? 'pbuttonSelect p-button-rounded p-button-outlined' : 'pbutton p-button-rounded p-button-outlined'"
+                    [disabled]="tipoConteudo!='Outro'"
+                    ></button>
+                 </div>
+                
+               <div class="framePesquisar" style="align-items:right;">
+                    <span class="p-input-icon-right" >
+                        <i class="pi pi-search" style="cursor: pointer"  (click)="search(seachValue)"></i>
+                        <!--<i class="pi pi-spin pi-spinner"></i>-->        
+                        <input type="text" pInputText placeholder="Pesquisar" style="width:'270px';background: #F1F5F9;border:'0px;'" [(ngModel)]="seachValue"> 
+                    </span>             
+    
+               </div> 
+            </div>
+            
+        <p-dataView [value]="publicacoes" [paginator]="true" [rows]="12">
+            <p></p>
+            <ng-template let-publicacao pTemplate="listItem">
+                
+                <div class="imageItem">
+                <img [src]="publicacao.image" style="width: '280px'; height:'180px'"/>     
+                <div class="framenews">
+                    <div class="p-field">
+                        {{publicacao.tipopublicacao}} 
+                    </div>
+                    <div  *ngIf="publicacao.titulo.length > 70">
+                        {{publicacao.titulo.substring(1,70)}}...
+                    </div>
+                    <div  *ngIf="publicacao.titulo.length <= 70" >
+                        {{publicacao.titulo}}
+                    </div>                               
+                    <div >
+                        <a href="/publicacao?id={{publicacao.id}}">Saiba mais</a>
+                        <router-outlet></router-outlet> 
+                    </div>
+                </div>          
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        
+            </ng-template>
+        </p-dataView>
+    
+    </div>
+    
+    
+    
+    
+    
+    
+
+</div>
+
+

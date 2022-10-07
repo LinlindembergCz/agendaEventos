@@ -23,13 +23,13 @@ namespace SebraeLab.Evento.Data.Mappings
 
             builder.Property(c => c.Contato)
                .IsRequired()
-               .HasColumnType("varchar(20)");
+               .HasColumnType("varchar(30)");
 
             builder.Property(c => c.Instituicao)
                    .HasColumnType("varchar(50)");
 
             builder.Property(c => c.Linksparainscricao)
-                  .HasColumnType("varchar(50)");
+                  .HasColumnType("varchar(500)");
 
             builder.Property(c => c.Nomecompleto)
                 .IsRequired()
@@ -37,7 +37,7 @@ namespace SebraeLab.Evento.Data.Mappings
 
             builder.Property(c => c.Email)
                 .IsRequired()
-                  .HasColumnType("varchar(50)");
+                  .HasColumnType("varchar(100)");
 
             builder.Property(c => c.Tipoevento)
                 .IsRequired()

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using SebraeLab.Conteudo.App.ViewModels;
+using SebraeLab.Conteudo.Domain.Enums;
 using SebraeLab.Core.Data;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,7 @@ namespace SebraeLab.Conteudo.App.Services
         Task<List<ConteudoSebraeLabViewModel>> GetAll();
         Task<List<ConteudoSebraeLabViewModel>> Search(string search);
         Task<ConteudoSebraeLabViewModel> GetById(Guid id);
+        Task<List<ConteudoSebraeLabViewModel>> GetByTipo(TipoPublicacao tipo);        
 
         Task<bool> Add(ConteudoSebraeLabViewModel conteudoebraelabViewModel);
         Task<bool> Update(ConteudoSebraeLabViewModel conteudoebraelabViewModel);

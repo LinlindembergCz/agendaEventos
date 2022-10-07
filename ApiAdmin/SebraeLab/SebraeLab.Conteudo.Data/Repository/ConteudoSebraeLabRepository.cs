@@ -2,6 +2,7 @@
 using SebraeLab.Conteudo.Domain;
 using SebraeLab.Conteudo.Data;
 using SebraeLab.Core.Data;
+using SebraeLab.Conteudo.Domain.Enums;
 
 namespace SebraeLab.Conteudo.Data.Repository
 {
@@ -35,6 +36,12 @@ namespace SebraeLab.Conteudo.Data.Repository
 
             //return await _context.Pedidos.AsNoTracking().Where(p => p.ClienteId == clienteId).ToListAsync();
             //return await _context.Produtos.FindAsync(id);
+        }
+
+        public async Task<List<ConteudoSebraeLab>> GetByTipo(TipoPublicacao tipo)
+        {
+            return await _context.Conteudos.Where(p => p.Tipopublicacao == tipo ).AsNoTracking().ToListAsync();
+
         }
 
         public void Add(ConteudoSebraeLab conteudo)

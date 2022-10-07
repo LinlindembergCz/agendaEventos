@@ -48,7 +48,6 @@ export class ConteudoComponent implements OnInit {
                     this.publicados.forEach( c=>{ 
                           this.fileService.download(c.id + '.png').subscribe( (event) => 
                             {
-                              console.log(event)
                               if (event.type === HttpEventType.Response)
                               { 
                                 const downloadedFile = new Blob([event.body], { type: event.body.type });
