@@ -31,9 +31,12 @@
                             <div class="frameEventlabItem">                         
                                    <div class="frameEventlabitemDetails">                                    
                                         <div class="frameEventlabitemDetailsCenter">
-                                            <div class="frameDate">
+                                            <div class="frameDate" *ngIf="eventlab.dateStart!=eventlab.dateEnd">
                                                <div class="frameDateDays"> {{eventlab.dateStart}}<div style=" color: #C45F13;">></div>{{eventlab.dateEnd}}</div> 
-                                            </div>                                    
+                                            </div>   
+                                            <div class="frameDate" *ngIf="eventlab.dateStart==eventlab.dateEnd">
+                                                <div class="frameDateDays"> {{eventlab.dateStart}}</div> 
+                                             </div>                                  
                                             <p-divider layout="vertical" class="frameDivisor"></p-divider>
 
                                             <div class="frameHour">

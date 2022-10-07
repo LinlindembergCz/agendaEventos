@@ -25,7 +25,6 @@ export class PublicacaoEditComponent implements OnInit, AfterViewInit {
 
   picture: any ="";
   private fileUrl: string = "";
-  public progress: number;
 
   constructor(private messageService: MessageService,
     private http :RequestPromiseService,
@@ -43,7 +42,8 @@ export class PublicacaoEditComponent implements OnInit, AfterViewInit {
         `ConteudoSebraeLab/${params['id']}`).
         then( e=> {
           console.log(e)
-          this.conteudo = e;            
+          this.conteudo = e;           
+          this.download(e.id );
           this.tipoPublicacao= { name: e.tipopublicacao }
        });
       });      
@@ -74,23 +74,20 @@ export class PublicacaoEditComponent implements OnInit, AfterViewInit {
   }
   
   
-  download(extention : string = ".jpg") {
-    this.fileUrl = this.conteudo.titulo+extention;
-    this.fileService.download(this.fileUrl).subscribe( (event) => {
-      if (event.type === HttpEventType.UploadProgress)
-        this.progress = Math.round((100 * event.loaded) / event.total);
-      else if (event.type === HttpEventType.Response)
+  download(id:string , extention : string = ".png") 
+  {
+    
+    this.fileUrl = id + extention;
+    this.fileService.download(this.fileUrl).subscribe( (event) => 
       {
-        this.downloadFile(event);
-      }
-    }, (erro)=>{ if (extention==".jpg") this.download(".png") }
-    );
-  }
-
-  private downloadFile(data: HttpResponse<Blob>) {
-      const downloadedFile = new Blob([data.body], { type: data.body.type });
-      const urlToBlob = window.URL.createObjectURL(downloadedFile);
-      this.picture =  this._sanitizer.bypassSecurityTrustResourceUrl(urlToBlob);
+        if (event.type === HttpEventType.Response)
+        { 
+          const downloadedFile = new Blob([event.body], { type: event.body.type });
+          const urlToBlob = window.URL.createObjectURL(downloadedFile);    
+          this.picture = this._sanitizer.bypassSecurityTrustResourceUrl(urlToBlob);
+        }
+      }, (erro)=>{ if (extention==".png") this.download(id,".jpg") }
+    );    
   }
 
  

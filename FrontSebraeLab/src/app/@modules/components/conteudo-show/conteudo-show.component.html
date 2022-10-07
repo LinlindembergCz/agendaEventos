@@ -10,8 +10,7 @@
     <p-dataView [value]="publicacoes" [paginator]="true" [rows]="4">
         <ng-template let-publicacao pTemplate="listItem">
             <div class="imageItem">
-            <img src="assets/imgs/img1.png"/>     
-
+            <img [src]="publicacao.image" style="width: '280px'; height:'180px'"/>     
             <div class="framenews">
                 <div class="p-field">
                     {{publicacao.tipopublicacao}} 

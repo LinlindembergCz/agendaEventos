@@ -1,9 +1,12 @@
+import { HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
 import { environment } from 'src/environments/environment';
 
 import { Publicacao } from '../../../@core/models/publicacao.model';
+import { FileService } from '../../user/services/file.service';
 
 
 class Image{
@@ -21,11 +24,13 @@ export class ConteudoShowComponent implements OnInit {
 
   imgs: Image[] = [];
 
-  publicacoes: Publicacao[]=[];
+  publicacoes: any[]=[{id: '',titulo:'',image:''}];
 
   constructor(
     private http: RequestPromiseService,
-    private route: Router
+    private route: Router,
+    private _sanitizer: DomSanitizer,
+    private fileService: FileService,
   ) { }
   
   ngOnInit(): void { 
@@ -35,19 +40,24 @@ export class ConteudoShowComponent implements OnInit {
 
   getInfo() 
   { 
-      /*this.http.get<any>("assets/data","imagesContent.json").
-      then(x => {      
-            x.images.forEach(i => {
-                          this.itens.push( {name: x.name, summary:x.summary, image:i });
-                      }); 
-                      this.imgs = this.itens;  
-                      console.log(this.imgs)        
-          });*/
-          this.http.get<Publicacao[]>(environment.services.api,"ConteudoSebraeLab").
-          then((x: any) => { 
-                               this.publicacoes= x;                  
-                           });  
-                 
+    this.http.get<any[]>(environment.services.api,"ConteudoSebraeLab").
+    then((x: any) => 
+    { 
+        this.publicacoes= x;        
+        this.publicacoes.forEach( c=>{ 
+          this.fileService.download(c.id + '.png').subscribe( (event) => 
+            {
+              console.log(event)
+              if (event.type === HttpEventType.Response)
+              { 
+                const downloadedFile = new Blob([event.body], { type: event.body.type });
+                const urlToBlob = window.URL.createObjectURL(downloadedFile);    
+                c.image = this._sanitizer.bypassSecurityTrustResourceUrl(urlToBlob);
+              }
+            }
+          );                   
+      });
+    });                
   }
 
 

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.VisualBasic;
 using System;
 using System.ComponentModel;
 using System.IO;
@@ -36,7 +37,9 @@ namespace SebraeLabAdmin.Controllers
                         Directory.CreateDirectory(_uploadPath + "\\upload\\images\\");
                     }
 
-                    var filename = image_file.FileName;
+                    FileInfo fileInfo = new FileInfo(image_file.FileName);
+
+                    var filename = image_file.Name + fileInfo.Extension;
 
                     using (FileStream filestream = System.IO.File.Create(_uploadPath + "\\upload\\images\\" + filename))
                     {

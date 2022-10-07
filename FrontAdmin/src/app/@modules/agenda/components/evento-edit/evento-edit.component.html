@@ -26,11 +26,11 @@
         
         <div *ngIf="evento.imagempersonalida" style="align-items:center;">
                 <label>Imagem de Capa</label>
-                <label>Tamanho 600px de largura e 315px de altura</label>
-                <img src="../../../../../assets/imgs/ExemploImagemCapa.png" style="width:'900px';height:'237px'"/>
-
-                <app-photo-upload (onUpload)="download()" [fileUrl]="picture" [imageName]="evento.titulo"></app-photo-upload>
+                <label>Tamanho 600px de largura e 315px de altura</label>               
+                <img [src]="picture" style="width:'900px';height:'237px'"/>
+                <app-photo-upload (onUpload)="download()" [fileUrl]="picture" [imageName]="evento.id"></app-photo-upload>
         </div>
+       
     </div>
 
     <div class="frameSobreEvento">

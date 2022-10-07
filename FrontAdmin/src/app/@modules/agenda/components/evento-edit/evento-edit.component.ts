@@ -5,7 +5,7 @@ import {MessageService} from 'primeng/api';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RequestPromiseService } from '../../../../@shared/services/request-promise.service';
 import { environment } from '../../../../../environments/environment';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 import { HttpEventType, HttpHeaderResponse, HttpResponse } from '@angular/common/http';
 import { FileService } from '../../../../@modules/user/services/file.service';
@@ -24,9 +24,9 @@ export class EventoEditComponent implements OnInit, AfterViewInit {
 
   diasBloqueados: Date[]=[new Date()];
   
-  picture: any ="";
+  picture: any;
   private fileUrl: string = "";
-  public progress: number;
+
 
   tiposEvento:any[]=[];
   tipoEvento:any={};
@@ -59,10 +59,14 @@ export class EventoEditComponent implements OnInit, AfterViewInit {
 
           this.evento = e;
 
+          this.download(this.evento.id); 
+
           this.http.get<any>("../../../assets/data", "tipoEventos.json").
            then(x => { this.tiposEvento = x;        
             this.tipoEvento = this.tiposEvento.find(x=>x.name== e.tipoevento) 
-          });     
+          });  
+          
+          
        });
       });
 
@@ -115,24 +119,21 @@ export class EventoEditComponent implements OnInit, AfterViewInit {
     this.router.navigate([`/visualizarevento`], { queryParams: { data: JSON.stringify(published)} } ); 
   }
 
-  download(extention : string = ".jpg") {
-    this.fileUrl = this.evento.titulo+extention;
-    this.fileService.download(this.fileUrl).subscribe( (event) => {
-      if (event.type === HttpEventType.UploadProgress)
-        this.progress = Math.round((100 * event.loaded) / event.total);
-      else if (event.type === HttpEventType.Response)
+  download(id: string , extention : string = ".png") {
+    
+    this.fileUrl = id + extention;
+    this.fileService.download(this.fileUrl).subscribe( (event) => 
       {
-        this.downloadFile(event);
-      }
-    }, (erro)=>{ if (extention==".jpg") this.download(".png") }
-    );
+        if (event.type === HttpEventType.Response)
+        { 
+          const downloadedFile = new Blob([event.body], { type: event.body.type });
+          const urlToBlob = window.URL.createObjectURL(downloadedFile);    
+          this.picture = this._sanitizer.bypassSecurityTrustResourceUrl(urlToBlob);
+        }
+      }, (erro)=>{ if (extention==".png") this.download(id,".jpg") }
+    );    
   }
 
-  private downloadFile(data: HttpResponse<Blob>) {
-      const downloadedFile = new Blob([data.body], { type: data.body.type });
-      const urlToBlob = window.URL.createObjectURL(downloadedFile);
-      this.picture =  this._sanitizer.bypassSecurityTrustResourceUrl(urlToBlob);
-  }
 
 
 }

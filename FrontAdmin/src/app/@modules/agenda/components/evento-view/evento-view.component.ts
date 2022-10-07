@@ -4,6 +4,9 @@ import { Eventolab } from '../../../../@core/models/eventolab.model';
 import { RequestPromiseService } from '../../../../@shared/services/request-promise.service';
 import { environment } from '../../../../../environments/environment';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { FileService } from 'src/app/@modules/user/services/file.service';
+import { DomSanitizer } from '@angular/platform-browser';
+import { HttpEventType } from '@angular/common/http';
 
 
 
@@ -15,13 +18,17 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 export class EventoViewComponent implements OnInit , AfterViewInit
 {
   evento: Eventolab=new Eventolab();
+  picture: any;
+  private fileUrl: string = "";
 
   constructor(
     private http: RequestPromiseService,
     private router: Router,
     private route: ActivatedRoute,
     private messageService: MessageService,
-    private confirmationService: ConfirmationService
+    private confirmationService: ConfirmationService,
+    private _sanitizer: DomSanitizer,
+    private fileService: FileService,
   ) { }
 
   ngOnInit(): void 
@@ -32,7 +39,12 @@ export class EventoViewComponent implements OnInit , AfterViewInit
                                        if (params['id'])
                                        {
                                           this.http.get<Eventolab>(environment.services.api,
-                                          `EventoSebraeLab/${params['id']}`).then( e=> {  this.evento = e });
+                                          `EventoSebraeLab/${params['id']}`).then( e=> {  
+                                            this.evento = e 
+
+                                            this.download(e.id);
+                                          
+                                          });
                                         }
                                         else
                                         if (params['data'])
@@ -82,5 +94,20 @@ export class EventoViewComponent implements OnInit , AfterViewInit
                     }
       });
 
+  }
+
+  
+  download(id : string , extention : string = ".png") {    
+    this.fileUrl = id + extention;
+    this.fileService.download(this.fileUrl).subscribe( (event) => 
+      {
+        if (event.type === HttpEventType.Response)
+        { 
+          const downloadedFile = new Blob([event.body], { type: event.body.type });
+          const urlToBlob = window.URL.createObjectURL(downloadedFile);    
+          this.picture = this._sanitizer.bypassSecurityTrustResourceUrl(urlToBlob);
+        }
+      }, (erro)=>{ if (extention==".png") this.download(id,".jpg") }
+    );    
   }
 }

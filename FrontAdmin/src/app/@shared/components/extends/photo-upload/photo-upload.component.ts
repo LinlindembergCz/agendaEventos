@@ -49,12 +49,12 @@ export class PhotoUploadComponent implements OnInit {
       if(image) {
         this.uploadImageError = false;
         this.uploadImageFinish = false;
-        this.imageName = $event.currentFiles[0].name ;
+         this.imageName = $event.currentFiles[0].name ;
       }
       else {
         this.uploadMediaError= false;
         this.uploadMediaFinish = false;
-        this.mediaName =  $event.currentFiles[0].name;
+         this.mediaName =  $event.currentFiles[0].name;
       }
     }
   }
@@ -71,7 +71,7 @@ export class PhotoUploadComponent implements OnInit {
     this.uploadImageError = false; 
     this.uploadImageFinish = true;
     this.toast.clear();
-    this.fileUrl = $event.originalEvent.body.uri;    
+    this.fileUrl = $event.originalEvent.body.uri;  
     this.onUpload.emit($event.originalEvent.body.uri);
     this.toast.addSingle("success","Upload!", "Imagem carregada com sucesso.");  
 

@@ -50,8 +50,8 @@
                  </div>        
                  <div class="frameTituloTopico" style="text-align:center;">
                      <div style="font-size: 16px;"><label>Tamanho 600px de largura e 315px de altura</label></div>
-                 <img src="../../../../../assets/imgs/ExemploImagemCapa.png" style="width:'900px';height:'237px'"/>
-                 <app-photo-upload (onUpload)="download()" [fileUrl]="picture" [imageName]="conteudo.titulo"></app-photo-upload>
+                 <img [src]="picture" style="width:'900px';height:'237px'"/>
+                 <app-photo-upload [fileUrl]="picture" [imageName]="conteudo.id"></app-photo-upload>
                  </div>
          
              </div>

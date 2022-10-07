@@ -3,6 +3,9 @@ import { Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { RequestPromiseService } from '../../@shared/services/request-promise.service';
 import { environment } from '../../../environments/environment';
+import { DomSanitizer } from '@angular/platform-browser';
+import { FileService } from '../user/services/file.service';
+import { HttpEventType } from '@angular/common/http';
 
 
 @Component({
@@ -14,16 +17,21 @@ export class ConteudoComponent implements OnInit {
 
 
   conteudos:any[]=[]; 
-  rascunhos: any[]=[];
-  publicados: any[]=[]
+  rascunhos: any[]=[{id: '',titulo:'',picture:''}];
+  publicados: any[]=[{id: '',titulo:'',picture:''}]
 
   dialogTitle: string;
   seachValue: string;
 
+  picture: any ="";
+  private fileUrl: string = "";
+
   constructor(private router: Router,
     private http: RequestPromiseService,
     private confirmationService: ConfirmationService,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private _sanitizer: DomSanitizer,
+    private fileService: FileService,
     )
   {}
 
@@ -34,10 +42,39 @@ export class ConteudoComponent implements OnInit {
   loadConteudos(): void {
     this.http.get<any[]>(environment.services.api,"ConteudoSebraeLab").
       then(x => {  
-                  console.log(x)
-                  this.conteudos = x;
-                  this.publicados = x.filter( f=>f.status !="Rascunho");
-                  this.rascunhos =x.filter( f=>f.status =="Rascunho");                 
+                    this.conteudos = x;
+                    this.publicados = x.filter( f=>f.status !="Rascunho");    
+
+                    this.publicados.forEach( c=>{ 
+                          this.fileService.download(c.id + '.png').subscribe( (event) => 
+                            {
+                              console.log(event)
+                              if (event.type === HttpEventType.Response)
+                              { 
+                                const downloadedFile = new Blob([event.body], { type: event.body.type });
+                                const urlToBlob = window.URL.createObjectURL(downloadedFile);    
+                                c.picture = this._sanitizer.bypassSecurityTrustResourceUrl(urlToBlob);
+                              }
+                            }
+                          );                   
+                      });
+
+                  this.rascunhos =x.filter( f=>f.status =="Rascunho"); 
+
+                  this.rascunhos.forEach( c=>{ 
+                      this.fileService.download(c.id + '.png').subscribe( (event) => 
+                        {
+                          console.log(event)
+                          if (event.type === HttpEventType.Response)
+                          { 
+                            const downloadedFile = new Blob([event.body], { type: event.body.type });
+                            const urlToBlob = window.URL.createObjectURL(downloadedFile);    
+                            c.picture = this._sanitizer.bypassSecurityTrustResourceUrl(urlToBlob);
+                          }
+                        }
+                      );                   
+                  });
+
                 });
   }
 
@@ -88,7 +125,9 @@ export class ConteudoComponent implements OnInit {
   applyFilter(tipopublicacao: string )
   {
     this.publicados = this.conteudos.filter( f=>f.status !="Rascunho" && f.tipopublicacao==tipopublicacao);
+   
     this.rascunhos = this.conteudos.filter( f=>f.status =="Rascunho"  && f.tipopublicacao==tipopublicacao);
+
   } 
 
   search( value: string )
@@ -98,11 +137,25 @@ export class ConteudoComponent implements OnInit {
     else
     this.http.get<any[]>(environment.services.api,`ConteudoSebraeLab/Pesquisar?search=${value}`).
       then(x => {  
-                  console.log(x)
                   this.conteudos = x;
                   this.publicados = x.filter( f=>f.status !="Rascunho");
                   this.rascunhos =x.filter( f=>f.status =="Rascunho");                 
                 });
+  }
+
+  download(id:string , extention : string = ".png") 
+  {    
+    this.fileUrl = id + extention;
+    this.fileService.download(this.fileUrl).subscribe( (event) => 
+      {
+        if (event.type === HttpEventType.Response)
+        { 
+          const downloadedFile = new Blob([event.body], { type: event.body.type });
+          const urlToBlob = window.URL.createObjectURL(downloadedFile);    
+           this._sanitizer.bypassSecurityTrustResourceUrl(urlToBlob);
+        }
+      }, (erro)=>{ if (extention==".png") this.download(id,".jpg") }
+    );    
   }
 
 
