@@ -22,13 +22,10 @@ export class PublicacaoListComponent implements OnInit
 
   ngOnInit(): void 
   {
-     this.getInfo(); 
+    this.http.get<any[]>(environment.services.api,environment.routes.conteudoSebraeLab.root).
+    then(x => { this.publicacoes=  x; });
   }
   
-  getInfo() 
-  { 
-      this.http.get<any[]>(environment.services.api,"ConteudoSebraeLab").
-      then(x => { this.publicacoes=  x; });
-  }
+
 
 }

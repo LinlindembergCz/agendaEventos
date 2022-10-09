@@ -62,7 +62,7 @@ export class FullCalendarioShowComponent implements OnInit {
 
   loadDiasBloqueados()
   {
-    this.http.get<any[]>(environment.services.api,"EventoSebraeLab/DiasBloqueados").
+    this.http.get<any[]>(environment.services.api,environment.routes.eventoSebraeLab.diasBloqueados).
     then(x=>{
       this.diasBloqueados = []
       //this.motivoBloqueio = x.motivo;
@@ -78,7 +78,7 @@ export class FullCalendarioShowComponent implements OnInit {
     let eventos :any[]=[];
     const colors =["yellow", "green",  "blue", "red","orange"];
 
-    this.http.get<Eventolab[]>(environment.services.api,"EventoSebraeLab").then
+    this.http.get<Eventolab[]>(environment.services.api,environment.routes.eventoSebraeLab.root).then
     ( e=>{        
           e.forEach( d=>{       
               d.dias.forEach( x=>{

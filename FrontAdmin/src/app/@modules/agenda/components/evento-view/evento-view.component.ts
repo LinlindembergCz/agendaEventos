@@ -39,7 +39,7 @@ export class EventoViewComponent implements OnInit , AfterViewInit
                                        if (params['id'])
                                        {
                                           this.http.get<Eventolab>(environment.services.api,
-                                          `EventoSebraeLab/${params['id']}`).then( e=> {  
+                                          `${environment.routes.eventoSebraeLab.root}/${params['id']}`).then( e=> {  
                                             this.evento = e 
 
                                             this.download(e.id);
@@ -65,7 +65,7 @@ export class EventoViewComponent implements OnInit , AfterViewInit
           header: "Publicar evento?",
           message: 'O evento ficará disponível no site. <p></p> Tem certeza que deseja <b>publicar</b> esse evento?',
           accept: () => {          
-                          this.http.patch<any>(environment.services.api,`EventoSebraeLab/Publicar/${id}`).then
+                          this.http.patch<any>(environment.services.api,`${environment.routes.eventoSebraeLab.publicar}/${id}`).then
                           ( (r)=>{   
                                   this.messageService.add({severity:'info', 
                                   summary:'Confirmação', 
@@ -84,7 +84,7 @@ export class EventoViewComponent implements OnInit , AfterViewInit
       header: "Atualizar evento?",
       message: 'Tem certeza que deseja <b>Atualizar</b> esse evento ?',
       accept: () => {          
-                      this.http.put<Eventolab>(environment.services.api,`ConteudoSebraeLab/${id}`, this.evento).then
+                      this.http.put<Eventolab>(environment.services.api,`${environment.routes.conteudoSebraeLab.root}/${id}`, this.evento).then
                       ( (r)=>{   
                               this.messageService.add({severity:'info', 
                               summary:'Confirmação', 

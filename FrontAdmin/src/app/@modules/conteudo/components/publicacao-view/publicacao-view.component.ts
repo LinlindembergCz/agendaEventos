@@ -37,7 +37,7 @@ export class PublicacaoViewComponent implements OnInit , AfterViewInit
                                        if (params['id'])
                                        {
                                           this.http.get<Publicacao>(environment.services.api,
-                                          `ConteudoSebraeLab/${params['id']}`).then( e=> {  
+                                                                 `${environment.routes.conteudoSebraeLab.root}/${params['id']}`).then( e=> {  
                                             this.publicacao = e 
                                             this.download(this.publicacao.id );
                                           });
@@ -63,7 +63,8 @@ export class PublicacaoViewComponent implements OnInit , AfterViewInit
           header: "Publicar conteúdo?",
           message: 'O conteúdo da publicação ficarão disponíveis no site. <p></p> Tem certeza que deseja <b>publicar</b> esse conteúdo?',
           accept: () => {          
-                          this.http.patch<any>(environment.services.api,`ConteudoSebraeLab/Publicar/${id}`).then
+                          this.http.patch<any>(environment.services.api,
+                            `${environment.routes.conteudoSebraeLab.publicar}/${id}`).then
                           ( (r)=>{   
                                   this.messageService.add({severity:'info', 
                                   summary:'Confirmação', 
@@ -82,7 +83,7 @@ export class PublicacaoViewComponent implements OnInit , AfterViewInit
       header: "Atualizar conteúdo?",
       message: 'Tem certeza que deseja <b>Atualizar</b> esse conteúdo ?',
       accept: () => {          
-                      this.http.put<Publicacao>(environment.services.api,`ConteudoSebraeLab/${id}`, this.publicacao).then
+                      this.http.put<Publicacao>(environment.services.api,`${environment.routes.conteudoSebraeLab.root}/${id}`, this.publicacao).then
                       ( (r)=>{   
                               this.messageService.add({severity:'info', 
                               summary:'Confirmação', 
@@ -100,8 +101,7 @@ export class PublicacaoViewComponent implements OnInit , AfterViewInit
   }
 
   download(id:string , extention : string = ".png") 
-  {
-    
+  {    
     this.fileUrl = id + extention;
     this.fileService.download(this.fileUrl).subscribe( (event) => 
       {

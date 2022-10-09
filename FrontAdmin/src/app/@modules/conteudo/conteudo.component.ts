@@ -40,7 +40,8 @@ export class ConteudoComponent implements OnInit {
   }
 
   loadConteudos(): void {
-    this.http.get<any[]>(environment.services.api,"ConteudoSebraeLab").
+    this.http.get<any[]>(environment.services.api,
+                         environment.routes.conteudoSebraeLab.root).
       then(x => {  
                     this.conteudos = x;
                     this.publicados = x.filter( f=>f.status !="Rascunho");    
@@ -92,7 +93,7 @@ export class ConteudoComponent implements OnInit {
       this.confirmationService.confirm({
       header: "Excluir permanentemente?",
       message: 'Essa ação não poderá ser desfeita, e ele será removido de nosso sistema.<p></p>Tem certeza que deseja <b>excluir permanentemente</b> esse conteúdo?',
-      accept: () => {   this.http.delete(environment.services.api,`ConteudoSebraeLab/${id}`,null).then
+      accept: () => {   this.http.delete(environment.services.api,`${environment.routes.conteudoSebraeLab.root}${id}`,null).then
                         ( ()=>{ 
                                 this.loadConteudos(); 
                                 this.messageService.add({severity:'info', summary:'Confirmação', detail:'Conteúdo excluido com sucesso!'});
@@ -106,7 +107,8 @@ export class ConteudoComponent implements OnInit {
       header: "Desativar conteúdo?",
       message: 'As publicações desativadas não ficam disponíveis no site. Os conteúdos que forem desativados estarão salvos na área de “Rascunhos”. <p></p> Tem certeza que deseja <b>desativar</b> esse conteúdo?',
       accept: () => {          
-                      this.http.patch(environment.services.api,`ConteudoSebraeLab/Desativar/${id}`,null).then
+                      this.http.patch(environment.services.api,
+                                   `${environment.routes.conteudoSebraeLab.desativar}/${id}`,null).then
                       ( ()=>{ 
                               this.loadConteudos(); 
                               this.messageService.add({severity:'info', summary:'Confirmação', detail:'Conteúdo inativado com sucesso!'});
@@ -117,15 +119,18 @@ export class ConteudoComponent implements OnInit {
 
   activeConteudo(id: string)
   {
-    this.http.patch(environment.services.api,`ConteudoSebraeLab/Ativar/${id}`,null).finally
+    this.http.patch(environment.services.api,
+                   `${environment.routes.conteudoSebraeLab.ativar}/${id}`,null).finally
     ( ()=>{ this.loadConteudos(); })   
   }
 
   applyFilter(tipopublicacao: string )
   {
-    this.publicados = this.conteudos.filter( f=>f.status !="Rascunho" && f.tipopublicacao==tipopublicacao);
+    this.publicados = this.conteudos.filter( f=>f.status !="Rascunho" &&
+                                             f.tipopublicacao==tipopublicacao);
    
-    this.rascunhos = this.conteudos.filter( f=>f.status =="Rascunho"  && f.tipopublicacao==tipopublicacao);
+    this.rascunhos = this.conteudos.filter( f=>f.status =="Rascunho"  && 
+                                            f.tipopublicacao==tipopublicacao);
 
   } 
 
@@ -134,7 +139,8 @@ export class ConteudoComponent implements OnInit {
     if ( value ==='')
        this.loadConteudos()
     else
-    this.http.get<any[]>(environment.services.api,`ConteudoSebraeLab/Pesquisar?search=${value}`).
+    this.http.get<any[]>(environment.services.api,
+                      `${environment.routes.conteudoSebraeLab.search}${value}`).
       then(x => {  
                   this.conteudos = x;
                   this.publicados = x.filter( f=>f.status !="Rascunho");

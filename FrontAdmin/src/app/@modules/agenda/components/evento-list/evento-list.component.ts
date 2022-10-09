@@ -45,7 +45,7 @@ export class EventoListComponent implements OnInit {
   
   getInfo() 
   { 
-      this.http.get<Eventolab[]>(environment.services.api,"EventoSebraeLab").
+      this.http.get<Eventolab[]>(environment.services.api,environment.routes.eventoSebraeLab.root).
       then(x => {  
                    x.forEach( e=>{           
 

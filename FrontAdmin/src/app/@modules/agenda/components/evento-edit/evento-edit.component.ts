@@ -81,7 +81,7 @@ export class EventoEditComponent implements OnInit, AfterViewInit {
 
   loadDiasBloqueados()
   {
-    this.http.get<any[]>(environment.services.api,"EventoSebraeLab/DiasBloqueados").
+    this.http.get<any[]>(environment.services.api,environment.routes.eventoSebraeLab.diasBloqueados).
     then(x=>{
       this.diasBloqueados = []
       x.forEach(d=> {this.diasBloqueados.push(new Date(d.data))})
@@ -104,7 +104,7 @@ export class EventoEditComponent implements OnInit, AfterViewInit {
     this.evento.dias.forEach( d=> d.option = JSON.stringify(d.option ));
     this.evento.tipoevento = this.tipoEvento.name;    
 
-    this.http.put<Eventolab>(environment.services.api,`EventoSebraeLab/${id}`, 
+    this.http.put<Eventolab>(environment.services.api,`${environment.routes.eventoSebraeLab.root}/${id}`, 
     this.evento).finally ( ()=>{ this.router.navigate(['/agenda']); }) 
 
   }

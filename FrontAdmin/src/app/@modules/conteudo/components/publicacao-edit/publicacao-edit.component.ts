@@ -39,7 +39,7 @@ export class PublicacaoEditComponent implements OnInit, AfterViewInit {
   ngOnInit(): void {
     this.route.queryParams.subscribe(params => {
       this.http.get<Publicacao>(environment.services.api,
-        `ConteudoSebraeLab/${params['id']}`).
+        `${environment.routes.conteudoSebraeLab.root}/${params['id']}`).
         then( e=> {
           console.log(e)
           this.conteudo = e;           
@@ -58,7 +58,7 @@ export class PublicacaoEditComponent implements OnInit, AfterViewInit {
   {       
      //Convert o array em string
      this.conteudo.tipopublicacao = this.tipoPublicacao.name; 
-     this.http.put<Publicacao>(environment.services.api,`ConteudoSebraeLab/${id}`, this.conteudo).then
+     this.http.put<Publicacao>(environment.services.api,`${environment.routes.conteudoSebraeLab.root}/${id}`, this.conteudo).then
      ( ()=>{ this.router.navigate(['/conteudo']); })       
 
   }
