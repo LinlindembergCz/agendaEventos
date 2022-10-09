@@ -5,7 +5,7 @@ import { RequestPromiseService } from '../../../../@shared/services/request-prom
 import { environment } from '../../../../../environments/environment';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { FileService } from 'src/app/@modules/user/services/file.service';
-import { DomSanitizer } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { HttpEventType } from '@angular/common/http';
 
 
@@ -18,8 +18,7 @@ import { HttpEventType } from '@angular/common/http';
 export class EventoViewComponent implements OnInit , AfterViewInit
 {
   evento: Eventolab=new Eventolab();
-  picture: any;
-  private fileUrl: string = "";
+  picture: SafeResourceUrl;
 
   constructor(
     private http: RequestPromiseService,
@@ -97,17 +96,8 @@ export class EventoViewComponent implements OnInit , AfterViewInit
   }
 
   
-  download(id : string , extention : string = ".png") {    
-    this.fileUrl = id + extention;
-    this.fileService.download(this.fileUrl).subscribe( (event) => 
-      {
-        if (event.type === HttpEventType.Response)
-        { 
-          const downloadedFile = new Blob([event.body], { type: event.body.type });
-          const urlToBlob = window.URL.createObjectURL(downloadedFile);    
-          this.picture = this._sanitizer.bypassSecurityTrustResourceUrl(urlToBlob);
-        }
-      }, (erro)=>{ if (extention==".png") this.download(id,".jpg") }
-    );    
+  download(id : string , extention : string = ".png") 
+  {    
+      this.fileService.downloadSecurity(id + extention).add(()=>{ this.picture = this.fileService.bypassSecurityTrustResourceUrl;})
   }
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEventType } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Injectable({
   providedIn: 'root',
@@ -8,15 +9,35 @@ import { environment } from 'src/environments/environment';
 export class FileService {
   private url = environment.services.api;
 
-  constructor(private http: HttpClient) {}
+  public bypassSecurityTrustResourceUrl:SafeResourceUrl;
+
+  constructor(private http: HttpClient, 
+    private _sanitizer: DomSanitizer) {}
 
   public download(fileUrl: string) {
     return this.http.get(`${this.url}/download/image?fileUrl=${fileUrl}`, {
       reportProgress: true,
       observe: 'events',
-      responseType: 'blob',
+      responseType: 'blob'
     });
   }
+
+  public downloadSecurity(fileUrl: string, extention : string = ".png")
+  {
+     return this.download(fileUrl).subscribe( 
+           (image)=>{
+                      if (image.type === HttpEventType.Response)
+                      { 
+                          const downloadedFile = new Blob([image.body], { type: image.body.type });
+                          const urlToBlob = window.URL.createObjectURL(downloadedFile);    
+                          this.bypassSecurityTrustResourceUrl = this._sanitizer.bypassSecurityTrustResourceUrl(urlToBlob);
+                      }
+                    }, (erro)=>{ if (extention==".png") this.downloadSecurity(fileUrl,".jpg") }
+    );
+   
+
+  }
+
 
   public upload (image_file: any)
   {

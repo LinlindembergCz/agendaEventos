@@ -23,7 +23,7 @@ export class ConteudoComponent implements OnInit {
   dialogTitle: string;
   seachValue: string;
 
-  picture: any ="";
+  picture: any;
   private fileUrl: string = "";
 
   constructor(private router: Router,
@@ -46,34 +46,18 @@ export class ConteudoComponent implements OnInit {
                     this.conteudos = x;
                     this.publicados = x.filter( f=>f.status !="Rascunho");    
 
-                    this.publicados.forEach( c=>{ 
-                          this.fileService.download(c.id + '.png').subscribe( (event) => 
-                            {
-                              if (event.type === HttpEventType.Response)
-                              { 
-                                const downloadedFile = new Blob([event.body], { type: event.body.type });
-                                const urlToBlob = window.URL.createObjectURL(downloadedFile);    
-                                c.picture = this._sanitizer.bypassSecurityTrustResourceUrl(urlToBlob);
-                              }
-                            }
-                          );                   
-                      });
+                    this.publicados.forEach(c=>{ 
 
-                  this.rascunhos =x.filter( f=>f.status =="Rascunho"); 
+                    this.fileService.downloadSecurity(c.id + '.png').add(()=>{ 
+                      c.picture = this.fileService.bypassSecurityTrustResourceUrl;})                 
+                    });
 
-                  this.rascunhos.forEach( c=>{ 
-                      this.fileService.download(c.id + '.png').subscribe( (event) => 
-                        {
-                          console.log(event)
-                          if (event.type === HttpEventType.Response)
-                          { 
-                            const downloadedFile = new Blob([event.body], { type: event.body.type });
-                            const urlToBlob = window.URL.createObjectURL(downloadedFile);    
-                            c.picture = this._sanitizer.bypassSecurityTrustResourceUrl(urlToBlob);
-                          }
-                        }
-                      );                   
-                  });
+                    this.rascunhos =x.filter( f=>f.status =="Rascunho"); 
+
+                    this.rascunhos.forEach( c=>{ 
+                         this.fileService.downloadSecurity(c.id + '.png').add(()=>{ 
+                         c.picture = this.fileService.bypassSecurityTrustResourceUrl;})                   
+                    });
 
                 });
   }
@@ -150,17 +134,8 @@ export class ConteudoComponent implements OnInit {
 
   download(id:string , extention : string = ".png") 
   {    
-    this.fileUrl = id + extention;
-    this.fileService.download(this.fileUrl).subscribe( (event) => 
-      {
-        if (event.type === HttpEventType.Response)
-        { 
-          const downloadedFile = new Blob([event.body], { type: event.body.type });
-          const urlToBlob = window.URL.createObjectURL(downloadedFile);    
-           this._sanitizer.bypassSecurityTrustResourceUrl(urlToBlob);
-        }
-      }, (erro)=>{ if (extention==".png") this.download(id,".jpg") }
-    );    
+    this.fileService.downloadSecurity(id + extention).add(()=>{ 
+      this.picture = this.fileService.bypassSecurityTrustResourceUrl;})     
   }
 
 

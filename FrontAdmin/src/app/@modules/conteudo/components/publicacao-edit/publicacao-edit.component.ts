@@ -19,12 +19,9 @@ import { FileService } from '../../../../@modules/user/services/file.service';
 export class PublicacaoEditComponent implements OnInit, AfterViewInit {
 
   tiposPublicacao : typeof TiposPublicacao = TiposPublicacao;
-  tipoPublicacao: any;  
- 
+  tipoPublicacao: any;   
   conteudo:  Publicacao = new Publicacao(); 
-
-  picture: any ="";
-  private fileUrl: string = "";
+  picture: any;
 
   constructor(private messageService: MessageService,
     private http :RequestPromiseService,
@@ -75,19 +72,9 @@ export class PublicacaoEditComponent implements OnInit, AfterViewInit {
   
   
   download(id:string , extention : string = ".png") 
-  {
-    
-    this.fileUrl = id + extention;
-    this.fileService.download(this.fileUrl).subscribe( (event) => 
-      {
-        if (event.type === HttpEventType.Response)
-        { 
-          const downloadedFile = new Blob([event.body], { type: event.body.type });
-          const urlToBlob = window.URL.createObjectURL(downloadedFile);    
-          this.picture = this._sanitizer.bypassSecurityTrustResourceUrl(urlToBlob);
-        }
-      }, (erro)=>{ if (extention==".png") this.download(id,".jpg") }
-    );    
+  {    
+    this.fileService.downloadSecurity(id + extention).add(()=>{ 
+      this.picture = this.fileService.bypassSecurityTrustResourceUrl;})   
   }
 
  

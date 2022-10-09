@@ -127,8 +127,6 @@ export class FullCalendarioShowComponent implements OnInit {
     
     let bloqueador : Bloqueador = { id: null, motivo: this.motivoBloqueio, dias : diasParaBloqueio }
     
-    console.log(bloqueador )
-
     this.clickBloqueio.next(bloqueador);
     //this.hideDialogEventDate();
   }

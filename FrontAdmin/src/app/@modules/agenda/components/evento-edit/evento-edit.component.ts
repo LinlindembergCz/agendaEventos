@@ -24,9 +24,7 @@ export class EventoEditComponent implements OnInit, AfterViewInit {
 
   diasBloqueados: Date[]=[new Date()];
   
-  picture: any;
-  private fileUrl: string = "";
-
+  picture: SafeResourceUrl;
 
   tiposEvento:any[]=[];
   tipoEvento:any={};
@@ -119,19 +117,10 @@ export class EventoEditComponent implements OnInit, AfterViewInit {
     this.router.navigate([`/visualizarevento`], { queryParams: { data: JSON.stringify(published)} } ); 
   }
 
-  download(id: string , extention : string = ".png") {
+  download(id: string , extention : string = ".png") {    
+    this.fileService.downloadSecurity(id + extention).add(()=>{ 
+      this.picture = this.fileService.bypassSecurityTrustResourceUrl;})
     
-    this.fileUrl = id + extention;
-    this.fileService.download(this.fileUrl).subscribe( (event) => 
-      {
-        if (event.type === HttpEventType.Response)
-        { 
-          const downloadedFile = new Blob([event.body], { type: event.body.type });
-          const urlToBlob = window.URL.createObjectURL(downloadedFile);    
-          this.picture = this._sanitizer.bypassSecurityTrustResourceUrl(urlToBlob);
-        }
-      }, (erro)=>{ if (extention==".png") this.download(id,".jpg") }
-    );    
   }
 
 
