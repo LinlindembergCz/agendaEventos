@@ -47,7 +47,7 @@ export class PublicacoesComponent implements OnInit {
 
   loadConteudos(tipo: string) 
   { 
-    this.http.get<any[]>(environment.services.api,`ConteudoSebraeLab/tipo/${tipo}`).
+    this.http.get<any[]>(environment.services.api,`${environment.routes.conteudoSebraeLab.pesquisarPorTipo}/${tipo}`).
     then((x: any) => 
         { 
             this.conteudos = x;    
@@ -77,7 +77,7 @@ export class PublicacoesComponent implements OnInit {
     if ( value ==='')
        this.loadConteudos(this.tipoConteudo)
     else
-       this.http.get<any[]>(environment.services.api,`ConteudoSebraeLab/Pesquisar?search=${value}`).
+       this.http.get<any[]>(environment.services.api,`${environment.routes.conteudoSebraeLab.search}${value}`).
        then(x => {  
                   this.conteudos = x;  
                   this.publicacoes = x;                      

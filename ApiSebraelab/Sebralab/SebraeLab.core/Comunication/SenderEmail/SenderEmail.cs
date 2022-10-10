@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace sebraelab.core.comunication
 {
-    public class SenderEmail : ISenderEmail
+    public class FileTransfer : IFileTransfer
     {
         public async Task<bool> SendMail(MessengerEntity command)
         {

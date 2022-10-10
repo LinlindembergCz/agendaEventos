@@ -4,8 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.VisualBasic;
 using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.IO;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Net.WebRequestMethods;
 
 namespace SebraeLabAdmin.Controllers
 {
@@ -25,7 +28,6 @@ namespace SebraeLabAdmin.Controllers
         [AllowAnonymous]
         public virtual async Task<IActionResult> UploadImage()
         {
-
             IFormFile image_file  = Request.Form.Files[0];
 
             if (image_file.Length > 0)
@@ -49,6 +51,7 @@ namespace SebraeLabAdmin.Controllers
 
                         return Created("/upload/images/" + filename, new { Uri = "/upload/images/" + filename });
                     }
+
                 }
                 catch (Exception ex)
                 {

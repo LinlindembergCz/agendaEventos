@@ -15,7 +15,7 @@ namespace SebraeLabAdmin.Setup
     {
         public static void RegisterServices(this IServiceCollection services)
         {
-            services.AddScoped<ISenderEmail, SenderEmail>();
+            services.AddScoped<IFileTransfer, FileTransfer>();
 
             services.AddScoped<IEventoSebraeLabRepository, EventoSebraeLabRepository>();
             services.AddScoped<IEventoSebraeLabAppService, EventoSebraeLabAppService>();

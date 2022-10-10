@@ -31,13 +31,13 @@ export class EventoslabShowComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {  
-    this.getInfo(); 
+    this.LoadEventos(); 
   }
 
 
-  getInfo() 
+  LoadEventos() 
   { 
-    this.http.get<any[]>(environment.services.api,"EventoSebraeLab").
+    this.http.get<any[]>(environment.services.api,environment.routes.eventoSebraeLab.root).
     then((x: any) => { 
                       x.forEach(e => 
                         {                    

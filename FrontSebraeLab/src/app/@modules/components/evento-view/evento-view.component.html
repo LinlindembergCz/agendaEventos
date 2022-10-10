@@ -3,7 +3,7 @@
 <div class="framePrevisualizacao">
     <div class="voltarparaconteudo" style="cursor: pointer;">              
         <a href="javascript:history.back()">
-            <img src="../../../../../assets/imgs/chevron-return.png" >voltar para edição 
+            <img src="../../../../../assets/imgs/chevron-return.png" >voltar 
         </a>
     </div>
     <div class="frameBanner">
@@ -27,18 +27,29 @@
                         <button pButton type="button" 
                         label="Inscreva-se " 
                         class="p-button-outlined" 
-                        style="background:#E03C8B;color:#FFFFFF;border:0px;width: 100px;height: 44px;">
+                        style="background:#FFF028;color:#FFFFFF;border:0px;width: 100px;height: 44px;">
                         </button>
                     </a>
                 </div>          
             </div>
-         </div>        
+         </div>   
+         
+
     </div>
     <p></p><p></p>
     <div class="p-grid">
         <div class="p-col-5">
             <div class="frameColuna1Descricao" [innerHTML]="evento.descricaoevento">                    
             </div> 
+            <div>
+                <a href="{{evento.linksparainscricao}}" target="_blank">
+                    <button pButton type="button" 
+                    label="Inscreva-se " 
+                    class="p-button-outlined" 
+                    style="background:#FFF028;color:black;border:0px;width: 100px;height: 44px;">
+                    </button>
+                 </a>
+            </div>
             <div class="frameOrganizador">
                 <h2>Sobre o organizador</h2>
                 <h3>{{evento.nomecompleto}}</h3>

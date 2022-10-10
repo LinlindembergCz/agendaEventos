@@ -21,6 +21,9 @@ import { DialogModule } from 'primeng/dialog';
 import { RadioButtonModule} from 'primeng/radiobutton';
 import { EventosComponent } from './eventos.component';
 import { BannersShowModule } from '../components/banners-show/banners-show.module';
+import { FullCalendarioShowModule } from '../components/fullCalendar-show/fullcalendario-show.module';
+
+
 
 @NgModule({
   declarations: [EventosComponent
@@ -44,7 +47,8 @@ import { BannersShowModule } from '../components/banners-show/banners-show.modul
     FooterModule,
     HeaderModule,
     DialogModule,
-    RadioButtonModule
+    RadioButtonModule,
+    FullCalendarioShowModule
     
   ],
   providers: []

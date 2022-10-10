@@ -35,7 +35,7 @@ export class EventoViewComponent implements OnInit , AfterViewInit
                                        if (params['id'])
                                        {
                                           this.http.get<Eventolab>(environment.services.api,
-                                          `EventoSebraeLab/${params['id']}`).then( e=> {  
+                                          `${environment.routes.eventoSebraeLab.root}/${params['id']}`).then( e=> {  
                                             this.evento = e 
 
                                             this.download(e.id);

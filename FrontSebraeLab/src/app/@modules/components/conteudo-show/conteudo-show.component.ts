@@ -34,13 +34,13 @@ export class ConteudoShowComponent implements OnInit {
   ) { }
   
   ngOnInit(): void { 
-    this.getInfo();  
+    this.loadConteudos();  
   }
 
 
-  getInfo() 
+  loadConteudos() 
   { 
-    this.http.get<any[]>(environment.services.api,"ConteudoSebraeLab").
+    this.http.get<any[]>(environment.services.api,environment.routes.conteudoSebraeLab.root).
     then((x: any) => 
     { 
         this.publicacoes= x;        

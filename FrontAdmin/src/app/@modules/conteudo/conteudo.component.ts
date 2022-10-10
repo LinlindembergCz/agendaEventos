@@ -30,7 +30,6 @@ export class ConteudoComponent implements OnInit {
     private http: RequestPromiseService,
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
-    private _sanitizer: DomSanitizer,
     private fileService: FileService,
     )
   {}

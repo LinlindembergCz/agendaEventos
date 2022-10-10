@@ -33,7 +33,7 @@ export class PublicacaoViewComponent implements OnInit , AfterViewInit
                                        if (params['id'])
                                        {
                                           this.http.get<Publicacao>(environment.services.api,
-                                          `ConteudoSebraeLab/${params['id']}`).then( e=> {  
+                                          `${environment.routes.conteudoSebraeLab.root}/${params['id']}`).then( e=> {  
                                             this.publicacao = e 
                                             this.download(this.publicacao.id );
                                           });

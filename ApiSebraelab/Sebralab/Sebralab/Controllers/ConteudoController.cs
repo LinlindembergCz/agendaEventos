@@ -35,7 +35,7 @@ namespace SebraeLab.Controllers
         }
 
         // GET api/<EventoSebraeLabController>/5
-        [HttpGet("tipo/{tipo}")]
+        [HttpGet("PesquisarPorTipo/{tipo}")]
         [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<ConteudoSebraeLabViewModel>>> GetByTipo(TipoPublicacao tipo)
         {

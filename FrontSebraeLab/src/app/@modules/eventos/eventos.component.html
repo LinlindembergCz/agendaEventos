@@ -1,7 +1,111 @@
 <div>  
     <app-header></app-header> 
-    <app-banners-show fileName="assets/banners/banner_meuevento.jpg"></app-banners-show>
-    eventos
+        <img src="assets/banners/banner_meuevento.png" width="100%" height="500px">    
+    
+        <div class="framBanner" *ngIf="eventslab.length > 0">
+            <!--<div class="frameBannerEvento"> -->      
+            <p-dataView [value]="eventslab" [paginator]="true" [rows]="1">
+                <ng-template let-evento pTemplate="listItem">                  
+                   <div class="p-grid">
+                        <div class="p-col-6">                       
+                            <img [src]="evento.picture" width="100%" height="300px"/>
+                        </div> 
+                        
+                        <div class="frameBannerDetails p-grid p-col-6">
+                            <div> 
+                                <div class="frameBannerDatas">29> 30</div>Junho 
+                            </div>
+                            <div class="frameBannerDetailsConteudoHoras p-col-12">08:30 - 12:30</div>
+                            <div class="frameBannerDetailsConteudoTitulo p-col-12">{{evento.titulo}}</div>
+                            <div class="frameBannerDetailsConteudoDescricao p-col-12">{{evento.subtitulo}}</div>
+                            <p></p>
+                            <div>
+                                <a href="{{evento.linksparainscricao}}" target="_blank">
+                                    <button pButton type="button" 
+                                    label="Inscreva-se " 
+                                    class="p-button-outlined" 
+                                    style="background:#FFF028;color:#FFFFFF;border:0px;width: 100px;height: 44px;">
+                                    </button>
+                                </a>
+                            </div>          
+                        </div>
+                    </div>
+                </ng-template>
+            </p-dataView>    
+        </div>
+       
+        
+      
+        <div class="frameEventlab" *ngIf="eventslab.length > 0">  
+   
+            <div class="frameEventlabDetails">                
+                 <div class="framebuttons">                           
+                     <button pButton type="button" label="Esta semana" class="p-button-rounded p-button-outlined" ></button> 
+                     <button pButton type="button" label="Próxima semana" class="p-button-rounded p-button-outlined" ></button>
+                     <button pButton type="button" label="Este mês" class="p-button-rounded p-button-outlined" ></button>
+                     <button pButton type="button" label="próximo mês" class="p-button-rounded p-button-outlined" ></button>
+                     <button pButton type="button" label="Agenda completa" class="p-button-rounded p-button-outlined" ></button>
+                     <div class="framePesquisar" style="align-items:right;">
+                        <span class="p-input-icon-right" >
+                            <i class="pi pi-search" style="cursor: pointer" ></i>
+                            <!--<i class="pi pi-spin pi-spinner"></i>-->        
+                            <input type="text" pInputText placeholder="Pesquisar" style="width:'270px';background: #F1F5F9;border:'0px;'"> 
+                        </span>
+        
+                   </div> 
+                 </div>
+
+                 
+                   
+                 <div>
+                    <div class="p-d-flex p-ai-flex p-jc-center">
+                        <div class="p-d-flex p-ai-center p-jc-center">
+                            <div class="p-d-fluid " style="width:'1100px';">
+                                <app-fullcalendario-show></app-fullcalendario-show>            
+                           </div>  
+                        </div>  
+                    </div>
+                </div>
+                
+                 
+                             
+               <!--  <div class="frameEventslablist">      
+                        <p-dataView [value]="eventslab" [paginator]="true" [rows]="12">
+                             <ng-template let-eventlab pTemplate="listItem">              
+                                 <div class="frameEventlabItem">                         
+                                        <div class="frameEventlabitemDetails">                                    
+                                             <div class="frameEventlabitemDetailsCenter">
+                                                 <div class="frameDate" *ngIf="eventlab.dateStart!=eventlab.dateEnd">
+                                                    <div class="frameDateDays"> {{eventlab.datainicion}}<div style=" color: #C45F13;">></div>{{eventlab.dateEnd}}</div> 
+                                                 </div>   
+                                                 <div class="frameDate" *ngIf="eventlab.dateStart==eventlab.dateEnd">
+                                                     <div class="frameDateDays"> {{eventlab.datafim}}</div> 
+                                                 </div>                       
+
+                                                 <div class="frameHour">
+                                                     <div class="eventlabTime">{{eventlab.horainicio}} - {{eventlab.horafim}}</div><br>
+                                                     <div class=" eventlabName">{{eventlab.titulo}}</div><br>
+                                                     <div class="eventlabSummary">{{eventlab.subtitulo}}</div><br>
+                                                 </div>        
+                                             </div>                                         
+                                             <div class="frameEventlabSubscribe">
+                                                <a href="/evento?id={{eventlab.id}}">Inscreva-se ></a>                            
+                                                <router-outlet></router-outlet> 
+                                             </div>                      
+                                         </div>
+                                                           
+                                     </div>  
+                                     <div style="background: #F8FAFC">&nbsp;&nbsp;&nbsp;</div>             
+                            </ng-template>
+                         </p-dataView>                    
+                    
+                 </div> -->           
+             </div>
+         </div>
+     
+
 </div>
+
+
 
 

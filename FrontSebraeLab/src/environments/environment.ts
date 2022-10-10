@@ -12,6 +12,21 @@ export const environment = {
     api: "http://localhost:1901/api",
     auth: 'https://desenvolvimento.senacrs.com.br/Auth',
   },
+  routes:{
+    eventoSebraeLab:{
+      root:"EventoSebraeLab",
+      publicar:"EventoSebraeLab/Publicar",
+      diasBloqueados:"EventoSebraeLab/DiasBloqueados"
+    },
+    conteudoSebraeLab:{
+      root:"ConteudoSebraeLab",
+      publicar:"ConteudoSebraeLab/Publicar",
+      ativar: "ConteudoSebraeLab/Ativar",
+      desativar:"ConteudoSebraeLab/Desativar",
+      search: "ConteudoSebraeLab/Pesquisar?search=",
+      pesquisarPorTipo:"ConteudoSebraeLab/PesquisarPorTipo"   
+    }
+  }
 };
 
 /*

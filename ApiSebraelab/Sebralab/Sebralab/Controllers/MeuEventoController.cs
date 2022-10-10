@@ -9,10 +9,10 @@ namespace Sebralab.Controllers
     public class MeuEventoController : ControllerBase
     {
         private readonly ILogger<MeuEventoController> _logger;
-        private ISenderEmail _service;
+        private IFileTransfer _service;
 
         public MeuEventoController(ILogger<MeuEventoController> logger
-            , ISenderEmail service)
+            , IFileTransfer service)
         {
             _logger = logger;
             _service = service;
