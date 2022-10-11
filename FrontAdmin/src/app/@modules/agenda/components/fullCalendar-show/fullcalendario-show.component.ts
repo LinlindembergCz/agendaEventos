@@ -76,7 +76,7 @@ export class FullCalendarioShowComponent implements OnInit {
   loadEventos() 
   {
     let eventos :any[]=[];
-    const colors =["yellow", "green",  "blue", "red","orange"];
+    const colors =["orange", "green",  "blue", "red","brown"];
 
     this.http.get<Eventolab[]>(environment.services.api,environment.routes.eventoSebraeLab.root).then
     ( e=>{        

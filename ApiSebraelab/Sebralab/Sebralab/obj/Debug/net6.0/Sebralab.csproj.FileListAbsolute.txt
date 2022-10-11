@@ -82,3 +82,7 @@ C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\bin\Debug\net6.0\Microsoft.AspNe
 C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\bin\Debug\net6.0\Newtonsoft.Json.dll
 C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
 C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\bin\Debug\net6.0\SebraeLab.Bloqueio.App.dll
+C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\bin\Debug\net6.0\SebraeLab.Bloqueio.Data.dll
+C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\bin\Debug\net6.0\SebraeLab.Bloqueio.Data.pdb
+C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\bin\Debug\net6.0\SebraeLab.Bloqueio.App.pdb

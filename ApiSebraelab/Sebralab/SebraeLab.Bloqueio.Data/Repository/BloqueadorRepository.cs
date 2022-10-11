@@ -17,7 +17,7 @@ namespace SebraeLab.Bloqueio.Data.Repository
 
         public async Task<List<Bloqueador>> GetAll()
         {
-           return await _context.Bloqueio.Include(e => e.Dias).AsNoTracking().ToListAsync();
+           return await _context.Bloqueio.Include(e => e.Dias.OrderBy(d=>d.Data)).AsNoTracking().ToListAsync();
         }
         public async  Task<List<DiaBloqueado>> GetAllDiasBloqueado()
         {

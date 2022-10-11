@@ -9,9 +9,6 @@ import { environment } from 'src/environments/environment';
 import { DiasBloqueado } from '../../../@core/models/diasBloqueados.model';
 
 
-export class EventBooking {
-  Days?: Date[]=[];
-}
 
 @Component({
   selector: 'app-fullcalendario-show',
@@ -42,17 +39,17 @@ export class FullCalendarioShowComponent implements OnInit {
     ){}   
 
   ngOnInit(): void {   
-    this.loadTipoEventos();      
-
-    //this.loadDiasBloqueados();
-
-    this.loadEventos();     
+    this.loadTipoEventos().then ( ()=> {
+         this.loadDiasBloqueados();
+         this.loadEventos();   
+    })      
+      
   }
 
 
-  loadTipoEventos()
+  loadTipoEventos():Promise<any> 
   {
-    this.http.get<any>("../../../assets/data", "tipoEventos.json").
+    return this.http.get<any>("../../../assets/data", "tipoEventos.json").
     then(x => { this.tiposEvento = x; }); 
   }
 
@@ -72,7 +69,7 @@ export class FullCalendarioShowComponent implements OnInit {
   loadEventos() 
   {
     let eventos :any[]=[];
-    const colors =["yellow", "green",  "blue", "red","orange"];
+    const colors =["orange", "green",  "blue", "red","brown"];
 
     this.http.get<Eventolab[]>(environment.services.api,environment.routes.eventoSebraeLab.root).then
     ( e=>{        
@@ -82,7 +79,7 @@ export class FullCalendarioShowComponent implements OnInit {
                       eventos.push( {                           
                         title: d.titulo,
                         date: data,
-                        color: colors[this.tiposEvento.findIndex(x=>x.name==d.tipoevento)]                                    
+                        color: colors[this.tiposEvento.findIndex(x=>x.name==d.tipoevento)] 
                       })
                   })           
                 })

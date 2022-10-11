@@ -100,4 +100,10 @@ export class EventoViewComponent implements OnInit , AfterViewInit
   {    
       this.fileService.downloadSecurity(id + extention).add(()=>{ this.picture = this.fileService.bypassSecurityTrustResourceUrl;})
   }
+
+  getMonthDescription(data:any)
+  { const meses = ['Janeiro','Fevereiro','Maço','Abril','Maio','Junho','Julio',
+                    'Agosto','Setembro','Outubro','Novembro','Dezembro']
+    return meses[new Date(data).getMonth()]
+  }
 }

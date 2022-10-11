@@ -1,11 +1,14 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SebraeLab.Bloqueio.App.Services;
+using SebraeLab.Bloqueio.Domain;
 using SebraeLab.Evento.App.Services;
 using SebraeLab.Evento.App.ViewModels;
+using SebraeLab.Blqoueio.App.ViewModels;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace SebraeLabAdmin.Controllers
+namespace SebraeLab.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -13,10 +16,13 @@ namespace SebraeLabAdmin.Controllers
     public class EventoSebraeLabController : ControllerBase
     {
         private readonly IEventoSebraeLabAppService _serviceEventoSebraeLab;
- 
-        public EventoSebraeLabController(IEventoSebraeLabAppService service)
+        private readonly IBloqueadorAppService _serviceBloqueio;
+
+        public EventoSebraeLabController(IEventoSebraeLabAppService service,
+                                         IBloqueadorAppService serviceBloqueio)
         {
             _serviceEventoSebraeLab = service;
+            _serviceBloqueio = serviceBloqueio;
         }
 
         // GET: api/<EventoSebraeLabController>
@@ -33,6 +39,12 @@ namespace SebraeLabAdmin.Controllers
         {
             return await _serviceEventoSebraeLab.GetById(id);
         }
+
+        [HttpGet]
+        [Route("DiasBloqueados")]
+        [AllowAnonymous]
+        public async Task<ActionResult<IEnumerable<DiaBloqueado>>> GetAllBloqueio() =>
+          await _serviceBloqueio.GetAllDiasBloqueado();
 
     }
 }

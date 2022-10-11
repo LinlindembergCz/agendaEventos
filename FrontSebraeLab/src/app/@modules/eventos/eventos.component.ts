@@ -6,19 +6,6 @@ import { RequestPromiseService } from 'src/app/@shared/services/request-promise.
 import { environment } from 'src/environments/environment';
 import { FileService } from '../user/services/file.service';
 
-
-class Eventlab {
-  id: string;
-  name: string ;
-  hourStart: string ;
-  hourEnd: string;
-  summary: string;
-  dateStart: string;
-  dateEnd: string;
-  picture: string;
-  linksparainscricao: string;
-}
-
 @Component({
   selector: 'app-eventos',
   templateUrl: './eventos.component.html',
@@ -26,10 +13,10 @@ class Eventlab {
 })
 export class EventosComponent implements OnInit {
 
-
+  alleventslab: any[] = [];
   eventslab: any[] = [];
 
-  fullCalendar: boolean = true;
+  fullCalendar: boolean = false;
 
   
   constructor(
@@ -39,7 +26,7 @@ export class EventosComponent implements OnInit {
     private fileService: FileService,
   ) { }
 
-  ngOnInit(): void {  
+  ngOnInit(): void {      
     this.LoadEventos(); 
   }
 
@@ -47,35 +34,116 @@ export class EventosComponent implements OnInit {
   LoadEventos() 
   { 
     this.http.get<any[]>(environment.services.api,environment.routes.eventoSebraeLab.root).
-    then((x: any) => { 
-                          x.forEach(e => 
-                          {                
-                              this.eventslab.push({
-                                                    id: e.id,
-                                                    titulo: e.titulo,
-                                                    subtitulo:e.subtitulo, 
-                                                    horainicio: e.dias[0].horainicio,
-                                                    horafim: e.dias[e.dias.length-1].horafim, 
-                                                    datainicio: new Date(e.dias[0].data).getDate(), 
-                                                    datafim: new Date(e.dias[e.dias.length-1].data).getDate() ,
-                                                    picture: '',//,
-                                                    linksparainscricao: e.linksparainscricao
-                                                  });
-                              let evento : any = this.eventslab.find( x=> x.id==e.id);                
+    then((x: any) => 
+    { 
+        x.forEach(e => 
+        {                
+            let dias: string="";
+            e.dias.forEach(d => dias += String(d.data).substring(8,10)+'/' );
 
-                             
-                            this.fileService.download(evento.id + '.png').
-                              subscribe( 
-                                (event)=>{  if (event.type === HttpEventType.Response)
-                                            { 
-                                                const downloadedFile = new Blob([event.body], { type: event.body.type });
-                                                const urlToBlob = window.URL.createObjectURL(downloadedFile);                                        
-                                                evento.picture =  this._sanitizer.bypassSecurityTrustResourceUrl(urlToBlob);
-                                            }
-                                         })                    
-                          });
-                                               
-                    }); 
+            this.alleventslab.push({
+                                  id: e.id,
+                                  titulo: e.titulo,
+                                  subtitulo:e.subtitulo, 
+                                  horainicio: e.dias[0].horainicio,
+                                  horafim: e.dias[e.dias.length-1].horafim, 
+                                  data :new Date(e.dias[0].data),
+                                  datainicio: new Date(e.dias[0].data).getDate(), 
+                                  datafim: new Date(e.dias[e.dias.length-1].data).getDate() ,
+                                  picture: '',//,
+                                  dias: e.dias.length,
+                                  linksparainscricao: e.linksparainscricao
+                                });
+
+            let evento : any = this.alleventslab.find( x=> x.id==e.id);   
+
+            this.fileService.download(evento.id + '.png').
+            subscribe( 
+              (event)=>{  if (event.type === HttpEventType.Response)
+                          { 
+                            const downloadedFile = new Blob([event.body], { type: event.body.type });
+                            const urlToBlob = window.URL.createObjectURL(downloadedFile);                                        
+                            evento.picture =  this._sanitizer.bypassSecurityTrustResourceUrl(urlToBlob);
+                          }
+                        })                    
+        }); 
+        
+        this.selectThisMonth();                          
+    }); 
+  }
+
+  getMonthDescription(data:any)
+  { const meses = ['Janeiro','Fevereiro','Maço','Abril','Maio','Junho','Julio',
+                    'Agosto','Setembro','Outubro','Novembro','Dezembro']
+    return meses[new Date(data).getMonth()]
+  }
+
+
+  getWeek( data: Date)
+  {
+    let currentdate: any = data;    
+    var oneJan: any = new Date(currentdate.getFullYear(),0,1);
+    var numberOfDays = Math.floor((currentdate - oneJan) / (24 * 60 * 60 * 1000));
+    return Math.ceil(( currentdate.getDay() + (7 - currentdate.getDay() ) + numberOfDays) / 7);
+  }
+
+
+  selectThisWeek()
+  {  
+    this.fullCalendar = false;
+    this.eventslab=[];
+    this.alleventslab.sort((a, b) => {{ return a.data > b.data ? 1: -1 }} ) 
+    .forEach( e=>{
+        if (this.getWeek( e.data ) ==  this.getWeek( new Date() ) )
+           {
+            console.log( this.getWeek( e.data ) )
+             this.eventslab.push(e) 
+           }
+    });
+
+  }
+
+  selectNextWeek()
+  {
+    this.fullCalendar = false;
+    this.eventslab=[];
+    this.alleventslab.sort((a, b) => {{ return a.data > b.data ? 1: -1 }} )      
+    .forEach( e=>{
+        if (this.getWeek( e.data ) ==  this.getWeek( new Date() ) + 1 )
+           { 
+            console.log( this.getWeek( e.data ) )
+            this.eventslab.push(e)
+           }
+    });
+  }
+
+  selectThisMonth()
+  {
+    this.fullCalendar = false;
+    this.eventslab=[];
+    let currentMonth= new Date().getMonth();
+    this.alleventslab.sort((a, b) => {{ return a.data > b.data ? 1: -1 }} )   
+    .forEach( e=>{
+        if (new Date(e.data).getMonth() == currentMonth )
+        { this.eventslab.push(e) }
+    });
+  }
+
+  selectNextMonth()
+  {
+    this.fullCalendar = false;
+    this.eventslab=[];
+    let currentMonth= new Date().getMonth();
+    this.alleventslab.sort((a, b) => {{ return a.data > b.data ? 1: -1 }} )   
+    .forEach( e=>{
+        if (new Date(e.data).getMonth() == currentMonth+1 )
+        { this.eventslab.push(e) }
+    });
+  }
+
+  showCalendar()
+  {
+    this.fullCalendar = true;
   }
 
 }

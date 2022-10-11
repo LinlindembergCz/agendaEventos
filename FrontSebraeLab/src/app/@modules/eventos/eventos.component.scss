@@ -54,6 +54,9 @@ border-radius: 8px;
   }
   
   .frameBannerDatas{
+      display: flex;
+      flex-direction: column;
+      
       font-family: 'Poppins';
       font-style: normal;
       font-weight: 600;
@@ -77,26 +80,24 @@ border-radius: 8px;
   .frameBannerDetailsConteudoTitulo{
       /* Creative Workshop */ 
       font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 36px;
-  
-  /* identical to box height */
-  
-  /* Tailwind/slate/900 */
-  color: #0F172A;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 36px;  
+      /* identical to box height */      
+      /* Tailwind/slate/900 */
+      color: #BC1264;
   }
   
   .frameBannerDetailsConteudoDescricao{
       font-family: 'PT Serif';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 21px;
-  
-  /* Tailwind/slate/600 */
-  color: #475569;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 21px;
+      
+      /* Tailwind/slate/600 */
+      color: #475569;
   }
   
   .frameBannerGratuito{

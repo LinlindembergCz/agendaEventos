@@ -8,6 +8,9 @@ using SebraeLab.Conteudo.Data.Repository;
 using SebraeLab.Conteudo.App.Services;
 using SebraeLab.Conteudo.Data;
 using sebraelab.core.comunication;
+using SebraeLab.Bloqueio.App.Services;
+using SebraeLab.Bloqueio.Data.Repository;
+using SebraeLab.Bloqueio.Data;
 
 namespace SebraeLabAdmin.Setup
 {
@@ -23,9 +26,12 @@ namespace SebraeLabAdmin.Setup
             services.AddScoped<IConteudoSebraeLabRepository, ConteudoSebraeLabRepository>();
             services.AddScoped<IConteudoSebraeLabAppService, ConteudoSebraeLabAppService>();
 
-            services.AddScoped<EventoSebraeLabContext>();
+            services.AddScoped<IBloqueadorRepository, BloqueadorRepository>();
+            services.AddScoped<IBloqueadorAppService, BloqueadorAppService>();
 
+            services.AddScoped<EventoSebraeLabContext>();
             services.AddScoped<ConteudoSebraeLabContext>();
+            services.AddScoped<BloqueadorContext>();
 
 
         }

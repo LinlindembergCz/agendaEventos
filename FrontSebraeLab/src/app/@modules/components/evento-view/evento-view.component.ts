@@ -64,4 +64,10 @@ export class EventoViewComponent implements OnInit , AfterViewInit
       }, (erro)=>{ if (extention==".png") this.download(id,".jpg") }
     );    
   }
+
+  getMonthDescription(data:any)
+  { const meses = ['Janeiro','Fevereiro','Maço','Abril','Maio','Junho','Julio',
+                    'Agosto','Setembro','Outubro','Novembro','Dezembro']
+    return meses[new Date(data).getMonth()]
+  }
 }

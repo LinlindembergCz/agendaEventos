@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SebraeLab.Bloqueio.Data;
 using SebraeLab.Conteudo.Data;
 using SebraeLab.Evento.Data;
 
@@ -15,6 +16,9 @@ namespace SebraeLabAdmin.Setup
 
             builder.Services.AddDbContext<ConteudoSebraeLabContext>(options =>
                        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+            builder.Services.AddDbContext<BloqueadorContext>(options =>
+           options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
         }
     }
