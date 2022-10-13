@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace SebraeLab.Evento.Domain.Enums
 {
     //Cogitar adicionar ao core do sistema
-    public enum Status
+    public enum StatusEvento
     {
         Rascunho,
         Publicado

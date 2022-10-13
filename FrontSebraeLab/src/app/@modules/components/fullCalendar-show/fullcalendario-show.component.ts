@@ -5,7 +5,7 @@ import { CalendarOptions } from '@fullcalendar/angular'; // useful for typecheck
 import { Eventolab } from '../../../@core/models/eventolab.model';
 import { Bloqueador } from '../../../@core/models/bloqueador.model';
 import { RequestPromiseService } from '../../../@shared/services/request-promise.service';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../../environments/environment';
 import { DiasBloqueado } from '../../../@core/models/diasBloqueados.model';
 
 

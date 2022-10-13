@@ -3,7 +3,7 @@ using SebraeLab.Evento.Domain.Enums;
 
 namespace SebraeLab.Evento.Data
 {
-    public class ConversorStatus : ValueConverter<Status, string>
+    public class ConversorStatus : ValueConverter<StatusEvento, string>
     {
         public ConversorStatus() : base(
             p=>ConverterParaOhBancoDeDados(p),
@@ -13,15 +13,15 @@ namespace SebraeLab.Evento.Data
             
         }
 
-        static string ConverterParaOhBancoDeDados(Status status)
+        static string ConverterParaOhBancoDeDados(StatusEvento status)
         {
             return status.ToString()[0..1];
         }
 
-        static Status ConverterParaAplicacao(string value)
+        static StatusEvento ConverterParaAplicacao(string value)
         {
             var status = Enum
-                .GetValues<Status>()
+                .GetValues<StatusEvento>()
                 .FirstOrDefault(p=>p.ToString()[0..1] == value);
 
             return status;

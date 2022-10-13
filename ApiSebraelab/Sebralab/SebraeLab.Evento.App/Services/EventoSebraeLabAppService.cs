@@ -29,9 +29,9 @@ namespace SebraeLab.Evento.App.Services
         }
 
 
-        public async Task<List<EventoSebraeLabViewModel>> GetAll()
+        public async Task<List<EventoSebraeLabViewModel>> GetAll(bool onlypublished = false)
         {
-            return _mapper.Map<List<EventoSebraeLabViewModel>>(await _repository.GetAll());
+            return _mapper.Map<List<EventoSebraeLabViewModel>>(await _repository.GetAll(onlypublished));
         }
 
         public async Task<bool> Add(EventoSebraeLabViewModel eventosebraelabViewModel)
@@ -55,6 +55,14 @@ namespace SebraeLab.Evento.App.Services
             return true;
         }
 
+        public async Task<bool> Publish(Guid id)
+        {
+            EventoSebraeLab evento = await _repository.GetById(id);
+            evento.Publish();
+            _repository.Update(evento);
+            _repository.UnitOfWork.Commit();
+            return true;
+        }
 
 
         public void Dispose()

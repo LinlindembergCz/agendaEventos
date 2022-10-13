@@ -3,8 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../environments/environment';
 import { FileService } from '../user/services/file.service';
+import {Meses} from '../../@core/enums/ListaMeses';
 
 @Component({
   selector: 'app-eventos',
@@ -73,9 +74,8 @@ export class EventosComponent implements OnInit {
   }
 
   getMonthDescription(data:any)
-  { const meses = ['Janeiro','Fevereiro','Maço','Abril','Maio','Junho','Julio',
-                    'Agosto','Setembro','Outubro','Novembro','Dezembro']
-    return meses[new Date(data).getMonth()]
+  { 
+    return Meses[new Date(data).getMonth()]
   }
 
 
@@ -95,10 +95,9 @@ export class EventosComponent implements OnInit {
     this.alleventslab.sort((a, b) => {{ return a.data > b.data ? 1: -1 }} ) 
     .forEach( e=>{
         if (this.getWeek( e.data ) ==  this.getWeek( new Date() ) )
-           {
-            console.log( this.getWeek( e.data ) )
-             this.eventslab.push(e) 
-           }
+        {
+          this.eventslab.push(e) 
+        }
     });
 
   }
@@ -111,7 +110,6 @@ export class EventosComponent implements OnInit {
     .forEach( e=>{
         if (this.getWeek( e.data ) ==  this.getWeek( new Date() ) + 1 )
            { 
-            console.log( this.getWeek( e.data ) )
             this.eventslab.push(e)
            }
     });

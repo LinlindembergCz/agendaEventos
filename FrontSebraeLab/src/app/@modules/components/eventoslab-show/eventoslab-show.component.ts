@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../../environments/environment';
 
 class Eventlab {
   id: string;
@@ -22,8 +22,9 @@ class Eventlab {
 export class EventoslabShowComponent implements OnInit {
 
 
+  alleventslab: any[] = [];
   eventslab: Eventlab[] = [];
-  itens: any[]=[];
+
 
   constructor(
     private http: RequestPromiseService,
@@ -41,17 +42,81 @@ export class EventoslabShowComponent implements OnInit {
     then((x: any) => { 
                       x.forEach(e => 
                         {                    
-                          this.itens.push( {  id: e.id,
-                                              name: e.titulo,
-                                              summary:e.subtitulo, 
-                                              hourStart: e.dias[0].horainicio,
-                                              hourEnd: e.dias[e.dias.length-1].horafim, 
-                                              dateStart: new Date(e.dias[0].data).getDate(), 
-                                              dateEnd: new Date(e.dias[e.dias.length-1].data).getDate() 
-                                            });
+                          this.alleventslab.push( {  id: e.id,
+                                                  titulo: e.titulo,
+                                                  subtitulo:e.subtitulo, 
+                                                  horainicio: e.dias[0].horainicio,
+                                                  horafim: e.dias[e.dias.length-1].horafim, 
+                                                  data :new Date(e.dias[0].data),
+                                                  datainicio: new Date(e.dias[0].data).getDate(), 
+                                                  datafim: new Date(e.dias[e.dias.length-1].data).getDate() 
+                                             });
                         }); 
-                        this.eventslab = this.itens;                 
+                        //this.alleventslab = this.itens.sort((a, b) => {{ return a.datainicio > b.datainicio ? 1: -1 }} ) ;                 
+                         this.selectThisMonth();  
                       }); 
+  }
+
+  getWeek( data: Date)
+  {
+    let currentdate: any = data;    
+    var oneJan: any = new Date(currentdate.getFullYear(),0,1);
+    var numberOfDays = Math.floor((currentdate - oneJan) / (24 * 60 * 60 * 1000));
+    return Math.ceil(( currentdate.getDay() + (7 - currentdate.getDay() ) + numberOfDays) / 7);
+  }
+
+
+  selectThisWeek()
+  {  
+    this.eventslab=[];
+    this.alleventslab.sort((a, b) => {{ return a.data > b.data ? 1: -1 }} ) 
+    .forEach( e=>{
+        if (this.getWeek( e.data ) ==  this.getWeek( new Date() ) )
+        {
+          this.eventslab.push(e) 
+        }
+    });
+
+  }
+
+  selectNextWeek()
+  {
+    this.eventslab=[];
+    this.alleventslab.sort((a, b) => {{ return a.data > b.data ? 1: -1 }} )      
+    .forEach( e=>{
+        if (this.getWeek( e.data ) ==  this.getWeek( new Date() ) + 1 )
+           { 
+            this.eventslab.push(e)
+           }
+    });
+  }
+
+  selectThisMonth()
+  {
+    this.eventslab=[];
+    let currentMonth= new Date().getMonth();
+    this.alleventslab.sort((a, b) => {{ return a.data > b.data ? 1: -1 }} )   
+    .forEach( e=>{
+        if (new Date(e.data).getMonth() == currentMonth )
+        { this.eventslab.push(e) }
+    });
+  }
+
+  selectNextMonth()
+  {
+
+    this.eventslab=[];
+    let currentMonth= new Date().getMonth();
+    this.alleventslab.sort((a, b) => {{ return a.data > b.data ? 1: -1 }} )   
+    .forEach( e=>{
+        if (new Date(e.data).getMonth() == currentMonth+1 )
+        { this.eventslab.push(e) }
+    });
+  }
+
+  showCalendar()
+  {
+    
   }
 
 }

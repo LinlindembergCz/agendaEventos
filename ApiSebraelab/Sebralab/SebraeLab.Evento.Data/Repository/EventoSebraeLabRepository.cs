@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using SebraeLab.Bloqueio.Domain;
+using SebraeLab.Evento.Domain.Enums;
 
 namespace SebraeLab.Evento.Data.Repository
 {
@@ -21,15 +22,19 @@ namespace SebraeLab.Evento.Data.Repository
         }
         public IUnitOfWork UnitOfWork => _context;
 
-        public async Task<List<EventoSebraeLab>> GetAll()
+        public async Task<List<EventoSebraeLab>> GetAll(bool onlypublished = false)
         {
-            return await _context.Eventos.Include(e => e.Dias.OrderBy( o=>o.Data) ).AsNoTracking().ToListAsync();
+            return await _context.Eventos.
+                Include(e => e.Dias).
+                Where(e=> onlypublished? e.Status== StatusEvento.Publicado: true).
+                AsNoTracking().
+                ToListAsync();
         }
 
         //public async Task<IEnumerable<EventoSebraeLab>> GetById(Guid id)
         public async Task<EventoSebraeLab> GetById(Guid id)
         {
-            return await _context.Eventos.Include(e => e.Dias.OrderBy(o => o.Data)).AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
+            return await _context.Eventos.Include(e => e.Dias).AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
             //.Where(p => p.Id == id).ToListAsync();
             //FirstOrDefaultAsync(p => p.Id == id);
 

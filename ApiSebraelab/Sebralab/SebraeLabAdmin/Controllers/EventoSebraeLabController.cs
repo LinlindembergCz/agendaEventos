@@ -96,5 +96,20 @@ namespace SebraeLabAdmin.Controllers
             _serviceBloqueio.Add( bloqueador );
         }
 
+        [HttpPatch("Publicar/{id}")]
+        [AllowAnonymous]
+        public async Task<IActionResult> Publish(Guid id)
+        {
+            try
+            {
+                await _serviceEventoSebraeLab.Publish(id);
+                return Ok(new { msg = "evento publicado com sucesso!" });
+            }
+            catch (Exception e)
+            {
+                return new ObjectResult("Falhou! Mensagem: " + e.Message);
+            }
+        }
+
     }
 }

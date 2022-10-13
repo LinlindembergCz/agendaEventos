@@ -5,7 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastService } from 'src/app/@bootstrap/services/toast.service';
 import { UserCreateModel, UserUpdateModel } from '../../model/user.model';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../../../environments/environment';
 import {FileService} from '../../services/file.service';
 import { HttpEventType, HttpHeaderResponse, HttpResponse } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';

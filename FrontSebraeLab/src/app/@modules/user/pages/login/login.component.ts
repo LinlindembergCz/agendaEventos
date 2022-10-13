@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../../../environments/environment';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {JWTTokenService} from '../../services/jwt.service';

@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../../environments/environment';
 
 import { Publicacao } from '../../../@core/models/publicacao.model';
 import { FileService } from '../../user/services/file.service';

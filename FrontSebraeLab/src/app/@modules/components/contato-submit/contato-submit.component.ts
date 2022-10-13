@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../../environments/environment';
 import { LoaderService } from 'src/app/@bootstrap/services/loader.service';
 
 @Component({

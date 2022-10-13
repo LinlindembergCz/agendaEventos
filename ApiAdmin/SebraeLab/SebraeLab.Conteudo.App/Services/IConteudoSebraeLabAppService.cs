@@ -12,7 +12,7 @@ namespace SebraeLab.Conteudo.App.Services
 {
     public interface IConteudoSebraeLabAppService : IDisposable
     {
-        Task<List<ConteudoSebraeLabViewModel>> GetAll();
+        Task<List<ConteudoSebraeLabViewModel>> GetAll(bool onlypublished = false);
         Task<List<ConteudoSebraeLabViewModel>> Search(string search);
         Task<ConteudoSebraeLabViewModel> GetById(Guid id);
         Task<List<ConteudoSebraeLabViewModel>> GetByTipo(TipoPublicacao tipo);        

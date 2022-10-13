@@ -11,11 +11,13 @@ namespace SebraeLab.Evento.App.Services
 {
     public interface IEventoSebraeLabAppService : IDisposable
     {
-        Task<List<EventoSebraeLabViewModel>> GetAll();
+        Task<List<EventoSebraeLabViewModel>> GetAll(bool onlypublished = false);
         Task<EventoSebraeLabViewModel> GetById(Guid id);
         Task<bool> Add(EventoSebraeLabViewModel eventosebraelabViewModel);
         Task<bool> Update(EventoSebraeLabViewModel eventosebraelabViewModel);
-        
+
+        Task<bool> Publish(Guid id);
+
 
 
     }

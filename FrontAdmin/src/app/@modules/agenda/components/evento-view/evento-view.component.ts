@@ -5,9 +5,9 @@ import { RequestPromiseService } from '../../../../@shared/services/request-prom
 import { environment } from '../../../../../environments/environment';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { FileService } from 'src/app/@modules/user/services/file.service';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { HttpEventType } from '@angular/common/http';
+import { SafeResourceUrl } from '@angular/platform-browser';
 
+import { Meses } from '../../../../@core/enums/ListaMeses';
 
 
 @Component({
@@ -26,29 +26,25 @@ export class EventoViewComponent implements OnInit , AfterViewInit
     private route: ActivatedRoute,
     private messageService: MessageService,
     private confirmationService: ConfirmationService,
-    private _sanitizer: DomSanitizer,
     private fileService: FileService,
   ) { }
 
   ngOnInit(): void 
   {
-   
-
-    this.route.queryParams.subscribe(params => {
+      this.route.queryParams.subscribe(params => {
                                        if (params['id'])
                                        {
                                           this.http.get<Eventolab>(environment.services.api,
                                           `${environment.routes.eventoSebraeLab.root}/${params['id']}`).then( e=> {  
-                                            this.evento = e 
-
-                                            this.download(e.id);
-                                          
+                                            this.evento = e
+                                            this.download(this.evento.id);                                          
                                           });
                                         }
                                         else
                                         if (params['data'])
                                         {
                                            this.evento = JSON.parse(params['data'])
+                                           this.download(this.evento.id);                                          
                                         }
                                     });
   }
@@ -102,8 +98,7 @@ export class EventoViewComponent implements OnInit , AfterViewInit
   }
 
   getMonthDescription(data:any)
-  { const meses = ['Janeiro','Fevereiro','Maço','Abril','Maio','Junho','Julio',
-                    'Agosto','Setembro','Outubro','Novembro','Dezembro']
-    return meses[new Date(data).getMonth()]
+  { 
+    return Meses[new Date(data).getMonth()]
   }
 }

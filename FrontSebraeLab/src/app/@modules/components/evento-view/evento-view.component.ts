@@ -6,6 +6,7 @@ import { environment } from '../../../../environments/environment';
 import { FileService } from 'src/app/@modules/user/services/file.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HttpEventType } from '@angular/common/http';
+import {Meses} from '../../../@core/enums/ListaMeses';
 
 
 
@@ -66,8 +67,7 @@ export class EventoViewComponent implements OnInit , AfterViewInit
   }
 
   getMonthDescription(data:any)
-  { const meses = ['Janeiro','Fevereiro','Maço','Abril','Maio','Junho','Julio',
-                    'Agosto','Setembro','Outubro','Novembro','Dezembro']
-    return meses[new Date(data).getMonth()]
+  { 
+    return Meses[new Date(data).getMonth()]
   }
 }

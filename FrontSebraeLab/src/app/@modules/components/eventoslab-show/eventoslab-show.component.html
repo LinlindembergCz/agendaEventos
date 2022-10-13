@@ -16,46 +16,43 @@
         <div class="frameEventlabDetails">            
             
             <div class="framebuttons">                           
-                <button pButton type="button" label="Esta semana" class="p-button-rounded p-button-outlined" ></button> 
-                <button pButton type="button" label="Próxima semana" class="p-button-rounded p-button-outlined" ></button>
-                <button pButton type="button" label="Este mês" class="p-button-rounded p-button-outlined" ></button>
-                <button pButton type="button" label="próximo mês" class="p-button-rounded p-button-outlined" ></button>
-                <button pButton type="button" label="Agenda completa" class="p-button-rounded p-button-outlined" ></button>
+                <button pButton type="button" label="Esta semana" class="p-button-rounded p-button-outlined" (click)="selectThisWeek()"></button> 
+                <button pButton type="button" label="Próxima semana" class="p-button-rounded p-button-outlined" (click)="selectNextWeek()" ></button>
+                <button pButton type="button" label="Este mês" class="p-button-rounded p-button-outlined" (click)="selectThisMonth()"></button>
+                <button pButton type="button" label="próximo mês" class="p-button-rounded p-button-outlined" (click)="selectNextMonth()" ></button>
+                <button pButton type="button" label="Agenda completa" class="p-button-rounded p-button-outlined" (click)="showCalendar()" ></button>
             </div>
                         
-            <div class="frameEventslablist">
-                
-             <!--<div class="frameEventlabItemGroup">-->                 
-                    <p-dataView [value]="eventslab">
-                        <ng-template let-eventlab pTemplate="listItem">              
-                            <div class="frameEventlabItem">                         
-                                   <div class="frameEventlabitemDetails">                                    
-                                        <div class="frameEventlabitemDetailsCenter">
-                                            <div class="frameDate" *ngIf="eventlab.dateStart!=eventlab.dateEnd">
-                                               <div class="frameDateDays"> {{eventlab.dateStart}}<div style=" color: #C45F13;">></div>{{eventlab.dateEnd}}</div> 
-                                            </div>   
-                                            <div class="frameDate" *ngIf="eventlab.dateStart==eventlab.dateEnd">
-                                                <div class="frameDateDays"> {{eventlab.dateStart}}</div> 
-                                             </div>                                  
-                                            <p-divider layout="vertical" class="frameDivisor"></p-divider>
+            <div class="frameEventslablist">             
+                <p-dataView [value]="eventslab" [paginator]="true" [rows]="3">
+                    <ng-template let-eventlab pTemplate="listItem">              
+                        <div class="frameEventlabItem">                         
+                                <div class="frameEventlabitemDetails">                                    
+                                    <div class="frameEventlabitemDetailsCenter">
+                                        <div class="frameDate" *ngIf="eventlab.datainicio!=eventlab.datafim">
+                                            <div class="frameDateDays"> {{eventlab.datainicio}}<div style=" color: #C45F13;">></div>{{eventlab.datafim}}</div> 
+                                        </div>   
+                                        <div class="frameDate" *ngIf="eventlab.datainicio==eventlab.datafim">
+                                            <div class="frameDateDays"> {{eventlab.datainicio}}</div> 
+                                            </div>                                  
+                                        <p-divider layout="vertical" class="frameDivisor"></p-divider>
 
-                                            <div class="frameHour">
-                                                <div class="eventlabTime">{{eventlab.hourStart}} - {{eventlab.hourEnd}}</div><br>
-                                                <div class=" eventlabName">{{eventlab.name}}</div><br>
-                                                <div class="eventlabSummary">{{eventlab.summary}}</div><br>
-                                            </div>        
-                                        </div>                                         
-                                        <div class="frameEventlabSubscribe">
-                                           <a href="/evento?id={{eventlab.id}}">Inscreva-se ></a>                            
-                                           <router-outlet></router-outlet> 
-                                        </div>                      
-                                    </div>
-                                                      
-                                </div>  
-                                <div style="background: #F8FAFC">&nbsp;&nbsp;&nbsp;</div>             
-                       </ng-template>
-                    </p-dataView>                    
-                <!--</div>-->
+                                        <div class="frameHour">
+                                            <div class="eventlabTime">{{eventlab.horainicio}} - {{eventlab.horafim}}</div><br>
+                                            <div class=" eventlabName">{{eventlab.titulo}}</div><br>
+                                            <div class="eventlabSummary">{{eventlab.subtitulo}}</div><br>
+                                        </div>        
+                                    </div>                                         
+                                    <div class="frameEventlabSubscribe">
+                                        <a href="/evento?id={{eventlab.id}}">Inscreva-se ></a>                            
+                                        <router-outlet></router-outlet> 
+                                    </div>                      
+                                </div>
+                                                    
+                            </div>  
+                            <div style="background: #F8FAFC">&nbsp;&nbsp;&nbsp;</div>             
+                    </ng-template>
+                </p-dataView>  
             </div>
             
             <div class="confira"><a href="eventos">confira nossa agenda!<img src="/assets/imgs/arrow-right.png"/></a></div>

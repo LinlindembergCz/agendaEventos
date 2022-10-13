@@ -29,7 +29,7 @@ namespace SebraeLab.Controllers
         [HttpGet]
         [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<EventoSebraeLabViewModel>>> Get() =>
-           await _serviceEventoSebraeLab.GetAll();
+           await _serviceEventoSebraeLab.GetAll(true);
 
 
         // GET api/<EventoSebraeLabController>/5

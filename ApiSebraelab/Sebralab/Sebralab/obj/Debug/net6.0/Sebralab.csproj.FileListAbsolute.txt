@@ -16,7 +16,6 @@ C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\obj\Debug\net6.0\Sebralab.Genera
 C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\obj\Debug\net6.0\Sebralab.AssemblyInfoInputs.cache
 C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\obj\Debug\net6.0\Sebralab.AssemblyInfo.cs
 C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\obj\Debug\net6.0\Sebralab.csproj.CoreCompileInputs.cache
-C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\obj\Debug\net6.0\Sebralab.MvcApplicationPartsAssemblyInfo.cs
 C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\obj\Debug\net6.0\Sebralab.MvcApplicationPartsAssemblyInfo.cache
 C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\obj\Debug\net6.0\staticwebassets.build.json
 C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\obj\Debug\net6.0\staticwebassets.development.json

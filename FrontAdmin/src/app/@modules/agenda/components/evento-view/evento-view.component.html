@@ -18,7 +18,7 @@
                     </div>
                 </div>
                 <div class="frameBotaoPublicar p-col-2">
-                    <div *ngIf="evento.status=='Rascunho'">
+                    <div *ngIf="(evento.status=='Rascunho') && (evento.publicaosite)">
                         <button pButton type="button"  label="Publicar" class="buttonPublicar p-button-outlined"              
                         (click)="publish(evento.id)"></button>
                     </div>
@@ -95,6 +95,12 @@
 
 </div>
 
+<p-confirmDialog #cd  [breakpoints]="{'560px': '75vw', '640px': '100vw'}" [style]="{width: '40vw'}">
+    <ng-template pTemplate="footer">
+        <button type="button" pButton icon="pi pi-times" label="Não" (click)="cd.reject()"></button>
+        <button type="button" class="p-button-danger" pButton icon="pi pi-check" label="Sim" (click)="cd.accept()"></button>
+    </ng-template>
+</p-confirmDialog>
 
 
 

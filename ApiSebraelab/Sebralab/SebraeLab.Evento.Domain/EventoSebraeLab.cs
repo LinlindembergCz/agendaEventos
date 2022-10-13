@@ -20,7 +20,7 @@ namespace SebraeLab.Evento.Domain
         public string? Contato { get; private set; }
         public bool? Imagempersonalida { get; private set; }
         public bool? Publicaosite { get; private set; }
-        public Status? Status { get; private set; }
+        public StatusEvento? Status { get; private set; }
         public DateTime Datacadastro { get; private set; }
 
         public EventoSebraeLab()
@@ -41,7 +41,7 @@ namespace SebraeLab.Evento.Domain
                       string contato,
                       bool imagempersonalida ,
                       bool publicaosite,
-                      Status status
+                      StatusEvento status
         )
         {
            Titulo = titulo;
@@ -57,6 +57,12 @@ namespace SebraeLab.Evento.Domain
            Tipoevento = tipoevento;
            Status = status;
            Subtitulo = subtitulo;
+        }
+
+        public void Publish()
+        {
+            Status = StatusEvento.Publicado;
+            //Datapublicacao = DateTime.Now;
         }
 
 

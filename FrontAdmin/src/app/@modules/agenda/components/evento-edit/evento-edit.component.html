@@ -156,14 +156,17 @@
             </div>
            
        </div> 
-       <div class="p-col-12" style="text-align: right;">
-           <button pButton class="p-button-lg p-button-raised p-button-outlined p-mr-10">Cancelar</button>&nbsp;&nbsp;
-           <button pButton class="p-button-lg p-button-raised p-button-warning p-mr-10" (click)="save(evento.id)">Salvar</button>&nbsp;&nbsp;
-           <button pButton class="p-button-lg p-button-raised p-button-warning p-mr-10" (click)="showPreview(evento.id)">Visualizar</button>&nbsp;&nbsp;
+
+        <div class="p-col-12" style="text-align: right;" *ngIf="evento.status=='Rascunho'">
+            <button pButton class="p-button-lg p-button-raised p-button-outlined p-mr-10" (click)="save(evento.id)">Salvar</button>&nbsp;&nbsp;
+            <button pButton class="p-button-lg p-button-raised p-button-warning p-mr-10" (click)="showPreview(evento.id)">Visualizar e publicar</button>
+        </div>
+ 
+        <div class="p-col-12" style="text-align: right;" *ngIf="evento.status=='Publicado'">
+            <button pButton class="p-button-lg p-button-raised p-button-outlined p-mr-10" (click)="save(evento.id)">Atualizar</button>&nbsp;&nbsp;
+            <button pButton class="p-button-lg p-button-raised p-button-warning p-mr-10" (click)="showPublished(evento)">Visualizar</button>
         </div>
     </div>
-    
-
 </div>
 
 <p-toast position="top-right"></p-toast>

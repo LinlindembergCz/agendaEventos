@@ -32,9 +32,9 @@ namespace SebraeLab.Conteudo.App.Services
         }
 
 
-        public async Task<List<ConteudoSebraeLabViewModel>> GetAll()
+        public async Task<List<ConteudoSebraeLabViewModel>> GetAll(bool onlypublished = false)
         {
-            return _mapper.Map<List<ConteudoSebraeLabViewModel>>(await _repository.GetAll());
+            return _mapper.Map<List<ConteudoSebraeLabViewModel>>(await _repository.GetAll(onlypublished));
         }
 
         public async Task<List<ConteudoSebraeLabViewModel>> Search(string search)
