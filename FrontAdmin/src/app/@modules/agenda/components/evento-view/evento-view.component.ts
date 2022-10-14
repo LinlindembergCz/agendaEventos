@@ -72,25 +72,6 @@ export class EventoViewComponent implements OnInit , AfterViewInit
 
 
   }
-
-  save(id: string) 
-  {
-    this.confirmationService.confirm({
-      header: "Atualizar evento?",
-      message: 'Tem certeza que deseja <b>Atualizar</b> esse evento ?',
-      accept: () => {          
-                      this.http.put<Eventolab>(environment.services.api,`${environment.routes.conteudoSebraeLab.root}/${id}`, this.evento).then
-                      ( (r)=>{   
-                              this.messageService.add({severity:'info', 
-                              summary:'Confirmação', 
-                              detail:'O evento atualizado com sucesso!'});
-                              this.router.navigate([`/agenda`], { queryParams: { id: id} } );
-                            })  
-                    }
-      });
-
-  }
-
   
   download(id : string , extention : string = ".png") 
   {    

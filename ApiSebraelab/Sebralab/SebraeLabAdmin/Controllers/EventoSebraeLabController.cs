@@ -1,10 +1,13 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SebraeLab.Bloqueio.App.Services;
 using SebraeLab.Bloqueio.Domain;
 using SebraeLab.Blqoueio.App.ViewModels;
+using SebraeLab.Conteudo.App.ViewModels;
 using SebraeLab.Evento.App.Services;
 using SebraeLab.Evento.App.ViewModels;
+using System;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -40,6 +43,34 @@ namespace SebraeLabAdmin.Controllers
             return await _serviceEventoSebraeLab.GetById(id);
         }
 
+        [HttpGet("Pesquisar")]
+        [AllowAnonymous]
+        public async Task<ActionResult<IEnumerable<EventoSebraeLabViewModel>>> Search([FromQuery] string value) =>
+        await _serviceEventoSebraeLab.Search(value);
+
+        [HttpGet("Alocacao")]
+        [AllowAnonymous]
+        public async Task<ActionResult<bool>> Shedulle([FromQuery] string Data, string horainicio, string horafinal) =>
+        await _serviceEventoSebraeLab.Alocados( Data,  horainicio,  horafinal);
+
+
+        private void verifyAvailable(EventoSebraeLabViewModel eventosebraelabViewModel, string id ="")
+        {
+            if (eventosebraelabViewModel != null)
+            {
+                eventosebraelabViewModel.Dias.ForEach(d =>
+                {
+                if (_serviceEventoSebraeLab.Alocados(d.Data?.ToString("yyyy/MM/dd"),
+                                                     d.Horainicio,
+                                                     d.Horafim, 
+                                                     id).Result == true)
+                                                   
+                    {
+                        throw new NotImplementedException($"Já existe EVENTO agendado para está data {d.Data?.ToString("dd/MM/yyyy")} - {d.Horainicio} - {d.Horafim} ");
+                    }
+                });
+            }
+        }
         // POST api/<EventoSebraeLabController>
         [HttpPost]
         [AllowAnonymous]
@@ -47,8 +78,10 @@ namespace SebraeLabAdmin.Controllers
         {
             try
             {
+                verifyAvailable(eventosebraelabViewModel);
+
                 await _serviceEventoSebraeLab.Add(eventosebraelabViewModel);
-                return Ok(new { msg = "eventsalvo com sucesso!" });
+                return Ok(new { msg = "evento salvo com sucesso!" });
             }
             catch (Exception e)
             {
@@ -64,7 +97,9 @@ namespace SebraeLabAdmin.Controllers
         {
             try
             {
-                await _serviceEventoSebraeLab.Update(eventosebraelabViewModel);
+                verifyAvailable(eventosebraelabViewModel, id.ToString());
+
+                await _serviceEventoSebraeLab.Update(eventosebraelabViewModel );
                 return Ok(new { msg = "evento alterado com sucesso!" });
             }
             catch (Exception e)

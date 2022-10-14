@@ -100,11 +100,20 @@ export class EventoEditComponent implements OnInit, AfterViewInit {
   {       
     //Convert o array em string
     this.evento.dias.forEach( d=> d.option = JSON.stringify(d.option ));
-    this.evento.tipoevento = this.tipoEvento.name;    
+    this.evento.tipoevento = this.tipoEvento.name; 
 
-    this.http.put<Eventolab>(environment.services.api,`${environment.routes.eventoSebraeLab.root}/${id}`, 
-    this.evento).finally ( ()=>{ this.router.navigate(['/agenda']); }) 
-
+    this.http.put<any>(environment.services.api,`${environment.routes.eventoSebraeLab.root}/${id}`, 
+        this.evento).then( () =>
+        {
+            this.router.navigate(['/agenda']);            
+            this.messageService.add({severity:'success', 
+                                     summary:'Atualização', 
+                                     detail:'O evento foi atualizado com sucesso!'}); 
+        }).catch( (e) =>{         
+              this.messageService.add({severity:'warn', 
+              summary:'Atenção!', 
+              detail:e.error.text}); 
+        });
   }
 
   showPreview(id: string)

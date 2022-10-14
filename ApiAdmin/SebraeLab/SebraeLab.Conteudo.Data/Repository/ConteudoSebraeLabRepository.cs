@@ -23,9 +23,9 @@ namespace SebraeLab.Conteudo.Data.Repository
                                    && e.Ativo==true).AsNoTracking().ToListAsync();
         }
 
-        public async Task<List<ConteudoSebraeLab>> Search(string search)
+        public async Task<List<ConteudoSebraeLab>> Search(string value)
         {
-            return await _context.Conteudos.Where(c=> c.Descricao.Contains(search) || c.Titulo.Contains(search) )
+            return await _context.Conteudos.Where(c=> c.Descricao.Contains(value) || c.Titulo.Contains(value) )
                 .AsNoTracking().ToListAsync();
         }
 

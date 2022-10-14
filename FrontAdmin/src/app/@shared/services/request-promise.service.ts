@@ -19,7 +19,7 @@ export class RequestPromiseService {
 
 
   private showErrorStatusCode = (status: number, error: any) => {
-    //console.log(error);
+    console.log(error);
     switch (status) {
       case 400:
         if(error.errors !== undefined && error.errors !== null) {
@@ -49,6 +49,13 @@ export class RequestPromiseService {
       case 500:
         this.toastr.addSingle("error","Erro de processamento",'As informações não estão coesas e geraram erro na aplicação.');
         break;
+      default:
+        if(error !== undefined && error !== null) 
+        {
+            this.toastr.addSingle("error",'', error.text);
+            break;
+        }
+
     }
   }
 
@@ -113,7 +120,8 @@ export class RequestPromiseService {
 
   post<T>(url: string, path: string, payload: any) : Promise<T> {
 
-     let promise = new Promise<T>((resolve, reject) => {
+    return this.http.post<T>(`${url}/${path}`, payload).toPromise();
+    /* let promise = new Promise<T>((resolve, reject) => {
        this.http.post<T>(`${url}/${path}`, payload).toPromise()
        .catch((response) => {
          this.showErrorStatusCode(response.status, response.error);
@@ -130,13 +138,18 @@ export class RequestPromiseService {
          }
        );
     });
-    return promise;
+    return promise;*/
  }
 
  put<T>(url: string, path: string, payload: any) : Promise<T> {
-  let promise = new Promise<T>((resolve, reject) => {
+  
+  return this.http.put<T>(`${url}/${path}`, payload).toPromise();  
+
+  /*let promise = new Promise<T>((resolve, reject) => {
      this.http.put<T>(`${url}/${path}`, payload).toPromise()
      .catch((response) => {
+      console.log("catch");
+      //console.log(response )
        this.showErrorStatusCode(response.status, response.error);
      })
      .then(
@@ -144,11 +157,13 @@ export class RequestPromiseService {
             resolve(data);
        },
        (err: any) => {
+        console.log("ERROR");
+        //console.log(err )
          reject(err);
        }
      );
   });
-  return promise;
+  return promise;*/
 }
 
 patch<T>(url: string, path: string, payload?: any) : Promise<T> {

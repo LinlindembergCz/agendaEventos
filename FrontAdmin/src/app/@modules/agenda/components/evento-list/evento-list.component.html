@@ -5,8 +5,8 @@
 <div class="frameEventlabList">    
     
     <span class="p-input-icon-right " >
-        <i class="pi pi-search"></i>
-        <input type="text" pInputText  placeholder="Search" style="width:'350px'" tooltip="teste" >         
+        <i class="pi pi-search" style="cursor: pointer" (click)="search(seachValue)"></i>
+        <input type="text" pInputText  placeholder="Search" style="width:'350px'" [(ngModel)]="seachValue">         
     </span>
 
 
@@ -22,18 +22,18 @@
         >                    
             
             <div class="frameDate" >
-                <div class="frameDateDays" title="{{eventlab.tip}}">                      
-                    <div>{{eventlab.dateStart}}</div>
-                    <div style=" color: #C45F13;" *ngIf="(eventlab.dateEnd - eventlab.dateStart > 0 ) && (eventlab.days>1) && (eventlab.days > eventlab.dateEnd - eventlab.dateStart)">></div>
-                    <div *ngIf="(eventlab.dateEnd - eventlab.dateStart + 1 > eventlab.days ) && (eventlab.days > eventlab.dateEnd - eventlab.dateStart)  ">,</div>
-                    <div *ngIf="(eventlab.dateEnd - eventlab.dateStart + 1 > eventlab.days ) ">...</div>
-                    <div *ngIf="(eventlab.dateEnd - eventlab.dateStart > 0 )">{{eventlab.dateEnd}}</div>
+                <div class="frameDateDays" >                      
+                    <div>{{eventlab.datainicial}}</div>
+                    <div style=" color: #C45F13;" *ngIf="(eventlab.datafinal - eventlab.datainicial > 0 ) && (eventlab.dias > 1) && (eventlab.dias > eventlab.datafinal - eventlab.datainicial)">></div>
+                    <div *ngIf="(eventlab.datafinal - eventlab.datainicial + 1 > eventlab.dias ) && (eventlab.dias > eventlab.datafinal - eventlab.datainicial)  ">,</div>
+                    <div *ngIf="(eventlab.datafinal - eventlab.datainicial + 1 > eventlab.dias ) ">...</div>
+                    <div *ngIf="(eventlab.datafinal - eventlab.datainicial > 0 )">{{eventlab.datafinal}}</div>
                 </div> 
             </div>
             <div class="frameEventlabitemDetailsCenter">                       
-                <div class="eventlabTime">{{eventlab.hourStart}} - {{eventlab.hourEnd}}</div><br>
-                <div class=" eventlabName">{{eventlab.name}}</div><br>
-                <div class="eventlabSummary">{{eventlab.summary}}</div><br>
+                <div class="eventlabTime">{{eventlab.horainicial}} - {{eventlab.horafinal}}</div><br>
+                <div class=" eventlabName">{{eventlab.titulo}}</div><br>
+                <div class="eventlabSummary">{{eventlab.subtitulo}}</div><br>
             </div>                                          
         </div>                       
     </ng-template>

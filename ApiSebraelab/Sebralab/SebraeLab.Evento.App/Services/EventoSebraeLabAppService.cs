@@ -7,6 +7,7 @@ using SebraeLab.Evento.Data.Repository;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SebraeLab.Bloqueio.Domain;
+using Newtonsoft.Json.Linq;
 
 namespace SebraeLab.Evento.App.Services
 {
@@ -34,7 +35,16 @@ namespace SebraeLab.Evento.App.Services
             return _mapper.Map<List<EventoSebraeLabViewModel>>(await _repository.GetAll(onlypublished));
         }
 
-        public async Task<bool> Add(EventoSebraeLabViewModel eventosebraelabViewModel)
+        public async Task<List<EventoSebraeLabViewModel>> Search(string value)
+        {
+            return _mapper.Map<List<EventoSebraeLabViewModel>>(await _repository.Search(value));
+        }
+        public async  Task<bool> Alocados(string Data, string horainicio, string horafinal, string id)
+        {
+            return await _repository.Alocados( Data,  horainicio,  horafinal, id);
+        }
+
+    public async Task<bool> Add(EventoSebraeLabViewModel eventosebraelabViewModel)
         {
             var evento = _mapper.Map<EventoSebraeLab>(eventosebraelabViewModel);
 

@@ -13,6 +13,8 @@ namespace SebraeLab.Evento.App.Services
     {
         Task<List<EventoSebraeLabViewModel>> GetAll(bool onlypublished = false);
         Task<EventoSebraeLabViewModel> GetById(Guid id);
+        Task<List<EventoSebraeLabViewModel>> Search(string value);
+        Task<bool> Alocados(string Data, string horainicio, string horafinal, string id ="" );        
         Task<bool> Add(EventoSebraeLabViewModel eventosebraelabViewModel);
         Task<bool> Update(EventoSebraeLabViewModel eventosebraelabViewModel);
 

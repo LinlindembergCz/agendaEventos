@@ -23,7 +23,7 @@ export const environment = {
       publicar:"ConteudoSebraeLab/Publicar",
       ativar: "ConteudoSebraeLab/Ativar",
       desativar:"ConteudoSebraeLab/Desativar",
-      search: "ConteudoSebraeLab/Pesquisar?search=",
+      search: "ConteudoSebraeLab/Pesquisar?value=",
       pesquisarPorTipo:"ConteudoSebraeLab/PesquisarPorTipo"   
     }
   }

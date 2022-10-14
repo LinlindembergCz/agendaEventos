@@ -11,14 +11,16 @@ export const environment = {
     eventoSebraeLab:{
       root:"EventoSebraeLab",
       publicar:"EventoSebraeLab/Publicar",
-      diasBloqueados:"EventoSebraeLab/DiasBloqueados"
+      diasBloqueados:"EventoSebraeLab/DiasBloqueados", 
+      search:  "EventoSebraeLab/Pesquisar?value=",
+      alocacao:  "EventoSebraeLab/Alocacao" 
     },
     conteudoSebraeLab:{
       root:"ConteudoSebraeLab",
       publicar:"ConteudoSebraeLab/Publicar",
       ativar: "ConteudoSebraeLab/Ativar",
       desativar:"ConteudoSebraeLab/Desativar",
-      search: "ConteudoSebraeLab/Pesquisar?search="      
+      search: "ConteudoSebraeLab/Pesquisar?value="      
     }
   }
 };

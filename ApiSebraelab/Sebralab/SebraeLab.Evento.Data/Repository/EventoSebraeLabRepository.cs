@@ -9,6 +9,10 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 using SebraeLab.Bloqueio.Domain;
 using SebraeLab.Evento.Domain.Enums;
+using Newtonsoft.Json.Linq;
+using System.Data.Common;
+using System.Data;
+using Microsoft.AspNetCore.Mvc;
 
 namespace SebraeLab.Evento.Data.Repository
 {
@@ -26,20 +30,53 @@ namespace SebraeLab.Evento.Data.Repository
         {
             return await _context.Eventos.
                 Include(e => e.Dias).
-                Where(e=> onlypublished? e.Status== StatusEvento.Publicado: true).
+                Where(e=> onlypublished? e.Status== StatusEvento.Publicado && e.Publicaosite==true : true ).
                 AsNoTracking().
                 ToListAsync();
         }
 
-        //public async Task<IEnumerable<EventoSebraeLab>> GetById(Guid id)
+
+        public async Task<List<EventoSebraeLab>> Search(string value)
+        {
+            return await _context.Eventos.
+                Include(e => e.Dias).
+                Where(c => c.Descricaoevento.Contains(value) || c.Titulo.Contains(value))
+                .AsNoTracking().ToListAsync();
+        }
+
+        public async  Task<bool> Alocados(string? Data, string? horainicio, string horafinal, string id)
+        {
+            var con = _context.Database.GetDbConnection();
+            try
+            {              
+                con.Open();
+                var cmd = con.CreateCommand();
+
+                string Datainicial = Data + " 00:00:00";
+                string Datafinal = Data + " 23:59:59";
+                string HoraInicial = Data + " " + horainicio;
+                string HoraFinal = Data + " " + horafinal;
+
+                cmd.CommandText = "Select count(*) from DiasEventoSebraeLab d" +
+                $" where ( cast(d.Eventoid as varchar(50) )  <> '{id}' ) and " +
+                $" ( d.Data >= '{Datainicial}' and d.Data <= '{Datafinal}') and " +
+                $" ( ('{HoraInicial}' >= '{Data}' + ' ' + d.Horainicio and '{HoraInicial}' <= '{Data}'+ ' '+ d.Horafim ) OR " +
+                $"   ('{HoraFinal}'   >= '{Data}' + ' ' + d.Horainicio and '{HoraInicial}' <= '{Data}'+ ' '+ d.Horafim ) )";
+
+                DbDataReader rdr = await cmd.ExecuteReaderAsync(CommandBehavior.SequentialAccess);
+                await rdr.ReadAsync();
+                return rdr.GetInt32(0) > 0;
+            }
+            finally
+            {
+                con.Close();
+            }
+
+
+        }
         public async Task<EventoSebraeLab> GetById(Guid id)
         {
             return await _context.Eventos.Include(e => e.Dias).AsNoTracking().FirstOrDefaultAsync(p => p.Id == id);
-            //.Where(p => p.Id == id).ToListAsync();
-            //FirstOrDefaultAsync(p => p.Id == id);
-
-            //return await _context.Pedidos.AsNoTracking().Where(p => p.ClienteId == clienteId).ToListAsync();
-            //return await _context.Produtos.FindAsync(id);
         }
 
         public void Add(EventoSebraeLab evento)

@@ -38,11 +38,13 @@ export class FullCalendarioShowComponent implements OnInit {
     private router: Router   
     ){}   
 
-  ngOnInit(): void {   
+  ngOnInit(): void 
+  {   
     this.loadTipoEventos().then ( ()=> {
-         this.loadDiasBloqueados();
-         this.loadEventos();   
-    })      
+         this.loadDiasBloqueados().then( ()=>{
+              this.loadEventos(); 
+         })         
+    }) 
       
   }
 
@@ -53,9 +55,9 @@ export class FullCalendarioShowComponent implements OnInit {
     then(x => { this.tiposEvento = x; }); 
   }
 
-  loadDiasBloqueados()
+  loadDiasBloqueados():Promise<any> 
   {
-    this.http.get<any[]>(environment.services.api,environment.routes.eventoSebraeLab.diasBloqueados).
+    return  this.http.get<any[]>(environment.services.api,environment.routes.eventoSebraeLab.diasBloqueados).
     then(x=>{
       this.diasBloqueados = []
       //this.motivoBloqueio = x.motivo;
@@ -69,18 +71,22 @@ export class FullCalendarioShowComponent implements OnInit {
   loadEventos() 
   {
     let eventos :any[]=[];
-    const colors =["orange", "green",  "blue", "red","brown"];
+    const colors =["orange", "green",  "blue", "red","brown","gray"];
+
+    this.diasBloqueados.forEach((d: Date)=>{ eventos.push( {title: 'Bloqueado',date: d.toISOString().slice(0, 10),color: "gray"}) });    
 
     this.http.get<Eventolab[]>(environment.services.api,environment.routes.eventoSebraeLab.root).then
-    ( e=>{        
-          e.forEach( d=>{       
+    ( e=>{     
+          e.forEach( d=>{                  
+
               d.dias.forEach( x=>{
                       let data =  String(x.data).substring(0,10)
+                      let titulo : string =  d.titulo;               
+
                       eventos.push( {                           
-                        title: d.titulo,
+                        title: titulo,
                         date: data,
-                        color: colors[this.tiposEvento.findIndex(x=>x.name==d.tipoevento)] 
-                      })
+                        color: colors[this.tiposEvento.findIndex(x=>x.name==d.tipoevento)] })
                   })           
                 })
           }).finally(

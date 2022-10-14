@@ -46,5 +46,11 @@ namespace SebraeLab.Controllers
         public async Task<ActionResult<IEnumerable<DiaBloqueado>>> GetAllBloqueio() =>
           await _serviceBloqueio.GetAllDiasBloqueado();
 
+        [HttpGet("Alocacao")]
+        [AllowAnonymous]
+        public async Task<ActionResult<bool>> Search([FromQuery] string Data, string horainicio, string horafinal) =>
+        await _serviceEventoSebraeLab.Alocados(Data, horainicio, horafinal);
+
+
     }
 }

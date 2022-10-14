@@ -44,7 +44,15 @@ export class PublicacaoCreateComponent implements OnInit, AfterViewInit {
      this.http.post<any>(environment.services.api,
                          environment.routes.conteudoSebraeLab.root
       , this.conteudo).then
-     ( ()=>{ this.router.navigate(['/conteudo']); })     
+     ( ()=>{ 
+      this.router.navigate(['/conteudo']); 
+
+      this.messageService.add({severity:'success', 
+      summary:'Cadastro', 
+      detail:'O conteúdo foi cadstrado com sucesso!'});
+    
+    
+    })     
 
   }
 

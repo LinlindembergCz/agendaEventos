@@ -56,7 +56,19 @@ export class PublicacaoEditComponent implements OnInit, AfterViewInit {
      //Convert o array em string
      this.conteudo.tipopublicacao = this.tipoPublicacao.name; 
      this.http.put<Publicacao>(environment.services.api,`${environment.routes.conteudoSebraeLab.root}/${id}`, this.conteudo).then
-     ( ()=>{ this.router.navigate(['/conteudo']); })       
+     ( ()=>{ 
+
+      this.router.navigate(['/conteudo']); 
+
+      this.messageService.add({severity:'success', 
+                              summary:'Atualização', 
+                              detail:'O conteúdo foi atualizado com sucesso!'});
+                          
+    
+    })    
+     
+     
+
 
   }
 

@@ -64,15 +64,34 @@ export class EventoCreateComponent implements OnInit, AfterViewInit {
     this.evento.dias.pop();   
   }
 
-  save()
-  {       
-     //Convert o array em string
-     this.evento.dias.forEach( d=> d.option = JSON.stringify(d.option) );
-     this.evento.tipoevento = this.tipoEvento.name;    
+  verifyAvailability(data: string, horainicio: string, horafim:string ):Promise<boolean>
+  {
+    let url = environment.routes.eventoSebraeLab.alocacao+
+    `?Data=${new Date(data).toISOString().slice(0, 10)}
+    &horainicio=${horainicio}
+    &horafinal=${horafim}`;
 
-     this.http.post<Eventolab>(environment.services.api,environment.routes.eventoSebraeLab.root, this.evento).finally
-     ( 
-      ()=>{ this.router.navigate(['/agenda']); })     
+    return this.http.get( environment.services.api, url);
+  }
+
+  async save()
+  {       
+      //Convert o array em string
+      this.evento.dias.forEach( d=> d.option = JSON.stringify(d.option) );
+      this.evento.tipoevento = this.tipoEvento.name;     
+
+      this.http.post<Eventolab>(environment.services.api,environment.routes.eventoSebraeLab.root, this.evento).
+      then( () =>
+      {
+          this.router.navigate(['/agenda']);            
+          this.messageService.add({severity:'success', 
+                                    summary:'Cadastro', 
+                                    detail:'O evento foi cadastrado com sucesso!'}); 
+      }).catch( (e) =>{         
+            this.messageService.add({severity:'warn', 
+            summary:'Erro', 
+            detail:e.error.text}); 
+      });
 
   }
 

@@ -56,7 +56,6 @@ export class PublicacaoViewComponent implements OnInit , AfterViewInit
     window.scrollTo(0, 0);
   }
   
-
   publish(id: string ){
         this.confirmationService.confirm({
           header: "Publicar conteúdo?",
@@ -73,24 +72,6 @@ export class PublicacaoViewComponent implements OnInit , AfterViewInit
                         }
           }); 
 
-
-  }
-
-  save(id: string) 
-  {
-    this.confirmationService.confirm({
-      header: "Atualizar conteúdo?",
-      message: 'Tem certeza que deseja <b>Atualizar</b> esse conteúdo ?',
-      accept: () => {          
-                      this.http.put<Publicacao>(environment.services.api,`${environment.routes.conteudoSebraeLab.root}/${id}`, this.publicacao).then
-                      ( (r)=>{   
-                              this.messageService.add({severity:'info', 
-                              summary:'Confirmação', 
-                              detail:'O conteúdo atualizado com sucesso!'});
-                              this.router.navigate([`/conteudo`], { queryParams: { id: id} } );
-                            })  
-                    }
-      });
 
   }
 

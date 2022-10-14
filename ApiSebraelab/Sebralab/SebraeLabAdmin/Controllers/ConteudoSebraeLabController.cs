@@ -36,8 +36,8 @@ namespace SebraeLabAdmin.Controllers
 
         [HttpGet("Pesquisar")]
         [AllowAnonymous]
-        public async Task<ActionResult<IEnumerable<ConteudoSebraeLabViewModel>>> Search([FromQuery] string search) =>
-           await _serviceConteudoSebraeLab.Search(search);
+        public async Task<ActionResult<IEnumerable<ConteudoSebraeLabViewModel>>> Search([FromQuery] string value) =>
+           await _serviceConteudoSebraeLab.Search(value);
 
         // POST api/<EventoSebraeLabController>
         [HttpPost]
