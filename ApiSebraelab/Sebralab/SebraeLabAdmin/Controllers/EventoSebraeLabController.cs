@@ -53,33 +53,13 @@ namespace SebraeLabAdmin.Controllers
         public async Task<ActionResult<bool>> Shedulle([FromQuery] string Data, string horainicio, string horafinal) =>
         await _serviceEventoSebraeLab.Alocados( Data,  horainicio,  horafinal);
 
-
-        private void verifyAvailable(EventoSebraeLabViewModel eventosebraelabViewModel, string id ="")
-        {
-            if (eventosebraelabViewModel != null)
-            {
-                eventosebraelabViewModel.Dias.ForEach(d =>
-                {
-                if (_serviceEventoSebraeLab.Alocados(d.Data?.ToString("yyyy/MM/dd"),
-                                                     d.Horainicio,
-                                                     d.Horafim, 
-                                                     id).Result == true)
-                                                   
-                    {
-                        throw new NotImplementedException($"Já existe EVENTO agendado para está data {d.Data?.ToString("dd/MM/yyyy")} - {d.Horainicio} - {d.Horafim} ");
-                    }
-                });
-            }
-        }
-        // POST api/<EventoSebraeLabController>
+       // POST api/<EventoSebraeLabController>
         [HttpPost]
         [AllowAnonymous]
         public async Task<IActionResult> Post(EventoSebraeLabViewModel eventosebraelabViewModel)
         {
             try
             {
-                verifyAvailable(eventosebraelabViewModel);
-
                 await _serviceEventoSebraeLab.Add(eventosebraelabViewModel);
                 return Ok(new { msg = "evento salvo com sucesso!" });
             }
@@ -96,10 +76,8 @@ namespace SebraeLabAdmin.Controllers
         public async Task<IActionResult> Put(Guid id, EventoSebraeLabViewModel eventosebraelabViewModel)
         {
             try
-            {
-                verifyAvailable(eventosebraelabViewModel, id.ToString());
-
-                await _serviceEventoSebraeLab.Update(eventosebraelabViewModel );
+            {         
+               await _serviceEventoSebraeLab.Update(eventosebraelabViewModel );
                 return Ok(new { msg = "evento alterado com sucesso!" });
             }
             catch (Exception e)

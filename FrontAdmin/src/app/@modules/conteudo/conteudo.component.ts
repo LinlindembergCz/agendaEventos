@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { RequestPromiseService } from '../../@shared/services/request-promise.service';
@@ -13,7 +13,7 @@ import { HttpEventType } from '@angular/common/http';
   templateUrl: './conteudo.component.html',
   styleUrls: ['./conteudo.component.scss']
 })
-export class ConteudoComponent implements OnInit {
+export class ConteudoComponent implements OnInit, AfterViewInit{
 
 
   conteudos:any[]=[]; 
@@ -34,8 +34,12 @@ export class ConteudoComponent implements OnInit {
     )
   {}
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     this.loadConteudos();
+  }
+
+  ngOnInit(): void {
+    
   }
 
   loadConteudos(): void {
@@ -45,17 +49,19 @@ export class ConteudoComponent implements OnInit {
                     this.conteudos = x;
                     this.publicados = x.filter( f=>f.status !="Rascunho");    
 
-                    this.publicados.forEach(c=>{ 
+                    this.publicados.forEach(p=>{               
 
-                    this.fileService.downloadSecurity(c.id + '.png').add(()=>{ 
-                      c.picture = this.fileService.bypassSecurityTrustResourceUrl;})                 
+                    this.fileService.downloadSecurity('conteudos',p.id + '.png').add(()=>{
+                      p.picture = ''; 
+                      p.picture = this.fileService.bypassSecurityTrustResourceUrl;})                 
                     });
 
                     this.rascunhos =x.filter( f=>f.status =="Rascunho"); 
 
-                    this.rascunhos.forEach( c=>{ 
-                         this.fileService.downloadSecurity(c.id + '.png').add(()=>{ 
-                         c.picture = this.fileService.bypassSecurityTrustResourceUrl;})                   
+                    this.rascunhos.forEach( r=>{ 
+                      r.picture = '';
+                         this.fileService.downloadSecurity('conteudos',r.id + '.png').add(()=>{ 
+                         r.picture = this.fileService.bypassSecurityTrustResourceUrl;})                   
                     });
 
                 });
@@ -131,11 +137,11 @@ export class ConteudoComponent implements OnInit {
                 });
   }
 
-  download(id:string , extention : string = ".png") 
+  /*download(id:string , extention : string = ".png") 
   {    
-    this.fileService.downloadSecurity(id + extention).add(()=>{ 
+    this.fileService.downloadSecurity('conteudos',id + extention).add(()=>{ 
       this.picture = this.fileService.bypassSecurityTrustResourceUrl;})     
-  }
+  }*/
 
 
 

@@ -14,17 +14,17 @@ export class FileService {
   constructor(private http: HttpClient, 
     private _sanitizer: DomSanitizer) {}
 
-  public download(fileUrl: string) {
-    return this.http.get(`${this.url}/download/image?fileUrl=${fileUrl}`, {
+  public download(origem: string,fileUrl: string) {
+    return this.http.get(`${this.url}/download/image/${origem}?fileUrl=${fileUrl}`, {
       reportProgress: true,
       observe: 'events',
       responseType: 'blob'
     });
   }
 
-  public downloadSecurity(fileUrl: string, extention : string = ".png")
+  public downloadSecurity(origem: string, fileUrl: string, extention : string = ".png")
   {
-     return this.download(fileUrl).subscribe( 
+     return this.download(origem, fileUrl).subscribe( 
            (image)=>{
                       if (image.type === HttpEventType.Response)
                       { 
@@ -32,7 +32,7 @@ export class FileService {
                           const urlToBlob = window.URL.createObjectURL(downloadedFile);    
                           this.bypassSecurityTrustResourceUrl = this._sanitizer.bypassSecurityTrustResourceUrl(urlToBlob);
                       }
-                    }, (erro)=>{ if (extention==".png") this.downloadSecurity(fileUrl,".jpg") }
+                    }, (erro)=>{ if (extention==".png") this.downloadSecurity(origem, fileUrl,".jpg") }
     );
    
 

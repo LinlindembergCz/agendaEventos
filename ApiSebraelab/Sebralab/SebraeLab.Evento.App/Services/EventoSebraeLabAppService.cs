@@ -44,8 +44,27 @@ namespace SebraeLab.Evento.App.Services
             return await _repository.Alocados( Data,  horainicio,  horafinal, id);
         }
 
-    public async Task<bool> Add(EventoSebraeLabViewModel eventosebraelabViewModel)
+        private void verifyAvailable(EventoSebraeLabViewModel eventosebraelabViewModel, string id = "")
         {
+            if (eventosebraelabViewModel != null)
+            {
+                eventosebraelabViewModel.Dias.ForEach(d =>
+                {
+                    if (_repository.Alocados(d.Data?.ToString("yyyy/MM/dd"),
+                                             d.Horainicio,
+                                             d.Horafim,
+                                             id).Result == true)
+
+                    {
+                        throw new NotImplementedException($"Já existe EVENTO agendado para está data {d.Data?.ToString("dd/MM/yyyy")} - {d.Horainicio} - {d.Horafim} ");
+                    }
+                });
+            }
+        }
+        public async Task<bool> Add(EventoSebraeLabViewModel eventosebraelabViewModel)
+        {
+            verifyAvailable(eventosebraelabViewModel);
+
             var evento = _mapper.Map<EventoSebraeLab>(eventosebraelabViewModel);
 
              _repository.Add(evento);    
@@ -57,6 +76,8 @@ namespace SebraeLab.Evento.App.Services
 
         public async Task<bool> Update(EventoSebraeLabViewModel eventosebraelabViewModel)
         {
+            verifyAvailable(eventosebraelabViewModel, eventosebraelabViewModel?.Id.ToString() );
+
             var evento = _mapper.Map<EventoSebraeLab>(eventosebraelabViewModel);
             _repository.Update(evento);
 

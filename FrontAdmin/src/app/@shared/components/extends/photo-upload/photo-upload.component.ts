@@ -12,6 +12,7 @@ export class PhotoUploadComponent implements OnInit {
 
   @Output() onUpload: EventEmitter<any> = new EventEmitter();
   @Input() fileUrl: string;
+  @Input() origem: string;
   @Input() imageName: string;
 
   text: string = "";
@@ -36,7 +37,7 @@ export class PhotoUploadComponent implements OnInit {
 
 
   getUrl(image: boolean = true) {
-    return environment.services.api + "/Upload/image"; 
+    return environment.services.api + `/Upload/image/${this.origem}`; 
   }
 
   getImageName()

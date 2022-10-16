@@ -75,7 +75,7 @@ export class EventoViewComponent implements OnInit , AfterViewInit
   
   download(id : string , extention : string = ".png") 
   {    
-      this.fileService.downloadSecurity(id + extention).add(()=>{ this.picture = this.fileService.bypassSecurityTrustResourceUrl;})
+      this.fileService.downloadSecurity('eventos',id + extention).add(()=>{ this.picture = this.fileService.bypassSecurityTrustResourceUrl;})
   }
 
   getMonthDescription(data:any)

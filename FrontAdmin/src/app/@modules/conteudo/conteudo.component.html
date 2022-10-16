@@ -1,6 +1,6 @@
 
 <app-header></app-header> 
-<app-banners-show fileName="assets/banners/BannerConteudo.jpg"></app-banners-show>
+<img src="./assets/banners/Banner_conteudo.png" width="100%"/>
 <div class="frameMain">
     <div class="frameGerenciadorConteudo p-grid">
         <div class="frameTitleGerenciadorConteudo">
@@ -38,6 +38,7 @@
                             <p-card  styleClass="p-card-shadow" [style]="{'width': '79rem', 'margin-bottom': '0.5em', 'background-color':'#F8FAFC' }">
                                <div class="p-grid p-col-12">
                                     <div class="p-col-3" *ngIf="rascunho.picture!=null">
+                                        
                                         <img [src]="rascunho.picture" style="width:'200px';height:'120px';border: '0px';">
                                     </div>
                                     <div class="p-col-7" >                                   

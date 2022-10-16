@@ -130,16 +130,7 @@ export class ProfilePageEditComponent implements OnInit {
   }
 
   download(extention : string = ".jpg") {
-    this.fileUrl = this.userEntity.username+extention;
-    this.fileService.download(this.fileUrl).subscribe( (event) => {
-      if (event.type === HttpEventType.UploadProgress)
-        this.progress = Math.round((100 * event.loaded) / event.total);
-      else if (event.type === HttpEventType.Response)
-      {
-        this.downloadFile(event);
-      }
-    }, (erro)=>{ if (extention==".jpg") this.download(".png") }
-    );
+
   }
 
   private downloadFile(data: HttpResponse<Blob>) {
