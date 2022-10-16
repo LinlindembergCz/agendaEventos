@@ -58,7 +58,7 @@ export class EventosComponent implements OnInit {
 
             let evento : any = this.alleventslab.find( x=> x.id==e.id);   
 
-            this.fileService.download(evento.id + '.png').
+            this.fileService.download('eventos', evento.id + '.png').
             subscribe( 
               (event)=>{  if (event.type === HttpEventType.Response)
                           { 

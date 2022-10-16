@@ -45,7 +45,7 @@ export class ConteudoShowComponent implements OnInit {
     { 
         this.publicacoes= x;        
         this.publicacoes.forEach( c=>{ 
-          this.fileService.download(c.id + '.png').subscribe( (event) => 
+          this.fileService.download('conteudos',c.id + '.png').subscribe( (event) => 
             {
               console.log(event)
               if (event.type === HttpEventType.Response)

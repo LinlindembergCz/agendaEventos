@@ -54,7 +54,7 @@ export class EventoViewComponent implements OnInit , AfterViewInit
   
   download(id : string , extention : string = ".png") {    
     this.fileUrl = id + extention;
-    this.fileService.download(this.fileUrl).subscribe( (event) => 
+    this.fileService.download('eventos',this.fileUrl).subscribe( (event) => 
       {
         if (event.type === HttpEventType.Response)
         { 

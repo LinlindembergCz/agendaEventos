@@ -7,11 +7,11 @@ namespace SebraeLabAdmin.Controllers
 {
     [ApiController]
     [AllowAnonymous]
-    public class DownloadController : ControllerBase
+    public class FileTransferController : ControllerBase
     {                          //"C:\\_\\Fecomercio\\BusinessmanOpines\\FrontEnd\\src";//
         private string _Path = "//STFSAON006326-L//temp";//CC.IoC.Runtime.App.Configuration.GetSection("UploadPath").Value;
 
-        public DownloadController() 
+        public FileTransferController() 
         {
         }
 
@@ -29,10 +29,10 @@ namespace SebraeLabAdmin.Controllers
         }
 
         [HttpGet]
-        [Route("api/download/image")]
-        public async Task<IActionResult> Download([FromQuery] string fileUrl)
+        [Route("api/download/image/{origem}")]
+        public async Task<IActionResult> Download(string origem, [FromQuery] string fileUrl)
         {
-            var filePath = Path.Combine(_Path + "\\upload\\images\\", fileUrl);
+            var filePath = Path.Combine(_Path + $"\\upload\\images\\{origem}", fileUrl);
 
             if (!System.IO.File.Exists(filePath))
                 return NotFound();

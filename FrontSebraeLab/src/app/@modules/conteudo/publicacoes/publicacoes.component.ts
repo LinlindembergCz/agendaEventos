@@ -54,7 +54,7 @@ export class PublicacoesComponent implements OnInit {
             this.publicacoes = x;  
             this.conteudos.forEach( c=>
             { 
-                this.fileService.download(c.id + '.png').
+                this.fileService.download('conteudos',c.id + '.png').
                 subscribe( 
                             (event) => 
                             {

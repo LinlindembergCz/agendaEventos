@@ -145,14 +145,12 @@ export class HeaderComponent implements OnInit {
     } else return null;
   }
 
-  openAbout() {
-    window.open("http://fecomercio-rs.org.br/","_blank");
-  }
+
 
 
   download(extention : string = ".jpg") {
    
-    if (!this.loadImage && this.userContext.user$.value && this.picture == this.semfoto)
+   /* if (!this.loadImage && this.userContext.user$.value && this.picture == this.semfoto)
     {
       this.loadImage = true;
       this.fileUrl = this.userContext.user$.value.userName+extention;
@@ -164,7 +162,7 @@ export class HeaderComponent implements OnInit {
         }
       }, (erro)=>{ if (extention==".jpg") this.download(".png") }
       );
-    }
+    }*/
   }
 
   private downloadFile(data: HttpResponse<Blob>) {

@@ -55,7 +55,7 @@ export class PublicacaoViewComponent implements OnInit , AfterViewInit
   {
     
     this.fileUrl = id + extention;
-    this.fileService.download(this.fileUrl).subscribe( (event) => 
+    this.fileService.download('conteudos',this.fileUrl).subscribe( (event) => 
       {
         if (event.type === HttpEventType.Response)
         { 
