@@ -70,12 +70,12 @@
             </div>
             <div>
                 <h2>Compartilhe</h2>
-                <div>
-                   <a href=""><img src="../../../../../assets/imgs/icon-facebook.png"></a>&nbsp;&nbsp;    
-                   <a href=""><img src="../../../../../assets/imgs/icon-twitter.png"></a>&nbsp;&nbsp;    
-                   <a href=""><img src="../../../../../assets/imgs/icon-zap.png"></a>&nbsp;&nbsp;    
-                   <a href=""><img src="../../../../../assets/imgs/icon-telegram.png"></a>&nbsp;&nbsp;   
-                   <a href=""><img src="../../../../../assets/imgs/icon-linkIn.png"></a>  
+                <div class="p-grid">
+                    <div class="p-col-2" style="cursor: pointer;" (click)="shareFacebook()"><img src="../../../../../assets/imgs/icon-facebook.png"></div>    
+                    <div class="p-col-2" style="cursor: pointer;" (click)="shareTwitter(evento.titulo)"><img src="../../../../../assets/imgs/icon-twitter.png"></div>   
+                    <div class="p-col-2" style="cursor: pointer;" (click)="shareWhats(evento.titulo)"><img src="../../../../../assets/imgs/icon-zap.png"></div>  
+                    <div class="p-col-2" style="cursor: pointer;" (click)="shareTelegram(evento.titulo)"><img src="../../../../../assets/imgs/icon-telegram.png"></div>  
+                    <div class="p-col-2" style="cursor: pointer;" (click)="shareLinkIn()"><img src="../../../../../assets/imgs/icon-linkIn.png"></div> 
                 </div>
             </div>
         </div>
@@ -87,9 +87,7 @@
 
 </div>
 
-<div>
-     <app-footer></app-footer> 
-</div>
+
 
 
 

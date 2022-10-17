@@ -26,20 +26,19 @@ namespace SebraeLab.Conteudo.App.Services
             return _mapper.Map<ConteudoSebraeLabViewModel>(await _repository.GetById(id));
         }
 
-        public async Task<List<ConteudoSebraeLabViewModel>> GetByTipo(TipoPublicacao tipo)
+        public async Task<List<ConteudoSebraeLabViewModel>> GetByTipo(TipoPublicacao tipo, bool onlypublished = false)
         {
-            return _mapper.Map<List<ConteudoSebraeLabViewModel>>(await _repository.GetByTipo(tipo));
+            return _mapper.Map<List<ConteudoSebraeLabViewModel>>(await _repository.GetByTipo(tipo, onlypublished));
         }
-
 
         public async Task<List<ConteudoSebraeLabViewModel>> GetAll(bool onlypublished = false)
         {
             return _mapper.Map<List<ConteudoSebraeLabViewModel>>(await _repository.GetAll(onlypublished));
         }
 
-        public async Task<List<ConteudoSebraeLabViewModel>> Search(string value)
+        public async Task<List<ConteudoSebraeLabViewModel>> Search(string value, bool onlypublished = false)
         {
-            return _mapper.Map<List<ConteudoSebraeLabViewModel>>(await _repository.Search(value) );
+            return _mapper.Map<List<ConteudoSebraeLabViewModel>>(await _repository.Search(value, onlypublished) );
         }
 
 

@@ -52,24 +52,30 @@ export class PublicacoesComponent implements OnInit {
         { 
             this.conteudos = x;    
             this.publicacoes = x;  
-            this.conteudos.forEach( c=>
-            { 
-                this.fileService.download('conteudos',c.id + '.png').
-                subscribe( 
-                            (event) => 
-                            {
-                                if (event.type === HttpEventType.Response)
-                                { 
-                                    const downloadedFile = new Blob([event.body], { type: event.body.type });
-                                    const urlToBlob = window.URL.createObjectURL(downloadedFile);    
-                                    c.image = this._sanitizer.bypassSecurityTrustResourceUrl(urlToBlob);
-                                }
-                            }
-                          );                   
-            });
+
+            this.downloadImage( this.conteudos )
+            
         });                
   }
 
+  downloadImage(conteudos: any )
+  {
+    this.conteudos.forEach( c=>
+      { 
+          this.fileService.download('conteudos',c.id + '.png').
+          subscribe( 
+                      (event) => 
+                      {
+                          if (event.type === HttpEventType.Response)
+                          { 
+                              const downloadedFile = new Blob([event.body], { type: event.body.type });
+                              const urlToBlob = window.URL.createObjectURL(downloadedFile);    
+                              c.image = this._sanitizer.bypassSecurityTrustResourceUrl(urlToBlob);
+                          }
+                      }
+                    );                   
+      });
+  }
 
   
   search( value: string )
@@ -79,8 +85,11 @@ export class PublicacoesComponent implements OnInit {
     else
        this.http.get<any[]>(environment.services.api,`${environment.routes.conteudoSebraeLab.search}${value}`).
        then(x => {  
-                  this.conteudos = x;  
-                  this.publicacoes = x;                      
+                  
+                  this.conteudos = x; 
+                  this.publicacoes = x;         
+                  
+                  this.downloadImage( this.conteudos )
                  });
   }
 

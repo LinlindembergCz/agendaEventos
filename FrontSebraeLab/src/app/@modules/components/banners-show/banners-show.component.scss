@@ -4,7 +4,7 @@
 }
 
 .frameCard{position: absolute;
-  width: 1030px;
+  width: 100%;
   height: 309px;
   left: 208px;
   top: 731px;}
@@ -58,9 +58,9 @@
   gap: 13px;
 
   position: absolute;
-  width: 300px;
+  width: 23%;
   height: 218px;
-  left: 208px;
+  left: 15%;
   top: 800px;
   background: #FFFFFF;
   /* shadow XXL */
@@ -69,17 +69,12 @@
 }
 
 .barLearn{
-  width: 236px;
+  width: 100%;
 height: 16px;
 
 /* Cores da Marca/Cores principais/Laranja */
 background: #F89E5A;
 
-/* Inside auto layout */
-flex: none;
-order: 1;
-align-self: stretch;
-flex-grow: 0;
 }
 
 .ATTEND{
@@ -93,9 +88,9 @@ flex-grow: 0;
   padding: 40px 32px;
   gap: 13px;
   position: absolute;
-  width: 300px;
+  width: 23%;
   height: 218px;
-  left: 573px;
+  left: 42%;
   top: 731px;
   background: #FFFFFF;
   /* shadow XXL */
@@ -104,17 +99,13 @@ flex-grow: 0;
 }
 
 .barAttend{
-  width: 236px;
+  width: 100%;
 height: 16px;
 
 /* Cores da Marca/Cores principais/Verde */
 background: #50AF46;
 
-/* Inside auto layout */
-flex: none;
-order: 1;
-align-self: stretch;
-flex-grow: 0;
+
 }
 
 .BUSINESS{
@@ -129,9 +120,9 @@ flex-grow: 0;
   gap: 13px;
 
   position: absolute;
-  width: 300px;
+  width: 23%;
   height: 218px;
-  left: 938px;
+  left: 69%;
   top: 800px;
 
   background: #FFFFFF;
@@ -142,17 +133,12 @@ flex-grow: 0;
 }
 
 .barBusiness{
-  width: 236px;
+  width: 100%;
 height: 16px;
 
 /* Cores da Marca/Cores principais/Rosa */
 background: #ED4D9A;
 
-/* Inside auto layout */
-flex: none;
-order: 1;
-align-self: stretch;
-flex-grow: 0;
 
 }
 

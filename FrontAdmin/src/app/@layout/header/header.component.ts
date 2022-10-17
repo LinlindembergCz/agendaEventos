@@ -5,7 +5,7 @@ import {User  } from '../../@core/models/struct/user.model';
 import { ApplicationStateService } from '../../@bootstrap/services/application-state.service';
 import { MenuDataService } from '../@services/menu-data.service';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
-import { FileService } from '../../@modules/user/services/file.service';
+import { FileService } from '../../@shared/services/file.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MenuItem } from 'primeng/api';
 

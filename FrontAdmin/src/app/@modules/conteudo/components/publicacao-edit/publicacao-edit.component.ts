@@ -9,7 +9,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { Publicacao } from '../../../../@core/models/publicacao.model';
 import {TiposPublicacao} from '../../../../@core/enums/tiposPublicacao';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
-import { FileService } from '../../../../@modules/user/services/file.service';
+import { FileService } from '../../../../@shared/services/file.service';
 
 @Component({
   selector: 'app-publicacao-edit',

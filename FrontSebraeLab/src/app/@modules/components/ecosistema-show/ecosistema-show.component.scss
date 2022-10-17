@@ -1,5 +1,5 @@
 .frameMain{//position: absolute;
-    width: 1440px;
+    width: 100%;
     height: 513px;
     left: 0px;
     top: 4421px;    
@@ -8,12 +8,25 @@
     text-align: center;
 }
 
+.frameTitle{position: absolute;
+    width: 254.97px;
+    height: 58.47px;
+    left: 593px;
+    top: 4514px;
+    top: 10%;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    color: #263746;
+}
 
 .frameText{position: absolute;
     width: 575px;
     height: 60px;
     left: 428px;
     top: 4605px;
+    top: 50%;
     justify-content: center;    
     /* Body / Big */
     font-family: 'PT Serif';
@@ -98,14 +111,3 @@
     border: 1px solid #ED4D9A;
 }
 
-.frameTitle{position: absolute;
-    width: 254.97px;
-    height: 58.47px;
-    left: 593px;
-    top: 4514px;
-    font-family: 'Poppins';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 40px;
-    color: #263746;
-}

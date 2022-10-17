@@ -5,10 +5,7 @@ import { RequestPromiseService } from '../../../../../app/@shared/services/reque
 import { environment } from '../../../../../environments/environment';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { DomSanitizer } from '@angular/platform-browser';
-import { HttpEventType } from '@angular/common/http';
-import { FileService } from 'src/app/@modules/user/services/file.service';
-
-
+import { FileService } from 'src/app/@shared/services/file.service';
 
 @Component({
   selector: 'app-publicacao-view',

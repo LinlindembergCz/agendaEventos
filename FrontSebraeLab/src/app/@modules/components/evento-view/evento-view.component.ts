@@ -70,4 +70,43 @@ export class EventoViewComponent implements OnInit , AfterViewInit
   { 
     return Meses[new Date(data).getMonth()]
   }
+
+
+
+  shareFacebook() {
+    let uri = window.location.href.toString();
+    window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(uri)+"&src=sdkpreparse","_blank")
+  }
+
+  shareTwitter(titulo:string )  {
+    let uri = window.location.href;
+    window.open("http://twitter.com/share?text="+titulo+"&url=" + encodeURIComponent(uri), "_blank")
+  }
+
+  shareWhats(titulo:string) {
+    let uri = window.location.href;
+    window.open("https://wa.me/?text="+encodeURIComponent(uri), "_blank")
+  }
+
+  shareTelegram( titulo:string )
+  {
+    let uri = window.location.href;
+    window.open(`https://telegram.me/share/url?url=${encodeURIComponent(uri)}&text=${titulo}` , "_blank")
+  }
+
+  shareLinkIn()
+  {
+    let uri = window.location.href;
+    window.open("https://www.linkedin.com/shareArticle?mini=true&url=" + encodeURIComponent(uri), "_blank")
+  }
+
+
+
+  
+  
+
+  shareMail()  {
+    let uri = window.location.href;
+    window.open("mailto:?subject=Representa+ - Veja este Projeto&body=Veja este projeto no Representa+: " + encodeURIComponent(uri), "_blank")
+  }
 }

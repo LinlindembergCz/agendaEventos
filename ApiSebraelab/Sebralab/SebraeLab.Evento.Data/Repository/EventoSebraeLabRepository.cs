@@ -36,11 +36,13 @@ namespace SebraeLab.Evento.Data.Repository
         }
 
 
-        public async Task<List<EventoSebraeLab>> Search(string value)
+        public async Task<List<EventoSebraeLab>> Search(string value, bool onlypublished = false)
         {
             return await _context.Eventos.
                 Include(e => e.Dias).
-                Where(c => c.Descricaoevento.Contains(value) || c.Titulo.Contains(value))
+                Where(c => ( c.Descricaoevento.Contains(value) || c.Titulo.Contains(value) ) &&
+                            (onlypublished ? c.Status == StatusEvento.Publicado && c.Publicaosite == true : true )
+                )
                 .AsNoTracking().ToListAsync();
         }
 

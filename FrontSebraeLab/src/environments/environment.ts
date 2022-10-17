@@ -16,7 +16,8 @@ export const environment = {
     eventoSebraeLab:{
       root:"EventoSebraeLab",
       publicar:"EventoSebraeLab/Publicar",
-      diasBloqueados:"EventoSebraeLab/DiasBloqueados"
+      diasBloqueados:"EventoSebraeLab/DiasBloqueados",
+      search:  "EventoSebraeLab/Pesquisar?value=",
     },
     conteudoSebraeLab:{
       root:"ConteudoSebraeLab",

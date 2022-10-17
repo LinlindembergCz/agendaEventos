@@ -35,9 +35,9 @@ namespace SebraeLab.Evento.App.Services
             return _mapper.Map<List<EventoSebraeLabViewModel>>(await _repository.GetAll(onlypublished));
         }
 
-        public async Task<List<EventoSebraeLabViewModel>> Search(string value)
+        public async Task<List<EventoSebraeLabViewModel>> Search(string value , bool onlypublished = false)
         {
-            return _mapper.Map<List<EventoSebraeLabViewModel>>(await _repository.Search(value));
+            return _mapper.Map<List<EventoSebraeLabViewModel>>(await _repository.Search(value, onlypublished));
         }
         public async  Task<bool> Alocados(string Data, string horainicio, string horafinal, string id)
         {

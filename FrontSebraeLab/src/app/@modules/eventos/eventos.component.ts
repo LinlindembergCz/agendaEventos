@@ -16,7 +16,7 @@ export class EventosComponent implements OnInit {
 
   alleventslab: any[] = [];
   eventslab: any[] = [];
-
+  seachValue: string;
   fullCalendar: boolean = false;
 
   
@@ -28,49 +28,71 @@ export class EventosComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {      
-    this.LoadEventos(); 
+    this.loadEventos(); 
   }
 
 
-  LoadEventos() 
+  loadEventos() 
   { 
     this.http.get<any[]>(environment.services.api,environment.routes.eventoSebraeLab.root).
     then((x: any) => 
     { 
-        x.forEach(e => 
-        {                
-            let dias: string="";
-            e.dias.forEach(d => dias += String(d.data).substring(8,10)+'/' );
-
-            this.alleventslab.push({
-                                  id: e.id,
-                                  titulo: e.titulo,
-                                  subtitulo:e.subtitulo, 
-                                  horainicio: e.dias[0].horainicio,
-                                  horafim: e.dias[e.dias.length-1].horafim, 
-                                  data :new Date(e.dias[0].data),
-                                  datainicio: new Date(e.dias[0].data).getDate(), 
-                                  datafim: new Date(e.dias[e.dias.length-1].data).getDate() ,
-                                  picture: '',//,
-                                  dias: e.dias.length,
-                                  linksparainscricao: e.linksparainscricao
-                                });
-
-            let evento : any = this.alleventslab.find( x=> x.id==e.id);   
-
-            this.fileService.download('eventos', evento.id + '.png').
-            subscribe( 
-              (event)=>{  if (event.type === HttpEventType.Response)
-                          { 
-                            const downloadedFile = new Blob([event.body], { type: event.body.type });
-                            const urlToBlob = window.URL.createObjectURL(downloadedFile);                                        
-                            evento.picture =  this._sanitizer.bypassSecurityTrustResourceUrl(urlToBlob);
-                          }
-                        })                    
-        }); 
-        
-        this.selectThisMonth();                          
+      this.fillEventos( x ).then( ()=>{ 
+        this.selectThisMonth();  
+      })       
+                                
     }); 
+  }
+
+  search( value: string )
+  {
+    //f ( value ==='')
+    //   this.loadEventos()
+    //else
+    this.http.get<any[]>(environment.services.api,
+                      `${environment.routes.eventoSebraeLab.search}${value}`).
+      then(x => {  this.fillEventos( x ).then( ()=>{ 
+        this.selectThisMonth();  
+      })  });
+  }
+
+  async fillEventos( eventos: any[]): Promise<any[]> 
+  {
+    this.alleventslab = [];
+
+    await eventos.forEach(e => 
+      {                
+          let dias: string="";
+          e.dias.forEach(d => dias += String(d.data).substring(8,10)+'/' );
+
+          this.alleventslab.push({
+                                id: e.id,
+                                titulo: e.titulo,
+                                subtitulo:e.subtitulo, 
+                                horainicio: e.dias[0].horainicio,
+                                horafim: e.dias[e.dias.length-1].horafim, 
+                                data :new Date(e.dias[0].data),
+                                datainicio: new Date(e.dias[0].data).getDate(), 
+                                datafim: new Date(e.dias[e.dias.length-1].data).getDate() ,
+                                picture: '',//,
+                                dias: e.dias.length,
+                                linksparainscricao: e.linksparainscricao
+                              });
+
+          let evento : any = this.alleventslab.find( x=> x.id==e.id);   
+
+          this.fileService.download('eventos', evento.id + '.png').
+          subscribe( 
+            (event)=>{  if (event.type === HttpEventType.Response)
+                        { 
+                          const downloadedFile = new Blob([event.body], { type: event.body.type });
+                          const urlToBlob = window.URL.createObjectURL(downloadedFile);                                        
+                          evento.picture =  this._sanitizer.bypassSecurityTrustResourceUrl(urlToBlob);
+                        }
+                      })                  
+      });
+
+      return this.alleventslab;
   }
 
   getMonthDescription(data:any)

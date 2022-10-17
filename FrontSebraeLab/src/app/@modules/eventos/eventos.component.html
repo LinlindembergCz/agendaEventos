@@ -46,9 +46,9 @@
                      <button pButton type="button" label="Agenda completa" class="p-button-rounded p-button-outlined" (click)="showCalendar()" ></button>
                      <div class="framePesquisar" style="align-items:right;">
                         <span class="p-input-icon-right" >
-                            <i class="pi pi-search" style="cursor: pointer" ></i>
+                            <i class="pi pi-search" style="cursor: pointer" (click)="search(seachValue)"></i>
                             <!--<i class="pi pi-spin pi-spinner"></i>-->        
-                            <input type="text" pInputText placeholder="Pesquisar" style="width:'270px';background: #F1F5F9;border:'0px;'"> 
+                            <input type="text" pInputText placeholder="Pesquisar" style="width:'270px';background: #F1F5F9;border:'0px;'" [(ngModel)]="seachValue"> 
                         </span>        
                    </div> 
                  </div>    

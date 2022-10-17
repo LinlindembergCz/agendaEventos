@@ -39,13 +39,13 @@ namespace SebraeLab.Controllers
         [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<ConteudoSebraeLabViewModel>>> GetByTipo(TipoPublicacao tipo)
         {
-            return await _serviceConteudoSebraeLab.GetByTipo(tipo);
+            return await _serviceConteudoSebraeLab.GetByTipo(tipo, true);
         }
 
         [HttpGet("Pesquisar")]
         [AllowAnonymous]
-        public async Task<ActionResult<IEnumerable<ConteudoSebraeLabViewModel>>> Search([FromQuery] string search) =>
-           await _serviceConteudoSebraeLab.Search(search);
+        public async Task<ActionResult<IEnumerable<ConteudoSebraeLabViewModel>>> Search([FromQuery] string value) =>
+           await _serviceConteudoSebraeLab.Search(value, true);
 
 
 

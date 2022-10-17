@@ -24,15 +24,25 @@ export class FileService {
 
   public downloadSecurity(origem: string, fileUrl: string, extention : string = ".png")
   {
+    this.bypassSecurityTrustResourceUrl = '';
+    
      return this.download(origem, fileUrl).subscribe( 
-           (image)=>{
-                      if (image.type === HttpEventType.Response)
-                      { 
-                          const downloadedFile = new Blob([image.body], { type: image.body.type });
-                          const urlToBlob = window.URL.createObjectURL(downloadedFile);    
-                          this.bypassSecurityTrustResourceUrl = this._sanitizer.bypassSecurityTrustResourceUrl(urlToBlob);
-                      }
-                    }, (erro)=>{ if (extention==".png") this.downloadSecurity(origem, fileUrl,".jpg") }
+           (image: any)=>
+           {                      
+              if (image.type === HttpEventType.Response)
+              { 
+                  const downloadedFile = new Blob([image.body], { type: image.body.type });
+                  const urlToBlob = window.URL.createObjectURL(downloadedFile);    
+                  this.bypassSecurityTrustResourceUrl = this._sanitizer.bypassSecurityTrustResourceUrl(urlToBlob);
+              }
+           }, 
+           (erro)=>
+           { 
+              if (extention==".png") 
+                  this.downloadSecurity(origem, fileUrl,".jpg") 
+              else
+                  this.bypassSecurityTrustResourceUrl = '';
+           }
     );
    
 

@@ -85,4 +85,3 @@ C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\bin\Debug\net6.0\SebraeLab.Bloqu
 C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\bin\Debug\net6.0\SebraeLab.Bloqueio.Data.dll
 C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\bin\Debug\net6.0\SebraeLab.Bloqueio.Data.pdb
 C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\bin\Debug\net6.0\SebraeLab.Bloqueio.App.pdb
-C:\agendaEventos\ApiSebraelab\Sebralab\Sebralab\obj\Debug\net6.0\Sebralab.MvcApplicationPartsAssemblyInfo.cs

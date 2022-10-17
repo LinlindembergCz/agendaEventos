@@ -3,9 +3,8 @@ import { Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { RequestPromiseService } from '../../@shared/services/request-promise.service';
 import { environment } from '../../../environments/environment';
-import { DomSanitizer } from '@angular/platform-browser';
-import { FileService } from '../user/services/file.service';
-import { HttpEventType } from '@angular/common/http';
+import { FileService } from '../../@shared/services/file.service';
+
 
 
 @Component({
@@ -30,7 +29,8 @@ export class ConteudoComponent implements OnInit, AfterViewInit{
     private http: RequestPromiseService,
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
-    private fileService: FileService,
+    private fileServicePublicados: FileService,
+    private fileServiceRascunho: FileService,
     )
   {}
 
@@ -45,23 +45,23 @@ export class ConteudoComponent implements OnInit, AfterViewInit{
   loadConteudos(): void {
     this.http.get<any[]>(environment.services.api,
                          environment.routes.conteudoSebraeLab.root).
-      then(x => {  
+      then(  x => {  
                     this.conteudos = x;
-                    this.publicados = x.filter( f=>f.status !="Rascunho");    
 
-                    this.publicados.forEach(p=>{               
+                    this.publicados = x.filter( f=>f.status =="Publicado");    
 
-                    this.fileService.downloadSecurity('conteudos',p.id + '.png').add(()=>{
-                      p.picture = ''; 
-                      p.picture = this.fileService.bypassSecurityTrustResourceUrl;})                 
+                     this.publicados.forEach(p=>{               
+
+                    this.fileServicePublicados.downloadSecurity('conteudos',p.id + '.png').add(()=>{
+      
+                      p.picture = this.fileServicePublicados.bypassSecurityTrustResourceUrl;})                 
                     });
 
-                    this.rascunhos =x.filter( f=>f.status =="Rascunho"); 
+                    this.rascunhos =x.filter( f=>f.status =="Rascunho");
 
-                    this.rascunhos.forEach( r=>{ 
-                      r.picture = '';
-                         this.fileService.downloadSecurity('conteudos',r.id + '.png').add(()=>{ 
-                         r.picture = this.fileService.bypassSecurityTrustResourceUrl;})                   
+                     this.rascunhos.forEach( r=>{ 
+                       this.fileServiceRascunho.downloadSecurity('conteudos',r.id + '.png').add(()=>{ 
+                         r.picture = this.fileServiceRascunho.bypassSecurityTrustResourceUrl;})                   
                     });
 
                 });

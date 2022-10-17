@@ -23,9 +23,12 @@ namespace SebraeLab.Conteudo.Data.Repository
                                    && (e.Ativo==true) ).AsNoTracking().ToListAsync();
         }
 
-        public async Task<List<ConteudoSebraeLab>> Search(string value)
+        public async Task<List<ConteudoSebraeLab>> Search(string value, bool onlypublished = false)
         {
-            return await _context.Conteudos.Where(c=> ( c.Descricao.Contains(value) || c.Titulo.Contains(value)) && (c.Ativo == true) )
+            return await _context.Conteudos.Where(c=> ( c.Descricao.Contains(value) || c.Titulo.Contains(value)) && 
+                                                        (c.Ativo == true) &&
+                                                        (onlypublished ? c.Status == StatusConteudo.Publicado : true)
+                                                      )
                 .AsNoTracking().ToListAsync();
         }
 
@@ -34,9 +37,11 @@ namespace SebraeLab.Conteudo.Data.Repository
             return await _context.Conteudos.FirstOrDefaultAsync(p => p.Id == id);
         }
 
-        public async Task<List<ConteudoSebraeLab>> GetByTipo(TipoPublicacao tipo)
+        public async Task<List<ConteudoSebraeLab>> GetByTipo(TipoPublicacao tipo, bool onlypublished = false)
         {
-            return await _context.Conteudos.Where(p => (p.Tipopublicacao == tipo) && (p.Ativo == true) ).AsNoTracking().ToListAsync();
+            return await _context.Conteudos.Where(p => (onlypublished ? p.Status == StatusConteudo.Publicado : true) && 
+                                                       (p.Tipopublicacao == tipo) && 
+                                                       (p.Ativo == true) ).AsNoTracking().ToListAsync();
 
         }
 

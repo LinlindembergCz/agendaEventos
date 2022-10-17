@@ -40,6 +40,11 @@ namespace SebraeLab.Controllers
             return await _serviceEventoSebraeLab.GetById(id);
         }
 
+        [HttpGet("Pesquisar")]
+        [AllowAnonymous]
+        public async Task<ActionResult<IEnumerable<EventoSebraeLabViewModel>>> Search([FromQuery] string value) =>
+        await _serviceEventoSebraeLab.Search(value, true);
+
         [HttpGet]
         [Route("DiasBloqueados")]
         [AllowAnonymous]
@@ -48,7 +53,7 @@ namespace SebraeLab.Controllers
 
         [HttpGet("Alocacao")]
         [AllowAnonymous]
-        public async Task<ActionResult<bool>> Search([FromQuery] string Data, string horainicio, string horafinal) =>
+        public async Task<ActionResult<bool>> Alocados([FromQuery] string Data, string horainicio, string horafinal) =>
         await _serviceEventoSebraeLab.Alocados(Data, horainicio, horafinal);
 
 
