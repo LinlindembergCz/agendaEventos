@@ -6,6 +6,7 @@ using SebraeLab.Evento.Domain;
 using SebraeLab.Core.Data;
 using SebraeLab.Conteudo.Domain;
 using SebraeLab.Bloqueio.Domain;
+using Sebraelab.Usuario.Domain;
 
 namespace SebraeLab.Evento.Data
 {
@@ -19,6 +20,7 @@ namespace SebraeLab.Evento.Data
         public DbSet<DiaEventoSebraeLab> Dias { get; set; }
         public DbSet<DiaBloqueado> Bloqueio { get; set; }
         public DbSet<ConteudoSebraeLab> Conteudos { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

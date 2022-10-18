@@ -2050,6 +2050,19 @@
         "runtime": {
           "bin/placeholder/SebraeLab.Evento.Domain.dll": {}
         }
+      },
+      "Sebraelab.Usuario.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "SebraeLab.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Sebraelab.Usuario.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Sebraelab.Usuario.Domain.dll": {}
+        }
       }
     }
   },
@@ -5640,6 +5653,11 @@
       "type": "project",
       "path": "../SebraeLab.Evento.Domain/SebraeLab.Evento.Domain.csproj",
       "msbuildProject": "../SebraeLab.Evento.Domain/SebraeLab.Evento.Domain.csproj"
+    },
+    "Sebraelab.Usuario.Domain/1.0.0": {
+      "type": "project",
+      "path": "../Sebraelab.Usuario.Domain/Sebraelab.Usuario.Domain.csproj",
+      "msbuildProject": "../Sebraelab.Usuario.Domain/Sebraelab.Usuario.Domain.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -5657,6 +5675,7 @@
       "SebraeLab.Evento.App >= 1.0.0",
       "SebraeLab.Evento.Data >= 1.0.0",
       "SebraeLab.Evento.Domain >= 1.0.0",
+      "Sebraelab.Usuario.Domain >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3",
       "automapper >= 11.0.1"
     ]
@@ -5717,6 +5736,9 @@
             },
             "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Evento.Domain\\SebraeLab.Evento.Domain.csproj": {
               "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Evento.Domain\\SebraeLab.Evento.Domain.csproj"
+            },
+            "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\Sebraelab.Usuario.Domain\\Sebraelab.Usuario.Domain.csproj": {
+              "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\Sebraelab.Usuario.Domain\\Sebraelab.Usuario.Domain.csproj"
             }
           }
         }

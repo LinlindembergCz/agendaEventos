@@ -10,8 +10,7 @@ namespace SebraeLab.Evento.Data
 {
      public class EventoSebraeLabContext : DbContext, IUnitOfWork
     {
-
-        public EventoSebraeLabContext(DbContextOptions<EventoSebraeLabContext> options)
+       public EventoSebraeLabContext(DbContextOptions<EventoSebraeLabContext> options)
           : base(options) { }
 
         public DbSet<EventoSebraeLab> Eventos { get; set; }

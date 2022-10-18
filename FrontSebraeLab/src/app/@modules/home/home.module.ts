@@ -4,14 +4,14 @@ import { IndexComponent } from './pages/index/index.component';
 import { HomeRountingModule } from './home-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgPrimeExportsModule } from 'src/app/@bootstrap/scripts/ngprime.exports';
-import { BannersShowComponent } from '../components/banners-show/banners-show.component';
+import { BannersShowComponent } from './banners-show/banners-show.component';
 import { SebraelabShowComponent } from '../components/sebraelab-show/sebraelab-show.component';
 import { ConteudoShowComponent } from '../components/conteudo-show/conteudo-show.component';
 import { EventoslabShowComponent } from '../components/eventoslab-show/eventoslab-show.component';
 import { ReserveSubmitComponent } from '../components/reserve-submit/reserve-submit.component';
 import { EventDateComponent } from '../components/reserve-submit/components/eventDate-show.component'; 
 import { CalendarioEditModule } from '../components/calendario-edit/calendario-edit.module'; 
-import { BannersShowModule } from '../components/banners-show/banners-show.module'; 
+import { BannersShowModule } from './banners-show/banners-show.module'; 
 
 
 import { FooterModule } from '../../@layout/footer/footer.module';
@@ -54,23 +54,8 @@ import { CheckboxModule } from 'primeng/checkbox';
     NgPrimeExportsModule,
     HomeRountingModule,    
     NgxCaptchaModule,
-
-    CardModule,
-    RatingModule,
-    FieldsetModule,
-    DataViewModule,
-    ButtonModule,
-    DividerModule,
-    CalendarModule,
-    InputTextModule,
-    InputNumberModule,
-    InputMaskModule, 
     FooterModule,
-    HeaderModule,
-    DialogModule,
-    RadioButtonModule,
-    VirtualScrollerModule,
-    CheckboxModule   
+    HeaderModule,      
   ],
   providers: []
 })

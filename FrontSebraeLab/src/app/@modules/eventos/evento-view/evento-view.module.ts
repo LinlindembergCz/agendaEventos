@@ -5,17 +5,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FooterModule } from '../../../@layout/footer/footer.module';
 import { HeaderModule } from '../../../@layout/header/header.module';
 
-import { BannersShowModule } from '../../components/banners-show/banners-show.module';
+import { BannersShowModule } from '../../home/banners-show/banners-show.module';
 
 import { DataViewModule } from 'primeng/dataview';
-import { PublicacaoViewComponent } from './publicacao-view.component';
-import  { NgPrimeExportsModule } from '../../../@bootstrap/scripts/ngprime.exports';
-
+import { EventoViewComponent } from './evento-view.component';
+import { NgPrimeExportsModule } from '../../../@bootstrap/scripts/ngprime.exports';
 
 @NgModule({
-  declarations: [PublicacaoViewComponent
+  declarations: [EventoViewComponent
     ],
-    exports: [PublicacaoViewComponent
+    exports: [EventoViewComponent
     ],
   imports: [
     CommonModule,
@@ -29,4 +28,4 @@ import  { NgPrimeExportsModule } from '../../../@bootstrap/scripts/ngprime.expor
   ],
   providers: []
 })
-export class PublicacaoViewModule { }
+export class EventoViewModule { }

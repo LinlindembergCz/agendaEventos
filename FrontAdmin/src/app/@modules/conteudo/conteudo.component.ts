@@ -14,7 +14,6 @@ import { FileService } from '../../@shared/services/file.service';
 })
 export class ConteudoComponent implements OnInit, AfterViewInit{
 
-
   conteudos:any[]=[]; 
   rascunhos: any[]=[{id: '',titulo:'',picture:''}];
   publicados: any[]=[{id: '',titulo:'',picture:''}]
@@ -23,7 +22,6 @@ export class ConteudoComponent implements OnInit, AfterViewInit{
   seachValue: string;
 
   picture: any;
-  private fileUrl: string = "";
 
   constructor(private router: Router,
     private http: RequestPromiseService,
@@ -46,25 +44,29 @@ export class ConteudoComponent implements OnInit, AfterViewInit{
     this.http.get<any[]>(environment.services.api,
                          environment.routes.conteudoSebraeLab.root).
       then(  x => {  
-                    this.conteudos = x;
+                    this.fillConteudos(x);
+                  });
+  }
 
-                    this.publicados = x.filter( f=>f.status =="Publicado");    
+  fillConteudos( _conteudos: any[])
+  {
+    this.conteudos = _conteudos;
 
-                     this.publicados.forEach(p=>{               
+    this.publicados = _conteudos.filter( f=>f.status =="Publicado");    
 
-                    this.fileServicePublicados.downloadSecurity('conteudos',p.id + '.png').add(()=>{
-      
-                      p.picture = this.fileServicePublicados.bypassSecurityTrustResourceUrl;})                 
-                    });
+     this.publicados.forEach(p=>{               
 
-                    this.rascunhos =x.filter( f=>f.status =="Rascunho");
+    this.fileServicePublicados.downloadSecurity('conteudos',p.id + '.png').add(()=>{
 
-                     this.rascunhos.forEach( r=>{ 
-                       this.fileServiceRascunho.downloadSecurity('conteudos',r.id + '.png').add(()=>{ 
-                         r.picture = this.fileServiceRascunho.bypassSecurityTrustResourceUrl;})                   
-                    });
+      p.picture = this.fileServicePublicados.bypassSecurityTrustResourceUrl;})                 
+    });
 
-                });
+    this.rascunhos = _conteudos.filter( f=>f.status =="Rascunho");
+
+     this.rascunhos.forEach( r=>{ 
+       this.fileServiceRascunho.downloadSecurity('conteudos',r.id + '.png').add(()=>{ 
+         r.picture = this.fileServiceRascunho.bypassSecurityTrustResourceUrl;})                   
+    });
   }
 
   ShowNovoConteudo()
@@ -120,7 +122,6 @@ export class ConteudoComponent implements OnInit, AfterViewInit{
    
     this.rascunhos = this.conteudos.filter( f=>f.status =="Rascunho"  && 
                                             f.tipopublicacao==tipopublicacao);
-
   } 
 
   search( value: string )
@@ -130,18 +131,12 @@ export class ConteudoComponent implements OnInit, AfterViewInit{
     else
     this.http.get<any[]>(environment.services.api,
                       `${environment.routes.conteudoSebraeLab.search}${value}`).
-      then(x => {  
-                  this.conteudos = x;
-                  this.publicados = x.filter( f=>f.status !="Rascunho");
-                  this.rascunhos =x.filter( f=>f.status =="Rascunho");                 
+      then(x => { 
+                 this.fillConteudos( x );                
                 });
   }
 
-  /*download(id:string , extention : string = ".png") 
-  {    
-    this.fileService.downloadSecurity('conteudos',id + extention).add(()=>{ 
-      this.picture = this.fileService.bypassSecurityTrustResourceUrl;})     
-  }*/
+
 
 
 

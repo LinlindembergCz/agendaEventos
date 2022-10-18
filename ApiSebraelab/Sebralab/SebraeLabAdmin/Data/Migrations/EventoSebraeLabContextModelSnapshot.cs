@@ -217,6 +217,24 @@ namespace SebraeLab.Evento.Data.Migrations
                     b.ToTable("EventosSebraeLab", (string)null);
                 });
 
+            modelBuilder.Entity("Sebraelab.Usuario.Domain.Usuario", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Login")
+                        .IsRequired()
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<string>("Senha")
+                        .HasColumnType("varchar(20)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Usuarios", (string)null);
+                });
+
             modelBuilder.Entity("SebraeLab.Bloqueio.Domain.DiaBloqueado", b =>
                 {
                     b.HasOne("SebraeLab.Bloqueio.Domain.Bloqueador", "Bloqueador")

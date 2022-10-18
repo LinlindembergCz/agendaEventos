@@ -19,7 +19,7 @@ import { InputMaskModule } from 'primeng/inputmask';
 import { DialogModule } from 'primeng/dialog';
 import { RadioButtonModule} from 'primeng/radiobutton';
 import { ContatoComponent } from './contato.component';
-import { BannersShowModule } from '../components/banners-show/banners-show.module';
+import { BannersShowModule } from '../home/banners-show/banners-show.module';
 
 @NgModule({
   declarations: [ContatoComponent

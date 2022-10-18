@@ -40,23 +40,35 @@ namespace SebraeLab.Conteudo.App.Services
         {
             return _mapper.Map<List<ConteudoSebraeLabViewModel>>(await _repository.Search(value, onlypublished) );
         }
-
-
         public Task<bool> Add(ConteudoSebraeLabViewModel conteudoebraelabViewModel)
         {
-            var evento = _mapper.Map<ConteudoSebraeLab>(conteudoebraelabViewModel);
-            _repository.Add(evento);
-            _repository.UnitOfWork.Commit();
-            return Task.FromResult(true);
-                        
+            if (conteudoebraelabViewModel.EhValido())
+            {
+                var evento = _mapper.Map<ConteudoSebraeLab>(conteudoebraelabViewModel);
+                _repository.Add(evento);
+                _repository.UnitOfWork.Commit();
+                return Task.FromResult(true);
+            }
+            else
+            {
+                return Task.FromResult(false);
+            }
         }
-
         public Task<bool> Update(ConteudoSebraeLabViewModel conteudoebraelabViewModel)
         {
-            var evento = _mapper.Map<ConteudoSebraeLab>(conteudoebraelabViewModel);
-            _repository.Update(evento);
-            _repository.UnitOfWork.Commit();
-            return Task.FromResult(true);
+
+            if (conteudoebraelabViewModel.EhValido())
+            {
+                var evento = _mapper.Map<ConteudoSebraeLab>(conteudoebraelabViewModel);
+                _repository.Update(evento);
+                _repository.UnitOfWork.Commit();
+                return Task.FromResult(true);
+            }
+            else
+            {
+                return Task.FromResult(false);
+            }
+
         }
 
         public async Task<bool> Remove(Guid id)
@@ -85,7 +97,6 @@ namespace SebraeLab.Conteudo.App.Services
             _repository.UnitOfWork.Commit();
             return true;
         }
-
         public async Task<bool> Publish(Guid id)
         {
             ConteudoSebraeLab conteudo = await _repository.GetById(id);

@@ -7,7 +7,6 @@ import { HeaderModule } from '../../@layout/header/header.module';
 
 import { AgendaComponent } from './agenda.component';
 import { NgPrimeExportsModule } from '../../@bootstrap/scripts/ngprime.exports';
-import { BannersShowModule } from '../components/banners-show/banners-show.module';
 import { EventoListModule } from './components/evento-list/evento-list.module';
 import { FullCalendarioShowModule } from './components/fullCalendar-show/fullcalendario-show.module';
 
@@ -29,7 +28,6 @@ import { SharedModule } from '../../@shared/shared.module';
     FooterModule,
     HeaderModule,
     NgPrimeExportsModule,
-    BannersShowModule,
     EventoListModule,
     FullCalendarioShowModule,
     SharedModule

@@ -21,6 +21,7 @@
           "SebraeLab.Evento.App": "1.0.0",
           "SebraeLab.Evento.Data": "1.0.0",
           "SebraeLab.Evento.Domain": "1.0.0",
+          "Sebraelab.Usuario.Domain": "1.0.0",
           "Swashbuckle.AspNetCore": "6.2.3",
           "AutoMapper": "11.0.1"
         },
@@ -1100,6 +1101,14 @@
         "runtime": {
           "SebraeLab.Evento.Domain.dll": {}
         }
+      },
+      "Sebraelab.Usuario.Domain/1.0.0": {
+        "dependencies": {
+          "SebraeLab.Core": "1.0.0"
+        },
+        "runtime": {
+          "Sebraelab.Usuario.Domain.dll": {}
+        }
       }
     }
   },
@@ -1939,6 +1948,11 @@
       "sha512": ""
     },
     "SebraeLab.Evento.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Sebraelab.Usuario.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

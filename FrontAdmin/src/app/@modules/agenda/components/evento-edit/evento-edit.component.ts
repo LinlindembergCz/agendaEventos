@@ -33,7 +33,6 @@ export class EventoEditComponent implements OnInit, AfterViewInit {
     private http :RequestPromiseService,
     private router: Router,
     private route: ActivatedRoute,
-    private _sanitizer: DomSanitizer,
     private fileService: FileService,
     ) { }
 
@@ -62,14 +61,9 @@ export class EventoEditComponent implements OnInit, AfterViewInit {
           this.http.get<any>("../../../assets/data", "tipoEventos.json").
            then(x => { this.tiposEvento = x;        
             this.tipoEvento = this.tiposEvento.find(x=>x.name== e.tipoevento) 
-          });  
-          
-          
-       });
-      });
-
-    
-      
+          });   
+        });
+      });    
   }
 
   ngAfterViewInit()
@@ -128,8 +122,7 @@ export class EventoEditComponent implements OnInit, AfterViewInit {
 
   download(id: string , extention : string = ".png") {    
     this.fileService.downloadSecurity('eventos', id + extention).add(()=>{ 
-      this.picture = this.fileService.bypassSecurityTrustResourceUrl;})
-    
+      this.picture = this.fileService.bypassSecurityTrustResourceUrl;})    
   }
 
 

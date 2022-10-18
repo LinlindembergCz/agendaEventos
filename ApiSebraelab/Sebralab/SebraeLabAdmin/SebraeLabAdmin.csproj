@@ -29,6 +29,7 @@
     <ProjectReference Include="..\SebraeLab.Evento.App\SebraeLab.Evento.App.csproj" />
     <ProjectReference Include="..\SebraeLab.Evento.Data\SebraeLab.Evento.Data.csproj" />
     <ProjectReference Include="..\SebraeLab.Evento.Domain\SebraeLab.Evento.Domain.csproj" />
+    <ProjectReference Include="..\Sebraelab.Usuario.Domain\Sebraelab.Usuario.Domain.csproj" />
   </ItemGroup>
 
 </Project>

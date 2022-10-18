@@ -14,10 +14,10 @@ export class LoginComponent implements OnInit {
 
   public captchaOK: boolean;
   public login = {userName:"" ,secret:""};
+  mensagem: string;
 
   constructor(private http: RequestPromiseService,
               private router: Router,
-              private jwtservice: JWTTokenService
               ) {
 
    }
@@ -31,47 +31,37 @@ export class LoginComponent implements OnInit {
 
   handleSuccess($event)
   {
-    this.captchaOK = $event!=null;
+    //this.captchaOK = $event!=null;
   }
 
 
   logIn(): void {
       
-    this.router.navigate(['index']);
-    /*if ( this.captchaOK && this.login.userName.length > 0  && this.login.secret.length > 0 )
+    //this.router.navigate(['index']);
+    if ( this.login.userName.length > 0  && this.login.secret.length > 0 )
       {
          this.http.post(environment.services.api,
-                     "user/auth",
+                     "usuario",
                      {
-                      userName: this.login.userName ,
-                      secret: this.login.secret
-                     }).then( auth => {
-
-                       this.jwtservice.setToken(auth["token"]);
-                       this.jwtservice.decodeToken;
-
-                      
-                      var user = {};
-                      Object.assign(user, auth);
-                      this.jwtservice.setToken(user['token'].toString());
-
-                      this.http.SetUser( user );
-                      
-
-                      this.router.navigate([`/user/show/${user['userId']}`]);
-
+                        id:'033F87D1-CD94-4829-AF6D-652915C6260F',
+                        login: this.login.userName,
+                        senha: this.login.secret
+                     }).then( () => {
+                      this.router.navigate(['index']);
+                     }).catch( (e) => {
+                      this.mensagem = 'Usuário não autorizado!';
                     });
-       }*/
+       }
   }
 
 
 
   openUser() {
-    this.router.navigate(['/user']);
+    //this.router.navigate(['/user']);
   }
 
   forgetedPassword() {
-    this.router.navigate(['/forgeted']);
+   // this.router.navigate(['/forgeted']);
   }
 
 

@@ -32,7 +32,7 @@ import {AccordionModule} from 'primeng/accordion';
 import { CheckboxModule } from 'primeng/checkbox';
 import { CalendarioEditModule } from '../components/calendario-edit/calendario-edit.module'; 
 import { MultiSelectModule } from 'primeng/multiselect';
-import { BannersShowModule } from '../components/banners-show/banners-show.module';
+import { BannersShowModule } from '../home/banners-show/banners-show.module';
 @NgModule({
   declarations: [MeuEventoComponent,EventoSubmit,
     FuncionamentoShow

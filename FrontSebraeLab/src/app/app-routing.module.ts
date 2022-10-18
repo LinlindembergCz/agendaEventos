@@ -1,7 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule, ExtraOptions, PreloadAllModules } from '@angular/router';
-import { AuthGuard } from './@bootstrap/security/auth.guard';
-import { BlankComponent } from './@layout/blank/blank.component';
+import { Routes, RouterModule, ExtraOptions } from '@angular/router';
 import { LayoutComponent } from './@layout/layout.component';
 import { ContatoComponent } from './@modules/contato/contato.component';
 
@@ -9,8 +7,8 @@ import { PublicacoesComponent } from './@modules/conteudo/publicacoes/publicacoe
 import { EventosComponent } from './@modules/eventos/eventos.component';
 import { MeuEventoComponent } from './@modules/meuevento/meuevento.component';
 import { QuemSomosComponent } from './@modules/quemsomos/quemsomos.component';
-import { PublicacaoViewComponent } from './@modules/components/publicacao-view/publicacao-view.component';
-import { EventoViewComponent } from './@modules/components/evento-view/evento-view.component';
+import { PublicacaoViewComponent } from './@modules/conteudo/publicacao-view/publicacao-view.component';
+import { EventoViewComponent } from './@modules/eventos/evento-view/evento-view.component';
 
 
 const routes: Routes = [
@@ -32,7 +30,7 @@ const routes: Routes = [
   {
     path: 'publicacao',
     component: PublicacaoViewComponent,
-    loadChildren: () => import('./@modules/components/publicacao-view/publicacao-view.module').then(m => m.PublicacaoViewModule)
+    loadChildren: () => import('./@modules/conteudo/publicacao-view/publicacao-view.module').then(m => m.PublicacaoViewModule)
   },
   {
     path: 'quemsomos',
@@ -61,7 +59,7 @@ const routes: Routes = [
   {
     path: 'evento',
     component: EventoViewComponent,
-    loadChildren: () => import('./@modules/components/evento-view/evento-view.module').then(m => m.EventoViewModule)
+    loadChildren: () => import('./@modules/eventos/evento-view/evento-view.module').then(m => m.EventoViewModule)
   },
   {
     path: 'user',

@@ -41,18 +41,18 @@ export class PublicacaoCreateComponent implements OnInit, AfterViewInit {
      //Convert o array em string
      this.conteudo.tipopublicacao = this.tipoPublicacao.name; 
 
-     this.http.post<any>(environment.services.api,
-                         environment.routes.conteudoSebraeLab.root
-      , this.conteudo).then
-     ( ()=>{ 
-      this.router.navigate(['/conteudo']); 
-
-      this.messageService.add({severity:'success', 
-      summary:'Cadastro', 
-      detail:'O conteúdo foi cadstrado com sucesso!'});
-    
-    
-    })     
+    this.http.post<Publicacao>(environment.services.api,environment.routes.conteudoSebraeLab.root, this.conteudo).
+    then( () =>
+    {
+        this.router.navigate(['/conteudo']);            
+        this.messageService.add({severity:'success', 
+                                  summary:'Cadastro', 
+                                  detail:'O conteúdo foi cadastrado com sucesso!'}); 
+    }).catch( (e) =>{         
+          this.messageService.add({severity:'warn', 
+          summary:'Erro', 
+          detail:e.error.text}); 
+    });
 
   }
 

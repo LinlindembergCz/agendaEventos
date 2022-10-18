@@ -4,8 +4,6 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
 import { environment } from '../../../../environments/environment';
-
-import { Publicacao } from '../../../@core/models/publicacao.model';
 import { FileService } from '../../user/services/file.service';
 
 
@@ -40,10 +38,8 @@ export class PublicacoesComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
           this.tipoConteudo=params['tipo'];                     
           this.loadConteudos(String(tipos.indexOf(this.tipoConteudo)));           
-      });
-     
+      });    
   }
-
 
   loadConteudos(tipo: string) 
   { 
@@ -52,9 +48,7 @@ export class PublicacoesComponent implements OnInit {
         { 
             this.conteudos = x;    
             this.publicacoes = x;  
-
-            this.downloadImage( this.conteudos )
-            
+            this.downloadImage( this.conteudos )            
         });                
   }
 
@@ -84,18 +78,16 @@ export class PublicacoesComponent implements OnInit {
        this.loadConteudos(this.tipoConteudo)
     else
        this.http.get<any[]>(environment.services.api,`${environment.routes.conteudoSebraeLab.search}${value}`).
-       then(x => {  
-                  
+       then(x => {                    
                   this.conteudos = x; 
-                  this.publicacoes = x;         
-                  
+                  this.publicacoes = x;                   
                   this.downloadImage( this.conteudos )
                  });
   }
 
   applyFilter(tipopublicacao: string )
   {
-    this.publicacoes = this.conteudos.filter( f=>f.tipopublicacao==tipopublicacao);
+      this.publicacoes = this.conteudos.filter( f=>f.tipopublicacao==tipopublicacao);
   } 
 
 }

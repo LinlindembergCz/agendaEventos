@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SebraeLab.Conteudo.Domain;
-using SebraeLab.Conteudo.Data;
 using SebraeLab.Core.Data;
 using SebraeLab.Conteudo.Domain.Enums;
 

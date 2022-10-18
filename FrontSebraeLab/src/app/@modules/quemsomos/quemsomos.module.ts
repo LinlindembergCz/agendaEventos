@@ -25,7 +25,7 @@ import { EspacoShowComponent} from './espaco-show/espaco-show.component';
 import { EntendaSebraelabShowComponent} from './entenda-sebraelab-show/entenda-sebraelab-show.component';
 import  {ContatoSubmitModule} from '../components/contato-submit/contato-submit.module';
 import  {EcoSistemaShowModule} from '../components/ecosistema-show/ecosistema-show.module';
-import { BannersShowModule } from '../components/banners-show/banners-show.module';
+import { BannersShowModule } from '../home/banners-show/banners-show.module';
 
 @NgModule({
   declarations: [QuemSomosComponent, NaPraticaShowComponent,
