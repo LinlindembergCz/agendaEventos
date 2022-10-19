@@ -1039,7 +1039,7 @@
           "MediatR": "10.0.1"
         },
         "runtime": {
-          "SebraeLab.Core.dll": {}
+          "sebraelab.core.dll": {}
         }
       },
       "SebraeLab.Evento.App/1.0.0": {

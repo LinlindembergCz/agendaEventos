@@ -1,5 +1,4 @@
 
-
 <p-accordion  expandIcon = "pi" collapseIcon = "pi" (onOpen)="onTabOpen($event)">
 
   <p-accordionTab [selected]="activeIndex==0 || loadAllTabs" [disabled]="activeIndex!=0">
@@ -52,7 +51,7 @@
         <div><label>Nome completo</label></div>
         <input type="text" pInputText 
         [style]="{'width':'354px','height': '48px'}" 
-        placeholder="Escreva seu nome completo"  />
+        placeholder="Escreva seu nome completo" [(ngModel)]="nomecompleto" />
       </div>
 
       <div class="p-field">
@@ -61,6 +60,7 @@
         [style]="{'width':'354px','height': '48px'}" 
         pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" 
         placeholder="Escreva seu e-mail de contato" 
+        [(ngModel)]="email"
            >
         
       </div>
@@ -69,14 +69,18 @@
         <div><label>Institutição</label></div>
         <input type="text" pInputText 
         [style]="{'width':'354px','height': '48px'}"
-        placeholder="Escreva o nome da sua instituição"/>
+        placeholder="Escreva o nome da sua instituição"
+        [(ngModel)]="instituicao"
+        />
       </div>
 
       <div class="p-field">
         <div><label>Contato</label></div>
         <input type="text" mask="(99)99999-9999" pInputText 
         [style]="{'width':'354px','height': '48px'}"
-        placeholder="(xx)xxxxx-xxxx"/>
+        placeholder="(xx)xxxxx-xxxx"
+        [(ngModel)]="contato"
+        />
       </div>
 
       <div class="frameButton">        
@@ -97,24 +101,24 @@
     <ng-template pTemplate="content">
       <div>
            <div><label>Tipo de evento</label></div>
-           <p-multiSelect [options]="tiposEnvento" [(ngModel)]="tipoEvento" optionLabel="name" placeholder="Escolha tipo de evento"
-           [style]="{'width':'354px','height': '48px'}"  ></p-multiSelect>
+           <p-dropdown [options]="tiposEnvento" [(ngModel)]="tipoEvento" optionLabel="name" placeholder="Escolha tipo de evento"
+           [style]="{'width':'354px','height': '48px'}"  ></p-dropdown>
       </div>
       <div>
         <div><label>Descrição do evento</label></div>
-        <textarea [style]="{'width':'434px','height': '186px'}" placeholder="conte para nós sobre o seu evento"></textarea>
+        <textarea [style]="{'width':'434px','height': '186px'}" placeholder="conte para nós sobre o seu evento" [(ngModel)]="descricao"></textarea>
       </div>
       <div>
         <div><label>Link para inscrições</label></div>
         <input type="text" pInputText
-          placeholder="Insira link das inscrições"/>
+          placeholder="Insira link das inscrições" [(ngModel)]="linkinscricao"/>
       </div>
       <div>
         <b>Importante:</b>Verifique todos os dados antes de enviar.
       </div>
       <div class="frameButton">        
         <button pButton type="button" label="Etapa Anterior" class="buttonEtapaAnterior p-button-outlined" (click)="priorTab(2)"></button>
-        <button pButton type="button" label="Enviar" class="buttonConfirmar p-button-outlined" (click)="send()"></button>
+        <button pButton type="button" label="Enviar por e-mail" class="buttonConfirmar p-button-outlined" (click)="send()"></button>
       </div>
 
     </ng-template> 

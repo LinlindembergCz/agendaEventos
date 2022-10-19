@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace sebraelab.core.comunication
 {
-    public interface IFileTransfer
+    public interface ISenderEmail
     {
         Task<bool> SendMail(MessengerEntity command);
     }

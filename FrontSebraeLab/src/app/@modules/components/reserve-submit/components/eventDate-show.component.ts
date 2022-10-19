@@ -14,23 +14,28 @@ export class EventDateComponent extends CalendarioEditComponent implements OnIni
   @Output() clickHide = new EventEmitter<void>();
 
   @Output() clickReserve = new EventEmitter<EventBooking>();
+
+
   
   ngOnInit(): void {   
   }
   public Apply() {
 
-      this.eventBooking.Options=[];
-      this.eventBooking.HoursStart=[];
-      this.eventBooking.HoursEnd=[];
+      this.eventBooking.Options = [];
+      this.eventBooking.HoursStart = [];
+      this.eventBooking.HoursEnd = [];
 
       this.periodos.forEach( p=> {
-        this.eventBooking.Options.push(p.option);
-        this.eventBooking.HoursStart.push(p.horaInicio);
-        this.eventBooking.HoursEnd.push(p.horaFim);
-      })
+                                    this.eventBooking.Options.push(p.option);
+                                    this.eventBooking.HoursStart.push(p.horaInicio);
+                                    this.eventBooking.HoursEnd.push(p.horaFim);
+                                 });
+
       this.clickReserve.next(this.eventBooking);
       this.clickHide.next(); 
   }
+
+
 
 
 

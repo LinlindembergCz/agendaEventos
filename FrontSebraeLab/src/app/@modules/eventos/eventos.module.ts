@@ -8,7 +8,6 @@ import { HeaderModule } from '../../@layout/header/header.module';
 
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { EventosComponent } from './eventos.component';
-import { BannersShowModule } from '../home/banners-show/banners-show.module';
 import { FullCalendarioShowModule } from './fullCalendar-show/fullcalendario-show.module';
 import { NgPrimeExportsModule } from 'src/app/@bootstrap/scripts/ngprime.exports';
 
@@ -18,7 +17,6 @@ import { NgPrimeExportsModule } from 'src/app/@bootstrap/scripts/ngprime.exports
   declarations: [EventosComponent
     ],
   imports: [
-    BannersShowModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,

@@ -22,6 +22,8 @@ export class CalendarioEditComponent implements AfterViewInit, OnInit {
   @Input() public eventBooking : EventBooking = new EventBooking()  
   
   periodos: Period[]=[];
+
+  @Output() clickSelect = new EventEmitter<Period[]>();
   
   @Input() ShowButtobAplly:boolean = false;
 
@@ -50,7 +52,7 @@ export class CalendarioEditComponent implements AfterViewInit, OnInit {
                                                     this.eventBooking.Options.push(OptionsArray[i]);
                                                     this.eventBooking.HoursStart.push(HoraInicioArray[i]);
                                                     this.eventBooking.HoursEnd.push(HoraFimArray[i]);                                                
-                                                    this.selectDate(date);
+                                                    this.selectDate(date);  
 
                                                     i++;
                                                   })
@@ -62,32 +64,35 @@ export class CalendarioEditComponent implements AfterViewInit, OnInit {
   
   selectDate(e)
   {    
-    this.periodos=[]
+    this.periodos=[];
     
     if (this.eventBooking.Days!=null)
     {
-      //console.log(this.eventBooking.Days);
       let i = 0;
       this.eventBooking.Days.forEach( 
       d =>{  
               this.periodos.push(
-                {index: i, 
-                 name:'periodo'+i, 
-                 data:d.toLocaleDateString(), 
-                 horaInicio:this.eventBooking.HoursStart[i], 
-                 horaFim:this.eventBooking.HoursEnd[i],
-                 option: this.eventBooking.Options[i]}
-                )
+                                  {
+                                      index: i, 
+                                      name:'periodo'+i, 
+                                      data:d.toLocaleDateString(), 
+                                      horaInicio:this.eventBooking.HoursStart[i], 
+                                      horaFim:this.eventBooking.HoursEnd[i],
+                                      option: this.eventBooking.Options[i]
+                                  }
+                                );
               i=i+1;
           });
     }
-    //console.log(this.periodos)
+    this.clickSelect.next(this.periodos);
   }
 
   isDaySelected(e)
   {
     return this.eventBooking.Days.find(d => d.getDay() == e.day);    
   }
+
+
 
 
 

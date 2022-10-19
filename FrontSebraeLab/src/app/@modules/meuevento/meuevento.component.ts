@@ -10,6 +10,8 @@ export class MeuEventoComponent implements AfterViewInit , OnInit  {
 
    optionsCheck: string[]=[];
   
+   selectedPeriodos: any[]=[];
+
   constructor(
     private router: Router,
     private route: ActivatedRoute
@@ -22,6 +24,12 @@ export class MeuEventoComponent implements AfterViewInit , OnInit  {
   ngAfterViewInit()
   {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  selectDate(periodos: any[]): void {
+
+    this.selectedPeriodos = periodos
+    //console.log(this.selectedPeriodos)
   }
 
 

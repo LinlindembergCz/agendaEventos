@@ -35,7 +35,7 @@
        
         
       
-        <div class="frameEventlab" > 
+     <div class="frameEventlab" > 
    
             <div class="frameEventlabDetails">                
                  <div class="framebuttons">                           
@@ -47,24 +47,24 @@
                      <div class="framePesquisar" style="align-items:right;">
                         <span class="p-input-icon-right" >
                             <i class="pi pi-search" style="cursor: pointer" (click)="search(seachValue)"></i>
-                            <!--<i class="pi pi-spin pi-spinner"></i>-->        
+                              
                             <input type="text" pInputText placeholder="Pesquisar" style="width:'270px';background: #F1F5F9;border:'0px;'" [(ngModel)]="seachValue"> 
                         </span>        
                    </div> 
                  </div>    
                    
 
-               <div class="p-d-flex p-ai-flex p-jc-center" *ngIf="fullCalendar">
+                <div class="p-d-flex p-ai-flex p-jc-center" *ngIf="fullCalendar">
                     <div class="p-d-flex p-ai-center p-jc-center">
                         <div class="p-d-fluid " style="width:'1100px';">
                             <app-fullcalendario-show></app-fullcalendario-show>            
                         </div>  
                     </div>  
-                </div>   
+                </div> 
                  
                              
-               <div class="frameEventslablist" *ngIf="eventslab.length > 0 && !fullCalendar">      
-                        <p-dataView [value]="eventslab" [paginator]="true" [rows]="12">
+             <div class="frameEventslablist" *ngIf="eventslab.length > 0 && !fullCalendar">      
+                    <p-dataView [value]="eventslab" [paginator]="true" [rows]="12">
                              <ng-template let-evento pTemplate="listItem">              
                                  <div class="frameEventlabItem">     
       
@@ -88,19 +88,18 @@
                                                  </div>        
                                              </div>                                         
                                              <div class="frameEventlabSubscribe">
-                                                <a href="/evento?id={{evento.id}}">Inscreva-se ></a>                            
-                                                <router-outlet></router-outlet> 
+                                                <a href="/evento?id={{evento.id}}">Inscreva-se ></a>            
+                                              
                                              </div>                      
                                          </div>
                                                            
                                      </div>  
                                      <div style="background: #F8FAFC">&nbsp;&nbsp;&nbsp;</div>             
                             </ng-template>
-                         </p-dataView>                    
-                    
-                 </div>           
-             </div>
-         </div>
+                    </p-dataView>
+                </div>            
+             </div> 
+    </div>
      
 
 </div>

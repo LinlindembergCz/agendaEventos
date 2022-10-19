@@ -47,22 +47,23 @@ export class ReserveSubmitComponent implements OnInit {
       this.EventHoraInico=[];
       this.EventHoraFim=[];
 
-      event.Days.forEach( e=>{ 
-        const day  = ("00" + e.getDate()).slice(-2);
-        const month =("00" + ( e.getMonth() + 1 ) ).slice(-2);
-        const year = e.getFullYear();
-        const option = event.Options[i];
-        const horaInicio =event.HoursStart[i];
-        const horaFim =event.HoursEnd[i];
+      event.Days.forEach( 
+      e=>{ 
+            const day  = ("00" + e.getDate()).slice(-2);
+            const month =("00" + ( e.getMonth() + 1 ) ).slice(-2);
+            const year = e.getFullYear();
+            const option = event.Options[i];
+            const horaInicio =event.HoursStart[i];
+            const horaFim =event.HoursEnd[i];
 
-        this.EventDays.push( year + '/' + month+ '/' + day);
-        this.EventDaysFormated.push( day+'/'+ month);
-        this.EventPeriodo.push( option );
-        this.EventPeriodoFormated.push( option + '('+ day +'/'+ month +')');
-        this.EventHoraInico.push(horaInicio);
-        this.EventHoraFim.push(horaFim);
-        i++;
-      })
+            this.EventDays.push( year + '/' + month+ '/' + day);
+            this.EventDaysFormated.push( day+'/'+ month);
+            this.EventPeriodo.push( option );
+            this.EventPeriodoFormated.push( option + '('+ day +'/'+ month +')');
+            this.EventHoraInico.push(horaInicio);
+            this.EventHoraFim.push(horaFim);
+            i++;
+         })
       
       
   }

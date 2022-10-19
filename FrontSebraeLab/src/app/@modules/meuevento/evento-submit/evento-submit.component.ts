@@ -1,6 +1,7 @@
-import {AfterViewInit, Component,OnInit, } from '@angular/core';
+import {AfterViewInit, Component,Input,OnInit, } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import {PrimeIcons} from 'primeng/api';
+import { environment } from 'src/environments/environment';
+import { RequestPromiseService } from '../../../@shared/services/request-promise.service';
 
 
 interface TipoEvento {
@@ -21,22 +22,26 @@ export class EventoSubmit implements AfterViewInit, OnInit  {
     events: any[];
     tiposEnvento:TipoEvento[];
     optionDate: string;
-    tipoEvento: string;
+    tipoEvento: any;
     nomeEvento: string;
     numeroParticipantes: string;
+    descricao: string;
+    linkinscricao: string;
+    nomecompleto:string;
+    email:string;
+    instituicao: string;
+    contato: string;
+
+    @Input() periodos: any[]=[];
+ 
 
     constructor(
+        private http: RequestPromiseService,
         private router: Router,
         private route: ActivatedRoute
       ) { }
     
     ngOnInit() {
-        this.events = [
-            {status: '1'},
-            {status: '2'},
-            {status: '3'},
-        ];
-
         this.tiposEnvento = [
             {name: 'Palestra', code: '1'},
             {name: 'Workshop', code: '2'},
@@ -79,7 +84,30 @@ export class EventoSubmit implements AfterViewInit, OnInit  {
 
     send()
     {
+       let DiasEvento: string = '';
+
+       this.periodos.forEach( p=>{  
+          DiasEvento = DiasEvento +` ${p.data} de ${p.horaInicio} a ${p.horaFim} %0D%0A`; 
+
+       })
+
+       var _body = 
+`Tipo de evento: ${this.tipoEvento.name} %0D%0A
+Titulo do Evento: ${this.nomeEvento}%0D%0A
+Vagas: ${this.numeroParticipantes} %0D%0A
+Link inscrição: ${this.linkinscricao} %0D%0A
+Nome : ${this.nomecompleto} %0D%0A
+Email: ${this.email} %0D%0A
+Instituição: ${this.instituicao} %0D%0A
+Descrição: ${this.descricao} %0D%0A %0D%0A
+Período: %0D%0A 
+${DiasEvento}
+`;
+
+    window.open(`mailto:?subject=${"Reservar: "+this.nomeEvento}&body=${_body}&to=sebraeLab@es.sebrae.com.br`, "_blank")
 
     }
+
+
 
 }

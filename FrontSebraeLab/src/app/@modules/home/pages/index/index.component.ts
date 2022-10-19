@@ -7,21 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IndexComponent implements OnInit {
 
-  itens: any[] = []; 
-
   constructor() { }
 
   ngOnInit(): void {
-    this.itens = [
-        { name: "PROJETO A"},
-        { name: "PROJETO B"},
-        { name: "PROJETO C"},
-        { name: "PROJETO D"},
-        { name: "PROJETO E"},
-        { name: "PROJETO F"},
-        { name: "PROJETO G"},
-        { name: "PROJETO H"},
-    ]
+
   }
 
 }

@@ -9,19 +9,20 @@ using System.Threading.Tasks;
 
 namespace sebraelab.core.comunication
 {
-    public class FileTransfer : IFileTransfer
+    public class SenderEmail : ISenderEmail
     {
         public async Task<bool> SendMail(MessengerEntity command)
         {
             // cria uma mensagem
-            MailMessage mensagemEmail = new MailMessage("lindemberg.cortez@gmail.com",
+            MailMessage mensagemEmail = new MailMessage(
+                "lcaraujo1@latam.stefanini.com",
                 "lindemberg.cortez@gmail.com", 
                 "TESTE", 
                 "TESTE DE ENVIO DE EMAIL");
 
             SmtpClient client = new SmtpClient("smtp.office365.com", 587);
             client.EnableSsl = true;
-            NetworkCredential cred = new NetworkCredential("lcaraujo1@latam.stefanini.com", "Stefanini@2022");
+            NetworkCredential cred = new NetworkCredential("lcaraujo1@stefanini.com", "Stefanini@2022");
             client.Credentials = cred;
 
             // inclui as credenciais
