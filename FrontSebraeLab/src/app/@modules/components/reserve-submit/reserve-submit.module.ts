@@ -4,6 +4,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppDialogModule } from '../../../@shared/components/dialogs/dialog.module';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import {ReserveSubmitComponent} from '../reserve-submit/reserve-submit.component';
+import { NgPrimeExportsModule } from '../../../@bootstrap/scripts/ngprime.exports';
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
 
 
 @NgModule({
@@ -14,7 +17,10 @@ import {ReserveSubmitComponent} from '../reserve-submit/reserve-submit.component
     FormsModule,
     ReactiveFormsModule,
     NgxCaptchaModule,
-    AppDialogModule
+    AppDialogModule,
+    NgPrimeExportsModule, 
+    MessagesModule,
+    MessageModule
     
   ],
   providers: []

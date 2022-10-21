@@ -29,7 +29,9 @@
     <div *ngIf="ShowButtobAplly" style="border: 1px solid; align-items:center">
         <button pButton type="button"  label="Aplicar" class="buttonApply p-button-outlined" (click)="Apply()"></button>
     </div>
-
+        <span class="p-float-label">
+            <p-messages [(value)]="mensagens"></p-messages>
+        </span>
     <div style="width: 380px; height: 350px; overflow-y: auto;">
         <p-dataView [value]="periodos">
             <ng-template let-periodo pTemplate="listItem">
@@ -46,19 +48,20 @@
                     <div><p></p></div>     
                     <div class="frameInputPeriodo">
                         <span class="p-float-label">
-                            <p-inputMask id="float-input" width="5%" mask="99:99" name="horaInicio" [(ngModel)]="periodos[periodo.index].horaInicio"></p-inputMask>
+                            <p-inputMask id="float-input" width="5%" mask="99:99" name="horaInicio" [(ngModel)]="periodos[periodo.index].horaInicio" (onBlur) = 'onBlur(periodos[periodo.index])'></p-inputMask>
                             <label for="float-input">Início</label>
                         </span>
                         <span class="p-float-label">
-                            <p-inputMask id="float-input" width="5%"  mask="99:99" name="horaFim"  [(ngModel)]="periodos[periodo.index].horaFim"></p-inputMask>
+                            <p-inputMask id="float-input" width="5%"  mask="99:99" name="horaFim"  [(ngModel)]="periodos[periodo.index].horaFim" (onBlur) = 'onBlur(periodos[periodo.index])'></p-inputMask>
                             <label for="float-input">Fim</label>
+                          
                         </span>
-                        <!--Início<p-inputMask width="5%" mask="99:99" name="horaInicio" [(ngModel)]="periodos[periodo.index].horaInicio"></p-inputMask>-->
 
                     </div>    
                 </div>   
             </ng-template>
         </p-dataView>
+
     </div>
 
 </div>

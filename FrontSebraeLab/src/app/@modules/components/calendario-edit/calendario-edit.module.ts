@@ -3,17 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import {CalendarioEditComponent} from './calendario-edit.component';
-
 import { FooterModule } from '../../../@layout/footer/footer.module';
-import { VirtualScrollerModule } from 'primeng/virtualscroller';
-import { CalendarModule } from 'primeng/calendar';
-import { InputTextModule } from 'primeng/inputtext';
-import { InputMaskModule } from 'primeng/inputmask';
 import { HeaderModule } from 'src/app/@layout/header/header.module';
-import { RadioButtonModule } from 'primeng/radiobutton';
-import { CheckboxModule } from 'primeng/checkbox';
-import { DataViewModule } from 'primeng/dataview';
-import { ButtonModule } from 'primeng/button';
+import { NgPrimeExportsModule } from 'src/app/@bootstrap/scripts/ngprime.exports';
 
 @NgModule({
   declarations: [CalendarioEditComponent
@@ -25,16 +17,11 @@ import { ButtonModule } from 'primeng/button';
     FormsModule,
     ReactiveFormsModule,
     NgxCaptchaModule,
-    DataViewModule,
-    ButtonModule,
-    CalendarModule,
-    InputTextModule,
-    InputMaskModule, 
+    NgPrimeExportsModule, 
     FooterModule,
     HeaderModule,
-    RadioButtonModule,
-    CheckboxModule,
-    VirtualScrollerModule
+    
+ 
 
     
   ],

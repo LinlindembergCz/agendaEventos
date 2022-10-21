@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
 import { environment } from 'src/environments/environment';
 import { EventBooking } from './model/EventBooking-model';
@@ -23,18 +24,34 @@ export class ReserveSubmitComponent implements OnInit {
   mensagem: string;
   diasEvento: string = '';
 
+  showDialogErro: boolean = false;
+  messageDialogErro: string ='';
+  showDialogSucesso: boolean = false;
+  messageDialogSucesso: string ='';
   showDialogAtencao: boolean = false;
   messageDialogAtencao: string ='';
 
-  constructor(
-    private http: RequestPromiseService,
-    private router: Router
+  constructor(  
+    private router: Router,
+
   ) {
 
   }
 
   ngOnInit(): void {   
   }
+
+  showSuccess(msg: string ) {
+    this.showDialogSucesso = false
+    this.messageDialogSucesso = msg;
+    this.showDialogSucesso = true;
+ }
+
+   showError(msg: string ) {
+    this.showDialogErro = false
+    this.messageDialogErro = msg;
+    this.showDialogErro = true;
+ }
 
   showWarn(msg: string ) {
     this.showDialogAtencao = false
@@ -54,37 +71,23 @@ export class ReserveSubmitComponent implements OnInit {
 
   verifyAvailability( p: any) 
   {
-
+/*
      this.mensagem= '';
-
       let url = environment.routes.eventoSebraeLab.alocacao+
               `?Data=${p.data}&horainicio=${p.horaInicio}&horafinal=${p.horaFim}`;
-
       this.http.get( environment.services.api, url).then( 
       (disponivel:boolean) =>
       {
           if (!disponivel)                      
           {
               this.mensagem=`Não é possível reservar o evento nesta data e hora ( ${p.data} - ${p.horaInicio} - ${p.horaFim} ) `                      
-              //this.showWarn(this.mensagem);
-              // this.showWarn(this.mensagem);
           }
-      });        
+      });  */      
   }
 
   public reserve(event: EventBooking): void
   {
-    let j :number = 0;
-    for (const e of  event.Days)
-    {  
-        const day  = ("00" + e.getDate()).slice(-2);
-        const month =("00" + ( e.getMonth() + 1 ) ).slice(-2);
-        const year = e.getFullYear();
-        this.verifyAvailability(  { data:  day+ '/' + month+ '/' +year , horaInicio:event.HoursStart[j] , horaFim:event.HoursEnd[j]} );
-        
-        j++;
-     };
-      
+     
      if (this.mensagem =='') 
      {
           let i :number = 0;

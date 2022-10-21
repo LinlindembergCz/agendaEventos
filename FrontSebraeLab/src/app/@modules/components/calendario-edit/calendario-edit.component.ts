@@ -1,5 +1,8 @@
 import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
+import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
+import { environment } from 'src/environments/environment';
 import { EventBooking } from '../reserve-submit/model/EventBooking-model';
 
 
@@ -27,9 +30,13 @@ export class CalendarioEditComponent implements AfterViewInit, OnInit {
   
   @Input() ShowButtobAplly:boolean = false;
 
+  mensagens: any[]=[];
+
   constructor(
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private http: RequestPromiseService,
+    private messageService: MessageService
   ) { }
 
   ngOnInit(): void {   
@@ -91,7 +98,31 @@ export class CalendarioEditComponent implements AfterViewInit, OnInit {
     return this.eventBooking.Days.find(d => d.getDay() == e.day);    
   }
 
+  verifyAvailability( p: any) 
+  {
 
+    this.mensagens= [];
+      let url = environment.routes.eventoSebraeLab.alocacao+
+              `?Data=${p.data}&horainicio=${p.horaInicio}&horafinal=${p.horaFim}`;
+      this.http.get( environment.services.api, url).then( 
+      (disponivel:boolean) =>
+      {
+          if (!disponivel)                      
+          {                               
+              this.messageService.add({severity:'warn', summary:'Indisponibilidade', detail:`Não é possível reservar o evento nesta data e hora ( ${p.data} - ${p.horaInicio} - ${p.horaFim} ) `});
+          }
+      });        
+  }
+
+  onBlur( periodo: any )
+  {
+    if ( (periodo.horaInicio && periodo.horaInicio!='' && periodo.horaInicio!='__:__') && 
+         (periodo.horaFim    && periodo.horaFim!=''    && periodo.horaFim!='__:__') )
+    {
+      this.verifyAvailability(  { data:  periodo.data , horaInicio:periodo.horaInicio, horaFim:periodo.horaFim} );
+    }
+       
+  }
 
 
 
