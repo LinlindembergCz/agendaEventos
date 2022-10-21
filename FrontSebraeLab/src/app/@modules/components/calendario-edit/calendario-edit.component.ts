@@ -98,28 +98,24 @@ export class CalendarioEditComponent implements AfterViewInit, OnInit {
     return this.eventBooking.Days.find(d => d.getDay() == e.day);    
   }
 
-  verifyAvailability( p: any) 
-  {
 
-    this.mensagens= [];
-      let url = environment.routes.eventoSebraeLab.alocacao+
-              `?Data=${p.data}&horainicio=${p.horaInicio}&horafinal=${p.horaFim}`;
-      this.http.get( environment.services.api, url).then( 
-      (disponivel:boolean) =>
-      {
-          if (!disponivel)                      
-          {                               
-              this.messageService.add({severity:'warn', summary:'Indisponibilidade', detail:`Não é possível reservar o evento nesta data e hora ( ${p.data} - ${p.horaInicio} - ${p.horaFim} ) `});
-          }
-      });        
-  }
-
-  onBlur( periodo: any )
+  verifyAvailability( periodo: any )
   {
     if ( (periodo.horaInicio && periodo.horaInicio!='' && periodo.horaInicio!='__:__') && 
          (periodo.horaFim    && periodo.horaFim!=''    && periodo.horaFim!='__:__') )
     {
-      this.verifyAvailability(  { data:  periodo.data , horaInicio:periodo.horaInicio, horaFim:periodo.horaFim} );
+        this.mensagens= [];
+        let url = environment.routes.eventoSebraeLab.alocacao+
+                `?Data=${periodo.data}&horainicio=${periodo.horaInicio}&horafinal=${periodo.horaFim}`;
+        this.http.get( environment.services.api, url).then( 
+        (disponivel:boolean) =>
+        {
+            if (!disponivel)                      
+            {                               
+                this.messageService.add({severity:'warn', summary:'Indisponibilidade', detail:`Não é possível reservar o evento nesta data e hora ( ${periodo.data} - ${periodo.horaInicio} - ${periodo.horaFim} ) `});
+            }
+        }); 
+    
     }
        
   }

@@ -48,11 +48,11 @@
                     <div><p></p></div>     
                     <div class="frameInputPeriodo">
                         <span class="p-float-label">
-                            <p-inputMask id="float-input" width="5%" mask="99:99" name="horaInicio" [(ngModel)]="periodos[periodo.index].horaInicio" (onBlur) = 'onBlur(periodos[periodo.index])'></p-inputMask>
+                            <p-inputMask id="float-input" width="5%" mask="99:99" name="horaInicio" [(ngModel)]="periodos[periodo.index].horaInicio" (onBlur) = 'verifyAvailability(periodos[periodo.index])'></p-inputMask>
                             <label for="float-input">Início</label>
                         </span>
                         <span class="p-float-label">
-                            <p-inputMask id="float-input" width="5%"  mask="99:99" name="horaFim"  [(ngModel)]="periodos[periodo.index].horaFim" (onBlur) = 'onBlur(periodos[periodo.index])'></p-inputMask>
+                            <p-inputMask id="float-input" width="5%"  mask="99:99" name="horaFim"  [(ngModel)]="periodos[periodo.index].horaFim" (onBlur) = 'verifyAvailability(periodos[periodo.index])'></p-inputMask>
                             <label for="float-input">Fim</label>
                           
                         </span>

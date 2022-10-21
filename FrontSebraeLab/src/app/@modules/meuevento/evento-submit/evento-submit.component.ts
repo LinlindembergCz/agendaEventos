@@ -35,7 +35,7 @@ export class EventoSubmit implements AfterViewInit, OnInit  {
     optionDate: string;
     tipoEvento: any;
     nomeEvento: string;
-    numeroParticipantes: string;
+    numeroParticipantes: number;
     descricao: string;
     linkinscricao: string;
     nomecompleto:string;
@@ -104,6 +104,7 @@ export class EventoSubmit implements AfterViewInit, OnInit  {
     nextTab(index:number)
     {
        this.activeIndex= index;
+       this.verifyAvailability(this.periodos);
     }
 
     priorTab(index:number)
@@ -111,18 +112,16 @@ export class EventoSubmit implements AfterViewInit, OnInit  {
        this.activeIndex = index-1;
     }
 
-     verifyAvailability( periodos: any[]):boolean
+   async verifyAvailability( periodos: any[]):Promise<void>
     {
+       this.showDialogAtencao= false;
        this.diasEvento = '';
-       this.mensagem= '';
-       //for (const  p: any  in periodos) 
-        for (const  p of periodos)
+       
+        for await (const p of periodos)
        {
-        console.log(p.data)
-            let data : Date =new Date(p.data);   
             let url = environment.routes.eventoSebraeLab.alocacao+
                     `?Data=${p.data}&horainicio=${p.horaInicio}&horafinal=${p.horaFim}`;
- 
+
             this.http.get( environment.services.api, url).then( 
             (disponivel:boolean) =>
             {
@@ -130,35 +129,22 @@ export class EventoSubmit implements AfterViewInit, OnInit  {
                 {
                     this.mensagem=`Não é possível reservar o evento nesta data e hora ( ${p.data} - ${p.horaInicio} - ${p.horaFim} ) `                      
                     this.showWarn(this.mensagem);
+                } else {
+                    this.mensagem = '';
                 }
-            })
-            
-        }
-
-        if (this.mensagem=='')
-        {
-            return true
-        }
-        else
-        {
-            return false
-        }
-            
+            })            
+       }      
     }
 
     send()
     {
-       if (this.verifyAvailability(this.periodos) ==true)
-       {
-        this.periodos.forEach( p=> {
+        this.verifyAvailability(this.periodos).finally( ()=>{
 
-            this.diasEvento = this.diasEvento +` ${p.data} de ${p.horaInicio} a ${p.horaFim} %0D%0A`;
-
-        })
-
-
-let _body = 
-`Tipo de evento: ${this.tipoEvento.name} %0D%0A
+            if ( this.mensagem=='' )
+            {
+               this.periodos.forEach( p=> {this.diasEvento = this.diasEvento +` ${p.data} de ${p.horaInicio} a ${p.horaFim} %0D%0A`; })
+     
+let _body = `Tipo de evento: ${this.tipoEvento.name} %0D%0A
 Titulo do Evento: ${this.nomeEvento}%0D%0A
 Vagas: ${this.numeroParticipantes} %0D%0A
 Link inscrição: ${this.linkinscricao} %0D%0A
@@ -166,12 +152,16 @@ Nome : ${this.nomecompleto} %0D%0A
 Email: ${this.email} %0D%0A
 Instituição: ${this.instituicao} %0D%0A
 Descrição: ${this.descricao} %0D%0A %0D%0A
-Período: %0D%0A 
-${this.diasEvento}
-                `;
-                
-            window.open(`mailto:?subject=${"Reservar: "+this.nomeEvento}&body=${_body}&to=sebraeLab@es.sebrae.com.br`, "_blank")
-        }  
+Período: %0D%0A
+${this.diasEvento}`;
+     
+                  window.open(`mailto:?subject=${"Reservar: "+this.nomeEvento}&body=${_body}&to=sebraeLab@es.sebrae.com.br`, "_blank")
+             
+            }  
+
+        })
+
+
             
  }
 

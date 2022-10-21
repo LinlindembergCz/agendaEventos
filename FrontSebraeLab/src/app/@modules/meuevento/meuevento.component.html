@@ -1,6 +1,11 @@
   
 <app-header></app-header> 
 <img src="assets/banners/banner_meuevento.png" width="100%">
+
+<div class="frameAvisoEnvio">
+    
+    <img src="assets/imgs/star.png"><label>Após o envio, avaliaremos e enviaremos a confirmação ao seu e-mail informado.</label>
+</div>
 <div class="Rectangle1059">
     <div class="frameCalendar">
         <app-calendario-edit (clickSelect)="selectDate($event)"></app-calendario-edit>
@@ -12,7 +17,7 @@
         <app-evento-submit [periodos]="selectedPeriodos"></app-evento-submit>
     </div>       
 </div>
-<div class="frameFuncionamento">
+<div class="frameFuncionamento" >
     <app-funcionamento-show></app-funcionamento-show>
     <app-footer></app-footer>
 </div>
