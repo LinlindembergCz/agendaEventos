@@ -16,8 +16,7 @@ namespace SebraeLab.Evento.App.Services
         private readonly IEventoSebraeLabRepository _repository;
         private readonly IMapper _mapper;
         public EventoSebraeLabAppService(IEventoSebraeLabRepository repository,
-                                 IMapper mapper
-                             )
+                                         IMapper mapper )
         {
             _repository = repository;
             _mapper = mapper;
@@ -34,9 +33,9 @@ namespace SebraeLab.Evento.App.Services
         {
             return _mapper.Map<List<EventoSebraeLabViewModel>>(await _repository.Search(value, onlypublished));
         }
-        public async  Task<bool> Alocados(string Data, string horainicio, string horafinal, string id)
+        public async  Task<bool> Available(string Data, string horainicio, string horafinal, string id)
         {
-            return await _repository.Alocados( Data,  horainicio,  horafinal, id);
+            return await _repository.Available( Data,  horainicio,  horafinal, id);
         }
         private void verifyAvailable(EventoSebraeLabViewModel eventosebraelabViewModel, string id = "")
         {
@@ -44,11 +43,10 @@ namespace SebraeLab.Evento.App.Services
             {
                 eventosebraelabViewModel.Dias.ForEach(d =>
                 {
-                    if (_repository.Alocados(d.Data?.ToString("yyyy/MM/dd"),
+                    if (!_repository.Available(d.Data?.ToString("yyyy/MM/dd"),
                                              d.Horainicio,
                                              d.Horafim,
                                              id).Result == true)
-
                     {
                         throw new NotImplementedException($"Já existe EVENTO agendado para está data {d.Data?.ToString("dd/MM/yyyy")} - {d.Horainicio} - {d.Horafim} ");
                     }
@@ -76,12 +74,9 @@ namespace SebraeLab.Evento.App.Services
             if (eventosebraelabViewModel.EhValido())
             { 
                 verifyAvailable(eventosebraelabViewModel, eventosebraelabViewModel.Id.ToString() );
-
                 var evento = _mapper.Map<EventoSebraeLab>(eventosebraelabViewModel);
                 _repository.Update(evento);
-
                 _repository.UnitOfWork.Commit();
-
                 return true;
             }
             else

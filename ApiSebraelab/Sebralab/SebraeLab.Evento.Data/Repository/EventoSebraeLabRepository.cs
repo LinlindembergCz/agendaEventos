@@ -46,13 +46,15 @@ namespace SebraeLab.Evento.Data.Repository
                 .AsNoTracking().ToListAsync();
         }
 
-        public async  Task<bool> Alocados(string? Data, string? horainicio, string horafinal, string id)
+        public async  Task<bool> Available(string? Data, string? horainicio, string horafinal, string id)
         {
             var con = _context.Database.GetDbConnection();
             try
             {              
                 con.Open();
                 var cmd = con.CreateCommand();
+
+                Data = DateTime.Parse(Data).ToString("yyyy/MM/dd");
 
                 string Datainicial = Data + " 00:00:00";
                 string Datafinal = Data + " 23:59:59";
@@ -67,7 +69,7 @@ namespace SebraeLab.Evento.Data.Repository
 
                 DbDataReader rdr = await cmd.ExecuteReaderAsync(CommandBehavior.SequentialAccess);
                 await rdr.ReadAsync();
-                return rdr.GetInt32(0) > 0;
+                return rdr.GetInt32(0) == 0;
             }
             finally
             {

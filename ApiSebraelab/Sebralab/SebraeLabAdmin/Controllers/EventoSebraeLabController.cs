@@ -48,11 +48,6 @@ namespace SebraeLabAdmin.Controllers
         public async Task<ActionResult<IEnumerable<EventoSebraeLabViewModel>>> Search([FromQuery] string value) =>
         await _serviceEventoSebraeLab.Search(value);
 
-        [HttpGet("Alocacao")]
-        [AllowAnonymous]
-        public async Task<ActionResult<bool>> Shedulle([FromQuery] string Data, string horainicio, string horafinal) =>
-        await _serviceEventoSebraeLab.Alocados( Data,  horainicio,  horafinal);
-
        // POST api/<EventoSebraeLabController>
         [HttpPost]
         [AllowAnonymous]

@@ -8,7 +8,7 @@ namespace SebraeLab.Evento.Data.Repository
         Task<List<EventoSebraeLab>> GetAll(bool onlypublished = false);      
         Task<EventoSebraeLab> GetById(Guid id);
         Task<List<EventoSebraeLab>> Search(string value, bool onlypublished = false);
-        Task<bool> Alocados(string Data, string horainicio, string horafinal, string id);
+        Task<bool> Available(string Data, string horainicio, string horafinal, string id);
         void Add(EventoSebraeLab evento);
         void Update(EventoSebraeLab evento);
     }

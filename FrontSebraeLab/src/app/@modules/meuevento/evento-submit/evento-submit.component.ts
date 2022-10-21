@@ -16,8 +16,19 @@ interface TipoEvento {
   })
 export class EventoSubmit implements AfterViewInit, OnInit  {
 
+    showDialogErro: boolean = false;
+    messageDialogErro: string ='';
+    showDialogSucesso: boolean = false;
+    messageDialogSucesso: string ='';
+    showDialogAtencao: boolean = false;
+    messageDialogAtencao: string ='';
+
+
     loadAllTabs:boolean = false;
     activeIndex:number=0;
+
+    mensagem: string;
+    diasEvento: string = '';
 
     events: any[];
     tiposEnvento:TipoEvento[];
@@ -66,6 +77,24 @@ export class EventoSubmit implements AfterViewInit, OnInit  {
                     }
                   })
     }
+
+    showSuccess(msg: string ) {
+        this.showDialogSucesso = false
+        this.messageDialogSucesso = msg;
+        this.showDialogSucesso = true;
+     }
+    
+       showError(msg: string ) {
+        this.showDialogErro = false
+        this.messageDialogErro = msg;
+        this.showDialogErro = true;
+     }
+    
+      showWarn(msg: string ) {
+        this.showDialogAtencao = false
+        this.messageDialogAtencao = msg;
+        this.showDialogAtencao = true;
+      }
     
     onTabOpen(e:any)
     {
@@ -82,16 +111,53 @@ export class EventoSubmit implements AfterViewInit, OnInit  {
        this.activeIndex = index-1;
     }
 
+     verifyAvailability( periodos: any[]):boolean
+    {
+       this.diasEvento = '';
+       this.mensagem= '';
+       //for (const  p: any  in periodos) 
+        for (const  p of periodos)
+       {
+        console.log(p.data)
+            let data : Date =new Date(p.data);   
+            let url = environment.routes.eventoSebraeLab.alocacao+
+                    `?Data=${p.data}&horainicio=${p.horaInicio}&horafinal=${p.horaFim}`;
+ 
+            this.http.get( environment.services.api, url).then( 
+            (disponivel:boolean) =>
+            {
+                if (!disponivel)                      
+                {
+                    this.mensagem=`Não é possível reservar o evento nesta data e hora ( ${p.data} - ${p.horaInicio} - ${p.horaFim} ) `                      
+                    this.showWarn(this.mensagem);
+                }
+            })
+            
+        }
+
+        if (this.mensagem=='')
+        {
+            return true
+        }
+        else
+        {
+            return false
+        }
+            
+    }
+
     send()
     {
-       let DiasEvento: string = '';
+       if (this.verifyAvailability(this.periodos) ==true)
+       {
+        this.periodos.forEach( p=> {
 
-       this.periodos.forEach( p=>{  
-          DiasEvento = DiasEvento +` ${p.data} de ${p.horaInicio} a ${p.horaFim} %0D%0A`; 
+            this.diasEvento = this.diasEvento +` ${p.data} de ${p.horaInicio} a ${p.horaFim} %0D%0A`;
 
-       })
+        })
 
-       var _body = 
+
+let _body = 
 `Tipo de evento: ${this.tipoEvento.name} %0D%0A
 Titulo do Evento: ${this.nomeEvento}%0D%0A
 Vagas: ${this.numeroParticipantes} %0D%0A
@@ -101,12 +167,13 @@ Email: ${this.email} %0D%0A
 Instituição: ${this.instituicao} %0D%0A
 Descrição: ${this.descricao} %0D%0A %0D%0A
 Período: %0D%0A 
-${DiasEvento}
-`;
-
-    window.open(`mailto:?subject=${"Reservar: "+this.nomeEvento}&body=${_body}&to=sebraeLab@es.sebrae.com.br`, "_blank")
-
-    }
+${this.diasEvento}
+                `;
+                
+            window.open(`mailto:?subject=${"Reservar: "+this.nomeEvento}&body=${_body}&to=sebraeLab@es.sebrae.com.br`, "_blank")
+        }  
+            
+ }
 
 
 

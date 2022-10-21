@@ -53,7 +53,6 @@ export class CalendarioEditComponent implements AfterViewInit, OnInit {
                                                     this.eventBooking.HoursStart.push(HoraInicioArray[i]);
                                                     this.eventBooking.HoursEnd.push(HoraFimArray[i]);                                                
                                                     this.selectDate(date);  
-
                                                     i++;
                                                   })
                    
@@ -73,12 +72,12 @@ export class CalendarioEditComponent implements AfterViewInit, OnInit {
       d =>{  
               this.periodos.push(
                                   {
-                                      index: i, 
-                                      name:'periodo'+i, 
-                                      data:d.toLocaleDateString(), 
-                                      horaInicio:this.eventBooking.HoursStart[i], 
-                                      horaFim:this.eventBooking.HoursEnd[i],
-                                      option: this.eventBooking.Options[i]
+                                    index: i, 
+                                    name:'periodo'+i, 
+                                    data:d.toLocaleDateString(), 
+                                    horaInicio:this.eventBooking.HoursStart[i], 
+                                    horaFim:this.eventBooking.HoursEnd[i],
+                                    option: this.eventBooking.Options[i]
                                   }
                                 );
               i=i+1;
