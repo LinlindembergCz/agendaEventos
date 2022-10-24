@@ -1,22 +1,24 @@
-.frameMain{display: flex;
+.frameMain{ display: flex;
+    //border: 1px solid;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 0px 0px 32px;
-    gap: 32px;    
-    width: 1440px;
+    gap: 32px;  
+    width: 100%;
     height: 258px;    
-    /* Cores da Marca/Tipografia/Preto */
-    background: #263746;    
+    background: #263746; 
+    position: absolute;
 }
 
 .frameCenter{/* Auto layout */
+    
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 0px;
     gap: 40px;    
-    width: 1093px;
+    width: 100%;
     height: 137.61px;   
     /* Inside auto layout */
     flex: none;
@@ -46,7 +48,7 @@
     align-items: center;
     padding: 0px;
     gap: 631px;    
-    width: 1093px;
+    width: 100%;
     height: 24px;   
     /* Inside auto layout */
     flex: none;
@@ -79,22 +81,16 @@
     background: #FFFFFF;
     opacity: 0.2;
     
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
     flex-grow: 0;
 }
 
-.lineTop{width: 1440px;
+.lineTop{width: 100%;
     height: 1px;
-    
+    position: absolute;
     /* Default / White */
     background: #FFFFFF;
     opacity: 0.2;
     
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
     align-self: stretch;
     flex-grow: 0;
 }

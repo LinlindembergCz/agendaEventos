@@ -9,6 +9,7 @@ import { MeuEventoComponent } from './@modules/meuevento/meuevento.component';
 import { QuemSomosComponent } from './@modules/quemsomos/quemsomos.component';
 import { PublicacaoViewComponent } from './@modules/conteudo/publicacao-view/publicacao-view.component';
 import { EventoViewComponent } from './@modules/eventos/evento-view/evento-view.component';
+import { NewsLetterComponent } from './@modules/conteudo/newsletter/newsletter.component';
 
 
 const routes: Routes = [
@@ -61,6 +62,8 @@ const routes: Routes = [
     component: EventoViewComponent,
     loadChildren: () => import('./@modules/eventos/evento-view/evento-view.module').then(m => m.EventoViewModule)
   },
+
+  
   {
     path: 'user',
     component: LayoutComponent,

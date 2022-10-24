@@ -19,7 +19,7 @@ import { NgPrimeExportsModule } from 'src/app/@bootstrap/scripts/ngprime.exports
     NgxCaptchaModule,
     NgPrimeExportsModule, 
     FooterModule,
-    HeaderModule,
+    //HeaderModule,
     
  
 

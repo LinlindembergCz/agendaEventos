@@ -20,30 +20,19 @@ import { DialogModule } from 'primeng/dialog';
 import { RadioButtonModule} from 'primeng/radiobutton';
 import { ContatoComponent } from './contato.component';
 import { BannersShowModule } from '../home/banners-show/banners-show.module';
+import { NgPrimeExportsModule } from 'src/app/@bootstrap/scripts/ngprime.exports';
 
 @NgModule({
   declarations: [ContatoComponent
     ],
   imports: [
-    BannersShowModule,
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     NgxCaptchaModule,
-    CardModule,
-    RatingModule,
-    FieldsetModule,
-    DataViewModule,
-    ButtonModule,
-    DividerModule,
-    CalendarModule,
-    InputTextModule,
-    InputNumberModule,
-    InputMaskModule, 
-    FooterModule,
+    NgPrimeExportsModule, 
     HeaderModule,
-    DialogModule,
-    RadioButtonModule
+  
     
   ],
   providers: []

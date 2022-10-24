@@ -42,11 +42,11 @@ export class FullCalendarioShowComponent implements OnInit {
     ){}   
 
   ngOnInit(): void {   
-    this.loadTipoEventos();      
-
-    this.loadDiasBloqueados();
-
-    this.loadEventos();     
+    this.loadTipoEventos().then ( ()=> {
+      this.loadDiasBloqueados().then( ()=>{
+           this.loadEventos(); 
+      })         
+ }) 
   }
 
   ShowNovoEvento()
@@ -54,19 +54,20 @@ export class FullCalendarioShowComponent implements OnInit {
     this.router.navigate(['/novoevento']);
   }
 
-  loadTipoEventos()
+  loadTipoEventos():Promise<any> 
   {
-    this.http.get<any>("../../../assets/data", "tipoEventos.json").
+    return this.http.get<any>("../../../assets/data", "tipoEventos.json").
     then(x => { this.tiposEvento = x; }); 
   }
 
-  loadDiasBloqueados()
+  loadDiasBloqueados():Promise<any> 
   {
-    this.http.get<any[]>(environment.services.api,environment.routes.eventoSebraeLab.diasBloqueados).
+    return this.http.get<any[]>(environment.services.api,environment.routes.eventoSebraeLab.diasBloqueados).
     then(x=>{
       this.diasBloqueados = []
       //this.motivoBloqueio = x.motivo;
-      x.forEach(d=> {                       
+      x.forEach(d=> {                  
+                      console.log(d.data)     
                        this.diasBloqueados.push(new Date(d.data))                       
                     })
       });
@@ -80,6 +81,7 @@ export class FullCalendarioShowComponent implements OnInit {
 
 
     this.diasBloqueados.forEach((d: Date)=>{ 
+      console.log(d)
       eventos.push( {title: 'Bloqueado',date: d.toISOString().slice(0, 10),color: "gray"}) 
     });    
 
@@ -107,6 +109,7 @@ export class FullCalendarioShowComponent implements OnInit {
                               locale:['pt-BR'],
                               events: eventos,                  
                               };
+            
             }
           )
   }

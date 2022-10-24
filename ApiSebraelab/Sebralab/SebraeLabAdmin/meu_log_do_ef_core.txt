@@ -420,3 +420,1115 @@ info: 19/10/2022 19:47:52.203 RelationalEventId.CommandExecuted[20101] (Microsof
       Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
       SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
       FROM [EventosSebraeLab] AS [e]
+warn: 24/10/2022 18:14:20.591 CoreEventId.SensitiveDataLoggingEnabledWarning[10400] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Sensitive data logging is enabled. Log entries and exception messages may include sensitive application data; this mode should only be enabled during development.
+info: 24/10/2022 18:14:20.597 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'ConteudoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:14:20.606 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:14:20.718 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (32ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [c].[Id], [c].[Ativo], [c].[Datacadastro], [c].[Datapublicacao], [c].[Descricao], [c].[Legenda], [c].[Linkredirecionamento], [c].[Personalizadoativado], [c].[Status], [c].[Subtitulo], [c].[Tipopublicacao], [c].[Titulo], [c].[Titulobotao], [c].[Titulochamada]
+      FROM [ConteudosSebraeLab] AS [c]
+      WHERE [c].[Ativo] = CAST(1 AS bit)
+info: 24/10/2022 18:14:20.792 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:14:30.124 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:14:30.182 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (6ms) [Parameters=[@__id_0='ba15b2f9-c938-48f3-c7d5-08daad55590c'], CommandType='Text', CommandTimeout='5']
+      SELECT [t].[Id], [t].[Contato], [t].[Datacadastro], [t].[Descricaoevento], [t].[Email], [t].[Imagempersonalida], [t].[Instituicao], [t].[Linksparainscricao], [t].[Nomecompleto], [t].[Numeroparticipantes], [t].[Publicaosite], [t].[Status], [t].[Subtitulo], [t].[Tipoevento], [t].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM (
+          SELECT TOP(1) [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo]
+          FROM [EventosSebraeLab] AS [e]
+          WHERE [e].[Id] = @__id_0
+      ) AS [t]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [t].[Id] = [d].[Eventoid]
+      ORDER BY [t].[Id]
+info: 24/10/2022 18:14:35.040 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:14:35.049 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[@__id_0='ba15b2f9-c938-48f3-c7d5-08daad55590c'], CommandType='Text', CommandTimeout='5']
+      SELECT [t].[Id], [t].[Contato], [t].[Datacadastro], [t].[Descricaoevento], [t].[Email], [t].[Imagempersonalida], [t].[Instituicao], [t].[Linksparainscricao], [t].[Nomecompleto], [t].[Numeroparticipantes], [t].[Publicaosite], [t].[Status], [t].[Subtitulo], [t].[Tipoevento], [t].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM (
+          SELECT TOP(1) [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo]
+          FROM [EventosSebraeLab] AS [e]
+          WHERE [e].[Id] = @__id_0
+      ) AS [t]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [t].[Id] = [d].[Eventoid]
+      ORDER BY [t].[Id]
+info: 24/10/2022 18:14:38.614 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:14:38.618 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'ConteudoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:14:38.631 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [c].[Id], [c].[Ativo], [c].[Datacadastro], [c].[Datapublicacao], [c].[Descricao], [c].[Legenda], [c].[Linkredirecionamento], [c].[Personalizadoativado], [c].[Status], [c].[Subtitulo], [c].[Tipopublicacao], [c].[Titulo], [c].[Titulobotao], [c].[Titulochamada]
+      FROM [ConteudosSebraeLab] AS [c]
+      WHERE [c].[Ativo] = CAST(1 AS bit)
+info: 24/10/2022 18:14:38.660 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:14:40.684 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:14:40.699 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (5ms) [Parameters=[@__id_0='6b6b7be2-16a8-4e42-3add-08daaf92ea14'], CommandType='Text', CommandTimeout='5']
+      SELECT [t].[Id], [t].[Contato], [t].[Datacadastro], [t].[Descricaoevento], [t].[Email], [t].[Imagempersonalida], [t].[Instituicao], [t].[Linksparainscricao], [t].[Nomecompleto], [t].[Numeroparticipantes], [t].[Publicaosite], [t].[Status], [t].[Subtitulo], [t].[Tipoevento], [t].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM (
+          SELECT TOP(1) [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo]
+          FROM [EventosSebraeLab] AS [e]
+          WHERE [e].[Id] = @__id_0
+      ) AS [t]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [t].[Id] = [d].[Eventoid]
+      ORDER BY [t].[Id]
+info: 24/10/2022 18:14:55.000 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:14:55.010 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[@__id_0='6b6b7be2-16a8-4e42-3add-08daaf92ea14'], CommandType='Text', CommandTimeout='5']
+      SELECT [t].[Id], [t].[Contato], [t].[Datacadastro], [t].[Descricaoevento], [t].[Email], [t].[Imagempersonalida], [t].[Instituicao], [t].[Linksparainscricao], [t].[Nomecompleto], [t].[Numeroparticipantes], [t].[Publicaosite], [t].[Status], [t].[Subtitulo], [t].[Tipoevento], [t].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM (
+          SELECT TOP(1) [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo]
+          FROM [EventosSebraeLab] AS [e]
+          WHERE [e].[Id] = @__id_0
+      ) AS [t]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [t].[Id] = [d].[Eventoid]
+      ORDER BY [t].[Id]
+info: 24/10/2022 18:15:01.173 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:01.440 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (7ms) [Parameters=[@p6='18e723ed-cd74-4deb-a400-e18a1bc28a52', @p0='2022-10-20T18:00:00.0000000Z' (Nullable = true), @p1='6b6b7be2-16a8-4e42-3add-08daaf92ea14', @p2='10:00' (Size = 4000), @p3='08:00' (Size = 4000), @p4='"\"[\\\"Manhã\\\"]\""' (Size = 4000), @p5=NULL (Size = 4000)], CommandType='Text', CommandTimeout='5']
+      SET NOCOUNT ON;
+      UPDATE [DiasEventoSebraeLab] SET [Data] = @p0, [Eventoid] = @p1, [Horafim] = @p2, [Horainicio] = @p3, [Option] = @p4, [Status] = @p5
+      WHERE [Id] = @p6;
+      SELECT @@ROWCOUNT;
+info: 24/10/2022 18:15:01.457 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (5ms) [Parameters=[@p13='6b6b7be2-16a8-4e42-3add-08daaf92ea14', @p0='teste 2' (Size = 4000), @p1='<p>teste 2</p>' (Size = 4000), @p2='teste2@gmail.com' (Size = 4000), @p3='True' (Nullable = true), @p4='teste 2' (Size = 4000), @p5='https://www.sebrae.com.br/sites/PortalSebrae/' (Size = 4000), @p6='teste 2' (Size = 4000), @p7='1' (Nullable = true), @p8='True' (Nullable = true), @p9='P' (Size = 1), @p10='teste 2' (Size = 4000), @p11='Palestra' (Size = 4000), @p12='teste 2 teste de log' (Size = 4000)], CommandType='Text', CommandTimeout='5']
+      SET NOCOUNT ON;
+      UPDATE [EventosSebraeLab] SET [Contato] = @p0, [Descricaoevento] = @p1, [Email] = @p2, [Imagempersonalida] = @p3, [Instituicao] = @p4, [Linksparainscricao] = @p5, [Nomecompleto] = @p6, [Numeroparticipantes] = @p7, [Publicaosite] = @p8, [Status] = @p9, [Subtitulo] = @p10, [Tipoevento] = @p11, [Titulo] = @p12
+      WHERE [Id] = @p13;
+      SELECT @@ROWCOUNT;
+info: 24/10/2022 18:15:01.547 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:01.550 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:01.557 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:15:01.560 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:15:04.078 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:04.086 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[@__id_0='5bb877dc-bef3-41fd-04df-08dab1317628'], CommandType='Text', CommandTimeout='5']
+      SELECT [t].[Id], [t].[Contato], [t].[Datacadastro], [t].[Descricaoevento], [t].[Email], [t].[Imagempersonalida], [t].[Instituicao], [t].[Linksparainscricao], [t].[Nomecompleto], [t].[Numeroparticipantes], [t].[Publicaosite], [t].[Status], [t].[Subtitulo], [t].[Tipoevento], [t].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM (
+          SELECT TOP(1) [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo]
+          FROM [EventosSebraeLab] AS [e]
+          WHERE [e].[Id] = @__id_0
+      ) AS [t]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [t].[Id] = [d].[Eventoid]
+      ORDER BY [t].[Id]
+info: 24/10/2022 18:15:14.668 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:14.685 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[@p6='d2e23010-130a-46bf-b37e-67ad1f569319', @p0='2022-10-18T06:00:00.0000000Z' (Nullable = true), @p1='5bb877dc-bef3-41fd-04df-08dab1317628', @p2='18:00' (Size = 4000), @p3='13:00' (Size = 4000), @p4='"[\"Tarde\"]"' (Size = 4000), @p5=NULL (Size = 4000)], CommandType='Text', CommandTimeout='5']
+      SET NOCOUNT ON;
+      UPDATE [DiasEventoSebraeLab] SET [Data] = @p0, [Eventoid] = @p1, [Horafim] = @p2, [Horainicio] = @p3, [Option] = @p4, [Status] = @p5
+      WHERE [Id] = @p6;
+      SELECT @@ROWCOUNT;
+info: 24/10/2022 18:15:14.689 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[@p13='5bb877dc-bef3-41fd-04df-08dab1317628', @p0='teste' (Size = 4000), @p1='<p>teste</p>' (Size = 4000), @p2='teste@gmail.com' (Size = 4000), @p3='True' (Nullable = true), @p4='teste' (Size = 4000), @p5='teste' (Size = 4000), @p6='teste' (Size = 4000), @p7='1' (Nullable = true), @p8='False' (Nullable = true), @p9='R' (Size = 1), @p10='teste 4' (Size = 4000), @p11='Palestra' (Size = 4000), @p12='teste 4' (Size = 4000)], CommandType='Text', CommandTimeout='5']
+      SET NOCOUNT ON;
+      UPDATE [EventosSebraeLab] SET [Contato] = @p0, [Descricaoevento] = @p1, [Email] = @p2, [Imagempersonalida] = @p3, [Instituicao] = @p4, [Linksparainscricao] = @p5, [Nomecompleto] = @p6, [Numeroparticipantes] = @p7, [Publicaosite] = @p8, [Status] = @p9, [Subtitulo] = @p10, [Tipoevento] = @p11, [Titulo] = @p12
+      WHERE [Id] = @p13;
+      SELECT @@ROWCOUNT;
+info: 24/10/2022 18:15:14.717 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:14.726 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:14.728 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:15:14.746 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:15:16.602 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:16.618 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (9ms) [Parameters=[@__id_0='5bb877dc-bef3-41fd-04df-08dab1317628'], CommandType='Text', CommandTimeout='5']
+      SELECT [t].[Id], [t].[Contato], [t].[Datacadastro], [t].[Descricaoevento], [t].[Email], [t].[Imagempersonalida], [t].[Instituicao], [t].[Linksparainscricao], [t].[Nomecompleto], [t].[Numeroparticipantes], [t].[Publicaosite], [t].[Status], [t].[Subtitulo], [t].[Tipoevento], [t].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM (
+          SELECT TOP(1) [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo]
+          FROM [EventosSebraeLab] AS [e]
+          WHERE [e].[Id] = @__id_0
+      ) AS [t]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [t].[Id] = [d].[Eventoid]
+      ORDER BY [t].[Id]
+info: 24/10/2022 18:15:19.481 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:19.489 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (5ms) [Parameters=[@__id_0='5bb877dc-bef3-41fd-04df-08dab1317628'], CommandType='Text', CommandTimeout='5']
+      SELECT [t].[Id], [t].[Contato], [t].[Datacadastro], [t].[Descricaoevento], [t].[Email], [t].[Imagempersonalida], [t].[Instituicao], [t].[Linksparainscricao], [t].[Nomecompleto], [t].[Numeroparticipantes], [t].[Publicaosite], [t].[Status], [t].[Subtitulo], [t].[Tipoevento], [t].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM (
+          SELECT TOP(1) [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo]
+          FROM [EventosSebraeLab] AS [e]
+          WHERE [e].[Id] = @__id_0
+      ) AS [t]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [t].[Id] = [d].[Eventoid]
+      ORDER BY [t].[Id]
+info: 24/10/2022 18:15:21.976 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:21.992 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (6ms) [Parameters=[@__id_0='5bb877dc-bef3-41fd-04df-08dab1317628'], CommandType='Text', CommandTimeout='5']
+      SELECT [t].[Id], [t].[Contato], [t].[Datacadastro], [t].[Descricaoevento], [t].[Email], [t].[Imagempersonalida], [t].[Instituicao], [t].[Linksparainscricao], [t].[Nomecompleto], [t].[Numeroparticipantes], [t].[Publicaosite], [t].[Status], [t].[Subtitulo], [t].[Tipoevento], [t].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM (
+          SELECT TOP(1) [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo]
+          FROM [EventosSebraeLab] AS [e]
+          WHERE [e].[Id] = @__id_0
+      ) AS [t]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [t].[Id] = [d].[Eventoid]
+      ORDER BY [t].[Id]
+info: 24/10/2022 18:15:24.192 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:24.203 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[@p6='d2e23010-130a-46bf-b37e-67ad1f569319', @p0='2022-10-18T09:00:00.0000000Z' (Nullable = true), @p1='5bb877dc-bef3-41fd-04df-08dab1317628', @p2='18:00' (Size = 4000), @p3='13:00' (Size = 4000), @p4='"[\"Tarde\"]"' (Size = 4000), @p5=NULL (Size = 4000)], CommandType='Text', CommandTimeout='5']
+      SET NOCOUNT ON;
+      UPDATE [DiasEventoSebraeLab] SET [Data] = @p0, [Eventoid] = @p1, [Horafim] = @p2, [Horainicio] = @p3, [Option] = @p4, [Status] = @p5
+      WHERE [Id] = @p6;
+      SELECT @@ROWCOUNT;
+info: 24/10/2022 18:15:24.207 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[@p13='5bb877dc-bef3-41fd-04df-08dab1317628', @p0='teste' (Size = 4000), @p1='<p>teste</p>' (Size = 4000), @p2='teste@gmail.com' (Size = 4000), @p3='True' (Nullable = true), @p4='teste' (Size = 4000), @p5='teste' (Size = 4000), @p6='teste' (Size = 4000), @p7='1' (Nullable = true), @p8='True' (Nullable = true), @p9='R' (Size = 1), @p10='teste 4' (Size = 4000), @p11='Palestra' (Size = 4000), @p12='teste 4' (Size = 4000)], CommandType='Text', CommandTimeout='5']
+      SET NOCOUNT ON;
+      UPDATE [EventosSebraeLab] SET [Contato] = @p0, [Descricaoevento] = @p1, [Email] = @p2, [Imagempersonalida] = @p3, [Instituicao] = @p4, [Linksparainscricao] = @p5, [Nomecompleto] = @p6, [Numeroparticipantes] = @p7, [Publicaosite] = @p8, [Status] = @p9, [Subtitulo] = @p10, [Tipoevento] = @p11, [Titulo] = @p12
+      WHERE [Id] = @p13;
+      SELECT @@ROWCOUNT;
+info: 24/10/2022 18:15:24.232 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:24.243 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:15:24.248 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:24.255 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:15:25.360 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:25.373 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (6ms) [Parameters=[@__id_0='5bb877dc-bef3-41fd-04df-08dab1317628'], CommandType='Text', CommandTimeout='5']
+      SELECT [t].[Id], [t].[Contato], [t].[Datacadastro], [t].[Descricaoevento], [t].[Email], [t].[Imagempersonalida], [t].[Instituicao], [t].[Linksparainscricao], [t].[Nomecompleto], [t].[Numeroparticipantes], [t].[Publicaosite], [t].[Status], [t].[Subtitulo], [t].[Tipoevento], [t].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM (
+          SELECT TOP(1) [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo]
+          FROM [EventosSebraeLab] AS [e]
+          WHERE [e].[Id] = @__id_0
+      ) AS [t]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [t].[Id] = [d].[Eventoid]
+      ORDER BY [t].[Id]
+info: 24/10/2022 18:15:27.368 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:27.381 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (8ms) [Parameters=[@__id_0='5bb877dc-bef3-41fd-04df-08dab1317628'], CommandType='Text', CommandTimeout='5']
+      SELECT [t].[Id], [t].[Contato], [t].[Datacadastro], [t].[Descricaoevento], [t].[Email], [t].[Imagempersonalida], [t].[Instituicao], [t].[Linksparainscricao], [t].[Nomecompleto], [t].[Numeroparticipantes], [t].[Publicaosite], [t].[Status], [t].[Subtitulo], [t].[Tipoevento], [t].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM (
+          SELECT TOP(1) [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo]
+          FROM [EventosSebraeLab] AS [e]
+          WHERE [e].[Id] = @__id_0
+      ) AS [t]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [t].[Id] = [d].[Eventoid]
+      ORDER BY [t].[Id]
+info: 24/10/2022 18:15:29.380 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:29.386 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[@__id_0='5bb877dc-bef3-41fd-04df-08dab1317628'], CommandType='Text', CommandTimeout='5']
+      SELECT [t].[Id], [t].[Contato], [t].[Datacadastro], [t].[Descricaoevento], [t].[Email], [t].[Imagempersonalida], [t].[Instituicao], [t].[Linksparainscricao], [t].[Nomecompleto], [t].[Numeroparticipantes], [t].[Publicaosite], [t].[Status], [t].[Subtitulo], [t].[Tipoevento], [t].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM (
+          SELECT TOP(1) [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo]
+          FROM [EventosSebraeLab] AS [e]
+          WHERE [e].[Id] = @__id_0
+      ) AS [t]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [t].[Id] = [d].[Eventoid]
+      ORDER BY [t].[Id]
+info: 24/10/2022 18:15:29.397 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[@p6='d2e23010-130a-46bf-b37e-67ad1f569319', @p0='2022-10-18T09:00:00.0000000' (Nullable = true), @p1='5bb877dc-bef3-41fd-04df-08dab1317628', @p2='18:00' (Size = 4000), @p3='13:00' (Size = 4000), @p4='"[\"Tarde\"]"' (Size = 4000), @p5=NULL (Size = 4000)], CommandType='Text', CommandTimeout='5']
+      SET NOCOUNT ON;
+      UPDATE [DiasEventoSebraeLab] SET [Data] = @p0, [Eventoid] = @p1, [Horafim] = @p2, [Horainicio] = @p3, [Option] = @p4, [Status] = @p5
+      WHERE [Id] = @p6;
+      SELECT @@ROWCOUNT;
+info: 24/10/2022 18:15:29.402 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[@p13='5bb877dc-bef3-41fd-04df-08dab1317628', @p0='teste' (Size = 4000), @p1='<p>teste</p>' (Size = 4000), @p2='teste@gmail.com' (Size = 4000), @p3='True' (Nullable = true), @p4='teste' (Size = 4000), @p5='teste' (Size = 4000), @p6='teste' (Size = 4000), @p7='1' (Nullable = true), @p8='True' (Nullable = true), @p9='P' (Size = 1), @p10='teste 4' (Size = 4000), @p11='Palestra' (Size = 4000), @p12='teste 4' (Size = 4000)], CommandType='Text', CommandTimeout='5']
+      SET NOCOUNT ON;
+      UPDATE [EventosSebraeLab] SET [Contato] = @p0, [Descricaoevento] = @p1, [Email] = @p2, [Imagempersonalida] = @p3, [Instituicao] = @p4, [Linksparainscricao] = @p5, [Nomecompleto] = @p6, [Numeroparticipantes] = @p7, [Publicaosite] = @p8, [Status] = @p9, [Subtitulo] = @p10, [Tipoevento] = @p11, [Titulo] = @p12
+      WHERE [Id] = @p13;
+      SELECT @@ROWCOUNT;
+info: 24/10/2022 18:15:29.450 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:29.463 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:29.465 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:15:29.495 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:15:33.701 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:33.710 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[@__id_0='440cf9ff-fb1a-4f65-af2d-08dab1330a6f'], CommandType='Text', CommandTimeout='5']
+      SELECT [t].[Id], [t].[Contato], [t].[Datacadastro], [t].[Descricaoevento], [t].[Email], [t].[Imagempersonalida], [t].[Instituicao], [t].[Linksparainscricao], [t].[Nomecompleto], [t].[Numeroparticipantes], [t].[Publicaosite], [t].[Status], [t].[Subtitulo], [t].[Tipoevento], [t].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM (
+          SELECT TOP(1) [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo]
+          FROM [EventosSebraeLab] AS [e]
+          WHERE [e].[Id] = @__id_0
+      ) AS [t]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [t].[Id] = [d].[Eventoid]
+      ORDER BY [t].[Id]
+info: 24/10/2022 18:15:41.196 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:41.215 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[@p6='65d31e7a-66b4-4c0e-9a52-73d53f809865', @p0='2022-10-19T09:00:00.0000000Z' (Nullable = true), @p1='440cf9ff-fb1a-4f65-af2d-08dab1330a6f', @p2='12:00' (Size = 4000), @p3='08:00' (Size = 4000), @p4='"\"[\\\"Manhã\\\"]\""' (Size = 4000), @p5=NULL (Size = 4000)], CommandType='Text', CommandTimeout='5']
+      SET NOCOUNT ON;
+      UPDATE [DiasEventoSebraeLab] SET [Data] = @p0, [Eventoid] = @p1, [Horafim] = @p2, [Horainicio] = @p3, [Option] = @p4, [Status] = @p5
+      WHERE [Id] = @p6;
+      SELECT @@ROWCOUNT;
+info: 24/10/2022 18:15:41.220 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[@p13='440cf9ff-fb1a-4f65-af2d-08dab1330a6f', @p0='teste' (Size = 4000), @p1='<p>teste</p>' (Size = 4000), @p2='teste@gmail.com' (Size = 4000), @p3='True' (Nullable = true), @p4='teste' (Size = 4000), @p5='' (Size = 4000), @p6='lindemberg cortez' (Size = 4000), @p7='1' (Nullable = true), @p8='False' (Nullable = true), @p9='R' (Size = 1), @p10=NULL (Size = 4000), @p11='Palestra' (Size = 4000), @p12='teste 6 de log' (Size = 4000)], CommandType='Text', CommandTimeout='5']
+      SET NOCOUNT ON;
+      UPDATE [EventosSebraeLab] SET [Contato] = @p0, [Descricaoevento] = @p1, [Email] = @p2, [Imagempersonalida] = @p3, [Instituicao] = @p4, [Linksparainscricao] = @p5, [Nomecompleto] = @p6, [Numeroparticipantes] = @p7, [Publicaosite] = @p8, [Status] = @p9, [Subtitulo] = @p10, [Tipoevento] = @p11, [Titulo] = @p12
+      WHERE [Id] = @p13;
+      SELECT @@ROWCOUNT;
+info: 24/10/2022 18:15:41.262 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:41.267 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:41.271 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:15:41.291 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:15:44.245 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:44.253 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[@__id_0='125900dc-7824-4cb3-1783-08dab1320d68'], CommandType='Text', CommandTimeout='5']
+      SELECT [t].[Id], [t].[Contato], [t].[Datacadastro], [t].[Descricaoevento], [t].[Email], [t].[Imagempersonalida], [t].[Instituicao], [t].[Linksparainscricao], [t].[Nomecompleto], [t].[Numeroparticipantes], [t].[Publicaosite], [t].[Status], [t].[Subtitulo], [t].[Tipoevento], [t].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM (
+          SELECT TOP(1) [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo]
+          FROM [EventosSebraeLab] AS [e]
+          WHERE [e].[Id] = @__id_0
+      ) AS [t]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [t].[Id] = [d].[Eventoid]
+      ORDER BY [t].[Id]
+info: 24/10/2022 18:15:45.235 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:45.243 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:45.250 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:15:45.264 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:15:47.391 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:47.402 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (5ms) [Parameters=[@__id_0='440cf9ff-fb1a-4f65-af2d-08dab1330a6f'], CommandType='Text', CommandTimeout='5']
+      SELECT [t].[Id], [t].[Contato], [t].[Datacadastro], [t].[Descricaoevento], [t].[Email], [t].[Imagempersonalida], [t].[Instituicao], [t].[Linksparainscricao], [t].[Nomecompleto], [t].[Numeroparticipantes], [t].[Publicaosite], [t].[Status], [t].[Subtitulo], [t].[Tipoevento], [t].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM (
+          SELECT TOP(1) [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo]
+          FROM [EventosSebraeLab] AS [e]
+          WHERE [e].[Id] = @__id_0
+      ) AS [t]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [t].[Id] = [d].[Eventoid]
+      ORDER BY [t].[Id]
+info: 24/10/2022 18:15:49.714 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:49.721 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[@__id_0='440cf9ff-fb1a-4f65-af2d-08dab1330a6f'], CommandType='Text', CommandTimeout='5']
+      SELECT [t].[Id], [t].[Contato], [t].[Datacadastro], [t].[Descricaoevento], [t].[Email], [t].[Imagempersonalida], [t].[Instituicao], [t].[Linksparainscricao], [t].[Nomecompleto], [t].[Numeroparticipantes], [t].[Publicaosite], [t].[Status], [t].[Subtitulo], [t].[Tipoevento], [t].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM (
+          SELECT TOP(1) [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo]
+          FROM [EventosSebraeLab] AS [e]
+          WHERE [e].[Id] = @__id_0
+      ) AS [t]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [t].[Id] = [d].[Eventoid]
+      ORDER BY [t].[Id]
+info: 24/10/2022 18:15:50.995 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:51.006 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[@__id_0='440cf9ff-fb1a-4f65-af2d-08dab1330a6f'], CommandType='Text', CommandTimeout='5']
+      SELECT [t].[Id], [t].[Contato], [t].[Datacadastro], [t].[Descricaoevento], [t].[Email], [t].[Imagempersonalida], [t].[Instituicao], [t].[Linksparainscricao], [t].[Nomecompleto], [t].[Numeroparticipantes], [t].[Publicaosite], [t].[Status], [t].[Subtitulo], [t].[Tipoevento], [t].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM (
+          SELECT TOP(1) [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo]
+          FROM [EventosSebraeLab] AS [e]
+          WHERE [e].[Id] = @__id_0
+      ) AS [t]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [t].[Id] = [d].[Eventoid]
+      ORDER BY [t].[Id]
+info: 24/10/2022 18:15:53.383 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:53.392 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[@p6='65d31e7a-66b4-4c0e-9a52-73d53f809865', @p0='2022-10-19T12:00:00.0000000Z' (Nullable = true), @p1='440cf9ff-fb1a-4f65-af2d-08dab1330a6f', @p2='12:00' (Size = 4000), @p3='08:00' (Size = 4000), @p4='"\"[\\\"Manhã\\\"]\""' (Size = 4000), @p5=NULL (Size = 4000)], CommandType='Text', CommandTimeout='5']
+      SET NOCOUNT ON;
+      UPDATE [DiasEventoSebraeLab] SET [Data] = @p0, [Eventoid] = @p1, [Horafim] = @p2, [Horainicio] = @p3, [Option] = @p4, [Status] = @p5
+      WHERE [Id] = @p6;
+      SELECT @@ROWCOUNT;
+info: 24/10/2022 18:15:53.397 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[@p13='440cf9ff-fb1a-4f65-af2d-08dab1330a6f', @p0='teste' (Size = 4000), @p1='<p>teste</p>' (Size = 4000), @p2='teste@gmail.com' (Size = 4000), @p3='True' (Nullable = true), @p4='teste' (Size = 4000), @p5='' (Size = 4000), @p6='lindemberg cortez' (Size = 4000), @p7='1' (Nullable = true), @p8='True' (Nullable = true), @p9='R' (Size = 1), @p10=NULL (Size = 4000), @p11='Palestra' (Size = 4000), @p12='teste 6 de log' (Size = 4000)], CommandType='Text', CommandTimeout='5']
+      SET NOCOUNT ON;
+      UPDATE [EventosSebraeLab] SET [Contato] = @p0, [Descricaoevento] = @p1, [Email] = @p2, [Imagempersonalida] = @p3, [Instituicao] = @p4, [Linksparainscricao] = @p5, [Nomecompleto] = @p6, [Numeroparticipantes] = @p7, [Publicaosite] = @p8, [Status] = @p9, [Subtitulo] = @p10, [Tipoevento] = @p11, [Titulo] = @p12
+      WHERE [Id] = @p13;
+      SELECT @@ROWCOUNT;
+info: 24/10/2022 18:15:53.425 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:53.435 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:53.436 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:15:53.446 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:15:56.112 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:56.130 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[@__id_0='440cf9ff-fb1a-4f65-af2d-08dab1330a6f'], CommandType='Text', CommandTimeout='5']
+      SELECT [t].[Id], [t].[Contato], [t].[Datacadastro], [t].[Descricaoevento], [t].[Email], [t].[Imagempersonalida], [t].[Instituicao], [t].[Linksparainscricao], [t].[Nomecompleto], [t].[Numeroparticipantes], [t].[Publicaosite], [t].[Status], [t].[Subtitulo], [t].[Tipoevento], [t].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM (
+          SELECT TOP(1) [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo]
+          FROM [EventosSebraeLab] AS [e]
+          WHERE [e].[Id] = @__id_0
+      ) AS [t]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [t].[Id] = [d].[Eventoid]
+      ORDER BY [t].[Id]
+info: 24/10/2022 18:15:57.795 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:57.803 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[@__id_0='440cf9ff-fb1a-4f65-af2d-08dab1330a6f'], CommandType='Text', CommandTimeout='5']
+      SELECT [t].[Id], [t].[Contato], [t].[Datacadastro], [t].[Descricaoevento], [t].[Email], [t].[Imagempersonalida], [t].[Instituicao], [t].[Linksparainscricao], [t].[Nomecompleto], [t].[Numeroparticipantes], [t].[Publicaosite], [t].[Status], [t].[Subtitulo], [t].[Tipoevento], [t].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM (
+          SELECT TOP(1) [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo]
+          FROM [EventosSebraeLab] AS [e]
+          WHERE [e].[Id] = @__id_0
+      ) AS [t]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [t].[Id] = [d].[Eventoid]
+      ORDER BY [t].[Id]
+info: 24/10/2022 18:15:59.539 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:59.547 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (5ms) [Parameters=[@__id_0='440cf9ff-fb1a-4f65-af2d-08dab1330a6f'], CommandType='Text', CommandTimeout='5']
+      SELECT [t].[Id], [t].[Contato], [t].[Datacadastro], [t].[Descricaoevento], [t].[Email], [t].[Imagempersonalida], [t].[Instituicao], [t].[Linksparainscricao], [t].[Nomecompleto], [t].[Numeroparticipantes], [t].[Publicaosite], [t].[Status], [t].[Subtitulo], [t].[Tipoevento], [t].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM (
+          SELECT TOP(1) [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo]
+          FROM [EventosSebraeLab] AS [e]
+          WHERE [e].[Id] = @__id_0
+      ) AS [t]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [t].[Id] = [d].[Eventoid]
+      ORDER BY [t].[Id]
+info: 24/10/2022 18:15:59.554 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[@p6='65d31e7a-66b4-4c0e-9a52-73d53f809865', @p0='2022-10-19T12:00:00.0000000' (Nullable = true), @p1='440cf9ff-fb1a-4f65-af2d-08dab1330a6f', @p2='12:00' (Size = 4000), @p3='08:00' (Size = 4000), @p4='"\"[\\\"Manhã\\\"]\""' (Size = 4000), @p5=NULL (Size = 4000)], CommandType='Text', CommandTimeout='5']
+      SET NOCOUNT ON;
+      UPDATE [DiasEventoSebraeLab] SET [Data] = @p0, [Eventoid] = @p1, [Horafim] = @p2, [Horainicio] = @p3, [Option] = @p4, [Status] = @p5
+      WHERE [Id] = @p6;
+      SELECT @@ROWCOUNT;
+info: 24/10/2022 18:15:59.558 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[@p13='440cf9ff-fb1a-4f65-af2d-08dab1330a6f', @p0='teste' (Size = 4000), @p1='<p>teste</p>' (Size = 4000), @p2='teste@gmail.com' (Size = 4000), @p3='True' (Nullable = true), @p4='teste' (Size = 4000), @p5='' (Size = 4000), @p6='lindemberg cortez' (Size = 4000), @p7='1' (Nullable = true), @p8='True' (Nullable = true), @p9='P' (Size = 1), @p10=NULL (Size = 4000), @p11='Palestra' (Size = 4000), @p12='teste 6 de log' (Size = 4000)], CommandType='Text', CommandTimeout='5']
+      SET NOCOUNT ON;
+      UPDATE [EventosSebraeLab] SET [Contato] = @p0, [Descricaoevento] = @p1, [Email] = @p2, [Imagempersonalida] = @p3, [Instituicao] = @p4, [Linksparainscricao] = @p5, [Nomecompleto] = @p6, [Numeroparticipantes] = @p7, [Publicaosite] = @p8, [Status] = @p9, [Subtitulo] = @p10, [Tipoevento] = @p11, [Titulo] = @p12
+      WHERE [Id] = @p13;
+      SELECT @@ROWCOUNT;
+info: 24/10/2022 18:15:59.598 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:59.604 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:15:59.608 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:15:59.634 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (18ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:16:38.371 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:16:38.382 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (5ms) [Parameters=[@__id_0='125900dc-7824-4cb3-1783-08dab1320d68'], CommandType='Text', CommandTimeout='5']
+      SELECT [t].[Id], [t].[Contato], [t].[Datacadastro], [t].[Descricaoevento], [t].[Email], [t].[Imagempersonalida], [t].[Instituicao], [t].[Linksparainscricao], [t].[Nomecompleto], [t].[Numeroparticipantes], [t].[Publicaosite], [t].[Status], [t].[Subtitulo], [t].[Tipoevento], [t].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM (
+          SELECT TOP(1) [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo]
+          FROM [EventosSebraeLab] AS [e]
+          WHERE [e].[Id] = @__id_0
+      ) AS [t]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [t].[Id] = [d].[Eventoid]
+      ORDER BY [t].[Id]
+info: 24/10/2022 18:16:48.098 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:16:48.126 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[@p6='9d48df1b-15c4-41f0-b5fa-55baeb039841', @p0='2022-10-18T06:00:00.0000000Z' (Nullable = true), @p1='125900dc-7824-4cb3-1783-08dab1320d68', @p2='12:00' (Size = 4000), @p3='08:00' (Size = 4000), @p4='"\"[\\\"Manhã\\\"]\""' (Size = 4000), @p5=NULL (Size = 4000)], CommandType='Text', CommandTimeout='5']
+      SET NOCOUNT ON;
+      UPDATE [DiasEventoSebraeLab] SET [Data] = @p0, [Eventoid] = @p1, [Horafim] = @p2, [Horainicio] = @p3, [Option] = @p4, [Status] = @p5
+      WHERE [Id] = @p6;
+      SELECT @@ROWCOUNT;
+info: 24/10/2022 18:16:48.134 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[@p13='125900dc-7824-4cb3-1783-08dab1320d68', @p0='teste 5' (Size = 4000), @p1='<p>teste</p>' (Size = 4000), @p2='teste 5@gmail.com' (Size = 4000), @p3='True' (Nullable = true), @p4='teste 5' (Size = 4000), @p5='tete' (Size = 4000), @p6='teste 5' (Size = 4000), @p7='1' (Nullable = true), @p8='True' (Nullable = true), @p9='R' (Size = 1), @p10=NULL (Size = 4000), @p11='Palestra' (Size = 4000), @p12='teste 5' (Size = 4000)], CommandType='Text', CommandTimeout='5']
+      SET NOCOUNT ON;
+      UPDATE [EventosSebraeLab] SET [Contato] = @p0, [Descricaoevento] = @p1, [Email] = @p2, [Imagempersonalida] = @p3, [Instituicao] = @p4, [Linksparainscricao] = @p5, [Nomecompleto] = @p6, [Numeroparticipantes] = @p7, [Publicaosite] = @p8, [Status] = @p9, [Subtitulo] = @p10, [Tipoevento] = @p11, [Titulo] = @p12
+      WHERE [Id] = @p13;
+      SELECT @@ROWCOUNT;
+info: 24/10/2022 18:16:48.185 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:16:48.194 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:16:48.198 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:16:48.220 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:16:50.845 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:16:50.861 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (5ms) [Parameters=[@__id_0='125900dc-7824-4cb3-1783-08dab1320d68'], CommandType='Text', CommandTimeout='5']
+      SELECT [t].[Id], [t].[Contato], [t].[Datacadastro], [t].[Descricaoevento], [t].[Email], [t].[Imagempersonalida], [t].[Instituicao], [t].[Linksparainscricao], [t].[Nomecompleto], [t].[Numeroparticipantes], [t].[Publicaosite], [t].[Status], [t].[Subtitulo], [t].[Tipoevento], [t].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM (
+          SELECT TOP(1) [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo]
+          FROM [EventosSebraeLab] AS [e]
+          WHERE [e].[Id] = @__id_0
+      ) AS [t]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [t].[Id] = [d].[Eventoid]
+      ORDER BY [t].[Id]
+info: 24/10/2022 18:16:52.539 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:16:52.548 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[@__id_0='125900dc-7824-4cb3-1783-08dab1320d68'], CommandType='Text', CommandTimeout='5']
+      SELECT [t].[Id], [t].[Contato], [t].[Datacadastro], [t].[Descricaoevento], [t].[Email], [t].[Imagempersonalida], [t].[Instituicao], [t].[Linksparainscricao], [t].[Nomecompleto], [t].[Numeroparticipantes], [t].[Publicaosite], [t].[Status], [t].[Subtitulo], [t].[Tipoevento], [t].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM (
+          SELECT TOP(1) [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo]
+          FROM [EventosSebraeLab] AS [e]
+          WHERE [e].[Id] = @__id_0
+      ) AS [t]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [t].[Id] = [d].[Eventoid]
+      ORDER BY [t].[Id]
+info: 24/10/2022 18:16:54.212 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:16:54.220 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[@__id_0='125900dc-7824-4cb3-1783-08dab1320d68'], CommandType='Text', CommandTimeout='5']
+      SELECT [t].[Id], [t].[Contato], [t].[Datacadastro], [t].[Descricaoevento], [t].[Email], [t].[Imagempersonalida], [t].[Instituicao], [t].[Linksparainscricao], [t].[Nomecompleto], [t].[Numeroparticipantes], [t].[Publicaosite], [t].[Status], [t].[Subtitulo], [t].[Tipoevento], [t].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM (
+          SELECT TOP(1) [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo]
+          FROM [EventosSebraeLab] AS [e]
+          WHERE [e].[Id] = @__id_0
+      ) AS [t]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [t].[Id] = [d].[Eventoid]
+      ORDER BY [t].[Id]
+info: 24/10/2022 18:16:54.226 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[@p6='9d48df1b-15c4-41f0-b5fa-55baeb039841', @p0='2022-10-18T06:00:00.0000000' (Nullable = true), @p1='125900dc-7824-4cb3-1783-08dab1320d68', @p2='12:00' (Size = 4000), @p3='08:00' (Size = 4000), @p4='"\"[\\\"Manhã\\\"]\""' (Size = 4000), @p5=NULL (Size = 4000)], CommandType='Text', CommandTimeout='5']
+      SET NOCOUNT ON;
+      UPDATE [DiasEventoSebraeLab] SET [Data] = @p0, [Eventoid] = @p1, [Horafim] = @p2, [Horainicio] = @p3, [Option] = @p4, [Status] = @p5
+      WHERE [Id] = @p6;
+      SELECT @@ROWCOUNT;
+info: 24/10/2022 18:16:54.230 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (1ms) [Parameters=[@p13='125900dc-7824-4cb3-1783-08dab1320d68', @p0='teste 5' (Size = 4000), @p1='<p>teste</p>' (Size = 4000), @p2='teste 5@gmail.com' (Size = 4000), @p3='True' (Nullable = true), @p4='teste 5' (Size = 4000), @p5='tete' (Size = 4000), @p6='teste 5' (Size = 4000), @p7='1' (Nullable = true), @p8='True' (Nullable = true), @p9='P' (Size = 1), @p10=NULL (Size = 4000), @p11='Palestra' (Size = 4000), @p12='teste 5' (Size = 4000)], CommandType='Text', CommandTimeout='5']
+      SET NOCOUNT ON;
+      UPDATE [EventosSebraeLab] SET [Contato] = @p0, [Descricaoevento] = @p1, [Email] = @p2, [Imagempersonalida] = @p3, [Instituicao] = @p4, [Linksparainscricao] = @p5, [Nomecompleto] = @p6, [Numeroparticipantes] = @p7, [Publicaosite] = @p8, [Status] = @p9, [Subtitulo] = @p10, [Tipoevento] = @p11, [Titulo] = @p12
+      WHERE [Id] = @p13;
+      SELECT @@ROWCOUNT;
+info: 24/10/2022 18:16:54.267 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:16:54.269 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:16:54.283 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:16:54.285 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:17:16.461 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:17:16.484 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[@__id_0='68f2bb60-1386-4096-5a1b-08dab06c0f4e'], CommandType='Text', CommandTimeout='5']
+      SELECT [t].[Id], [t].[Contato], [t].[Datacadastro], [t].[Descricaoevento], [t].[Email], [t].[Imagempersonalida], [t].[Instituicao], [t].[Linksparainscricao], [t].[Nomecompleto], [t].[Numeroparticipantes], [t].[Publicaosite], [t].[Status], [t].[Subtitulo], [t].[Tipoevento], [t].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM (
+          SELECT TOP(1) [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo]
+          FROM [EventosSebraeLab] AS [e]
+          WHERE [e].[Id] = @__id_0
+      ) AS [t]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [t].[Id] = [d].[Eventoid]
+      ORDER BY [t].[Id]
+info: 24/10/2022 18:17:26.553 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:17:26.561 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[@__id_0='68f2bb60-1386-4096-5a1b-08dab06c0f4e'], CommandType='Text', CommandTimeout='5']
+      SELECT [t].[Id], [t].[Contato], [t].[Datacadastro], [t].[Descricaoevento], [t].[Email], [t].[Imagempersonalida], [t].[Instituicao], [t].[Linksparainscricao], [t].[Nomecompleto], [t].[Numeroparticipantes], [t].[Publicaosite], [t].[Status], [t].[Subtitulo], [t].[Tipoevento], [t].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM (
+          SELECT TOP(1) [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo]
+          FROM [EventosSebraeLab] AS [e]
+          WHERE [e].[Id] = @__id_0
+      ) AS [t]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [t].[Id] = [d].[Eventoid]
+      ORDER BY [t].[Id]
+info: 24/10/2022 18:17:28.215 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:17:28.224 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (5ms) [Parameters=[@__id_0='68f2bb60-1386-4096-5a1b-08dab06c0f4e'], CommandType='Text', CommandTimeout='5']
+      SELECT [t].[Id], [t].[Contato], [t].[Datacadastro], [t].[Descricaoevento], [t].[Email], [t].[Imagempersonalida], [t].[Instituicao], [t].[Linksparainscricao], [t].[Nomecompleto], [t].[Numeroparticipantes], [t].[Publicaosite], [t].[Status], [t].[Subtitulo], [t].[Tipoevento], [t].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM (
+          SELECT TOP(1) [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo]
+          FROM [EventosSebraeLab] AS [e]
+          WHERE [e].[Id] = @__id_0
+      ) AS [t]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [t].[Id] = [d].[Eventoid]
+      ORDER BY [t].[Id]
+info: 24/10/2022 18:17:28.231 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[@p6='6f21e411-9d8b-4caf-85cf-39302181459c', @p0='2022-10-12T06:00:00.0000000' (Nullable = true), @p1='68f2bb60-1386-4096-5a1b-08dab06c0f4e', @p2='17:00' (Size = 4000), @p3='13:00' (Size = 4000), @p4='"[\"Tarde\"]"' (Size = 4000), @p5=NULL (Size = 4000)], CommandType='Text', CommandTimeout='5']
+      SET NOCOUNT ON;
+      UPDATE [DiasEventoSebraeLab] SET [Data] = @p0, [Eventoid] = @p1, [Horafim] = @p2, [Horainicio] = @p3, [Option] = @p4, [Status] = @p5
+      WHERE [Id] = @p6;
+      SELECT @@ROWCOUNT;
+info: 24/10/2022 18:17:28.238 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[@p13='68f2bb60-1386-4096-5a1b-08dab06c0f4e', @p0='teate 3' (Size = 4000), @p1='<p>teate 3</p>' (Size = 4000), @p2='teate3@gmail.com' (Size = 4000), @p3='False' (Nullable = true), @p4='teate 3' (Size = 4000), @p5='teate 3' (Size = 4000), @p6='teate 3' (Size = 4000), @p7='1' (Nullable = true), @p8='True' (Nullable = true), @p9='P' (Size = 1), @p10='teate 3' (Size = 4000), @p11='Palestra' (Size = 4000), @p12='teate 3 de log' (Size = 4000)], CommandType='Text', CommandTimeout='5']
+      SET NOCOUNT ON;
+      UPDATE [EventosSebraeLab] SET [Contato] = @p0, [Descricaoevento] = @p1, [Email] = @p2, [Imagempersonalida] = @p3, [Instituicao] = @p4, [Linksparainscricao] = @p5, [Nomecompleto] = @p6, [Numeroparticipantes] = @p7, [Publicaosite] = @p8, [Status] = @p9, [Subtitulo] = @p10, [Tipoevento] = @p11, [Titulo] = @p12
+      WHERE [Id] = @p13;
+      SELECT @@ROWCOUNT;
+info: 24/10/2022 18:17:28.272 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:17:28.282 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:17:28.306 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:17:28.321 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:31:17.577 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:31:17.583 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'ConteudoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:31:17.606 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:31:17.627 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [c].[Id], [c].[Ativo], [c].[Datacadastro], [c].[Datapublicacao], [c].[Descricao], [c].[Legenda], [c].[Linkredirecionamento], [c].[Personalizadoativado], [c].[Status], [c].[Subtitulo], [c].[Tipopublicacao], [c].[Titulo], [c].[Titulobotao], [c].[Titulochamada]
+      FROM [ConteudosSebraeLab] AS [c]
+      WHERE [c].[Ativo] = CAST(1 AS bit)
+info: 24/10/2022 18:31:19.416 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:31:19.431 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:31:19.435 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:31:19.444 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:31:30.394 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'ConteudoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:31:30.395 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:31:30.407 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [c].[Id], [c].[Ativo], [c].[Datacadastro], [c].[Datapublicacao], [c].[Descricao], [c].[Legenda], [c].[Linkredirecionamento], [c].[Personalizadoativado], [c].[Status], [c].[Subtitulo], [c].[Tipopublicacao], [c].[Titulo], [c].[Titulobotao], [c].[Titulochamada]
+      FROM [ConteudosSebraeLab] AS [c]
+      WHERE [c].[Ativo] = CAST(1 AS bit)
+info: 24/10/2022 18:31:30.410 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:31:32.390 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:31:32.407 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:31:32.421 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:31:32.447 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:31:57.408 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'ConteudoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:31:57.411 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:31:57.418 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:31:57.428 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [c].[Id], [c].[Ativo], [c].[Datacadastro], [c].[Datapublicacao], [c].[Descricao], [c].[Legenda], [c].[Linkredirecionamento], [c].[Personalizadoativado], [c].[Status], [c].[Subtitulo], [c].[Tipopublicacao], [c].[Titulo], [c].[Titulobotao], [c].[Titulochamada]
+      FROM [ConteudosSebraeLab] AS [c]
+      WHERE [c].[Ativo] = CAST(1 AS bit)
+info: 24/10/2022 18:31:59.819 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:31:59.833 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (9ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:31:59.843 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:31:59.863 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:32:56.205 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:32:56.233 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (14ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:32:56.241 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'ConteudoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:32:56.252 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [c].[Id], [c].[Ativo], [c].[Datacadastro], [c].[Datapublicacao], [c].[Descricao], [c].[Legenda], [c].[Linkredirecionamento], [c].[Personalizadoativado], [c].[Status], [c].[Subtitulo], [c].[Tipopublicacao], [c].[Titulo], [c].[Titulobotao], [c].[Titulochamada]
+      FROM [ConteudosSebraeLab] AS [c]
+      WHERE [c].[Ativo] = CAST(1 AS bit)
+info: 24/10/2022 18:32:58.661 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:32:58.669 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:32:58.691 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:32:58.700 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:40:44.917 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'ConteudoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:40:44.932 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [c].[Id], [c].[Ativo], [c].[Datacadastro], [c].[Datapublicacao], [c].[Descricao], [c].[Legenda], [c].[Linkredirecionamento], [c].[Personalizadoativado], [c].[Status], [c].[Subtitulo], [c].[Tipopublicacao], [c].[Titulo], [c].[Titulobotao], [c].[Titulochamada]
+      FROM [ConteudosSebraeLab] AS [c]
+      WHERE [c].[Ativo] = CAST(1 AS bit)
+info: 24/10/2022 18:40:44.944 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:40:44.961 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:40:49.052 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:40:49.502 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:40:49.995 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (76ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:40:50.050 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:44:42.798 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:44:42.822 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'ConteudoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:44:42.825 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (23ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:44:42.850 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [c].[Id], [c].[Ativo], [c].[Datacadastro], [c].[Datapublicacao], [c].[Descricao], [c].[Legenda], [c].[Linkredirecionamento], [c].[Personalizadoativado], [c].[Status], [c].[Subtitulo], [c].[Tipopublicacao], [c].[Titulo], [c].[Titulobotao], [c].[Titulochamada]
+      FROM [ConteudosSebraeLab] AS [c]
+      WHERE [c].[Ativo] = CAST(1 AS bit)
+info: 24/10/2022 18:44:46.052 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:44:46.060 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:44:46.078 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:44:46.090 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:45:25.095 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'ConteudoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:45:25.099 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:45:25.106 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [c].[Id], [c].[Ativo], [c].[Datacadastro], [c].[Datapublicacao], [c].[Descricao], [c].[Legenda], [c].[Linkredirecionamento], [c].[Personalizadoativado], [c].[Status], [c].[Subtitulo], [c].[Tipopublicacao], [c].[Titulo], [c].[Titulobotao], [c].[Titulochamada]
+      FROM [ConteudosSebraeLab] AS [c]
+      WHERE [c].[Ativo] = CAST(1 AS bit)
+info: 24/10/2022 18:45:25.108 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:45:28.233 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:45:28.241 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:45:43.822 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:45:43.832 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:46:42.087 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:46:42.093 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:46:42.098 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'ConteudoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:46:42.104 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [c].[Id], [c].[Ativo], [c].[Datacadastro], [c].[Datapublicacao], [c].[Descricao], [c].[Legenda], [c].[Linkredirecionamento], [c].[Personalizadoativado], [c].[Status], [c].[Subtitulo], [c].[Tipopublicacao], [c].[Titulo], [c].[Titulobotao], [c].[Titulochamada]
+      FROM [ConteudosSebraeLab] AS [c]
+      WHERE [c].[Ativo] = CAST(1 AS bit)
+info: 24/10/2022 18:46:43.399 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:46:43.408 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (5ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:46:50.312 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:46:50.319 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:48:00.377 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:48:00.395 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'ConteudoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:48:00.399 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (13ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:48:00.414 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (7ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [c].[Id], [c].[Ativo], [c].[Datacadastro], [c].[Datapublicacao], [c].[Descricao], [c].[Legenda], [c].[Linkredirecionamento], [c].[Personalizadoativado], [c].[Status], [c].[Subtitulo], [c].[Tipopublicacao], [c].[Titulo], [c].[Titulobotao], [c].[Titulochamada]
+      FROM [ConteudosSebraeLab] AS [c]
+      WHERE [c].[Ativo] = CAST(1 AS bit)
+info: 24/10/2022 18:48:01.823 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:48:01.829 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:48:02.089 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:48:02.095 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:48:21.269 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:48:21.330 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (18ms) [Parameters=[@__value_0='log' (Size = 4000)], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      WHERE ((@__value_0 LIKE N'') OR (CHARINDEX(@__value_0, [e].[Descricaoevento]) > 0)) OR ((@__value_0 LIKE N'') OR (CHARINDEX(@__value_0, [e].[Titulo]) > 0))
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:48:26.812 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:48:26.819 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:48:30.650 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:48:30.660 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (5ms) [Parameters=[@__value_0='3' (Size = 4000)], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      WHERE ((@__value_0 LIKE N'') OR (CHARINDEX(@__value_0, [e].[Descricaoevento]) > 0)) OR ((@__value_0 LIKE N'') OR (CHARINDEX(@__value_0, [e].[Titulo]) > 0))
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:48:33.331 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:48:33.337 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:48:47.866 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:48:47.869 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'ConteudoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:48:47.884 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (10ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:48:47.917 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (14ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [c].[Id], [c].[Ativo], [c].[Datacadastro], [c].[Datapublicacao], [c].[Descricao], [c].[Legenda], [c].[Linkredirecionamento], [c].[Personalizadoativado], [c].[Status], [c].[Subtitulo], [c].[Tipopublicacao], [c].[Titulo], [c].[Titulobotao], [c].[Titulochamada]
+      FROM [ConteudosSebraeLab] AS [c]
+      WHERE [c].[Ativo] = CAST(1 AS bit)
+info: 24/10/2022 18:48:51.441 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'ConteudoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:48:51.448 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [c].[Id], [c].[Ativo], [c].[Datacadastro], [c].[Datapublicacao], [c].[Descricao], [c].[Legenda], [c].[Linkredirecionamento], [c].[Personalizadoativado], [c].[Status], [c].[Subtitulo], [c].[Tipopublicacao], [c].[Titulo], [c].[Titulobotao], [c].[Titulochamada]
+      FROM [ConteudosSebraeLab] AS [c]
+      WHERE [c].[Ativo] = CAST(1 AS bit)
+info: 24/10/2022 18:49:00.936 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'ConteudoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:49:00.959 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (6ms) [Parameters=[@__id_0='7a0ee7d0-5ff0-49f2-4b36-08daa23761c2'], CommandType='Text', CommandTimeout='5']
+      SELECT TOP(1) [c].[Id], [c].[Ativo], [c].[Datacadastro], [c].[Datapublicacao], [c].[Descricao], [c].[Legenda], [c].[Linkredirecionamento], [c].[Personalizadoativado], [c].[Status], [c].[Subtitulo], [c].[Tipopublicacao], [c].[Titulo], [c].[Titulobotao], [c].[Titulochamada]
+      FROM [ConteudosSebraeLab] AS [c]
+      WHERE [c].[Id] = @__id_0
+info: 24/10/2022 18:49:17.189 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'ConteudoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:49:17.195 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [c].[Id], [c].[Ativo], [c].[Datacadastro], [c].[Datapublicacao], [c].[Descricao], [c].[Legenda], [c].[Linkredirecionamento], [c].[Personalizadoativado], [c].[Status], [c].[Subtitulo], [c].[Tipopublicacao], [c].[Titulo], [c].[Titulobotao], [c].[Titulochamada]
+      FROM [ConteudosSebraeLab] AS [c]
+      WHERE [c].[Ativo] = CAST(1 AS bit)
+info: 24/10/2022 18:49:19.331 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:49:19.337 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'ConteudoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:49:19.344 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:49:19.350 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (6ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [c].[Id], [c].[Ativo], [c].[Datacadastro], [c].[Datapublicacao], [c].[Descricao], [c].[Legenda], [c].[Linkredirecionamento], [c].[Personalizadoativado], [c].[Status], [c].[Subtitulo], [c].[Tipopublicacao], [c].[Titulo], [c].[Titulobotao], [c].[Titulochamada]
+      FROM [ConteudosSebraeLab] AS [c]
+      WHERE [c].[Ativo] = CAST(1 AS bit)
+info: 24/10/2022 18:49:20.066 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:49:20.077 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:49:20.448 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'EventoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:49:20.456 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [e].[Id], [e].[Contato], [e].[Datacadastro], [e].[Descricaoevento], [e].[Email], [e].[Imagempersonalida], [e].[Instituicao], [e].[Linksparainscricao], [e].[Nomecompleto], [e].[Numeroparticipantes], [e].[Publicaosite], [e].[Status], [e].[Subtitulo], [e].[Tipoevento], [e].[Titulo], [d].[Id], [d].[Data], [d].[Eventoid], [d].[Horafim], [d].[Horainicio], [d].[Option], [d].[Status]
+      FROM [EventosSebraeLab] AS [e]
+      LEFT JOIN [DiasEventoSebraeLab] AS [d] ON [e].[Id] = [d].[Eventoid]
+      ORDER BY [e].[Id]
+info: 24/10/2022 18:49:44.360 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'ConteudoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:49:44.373 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [c].[Id], [c].[Ativo], [c].[Datacadastro], [c].[Datapublicacao], [c].[Descricao], [c].[Legenda], [c].[Linkredirecionamento], [c].[Personalizadoativado], [c].[Status], [c].[Subtitulo], [c].[Tipopublicacao], [c].[Titulo], [c].[Titulobotao], [c].[Titulochamada]
+      FROM [ConteudosSebraeLab] AS [c]
+      WHERE [c].[Ativo] = CAST(1 AS bit)
+info: 24/10/2022 18:49:47.477 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'ConteudoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:49:47.486 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[@__id_0='83874386-c1f9-410c-4b37-08daa23761c2'], CommandType='Text', CommandTimeout='5']
+      SELECT TOP(1) [c].[Id], [c].[Ativo], [c].[Datacadastro], [c].[Datapublicacao], [c].[Descricao], [c].[Legenda], [c].[Linkredirecionamento], [c].[Personalizadoativado], [c].[Status], [c].[Subtitulo], [c].[Tipopublicacao], [c].[Titulo], [c].[Titulobotao], [c].[Titulochamada]
+      FROM [ConteudosSebraeLab] AS [c]
+      WHERE [c].[Id] = @__id_0
+info: 24/10/2022 18:49:50.492 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'ConteudoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:49:50.499 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (4ms) [Parameters=[@__id_0='83874386-c1f9-410c-4b37-08daa23761c2'], CommandType='Text', CommandTimeout='5']
+      SELECT TOP(1) [c].[Id], [c].[Ativo], [c].[Datacadastro], [c].[Datapublicacao], [c].[Descricao], [c].[Legenda], [c].[Linkredirecionamento], [c].[Personalizadoativado], [c].[Status], [c].[Subtitulo], [c].[Tipopublicacao], [c].[Titulo], [c].[Titulobotao], [c].[Titulochamada]
+      FROM [ConteudosSebraeLab] AS [c]
+      WHERE [c].[Id] = @__id_0
+info: 24/10/2022 18:49:51.992 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'ConteudoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:49:51.999 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[@__id_0='83874386-c1f9-410c-4b37-08daa23761c2'], CommandType='Text', CommandTimeout='5']
+      SELECT TOP(1) [c].[Id], [c].[Ativo], [c].[Datacadastro], [c].[Datapublicacao], [c].[Descricao], [c].[Legenda], [c].[Linkredirecionamento], [c].[Personalizadoativado], [c].[Status], [c].[Subtitulo], [c].[Tipopublicacao], [c].[Titulo], [c].[Titulobotao], [c].[Titulochamada]
+      FROM [ConteudosSebraeLab] AS [c]
+      WHERE [c].[Id] = @__id_0
+info: 24/10/2022 18:49:52.038 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (13ms) [Parameters=[@p12='83874386-c1f9-410c-4b37-08daa23761c2', @p0='True' (Nullable = true), @p1='2022-10-24T18:49:52.0011490-03:00' (Nullable = true), @p2='Pesquisa da Unicamp busca mapear dificuldades de surdos em serviços de saúde na Região Metropolitana de Campinas' (Size = 4000), @p3=NULL (Size = 4000), @p4=NULL (Size = 4000), @p5='False' (Nullable = true), @p6='P' (Nullable = false) (Size = 1), @p7='Pesquisa da Unicamp busca mapear dificuldades de surdos em serviços de saúde na Região Metropolitana de Campinas' (Size = 4000), @p8='ED' (Nullable = false) (Size = 2), @p9='Pesquisa da Unicamp busca mapear dificuldades de surdos em serviços de saúde na Região Metropolitana de Campinas' (Size = 4000), @p10=NULL (Size = 4000), @p11=NULL (Size = 4000)], CommandType='Text', CommandTimeout='5']
+      SET NOCOUNT ON;
+      UPDATE [ConteudosSebraeLab] SET [Ativo] = @p0, [Datapublicacao] = @p1, [Descricao] = @p2, [Legenda] = @p3, [Linkredirecionamento] = @p4, [Personalizadoativado] = @p5, [Status] = @p6, [Subtitulo] = @p7, [Tipopublicacao] = @p8, [Titulo] = @p9, [Titulobotao] = @p10, [Titulochamada] = @p11
+      WHERE [Id] = @p12;
+      SELECT @@ROWCOUNT;
+info: 24/10/2022 18:49:52.091 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'ConteudoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:49:52.097 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [c].[Id], [c].[Ativo], [c].[Datacadastro], [c].[Datapublicacao], [c].[Descricao], [c].[Legenda], [c].[Linkredirecionamento], [c].[Personalizadoativado], [c].[Status], [c].[Subtitulo], [c].[Tipopublicacao], [c].[Titulo], [c].[Titulobotao], [c].[Titulochamada]
+      FROM [ConteudosSebraeLab] AS [c]
+      WHERE [c].[Ativo] = CAST(1 AS bit)
+info: 24/10/2022 18:49:55.114 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'ConteudoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:49:55.124 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (5ms) [Parameters=[@__id_0='6a8fb95a-9839-4e87-5f65-08dab13d3356'], CommandType='Text', CommandTimeout='5']
+      SELECT TOP(1) [c].[Id], [c].[Ativo], [c].[Datacadastro], [c].[Datapublicacao], [c].[Descricao], [c].[Legenda], [c].[Linkredirecionamento], [c].[Personalizadoativado], [c].[Status], [c].[Subtitulo], [c].[Tipopublicacao], [c].[Titulo], [c].[Titulobotao], [c].[Titulochamada]
+      FROM [ConteudosSebraeLab] AS [c]
+      WHERE [c].[Id] = @__id_0
+info: 24/10/2022 18:50:09.732 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'ConteudoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:50:09.744 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (7ms) [Parameters=[@__id_0='6a8fb95a-9839-4e87-5f65-08dab13d3356'], CommandType='Text', CommandTimeout='5']
+      SELECT TOP(1) [c].[Id], [c].[Ativo], [c].[Datacadastro], [c].[Datapublicacao], [c].[Descricao], [c].[Legenda], [c].[Linkredirecionamento], [c].[Personalizadoativado], [c].[Status], [c].[Subtitulo], [c].[Tipopublicacao], [c].[Titulo], [c].[Titulobotao], [c].[Titulochamada]
+      FROM [ConteudosSebraeLab] AS [c]
+      WHERE [c].[Id] = @__id_0
+info: 24/10/2022 18:50:11.360 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'ConteudoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:50:11.367 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[@__id_0='6a8fb95a-9839-4e87-5f65-08dab13d3356'], CommandType='Text', CommandTimeout='5']
+      SELECT TOP(1) [c].[Id], [c].[Ativo], [c].[Datacadastro], [c].[Datapublicacao], [c].[Descricao], [c].[Legenda], [c].[Linkredirecionamento], [c].[Personalizadoativado], [c].[Status], [c].[Subtitulo], [c].[Tipopublicacao], [c].[Titulo], [c].[Titulobotao], [c].[Titulochamada]
+      FROM [ConteudosSebraeLab] AS [c]
+      WHERE [c].[Id] = @__id_0
+info: 24/10/2022 18:50:11.374 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (2ms) [Parameters=[@p12='6a8fb95a-9839-4e87-5f65-08dab13d3356', @p0='True' (Nullable = true), @p1='2022-10-24T18:50:11.3679675-03:00' (Nullable = true), @p2='<p>teste</p>' (Size = 4000), @p3=NULL (Size = 4000), @p4=NULL (Size = 4000), @p5='False' (Nullable = true), @p6='P' (Nullable = false) (Size = 1), @p7=NULL (Size = 4000), @p8='ED' (Nullable = false) (Size = 2), @p9='teste' (Size = 4000), @p10=NULL (Size = 4000), @p11=NULL (Size = 4000)], CommandType='Text', CommandTimeout='5']
+      SET NOCOUNT ON;
+      UPDATE [ConteudosSebraeLab] SET [Ativo] = @p0, [Datapublicacao] = @p1, [Descricao] = @p2, [Legenda] = @p3, [Linkredirecionamento] = @p4, [Personalizadoativado] = @p5, [Status] = @p6, [Subtitulo] = @p7, [Tipopublicacao] = @p8, [Titulo] = @p9, [Titulobotao] = @p10, [Titulochamada] = @p11
+      WHERE [Id] = @p12;
+      SELECT @@ROWCOUNT;
+info: 24/10/2022 18:50:11.426 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'ConteudoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:50:11.432 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='5']
+      SELECT [c].[Id], [c].[Ativo], [c].[Datacadastro], [c].[Datapublicacao], [c].[Descricao], [c].[Legenda], [c].[Linkredirecionamento], [c].[Personalizadoativado], [c].[Status], [c].[Subtitulo], [c].[Tipopublicacao], [c].[Titulo], [c].[Titulobotao], [c].[Titulochamada]
+      FROM [ConteudosSebraeLab] AS [c]
+      WHERE [c].[Ativo] = CAST(1 AS bit)
+info: 24/10/2022 18:51:40.068 CoreEventId.ContextInitialized[10403] (Microsoft.EntityFrameworkCore.Infrastructure) 
+      Entity Framework Core 6.0.8 initialized 'ConteudoSebraeLabContext' using provider 'Microsoft.EntityFrameworkCore.SqlServer:6.0.8' with options: SensitiveDataLoggingEnabled CommandTimeout=5 MaxBatchSize=100 
+info: 24/10/2022 18:51:40.089 RelationalEventId.CommandExecuted[20101] (Microsoft.EntityFrameworkCore.Database.Command) 
+      Executed DbCommand (11ms) [Parameters=[@__id_0='83874386-c1f9-410c-4b37-08daa23761c2'], CommandType='Text', CommandTimeout='5']
+      SELECT TOP(1) [c].[Id], [c].[Ativo], [c].[Datacadastro], [c].[Datapublicacao], [c].[Descricao], [c].[Legenda], [c].[

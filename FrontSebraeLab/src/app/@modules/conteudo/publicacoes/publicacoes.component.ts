@@ -26,6 +26,8 @@ export class PublicacoesComponent implements OnInit {
   publicacoes: any[]=[{id: '',titulo:'',image:''}];
   tipoConteudo: string;
 
+  dialogNewsletter:boolean = false;
+
   constructor(
     private http: RequestPromiseService,
     private _sanitizer: DomSanitizer,
@@ -89,5 +91,21 @@ export class PublicacoesComponent implements OnInit {
   {
       this.publicacoes = this.conteudos.filter( f=>f.tipopublicacao==tipopublicacao);
   } 
+
+  showDialogNewsLetter()
+  {
+    this.dialogNewsletter = true;
+  }
+
+  hideDialogNewsletter()
+  {
+    this.dialogNewsletter = false;
+
+  }
+
+  registerNewsletter()
+  {
+
+  }
 
 }

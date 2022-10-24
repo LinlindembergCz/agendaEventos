@@ -6,6 +6,7 @@ import { HeaderModule } from '../../../@layout/header/header.module';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { PublicacoesComponent } from './publicacoes.component';
 import { NgPrimeExportsModule } from 'src/app/@bootstrap/scripts/ngprime.exports';
+import { NewsLetterModule } from '../newsletter/newletter.module';
 
 @NgModule({
   declarations: [PublicacoesComponent
@@ -16,9 +17,9 @@ import { NgPrimeExportsModule } from 'src/app/@bootstrap/scripts/ngprime.exports
     ReactiveFormsModule,
     NgxCaptchaModule,
     NgPrimeExportsModule,
-    FooterModule,
-    HeaderModule,   
-  ],
+    HeaderModule,
+    NewsLetterModule
+   ],
   providers: []
 })
 export class PublicacoesModule { }

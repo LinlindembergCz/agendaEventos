@@ -26,10 +26,12 @@ import { EntendaSebraelabShowComponent} from './entenda-sebraelab-show/entenda-s
 import  {ContatoSubmitModule} from '../components/contato-submit/contato-submit.module';
 import  {EcoSistemaShowModule} from '../components/ecosistema-show/ecosistema-show.module';
 import { BannersShowModule } from '../home/banners-show/banners-show.module';
-
+import { EspacoFisicoShowComponent} from './espacofisico-show/espacofisico-show.component';
+import { NgPrimeExportsModule } from 'src/app/@bootstrap/scripts/ngprime.exports';
+import { GalleriaModule } from 'primeng/galleria'; 
 @NgModule({
   declarations: [QuemSomosComponent, NaPraticaShowComponent,
-    EspacoShowComponent, EntendaSebraelabShowComponent
+    EspacoShowComponent, EntendaSebraelabShowComponent, EspacoFisicoShowComponent
     ],
   imports: [
     BannersShowModule,
@@ -39,23 +41,10 @@ import { BannersShowModule } from '../home/banners-show/banners-show.module';
     FormsModule,
     ReactiveFormsModule,
     NgxCaptchaModule,
-    CardModule,
-    RatingModule,
-    FieldsetModule,
-    DataViewModule,
-    ButtonModule,
-    DividerModule,
-    CalendarModule,
-    InputTextModule,
-    InputNumberModule,
-    InputMaskModule, 
-    FooterModule,
     HeaderModule,
-    DialogModule,
-    RadioButtonModule,
+    NgPrimeExportsModule,
+    GalleriaModule   
 
- 
-    
   ],
   providers: []
 })

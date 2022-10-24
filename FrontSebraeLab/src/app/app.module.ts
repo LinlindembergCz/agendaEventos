@@ -19,6 +19,8 @@ import { registerLocaleData } from '@angular/common';
 import { BlankComponent } from './@layout/blank/blank.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { HeaderComponent } from './@layout/header/header.component';
+import { FooterComponent } from './@layout/footer/footer.component';
 
 
 registerLocaleData(ptBR);
@@ -26,12 +28,12 @@ registerLocaleData(ptBR);
 @NgModule({
   declarations: [
     AppComponent,
-   // HeaderComponent,
+    //HeaderComponent,
     LayoutComponent,
     BreadcrumpComponent,
     BlankComponent,
     MenuComponent,
-    //FooterComponent
+   //FooterComponent
   ],
   imports: [
     BootstrapModule,

@@ -61,7 +61,8 @@ export class FullCalendarioShowComponent implements OnInit {
     then(x=>{
       this.diasBloqueados = []
       //this.motivoBloqueio = x.motivo;
-      x.forEach(d=> {                       
+      x.forEach(d=> {                    
+                      console.log(d.data)   
                        this.diasBloqueados.push(new Date(d.data))                       
                     })
       });
@@ -72,7 +73,7 @@ export class FullCalendarioShowComponent implements OnInit {
   {
     let eventos :any[]=[];
     const colors =["orange", "green",  "blue", "red","brown","gray"];
-
+                                                                                     
     this.diasBloqueados.forEach((d: Date)=>{ eventos.push( {title: 'Bloqueado',date: d.toISOString().slice(0, 10),color: "gray"}) });    
 
     this.http.get<Eventolab[]>(environment.services.api,environment.routes.eventoSebraeLab.root).then
@@ -99,7 +100,7 @@ export class FullCalendarioShowComponent implements OnInit {
                               dayMaxEvents: true,
                               locale:['pt-BR'],
                               events: eventos,                  
-                              };
+                              };                              
             }
           )
   }

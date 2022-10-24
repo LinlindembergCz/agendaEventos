@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -10,11 +11,16 @@ export class EspacoShowComponent implements OnInit {
 
 
 
-  constructor(
+  constructor( private router: Router,
   ) { }
 
   ngOnInit(): void {   
  
+  }
+
+  showMeuEvento()
+  {
+    this.router.navigate(['meuevento']);
   }
 
 

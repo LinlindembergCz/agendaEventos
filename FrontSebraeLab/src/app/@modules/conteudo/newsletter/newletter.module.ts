@@ -8,19 +8,19 @@ import { HeaderModule } from '../../../@layout/header/header.module';
 import { BannersShowModule } from '../../home/banners-show/banners-show.module';
 
 import { DataViewModule } from 'primeng/dataview';
-import { PublicacaoViewComponent } from './publicacao-view.component';
+import { NewsLetterComponent } from './newsletter.component';
 import  { NgPrimeExportsModule } from '../../../@bootstrap/scripts/ngprime.exports';
 
 
 @NgModule({
-  declarations: [PublicacaoViewComponent
+  declarations: [NewsLetterComponent
     ],
-    exports: [PublicacaoViewComponent
+    exports: [NewsLetterComponent
     ],
   imports: [
     CommonModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule,    
     HeaderModule,
     BannersShowModule,
     NgPrimeExportsModule,
@@ -28,4 +28,4 @@ import  { NgPrimeExportsModule } from '../../../@bootstrap/scripts/ngprime.expor
   ],
   providers: []
 })
-export class PublicacaoViewModule { }
+export class NewsLetterModule { }

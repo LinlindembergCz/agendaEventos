@@ -9,12 +9,18 @@ import { Component, OnInit } from '@angular/core';
 export class NaPraticaShowComponent implements OnInit {
 
 
+  selectedLetra: string = 'L';
 
   constructor(
   ) { }
 
   ngOnInit(): void {   
  
+  }
+
+  selectLetra(letra: string)
+  {
+    this.selectedLetra = letra;
   }
 
 

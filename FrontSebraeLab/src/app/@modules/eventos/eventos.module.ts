@@ -22,7 +22,6 @@ import { NgPrimeExportsModule } from 'src/app/@bootstrap/scripts/ngprime.exports
     ReactiveFormsModule,
     NgxCaptchaModule,
     NgPrimeExportsModule,
-    FooterModule,
     HeaderModule,  
     FullCalendarioShowModule
     

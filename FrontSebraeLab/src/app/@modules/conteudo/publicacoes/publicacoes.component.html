@@ -1,6 +1,10 @@
 <div>  
-    <app-header></app-header> 
-    <img src="assets/banners/banner_conteudo.jpg" width="100%" height="500px"> 
+    <app-header></app-header>
+    <img src="assets/banners/banner_conteudo.jpg" width="100%" height="100%"> 
+    <div class="frameAnuncioInscricao">
+
+        <div class="botaoInscricao" (click)="showDialogNewsLetter()"><a>Inscreva-se</a></div>
+    </div>
         <div class="framecontent">       
 
             <div class="frameButtonsFiltro">
@@ -62,14 +66,19 @@
             </ng-template>
         </p-dataView>
     
-    </div>
-    
-    
-    
-    
-    
-    
+    </div>   
 
 </div>
+
+<p-dialog 
+    header="News Letter" 
+    blockScroll="false"
+    [breakpoints]="{ '715px': '89%' }" 
+    [style]="{ width: '50%' }"
+    [(visible)]="dialogNewsletter" 
+    [modal]="true" 
+    styleClass="p-fluid">
+       <app-newsletter></app-newsletter>
+</p-dialog>
 
 
