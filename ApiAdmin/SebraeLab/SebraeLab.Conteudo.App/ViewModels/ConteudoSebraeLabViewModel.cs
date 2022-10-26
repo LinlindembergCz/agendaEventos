@@ -34,12 +34,6 @@ namespace SebraeLab.Conteudo.App.ViewModels
             {
                 throw new Exception(validResult.ToString(","));
                 return false;
-                //validRes.Errors.FirstOrDefault();
-                //validRes.Errors.FirstOrDefault().ErrorMessage);  
-                ////all error messages  
-                //validRes.ToString(",");  
-                //string.Join(",", validRes.Errors.Select(x => x.ErrorMessage));  
-                //string.Join(",", validRes.Errors);  
             }
             return true;
 

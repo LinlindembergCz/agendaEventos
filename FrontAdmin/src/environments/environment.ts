@@ -11,6 +11,7 @@ export const environment = {
     eventoSebraeLab:{
       root:"EventoSebraeLab",
       publicar:"EventoSebraeLab/Publicar",
+      bloqueio:"EventoSebraeLab/Bloqueio", 
       diasBloqueados:"EventoSebraeLab/DiasBloqueados", 
       search:  "EventoSebraeLab/Pesquisar?value=",
       alocacao:  "EventoSebraeLab/Disponivel" 

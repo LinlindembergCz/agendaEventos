@@ -25,11 +25,23 @@ namespace SebraeLab.Bloqueio.Data.Repository
         }
         public void Add(Bloqueador bloqueio)
         {
+            
             _context.Bloqueio.Add(bloqueio);
         }
         public void Update(Bloqueador bloqueio)
         {
+          /*  bloqueio.Dias.ForEach(d =>
+            {
+                if (d.Id != null)
+                    _context.Dias.Remove(d);
+            });    */       
+
             _context.Bloqueio.Update(bloqueio);
+        }
+
+        public void Remove(Bloqueador bloqueio)
+        {
+            _context.Bloqueio.Remove(bloqueio);
         }
         public void Dispose()
         {

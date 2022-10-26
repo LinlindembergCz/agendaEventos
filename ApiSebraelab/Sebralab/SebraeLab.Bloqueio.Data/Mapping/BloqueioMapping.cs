@@ -10,6 +10,10 @@ namespace SebraeLab.Bloqueio.Data.Mappings
         {
             builder.HasKey(c => c.Id);
 
+            builder.HasMany(c => c.Dias)
+            .WithOne(c => c.Bloqueador)
+            .HasForeignKey(c => c.Bloqueadorid);
+
             builder.ToTable("Bloqueador");
         }
     }

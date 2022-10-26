@@ -2,6 +2,7 @@ import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HeaderModule } from '../../@layout/header/header.module';
+import { FooterModule } from '../../@layout/footer/footer.module';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { MeuEventoComponent } from './meuevento.component';
 import { EventoSubmit } from './evento-submit/evento-submit.component';
@@ -10,6 +11,8 @@ import { CalendarioEditModule } from '../components/calendario-edit/calendario-e
 import { BannersShowModule } from '../home/banners-show/banners-show.module';
 import { AppDialogModule } from '../../@shared/components/dialogs/dialog.module';
 import { NgPrimeExportsModule } from 'src/app/@bootstrap/scripts/ngprime.exports';
+import { ContatoSubmitModule } from '../components/contato-submit/contato-submit.module';
+
 
 @NgModule({
   declarations: [MeuEventoComponent,EventoSubmit,
@@ -24,7 +27,9 @@ import { NgPrimeExportsModule } from 'src/app/@bootstrap/scripts/ngprime.exports
     NgxCaptchaModule,
     NgPrimeExportsModule, 
     HeaderModule, 
-    AppDialogModule
+    FooterModule,
+    AppDialogModule,
+    ContatoSubmitModule,
     
   ],
   providers: []

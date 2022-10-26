@@ -90,18 +90,32 @@ namespace SebraeLabAdmin.Controllers
         }
 
         [HttpGet]
+        [Route("Bloqueio")]
+        [AllowAnonymous]
+        public async Task<ActionResult<IEnumerable<BloqueadorViewModel>>> GetAllBloqueio() =>
+           await _serviceBloqueio.GetAll();
+
+        [HttpGet]
         [Route("DiasBloqueados")]
         [AllowAnonymous]
-        public async Task<ActionResult<IEnumerable<DiaBloqueado>>> GetAllBloqueio() =>
+        public async Task<ActionResult<IEnumerable<DiaBloqueado>>> GetAllDiasBloqueado() =>
            await _serviceBloqueio.GetAllDiasBloqueado();
 
         // POST api/<ValuesController>
         [HttpPost]
         [Route("DiasBloqueados")]
         [AllowAnonymous]
-        public void Post(BloqueadorViewModel bloqueador)
+        public void PostBloqueio(BloqueadorViewModel bloqueador)
         {
             _serviceBloqueio.Add( bloqueador );
+        }
+
+        [HttpPut]
+        [Route("DiasBloqueados")]
+        [AllowAnonymous]
+        public void PutBloqueio(BloqueadorViewModel bloqueador)
+        {
+            _serviceBloqueio.Update(bloqueador);
         }
 
         [HttpPatch("Publicar/{id}")]

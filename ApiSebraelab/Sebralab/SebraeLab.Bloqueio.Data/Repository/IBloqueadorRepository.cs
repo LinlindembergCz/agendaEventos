@@ -14,6 +14,7 @@ namespace SebraeLab.Bloqueio.Data.Repository
         Task<List<DiaBloqueado>> GetAllDiasBloqueado();
         void Add(Bloqueador bloqueio);
         void Update(Bloqueador bloqueio);
- 
+        void Remove(Bloqueador bloqueio);
+
     }
 }

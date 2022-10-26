@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Meses } from 'src/app/@core/enums/ListaMeses';
 import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
 import { environment } from '../../../../environments/environment';
 
@@ -117,6 +118,11 @@ export class EventoslabShowComponent implements OnInit {
   showCalendar()
   {
     
+  }
+
+  getMonthDescription(data:any)
+  { 
+    return Meses[new Date(data).getMonth()]
   }
 
 }

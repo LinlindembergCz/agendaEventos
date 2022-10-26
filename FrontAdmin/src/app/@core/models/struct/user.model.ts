@@ -11,24 +11,26 @@ export class User {
     isExpired: boolean;
 
     constructor(
-        authenticationId: string,
+        userName: string
+        /*authenticationId: string,
         userId: string,
         personId: string,
-        userName: string,
+        *
         name: string,
         token: string,
         expirationAt: Date,
-        isExpired: boolean,
+        isExpired: boolean,*/
 
     ) {
-        this.authenticationId = authenticationId;
+        this.userName = userName;
+        /*this.authenticationId = authenticationId;
         this.userId = userId;
         this.personId = personId;
-        this.userName = userName;
+        
         this.name = name;
         this.token = token;
         this.expirationAt = expirationAt;
-        this.isExpired = isExpired;
+        this.isExpired = isExpired;*/
     }
 
 }

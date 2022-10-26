@@ -39,7 +39,8 @@ export class PublicacaoCreateComponent implements OnInit, AfterViewInit {
   save()
   {       
      //Convert o array em string
-     this.conteudo.tipopublicacao = this.tipoPublicacao.name; 
+     if (this.tipoPublicacao)
+     { this.conteudo.tipopublicacao = this.tipoPublicacao.name; }
 
     this.http.post<Publicacao>(environment.services.api,environment.routes.conteudoSebraeLab.root, this.conteudo).
     then( () =>

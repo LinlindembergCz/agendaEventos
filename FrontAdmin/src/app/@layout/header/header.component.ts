@@ -8,6 +8,7 @@ import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { FileService } from '../../@shared/services/file.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MenuItem } from 'primeng/api';
+import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
 
 @Component({
   selector: 'app-header',
@@ -33,7 +34,8 @@ export class HeaderComponent implements OnInit {
     private state: ApplicationStateService,
     private router: Router,
     private userContext: UserContextService,
-    public menu: MenuDataService
+    public menu: MenuDataService,
+    private http: RequestPromiseService,
   ) {
     this.user = this.userContext.user$.getValue();
   }
@@ -85,7 +87,8 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['agenda']);
   }
     
-  showLogin() {
+  logOut() {
+    this.http.SetUser(new User(''));
     this.router.navigate(['/user/login']);
 
   }

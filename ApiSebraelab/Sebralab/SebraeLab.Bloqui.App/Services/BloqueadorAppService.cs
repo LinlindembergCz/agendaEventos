@@ -29,20 +29,27 @@ namespace SebraeLab.Bloqueio.App.Services
             return _mapper.Map<List<DiaBloqueado>>(await _repository.GetAllDiasBloqueado());
         }
 
-        public Task<bool> Add(BloqueadorViewModel eventosebraelabViewModel)
-        {
-            var evento = _mapper.Map<Bloqueador>(eventosebraelabViewModel);
-
-             _repository.Add(evento);    
-             _repository.UnitOfWork.Commit();
+        public Task<bool> Add(BloqueadorViewModel bloqueadorViewModel)
+        { 
+            Bloqueador bloqueioOld = _repository.GetAll().Result.FirstOrDefault();
+            //
+            if (bloqueioOld != null)
+            {
+                _repository.Remove(new Bloqueador { Id = bloqueadorViewModel.Id.Value });
+                _repository.UnitOfWork.Commit();
+            }
+            var bloqueio = _mapper.Map<Bloqueador>(bloqueadorViewModel);
+            _repository.Add(bloqueio);
+            _repository.UnitOfWork.Commit();
 
             return Task.FromResult(true);
                         
         }
 
-        public Task<bool> Update(BloqueadorViewModel eventosebraelabViewModel)
+        public Task<bool> Update(BloqueadorViewModel bloqueadorViewModel)
         {
-            var evento = _mapper.Map<Bloqueador>(eventosebraelabViewModel);
+            var evento = _mapper.Map<Bloqueador>(bloqueadorViewModel);
+
             _repository.Update(evento);
 
             _repository.UnitOfWork.Commit();

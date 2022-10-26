@@ -1,5 +1,5 @@
-.frameMain{//position: absolute;
-  
+.frameMain{//position: absolute;  
+    //border: 1px solid;  
     width: 100%;
     height: 513px;
     left: 0px;
@@ -12,7 +12,7 @@
 .frameTitle{position: absolute;
     width: 254.97px;
     height: 58.47px;
-    left: 493px;
+    left: 593px;
     top: 4514px;
     top: 10%;
     font-family: 'Poppins';
@@ -25,7 +25,7 @@
 .frameText{position: absolute;
     width: 575px;
     height: 60px;
-    left: 328px;
+    left: 428px;
     top: 4605px;
     top: 50%;
     justify-content: center;    
@@ -67,7 +67,7 @@
 .frameSociedade{    
     width: 240px;
     height: 85px;
-    left: 76px;
+    left: 160px;
     top: 4607px;
     border: 1px solid #ED4D9A;
 }
@@ -75,7 +75,7 @@
 .frameEmpreendedores{    
     width: 240px;
     height: 119px;
-    left: 76px;
+    left: 160px;
     top: 4716px;
     border: 1px solid #F89E5A;
 }
@@ -83,7 +83,7 @@
 .frameAmbientes{    
     width: 240px;
     height: 153px;
-    left: 359px;
+    left: 459px;
     top: 4682px;
     border: 1px solid #50AF46;
 }
@@ -91,7 +91,7 @@
 .frameInstituicoes{    
     width: 240px;
     height: 153px;
-    left: 642px;
+    left: 742px;
     top: 4682px;
     border: 1px solid #D2BA29;
 }
@@ -99,7 +99,7 @@
 .frameColaboradores{    
     width: 240px;
     height: 119px;
-    left: 920px;
+    left: 1024px;
     top: 4607px;
     border: 1px solid #F89E5A;
 }
@@ -107,7 +107,7 @@
 .frameGoverno{    
     width: 240px;
     height: 85px;
-    left: 920px;
+    left: 1024px;
     top: 4750px;    
     border: 1px solid #ED4D9A;
 }

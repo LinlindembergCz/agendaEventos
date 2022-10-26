@@ -27,13 +27,19 @@
                     <ng-template let-eventlab pTemplate="listItem">              
                         <div class="frameEventlabItem">                         
                                 <div class="frameEventlabitemDetails">                                    
-                                    <div class="frameEventlabitemDetailsCenter">
-                                        <div class="frameDate" *ngIf="eventlab.datainicio!=eventlab.datafim">
-                                            <div class="frameDateDays"> {{eventlab.datainicio}}<div style=" color: #C45F13;">></div>{{eventlab.datafim}}</div> 
-                                        </div>   
-                                        <div class="frameDate" *ngIf="eventlab.datainicio==eventlab.datafim">
-                                            <div class="frameDateDays"> {{eventlab.datainicio}}</div> 
-                                            </div>                                  
+                                    <div class="frameEventlabitemDetailsCenter" >
+                                        <div style="text-align:center;">
+                                            <div class="frameDate" *ngIf="eventlab.datainicio!=eventlab.datafim">
+                                                <div class="frameDateDays"> {{eventlab.datainicio}}<div style=" color: #C45F13;">></div>{{eventlab.datafim}}</div> 
+                                            </div>   
+                                            <div class="frameDate" *ngIf="eventlab.datainicio==eventlab.datafim">
+                                                <div class="frameDateDays"> {{eventlab.datainicio}}</div> 
+                                            </div>   
+                                            <div class="frameDate">
+                                                <h3>{{getMonthDescription(eventlab.data)}}</h3>
+                                             </div>    
+                                        </div>                  
+         
                                         <p-divider layout="vertical" class="frameDivisor"></p-divider>
 
                                         <div class="frameHour">

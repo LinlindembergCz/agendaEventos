@@ -47,17 +47,10 @@ flex-grow: 1;
     display: flex;
 flex-direction: column;
 align-items: center;
-
-
 width: 368px;
 height: 50px;
-
-
-/* Inside auto layout */
-flex: none;
-order: 0;
 align-self: stretch;
-flex-grow: 1;
+
 }
 
 .buttonVerAgenda{

@@ -4,7 +4,7 @@
     width: 97%;
     height: 800px;
     left: 20px;
-    top: 641px;
+    top: 741px;
     /* Tailwind/slate/100 */
     background: #F1F5F9;
     border-radius: 16px;
@@ -87,7 +87,7 @@
     width: 482px;
     height: 700px;
     left: 816px;
-    top: 670px;
+    top: 770px;
     /* Heading/H3 */
     font-family: 'Poppins';
     font-style: normal;
@@ -112,6 +112,7 @@
 
 .frameFuncionamento{ 
     /* Frame 5903 */
+
   /* Auto layout */
   display: flex;
   flex-direction: column;
@@ -120,9 +121,9 @@
   gap: 64px;
   
   position: absolute;
-  width: 482px;
+  width: 100%;
   height: 700px;
-  left: 416px;
+  left: 0;
   top: 1616px;}
 
   .frameAvisoEnvio{

@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })        
 export class EcosistemaShowComponent implements OnInit {
 
-  @Input() topFrameMain: any ='4421px';
+  @Input() topFrameMain: any ='4514px';
   @Input() topFrameTitle: any= '4514px';
   @Input() topFrameText: any ='4605px';
   @Input() topframeSociedade: any= '4607px';

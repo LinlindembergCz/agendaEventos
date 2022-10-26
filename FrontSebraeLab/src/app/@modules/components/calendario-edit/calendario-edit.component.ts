@@ -32,15 +32,25 @@ export class CalendarioEditComponent implements AfterViewInit, OnInit {
 
   mensagens: any[]=[];
 
+  diasBloqueados: Date[]=[new Date()];
+
   constructor(
-    private router: Router,
     private route: ActivatedRoute,
     private http: RequestPromiseService,
     private messageService: MessageService
   ) { }
 
   ngOnInit(): void {   
-    console.log( 'ngOnInit' )
+    this.loadDiasBloqueados();
+  }
+
+  loadDiasBloqueados()
+  {
+    this.http.get<any[]>(environment.services.api,environment.routes.eventoSebraeLab.diasBloqueados).
+    then(x=>{
+      this.diasBloqueados = []
+      x.forEach(d=> {this.diasBloqueados.push(new Date(d.data))})
+      });
   }
 
   ngAfterViewInit()

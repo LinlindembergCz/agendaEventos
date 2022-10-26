@@ -9,6 +9,9 @@ namespace SebraeLab.BloqueioDia.Data.Mappings
         public void Configure(EntityTypeBuilder<DiaBloqueado> builder)
         {
             builder.HasKey(c => c.Id);
+
+            builder.HasOne(c => c.Bloqueador).WithMany(c => c.Dias);
+
             builder.ToTable("DiasBloqueados");
         }
     }

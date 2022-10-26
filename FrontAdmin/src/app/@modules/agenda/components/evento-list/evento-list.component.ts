@@ -86,13 +86,22 @@ export class EventoListComponent implements OnInit {
                         subtitulo:e.subtitulo, 
                         horainicial: startEvent?.horainicio ,
                         horafinal: endEvent?.horafim, 
+                        data: startDay,
                         datainicial:  startDay?.substring(8,10), //primeiro dia
                         datafinal: endDay?.substring(8,10), //ultimo dia
-                        dias: e.dias.length
+                        dias: e.dias.length,
                       });
       });              
             
      this.eventslab = this.itens;
+  }
+
+  getMonthDescription(data:any)
+  { 
+    const Meses = ['Janeiro','Fevereiro','Maço','Abril','Maio','Junho','Julio',
+                    'Agosto','Setembro','Outubro','Novembro','Dezembro'];
+
+    return Meses[new Date(data).getMonth()]
   }
 
 

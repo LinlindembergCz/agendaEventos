@@ -30,7 +30,10 @@ namespace SebraeLab.Evento.Data.Repository
         {
             return await _context.Eventos.
                 Include(e => e.Dias).
-                Where(e=> onlypublished? e.Status== StatusEvento.Publicado && e.Publicaosite==true : true ).
+                Where(e=>  
+                          ( onlypublished? e.Status== StatusEvento.Publicado && e.Publicaosite==true : true ) &&
+                           (onlypublished ? e.Dias.Any(d => d.Data >= DateTime.Today) : true)
+                     ).
                 AsNoTracking().
                 ToListAsync();
         }

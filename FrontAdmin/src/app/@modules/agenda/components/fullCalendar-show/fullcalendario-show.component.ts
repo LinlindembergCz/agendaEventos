@@ -30,6 +30,8 @@ export class FullCalendarioShowComponent implements OnInit {
 
   motivoBloqueio: string='motivo do bloqueio';
 
+  bloqueio: Bloqueador= new Bloqueador();
+
   @Input() public diasBloqueados: Date[]=[new Date()];
 
   @Output() clickBloqueio = new EventEmitter<Bloqueador>();
@@ -42,9 +44,13 @@ export class FullCalendarioShowComponent implements OnInit {
     ){}   
 
   ngOnInit(): void {   
+
+    this.bloqueio = new Bloqueador();
+
     this.loadTipoEventos().then ( ()=> {
       this.loadDiasBloqueados().then( ()=>{
            this.loadEventos(); 
+           this.loadBloqueio();
       })         
  }) 
   }
@@ -60,14 +66,26 @@ export class FullCalendarioShowComponent implements OnInit {
     then(x => { this.tiposEvento = x; }); 
   }
 
+  loadBloqueio():Promise<any> 
+  {
+    return this.http.get<Bloqueador>(environment.services.api,environment.routes.eventoSebraeLab.bloqueio).
+    then(b=>{        
+      if (b)
+      {
+        this.bloqueio = b[0]; 
+        this.motivoBloqueio = this.bloqueio.motivo
+      } 
+      
+      });
+  }
+
   loadDiasBloqueados():Promise<any> 
   {
     return this.http.get<any[]>(environment.services.api,environment.routes.eventoSebraeLab.diasBloqueados).
     then(x=>{
       this.diasBloqueados = []
-      //this.motivoBloqueio = x.motivo;
-      x.forEach(d=> {                  
-                      console.log(d.data)     
+     
+      x.forEach(d=> {                     
                        this.diasBloqueados.push(new Date(d.data))                       
                     })
       });
@@ -77,27 +95,29 @@ export class FullCalendarioShowComponent implements OnInit {
   loadEventos() 
   {
     let eventos :any[]=[];
-    const colors =["orange", "green",  "blue", "red","brown"];
+    //const colors =["orange", "green",  "blue", "red","brown"];
+    const colors =["#A1D8B6", "#D2C48E",  "#F45F40", "#F9AE8D","#80B9CE"];
 
-
-    this.diasBloqueados.forEach((d: Date)=>{ 
-      console.log(d)
-      eventos.push( {title: 'Bloqueado',date: d.toISOString().slice(0, 10),color: "gray"}) 
-    });    
-
+    if (this.diasBloqueados)
+    {
+        this.diasBloqueados.forEach((d: Date)=>{ 
+        eventos.push( {title: 'Bloqueado',date: d.toISOString().slice(0, 10),color: "gray"}) });  
+    }  
 
     this.http.get<Eventolab[]>(environment.services.api,environment.routes.eventoSebraeLab.root).then
     ( e=>{        
           e.forEach( d=>{       
-              d.dias.forEach( x=>{
-                      let data =  String(x.data).substring(0,10)
-                      eventos.push( {                           
-                        title: `${x.horainicio} - ${x.horafim}`,
-                        date: data,
-                        color: colors[this.tiposEvento.findIndex(x=>x.name==d.tipoevento)]                                    
-                      })
-                  })           
-                })
+                      d.dias.forEach( x=>{
+                              let data =  String(x.data).substring(0,10)
+                              eventos.push( 
+                              {                           
+                                title: `${x.horainicio} - ${x.horafim}`,
+                                date: data,
+                                color: colors[this.tiposEvento.findIndex(x=>x.name==d.tipoevento)]                                    
+                              
+                              })
+                          })           
+                        })
           }).finally(
             ()=>{
              this.options = { height: '550px',
@@ -106,7 +126,7 @@ export class FullCalendarioShowComponent implements OnInit {
                               selectable:true,
                               selectMirror: true,
                               dayMaxEvents: true,
-                              locale:['pt-BR'],
+                              locale:['pt-BR'],                            
                               events: eventos,                  
                               };
             
@@ -128,16 +148,40 @@ export class FullCalendarioShowComponent implements OnInit {
   {
 
     let diasParaBloqueio : DiasBloqueado[]=[];
+    let bloqueador :any;
 
-    this.diasBloqueados.forEach( d => 
-      {
-        diasParaBloqueio.push( {data: d, horainicio:'00:00',horafim:'00:00',options:''} ) 
+    if ( this.bloqueio != undefined )
+    {
+        this.diasBloqueados.forEach( d => 
+        {  
+          let dia = this.bloqueio.dias.find( b=> new Date(b.data).getDate() == d.getDate() );
+  
+          if ( dia!=undefined )
+              diasParaBloqueio.push( { id: dia?.id , data: d, horainicio:'00:00',horafim:'00:00',options:''} )
+          else
+             diasParaBloqueio.push( { data: d, horainicio:'00:00',horafim:'00:00',options:''} )
+        })
+        bloqueador = { id: this.bloqueio.id, motivo: this.motivoBloqueio, dias : diasParaBloqueio }      
+        
+    }
+    else
+    {
+      this.diasBloqueados.forEach( d => 
+      {  
+         diasParaBloqueio.push( {  data: d, horainicio:'00:00',horafim:'00:00',options:''} )
       })
-    
-    let bloqueador : Bloqueador = { id: null, motivo: this.motivoBloqueio, dias : diasParaBloqueio }
+      bloqueador = {  motivo: this.motivoBloqueio, dias : diasParaBloqueio }
+    } 
     
     this.clickBloqueio.next(bloqueador);
-    //this.hideDialogEventDate();
+    this.hideDialogEventDate();
+
+    setTimeout( () => {  
+                                         
+      this.loadEventos()
+      
+    }, 10000)
+    
   }
 
 
