@@ -26,9 +26,11 @@ export class FileService {
   {
     this.bypassSecurityTrustResourceUrl = '';
     
-     return this.download(origem, fileUrl).subscribe( 
+    console.log(fileUrl)
+
+     return this.download(origem, fileUrl + extention).subscribe( 
            (image: any)=>
-           {                      
+           {        
               if (image.type === HttpEventType.Response)
               { 
                   const downloadedFile = new Blob([image.body], { type: image.body.type });
@@ -38,10 +40,7 @@ export class FileService {
            }, 
            (erro)=>
            { 
-              if (extention==".png") 
-                  this.downloadSecurity(origem, fileUrl,".jpg") 
-              else
-                  this.bypassSecurityTrustResourceUrl = '';
+              this.bypassSecurityTrustResourceUrl = '';
            }
     );
    

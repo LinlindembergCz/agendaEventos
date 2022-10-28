@@ -56,7 +56,7 @@ export class ConteudoComponent implements OnInit, AfterViewInit{
 
      this.publicados.forEach(p=>{               
 
-    this.fileServicePublicados.downloadSecurity('conteudos',p.id + '.png').add(()=>{
+    this.fileServicePublicados.downloadSecurity('conteudos',p.id , '.png').add(()=>{
 
       p.picture = this.fileServicePublicados.bypassSecurityTrustResourceUrl;})                 
     });
@@ -64,8 +64,10 @@ export class ConteudoComponent implements OnInit, AfterViewInit{
     this.rascunhos = _conteudos.filter( f=>f.status =="Rascunho");
 
      this.rascunhos.forEach( r=>{ 
-       this.fileServiceRascunho.downloadSecurity('conteudos',r.id + '.png').add(()=>{ 
-         r.picture = this.fileServiceRascunho.bypassSecurityTrustResourceUrl;})                   
+       this.fileServiceRascunho.downloadSecurity('conteudos',r.id , '.png').add(()=>
+       { 
+          r.picture = this.fileServiceRascunho.bypassSecurityTrustResourceUrl;                   
+       })      
     });
   }
 

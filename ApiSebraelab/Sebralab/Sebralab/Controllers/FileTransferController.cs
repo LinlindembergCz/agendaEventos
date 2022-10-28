@@ -32,9 +32,17 @@ namespace SebraeLabAdmin.Controllers
         [Route("api/download/image/{origem}")]
         public async Task<IActionResult> Download(string origem, [FromQuery] string fileUrl)
         {
-            var filePath = Path.Combine(_Path + $"\\upload\\images\\{origem}", fileUrl);
+            string filePath;
 
-            if (!System.IO.File.Exists(filePath))
+            var filePathPng = Path.Combine(_Path + $"\\upload\\images\\{origem}\\", fileUrl);
+            var filePathJpg = Path.Combine(_Path + $"\\upload\\images\\{origem}\\", fileUrl.Replace("png", "jpg"));
+
+            if (System.IO.File.Exists(filePathPng))
+                filePath = filePathPng;
+            else
+            if (System.IO.File.Exists(filePathJpg))
+                filePath = filePathJpg;
+            else
                 return NotFound();
 
             var memory = new MemoryStream();

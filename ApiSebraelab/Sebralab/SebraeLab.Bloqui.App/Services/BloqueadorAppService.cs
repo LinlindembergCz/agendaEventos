@@ -31,13 +31,13 @@ namespace SebraeLab.Bloqueio.App.Services
 
         public Task<bool> Add(BloqueadorViewModel bloqueadorViewModel)
         { 
-            Bloqueador bloqueioOld = _repository.GetAll().Result.FirstOrDefault();
-            //
+            Bloqueador bloqueioOld = _repository.GetAll().Result.FirstOrDefault();          
             if (bloqueioOld != null)
             {
                 _repository.Remove(new Bloqueador { Id = bloqueadorViewModel.Id.Value });
                 _repository.UnitOfWork.Commit();
             }
+
             var bloqueio = _mapper.Map<Bloqueador>(bloqueadorViewModel);
             _repository.Add(bloqueio);
             _repository.UnitOfWork.Commit();

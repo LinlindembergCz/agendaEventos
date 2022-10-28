@@ -1,11 +1,11 @@
 <div>
    <button pButton type="button"  label="Criar novo evento" class="buttonNovoEvento p-button-outlined" (click)="ShowNovoEvento()"></button>
    <p></p>
-   <label style="background:#A1D8B6">Palestra</label>&nbsp;
-   <label style="background:#D2C48E; color: black">Workshop</label>&nbsp;
-   <label style="background:#F45F40; color: black">Curso</label>&nbsp;
-   <label style="background:#F9AE8D; color: black">Evento Fechado</label>&nbsp;
-   <label style="background:#80B9CE; color: black">Outros</label>
+   <label style="background:#9A1663; color: white">Palestra</label>&nbsp;
+   <label style="background:#E0144C; color: white">Workshop</label>&nbsp;
+   <label style="background:#FF5858; color: white">Curso</label>&nbsp;
+   <label style="background:#EA047E; color: white">Evento Fechado</label>&nbsp;
+   <label style="background:#00ABB3; color: white">Outros</label>
    <p></p>
 
    <full-calendar  [options]="options"></full-calendar>    
@@ -36,8 +36,8 @@
             [(ngModel)]="diasBloqueados"   
             format="yy-mm-dd">
 
-           <!--<ng-template pTemplate="date" let-date>
-                <td [ngStyle]="{ color:'black'" >{{date.day}}</td>
+        <!-- <ng-template pTemplate="date" let-date>
+                <td [ngStyle]="{color:'yellow'}">{{date.data}}</td>
             </ng-template>-->
 
             </p-calendar>

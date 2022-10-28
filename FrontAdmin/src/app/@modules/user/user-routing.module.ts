@@ -13,11 +13,6 @@ import { TermsComponent } from './pages/terms/terms.component';
 
 const routes: Routes = [
     {
-      path: '',
-      redirectTo: 'new',
-      pathMatch: 'full'
-    },
-    {
       path: 'login',
       redirectTo: 'login',
       pathMatch: 'full'

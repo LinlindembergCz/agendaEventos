@@ -28,7 +28,7 @@
                 <label>Imagem de Capa</label>
                 <label>Tamanho 600px de largura e 315px de altura</label>               
                 <img [src]="picture" style="width:'900px';height:'237px'"/>
-                <app-photo-upload (onUpload)="download()" origem="eventos" [fileUrl]="picture" [imageName]="evento.id"></app-photo-upload>
+                <app-photo-upload (onUpload)="onUpload($event)" origem="eventos" [fileUrl]="picture" [imageName]="evento.id"></app-photo-upload>
         </div>
        
     </div>

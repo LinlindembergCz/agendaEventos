@@ -72,7 +72,7 @@ export class FullCalendarioShowComponent implements OnInit {
   loadEventos() 
   {
     let eventos :any[]=[];
-    const colors =["orange", "green",  "blue", "red","brown","gray"];
+    const colors =["#9A1663", "#E0144C",  "#FF5858", "#EA047E","#00ABB3"];
                                                                                      
     this.diasBloqueados.forEach((d: Date)=>{ eventos.push( {title: 'Bloqueado',date: d.toISOString().slice(0, 10),color: "gray"}) });    
 

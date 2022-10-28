@@ -40,9 +40,8 @@ export class UserContextService {
     }
 
     public logout() {
-       this.sessionService.clear();
-        this.user$.next(defaultUser);
-        
+       this.sessionService.clear(); 
+        this.user$.next(defaultUser);        
     }
 
     public login() {

@@ -27,10 +27,7 @@ export class PublicacaoEditComponent implements OnInit, AfterViewInit {
     private http :RequestPromiseService,
     private router: Router,
     private route: ActivatedRoute,
-    private _sanitizer: DomSanitizer,
     private fileService: FileService,
-    private confirmationService: ConfirmationService
-
     ) { }
 
   ngOnInit(): void {
@@ -62,14 +59,8 @@ export class PublicacaoEditComponent implements OnInit, AfterViewInit {
 
       this.messageService.add({severity:'success', 
                               summary:'Atualização', 
-                              detail:'O conteúdo foi atualizado com sucesso!'});
-                          
-    
-    })    
-     
-     
-
-
+                              detail:'O conteúdo foi atualizado com sucesso!'});          
+    })       
   }
 
   ShowPreview(id: string)
@@ -85,8 +76,17 @@ export class PublicacaoEditComponent implements OnInit, AfterViewInit {
   
   download(id:string , extention : string = ".png") 
   {    
-    this.fileService.downloadSecurity('conteudos',id + extention).add(()=>{ 
-      this.picture = this.fileService.bypassSecurityTrustResourceUrl;})   
+    this.picture = '';
+    this.fileService.downloadSecurity('conteudos', id , extention).add(()=>
+    { 
+      this.picture = this.fileService.bypassSecurityTrustResourceUrl;
+    })   
+  }
+
+  onUpload(event: any)
+  {
+    setTimeout( ()=>{this.download(this.conteudo.id )}, 5000 )
+    
   }
 
  

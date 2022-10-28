@@ -45,18 +45,22 @@ export class PhotoUploadComponent implements OnInit {
     return this.imageName;
   }
 
-  onBeforeUpload($event: any, image: boolean = true) {
-    if($event["currentFiles"] !== undefined) {
-      if(image) {
-        this.uploadImageError = false;
-        this.uploadImageFinish = false;
-         this.imageName = $event.currentFiles[0].name ;
-      }
-      else {
-        this.uploadMediaError= false;
-        this.uploadMediaFinish = false;
-         this.mediaName =  $event.currentFiles[0].name;
-      }
+  onBeforeUpload($event: any, image: boolean = true) 
+  {
+    if($event["currentFiles"] !== undefined) 
+    {
+        if(image) 
+        {
+            this.uploadImageError = false;
+            this.uploadImageFinish = false;
+            this.imageName = $event.currentFiles[0].name ;
+        }
+        else 
+        {
+            this.uploadMediaError= false;
+            this.uploadMediaFinish = false;
+            this.mediaName =  $event.currentFiles[0].name;
+        }
     }
   }
 

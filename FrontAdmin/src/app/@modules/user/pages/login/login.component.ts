@@ -17,6 +17,8 @@ export class LoginComponent implements OnInit {
   public login = {userName:"" ,secret:""};
   mensagem: string;
 
+  isLoading:boolean= false;
+
   constructor(private http: RequestPromiseService,
               private router: Router,
               ) {
@@ -41,16 +43,19 @@ export class LoginComponent implements OnInit {
       //this.router.navigate(['index']);
       if ( this.login.userName.length > 0  && this.login.secret.length > 0 )
       {
-          this.http.post(environment.services.api,
-                            "usuario",
+          this.isLoading = true;
+         this.http.post(environment.services.api,
+                           "usuario",
                             {   id:'033F87D1-CD94-4829-AF6D-652915C6260F',
                                 login: this.login.userName,
                                 senha: this.login.secret
                             }).then( () => {
+                              this.isLoading = false;
                                 var user : any = new User(this.login.userName);
                                 this.http.SetUser( user );
                                 this.router.navigate(['index']);
                             }).catch( (e) => {
+                              this.isLoading = false;
                                 this.mensagem = 'Usuário não autorizado!';
                         });
       }

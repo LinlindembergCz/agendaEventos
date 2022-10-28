@@ -50,8 +50,12 @@
                  </div>        
                  <div class="frameTituloTopico" style="text-align:center;">
                      <div style="font-size: 16px;"><label>Tamanho 600px de largura e 315px de altura</label></div>
-                 <img [src]="picture" style="width:'900px';height:'237px'"/>
-                 <app-photo-upload origem="conteudos" [fileUrl]="picture" [imageName]="conteudo.id"></app-photo-upload>
+                     <img [src]="picture?picture:'../../../../../assets/imgs/semfoto.jpg'" style="width:'900px';height:'237px'"/>
+                     
+                     <app-photo-upload (onUpload)="onUpload($event)" origem="conteudos" 
+                     [fileUrl]="picture" [imageName]="conteudo.id">
+                     </app-photo-upload>
+
                  </div>
          
              </div>

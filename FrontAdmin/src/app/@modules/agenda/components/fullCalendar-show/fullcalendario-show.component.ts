@@ -96,7 +96,7 @@ export class FullCalendarioShowComponent implements OnInit {
   {
     let eventos :any[]=[];
     //const colors =["orange", "green",  "blue", "red","brown"];
-    const colors =["#A1D8B6", "#D2C48E",  "#F45F40", "#F9AE8D","#80B9CE"];
+    const colors =["#9A1663", "#E0144C",  "#FF5858", "#EA047E","#00ABB3"];
 
     if (this.diasBloqueados)
     {

@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.StaticFiles;
+using System.IO;
 
 namespace SebraeLabAdmin.Controllers
 {
@@ -10,12 +11,20 @@ namespace SebraeLabAdmin.Controllers
     public class FileTransferController : ControllerBase
     {
         private string _Path = "//STFSAON006326-L//temp";
-        
-        public FileTransferController() 
+
+        public FileTransferController()
         {
         }
 
-        [HttpPost]
+        private void DeleteExists(string directoryfilename)
+        {
+            if (System.IO.File.Exists(directoryfilename) )
+            {
+                System.IO.File.Delete(directoryfilename);
+            }
+        }
+
+    [HttpPost]
         [Route("api/upload/image/{origem}")]//conteudo ou evento
         [AllowAnonymous]
         public virtual async Task<IActionResult> UploadImage(string origem)
@@ -26,22 +35,33 @@ namespace SebraeLabAdmin.Controllers
             {
                 try
                 {
-                    if (!Directory.Exists(_Path + $"\\upload\\images\\{origem}\\"))
+                    var directoryOrigem = $"\\upload\\images\\{origem}\\";
+                    var directoryDestino = $"/upload/images/{origem}/";
+
+                    if (!Directory.Exists(_Path + directoryOrigem ))
                     {
-                        Directory.CreateDirectory(_Path + $"\\upload\\images\\{origem}\\");
-                    }
+                        Directory.CreateDirectory(_Path + directoryOrigem );
+                    }       
 
                     FileInfo fileInfo = new FileInfo(image_file.FileName);
 
                     var filename = image_file.Name + fileInfo.Extension;
 
-                    using (FileStream filestream = System.IO.File.Create(_Path + $"\\upload\\images\\{origem}\\" + filename))
+                    //var filenameOnly = image_file.Name.Substring(0, image_file.Name.IndexOf(".") - 1);
+
+                    //DeleteExists(_Path + directoryDestino + filenameOnly + ".png");
+                    //DeleteExists(_Path + directoryDestino + filenameOnly + ".jpg");
+
+                    DeleteExists(_Path + directoryDestino + image_file.Name + ".png");
+                    DeleteExists(_Path + directoryDestino + image_file.Name + ".jpg");                   
+
+                    using (FileStream filestream = System.IO.File.Create(_Path + directoryOrigem + filename))
                     {
                         await image_file.CopyToAsync(filestream);
 
                         filestream.Flush();
 
-                        return Created($"/upload/images/{origem}/" + filename, new { Uri = $"/upload/images/{origem}/" + filename });
+                        return Created(directoryDestino + filename, new { Uri = directoryDestino + filename });
                     }
 
                 }
@@ -73,10 +93,18 @@ namespace SebraeLabAdmin.Controllers
         [Route("api/download/image/{origem}")]//conteudo ou evento
         public async Task<IActionResult> Download(string origem , [FromQuery] string fileUrl)
         {
-            var filePath = Path.Combine(_Path + $"\\upload\\images\\{origem}\\", fileUrl);
+            string filePath;
 
-            if (!System.IO.File.Exists(filePath))
-                return NotFound();
+            var filePathPng = Path.Combine(_Path + $"\\upload\\images\\{origem}\\", fileUrl);
+            var filePathJpg = Path.Combine(_Path + $"\\upload\\images\\{origem}\\", fileUrl.Replace("png","jpg"));
+
+            if (System.IO.File.Exists(filePathPng))
+               filePath = filePathPng;
+            else
+            if (System.IO.File.Exists(filePathJpg))
+               filePath = filePathJpg;
+            else
+               return NotFound();
 
             var memory = new MemoryStream();
             await using (var stream = new FileStream(filePath, FileMode.Open))

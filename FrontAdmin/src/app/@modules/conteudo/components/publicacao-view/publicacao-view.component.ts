@@ -79,7 +79,7 @@ export class PublicacaoViewComponent implements OnInit , AfterViewInit
 
   download(id:string , extention : string = ".png") 
   {    
-    this.fileService.downloadSecurity('conteudos',id + extention).add(()=>{ 
+    this.fileService.downloadSecurity('conteudos',id , extention).add(()=>{ 
       this.picture = this.fileService.bypassSecurityTrustResourceUrl;})      
   }
 }

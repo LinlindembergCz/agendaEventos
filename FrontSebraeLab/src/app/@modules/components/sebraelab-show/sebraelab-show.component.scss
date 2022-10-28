@@ -1,14 +1,15 @@
 .frameSebraelab{
+
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0px;
   gap: 32px;
-  
+  text-align: center;
   position: absolute;
-  width: 864px;
+  width: 100%;
   height: 296px;
-  left: 400px;
+  left: 0px;
   top: 1152px;
 }
 
@@ -16,9 +17,15 @@
 
 
 .frameTitle{
+  text-align: center;
   width: 639px;
-height: 85px;
+  height: 85px;
 
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 56px;
+  line-height: 66px;
 
 /* Inside auto layout */
 flex: none;
@@ -26,7 +33,8 @@ order: 0;
 flex-grow: 0;
 }
 
-.title{position: absolute;
+.title{
+  position: absolute;
   width: 601.09px;
   height: 65.88px;
   left: 112.5px;
@@ -47,10 +55,9 @@ flex-grow: 0;
   color: #263746;}
 
   .frameText{
-
     width: 864px;
   height: 90px;
-  
+  left: 112.5px;
   /* Body / Big */
   font-family: 'PT Serif';
   font-style: normal;
@@ -63,13 +70,6 @@ flex-grow: 0;
   
   /* Tailwind/slate/700 */
   color: #334155;
-  
-  
-  /* Inside auto layout */
-  flex: none;
-  order: 1;
-  align-self: stretch;
-  flex-grow: 0;
   }
 
 

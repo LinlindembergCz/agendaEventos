@@ -121,10 +121,16 @@ export class EventoEditComponent implements OnInit, AfterViewInit {
   }
 
   download(id: string , extention : string = ".png") {    
-    this.fileService.downloadSecurity('eventos', id + extention).add(()=>{ 
+    this.fileService.downloadSecurity('eventos', id , extention).add(()=>{ 
       this.picture = this.fileService.bypassSecurityTrustResourceUrl;})    
   }
 
+
+  onUpload(event: any)
+  {
+    setTimeout( ()=>{this.download(this.evento.id )}, 5000 )
+    
+  }
 
 
 }
