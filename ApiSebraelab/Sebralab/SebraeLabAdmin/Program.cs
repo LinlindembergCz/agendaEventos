@@ -2,9 +2,10 @@ using SebraeLabAdmin.Setup;
 
 var builder = WebApplication.CreateBuilder(args);
 
-Mappers.RegisterMappers(builder.Services);
+
 DependencyInjection.RegisterServices(builder.Services);
 DbContexts.RegisterDbContexts(builder);
+Mappers.RegisterMappers(builder.Services);
 builder.Services.AddControllers();
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

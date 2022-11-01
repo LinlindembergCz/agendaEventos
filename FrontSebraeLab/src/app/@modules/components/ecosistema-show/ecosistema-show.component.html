@@ -1,40 +1,105 @@
 
-<div class="frameMain" style="top:{{topFrameMain}}">
+<div class="frameMain" style="top:{{topFrameMain}}" *ngIf="dispositivo=='desktop'">
 
-    <div class="frameTitle" style="top:{{topFrameTitle}}">
+    <div class="frameTitle" style="top:{{topFrameTitle}}; left:{{leftFrameTitle}}">
         Para quem
     </div>
 
-    <div class="frameText" style="top:{{topFrameText}}">
+    <div class="frameText" style="top:{{topFrameText}};left:{{leftFrameText}}">
         O sebraelab é um espaço aberto para todo o ecossistema de inovação do Espírito Santo, que inclui:
     </div>  
 
-    <div class="frameWhois frameSociedade" style="top:{{topframeSociedade}};">
+    <div class="frameWhois frameSociedade" style="top:{{topframeSociedade}};left:{{leftframeSociedade}};">
         <img src="./assets/imgs/fish_1.png"/>
         Sociedade
     </div>
 
-    <div class="frameWhois frameEmpreendedores" style="top:{{topFrameEmpreendedores}};">
+    <div class="frameWhois frameEmpreendedores" style="top:{{topFrameEmpreendedores}};left:{{leftFrameEmpreendedores}};">
         <img src="./assets/imgs/fish_2.png"/>
         Empreendedores e Empresas
     </div>
 
-    <div class="frameWhois frameAmbientes" style="top:{{topFrameAmbientes}};">
+    <div class="frameWhois frameAmbientes" style="top:{{topFrameAmbientes}};left:{{leftFrameAmbientes}};">
         <img src="./assets/imgs/fish_3.png"/>
         Ambientes promotores de inovação
     </div>
 
-    <div class="frameWhois frameInstituicoes" style="top:{{topFrameInstituicoes}};">
+    <div class="frameWhois frameInstituicoes" style="top:{{topFrameInstituicoes}};left:{{leftFrameInstituicoes}};">
         <img src="./assets/imgs/fish_4.png"/>
         Demais instituições parceiras
     </div>
 
-    <div class="frameWhois frameColaboradores" style="top:{{topFrameColaboradores}};">
+    <div class="frameWhois frameColaboradores" style="top:{{topFrameColaboradores}};left:{{leftFrameColaboradores}};">
         <img src="./assets/imgs/fish_2.png"/>
         Colaboradores
     </div>
 
-    <div class="frameWhois frameGoverno" style="top:{{topFrameGoverno}};">
+    <div class="frameWhois frameGoverno" style="top:{{topFrameGoverno}};left:{{leftFrameGoverno}};">
+        <img src="./assets/imgs/fish_1.png"/>   
+        Governo
+    </div> 
+
+</div>
+
+
+
+<div class="frameMainMobile" style="top:{{topFrameMain}}" *ngIf="dispositivo=='Mobile'">
+
+    <div class="frameTitleMobile" style="top:{{topFrameTitle}}">
+        Para quem
+    </div>
+
+    <div class="frameTextMobile" style="top:{{topFrameText}}">
+        O sebraelab é um espaço aberto para todo o ecossistema de inovação do Espírito Santo, que inclui:
+    </div>
+    
+    <div class="frameContainerMobile ">
+        <div class="p-grid">
+            <div class=" p-col-6">
+                <img src="./assets/imgs/fish_1.png"/>
+                Sociedade
+            </div>
+        
+            <div class=" p-col-6">
+                <img src="./assets/imgs/fish_2.png"/>
+                Empreendedores e Empresas
+            </div>
+
+            <div class=" p-col-6">
+                <img src="./assets/imgs/fish_3.png"/>
+                Ambientes promotores de inovação
+            </div>
+        
+            <div class=" p-col-6">
+                <img src="./assets/imgs/fish_4.png"/>
+                Demais instituições parceiras
+            </div>
+
+            <div class="p-col-6">
+                <img src="./assets/imgs/fish_2.png"/>
+                Colaboradores
+            </div>
+        
+            <div class="p-col-6">
+                <img src="./assets/imgs/fish_1.png"/>   
+                Governo
+            </div> 
+
+
+        </div>
+
+    </div>
+
+
+
+    
+
+    <div class="frameWhois frameColaboradores" style="top:{{topFrameColaboradores}};left:{{leftFrameColaboradores}};">
+        <img src="./assets/imgs/fish_2.png"/>
+        Colaboradores
+    </div>
+
+    <div class="frameWhois frameGoverno" style="top:{{topFrameGoverno}};left:{{leftFrameGoverno}};">
         <img src="./assets/imgs/fish_1.png"/>   
         Governo
     </div> 

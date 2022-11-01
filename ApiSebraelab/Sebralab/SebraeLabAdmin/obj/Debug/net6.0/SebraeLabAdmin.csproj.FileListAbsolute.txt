@@ -90,3 +90,9 @@ C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\Microsoft
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\Sebraelab.Usuario.Domain.dll
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\Sebraelab.Usuario.Domain.pdb
+C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\SebraeLab.NewsLetter.App.dll
+C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\SebraeLab.NewsLetter.Data.dll
+C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\SebraeLab.NewsLetter.Domain.dll
+C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\SebraeLab.NewsLetter.App.pdb
+C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\SebraeLab.NewsLetter.Data.pdb
+C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLabAdmin\bin\Debug\net6.0\SebraeLab.NewsLetter.Domain.pdb

@@ -1,16 +1,18 @@
 
 <app-header></app-header>
 <div>  
-    <app-banners-show></app-banners-show>
-    <app-sebraelab-show></app-sebraelab-show>   
-    <app-conteudo-show></app-conteudo-show>   
-    <app-eventoslab-show></app-eventoslab-show>  
-    <app-reserve-submit></app-reserve-submit>
-    <app-ecosistema-show></app-ecosistema-show>    
+    <app-banners-show [dispositivo]="this.dispositivo"></app-banners-show>
+    <app-sebraelab-show [dispositivo]="this.dispositivo"></app-sebraelab-show>   
+    <app-conteudo-show [dispositivo]="this.dispositivo"></app-conteudo-show>   
+    <app-eventoslab-show [dispositivo]="this.dispositivo"></app-eventoslab-show>  
+    <app-reserve-submit [dispositivo]="this.dispositivo"></app-reserve-submit>
+    <app-ecosistema-show [dispositivo]="this.dispositivo"></app-ecosistema-show> 
 </div>
+
 <div class="Rodape">
-    <app-contato-submit></app-contato-submit>    
+    <app-contato-submit [dispositivo]="this.dispositivo"></app-contato-submit>    
 </div>
+
  
 
 

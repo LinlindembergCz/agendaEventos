@@ -2,6 +2,7 @@
 using SebraeLab.Bloqueio.Data;
 using SebraeLab.Conteudo.Data;
 using SebraeLab.Evento.Data;
+using SebraeLab.NewsLetter.Data;
 
 namespace SebraeLabAdmin.Setup
 {
@@ -22,6 +23,13 @@ namespace SebraeLabAdmin.Setup
                             .MaxBatchSize(100)
                             .CommandTimeout(5)
                             .EnableRetryOnFailure(4, TimeSpan.FromSeconds(10), null)));
+
+            builder.Services.AddDbContext<NewsLetterContext>(options =>
+           options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), o => o
+                .MaxBatchSize(100)
+                .CommandTimeout(5)
+                .EnableRetryOnFailure(4, TimeSpan.FromSeconds(10), null)));
+
 
             builder.Services.AddDbContext<BloqueadorContext>(options =>
            options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));

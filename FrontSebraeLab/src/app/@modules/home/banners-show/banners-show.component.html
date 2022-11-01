@@ -1,5 +1,4 @@
-<div class="carousel-home-index">
-  
+<div [ngClass]="dispositivo=='desktop' ? 'carousel-home-index' : 'carousel-home-index-mobile'">
     <p-carousel 
         [value]="imgs"  
         [autoplayInterval]="3500" 
@@ -8,12 +7,17 @@
         [showIndicators]="false"
         >
         <ng-template let-item pTemplate="item">
-        <div class="banner-item  p-ai-center p-jc-center" [ngStyle]="{'background': 'url('+ item.image + ') no-repeat'}">
+        <div 
+        [ngClass]="dispositivo=='desktop' ? 'banner-item  p-ai-center p-jc-center' : 'banner-item-mobile  p-ai-center p-jc-center'"
+        
+        [ngStyle]="dispositivo=='desktop' ? {'background': 'url('+ item.image + ') no-repeat'}: {'background': 'url('+ '../../../assets/banners/banner_mobile.png' + ') no-repeat'} ">
+       
         </div>
+        
         </ng-template>
     </p-carousel>
-
-    <div *ngIf="fileName===''">
+  
+    <div *ngIf="dispositivo=='desktop'">
         <div class="LEARN">   
             LEARN 
             <div class="barLearn"></div>
@@ -33,7 +37,33 @@
         </div> 
     </div>
 
+    <div *ngIf="dispositivo=='Mobile'">
+        <div class="frameCardsMobile">
+            <div class="frameCardMobile" style="order:0">   
+                LEARN 
+            <div class="barLearn"></div>
+                <div class="textBar">Concentração, conhecimento e aprendizado validado. </div>     
+            </div>
 
+            <div class="frameCardMobile"  style="order:1">    
+                ATTEND
+            <div class="barAttend"></div>
+                <div class="textBar">Produção, criação participativa e colaborativa </div>       
+            </div>
+
+            <div class="frameCardMobile"  style="order:2">  
+                BUSINESS  
+                <div class="barBusiness"></div>
+                <div class="textBar">Conexão, hub de negócios e acessos a mercados.</div>        
+            </div> 
+        </div>
+
+    </div>
 </div>
+
+
+
+
+
 
 

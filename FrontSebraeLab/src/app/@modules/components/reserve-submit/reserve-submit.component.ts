@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
@@ -12,6 +12,8 @@ import { EventBooking } from './model/EventBooking-model';
 })
 export class ReserveSubmitComponent implements OnInit {
 
+  @Input() dispositivo: string;
+  
   DialogEventDateShowing: Boolean = false;
   EventDaysFormated: Array<string>;
   EventDays: Array<string> ;

@@ -1,6 +1,7 @@
 ﻿using SebraeLab.Bloqueio.App.AutoMapper;
 using SebraeLab.Conteudo.App.AutoMapper;
 using SebraeLab.Evento.App.AutoMapper;
+using SebraeLab.NewsLetter.App.AutoMapper;
 
 namespace SebraeLabAdmin.Setup
 {
@@ -17,6 +18,9 @@ namespace SebraeLabAdmin.Setup
 
             services.AddAutoMapper(typeof(DomainToViewModelMappingBloqueio),
                                            typeof(ViewModelToDomainMappingBloqueio));
+
+            services.AddAutoMapper(typeof(DomainToViewModelMappingNewsLetter),
+                                   typeof(ViewModelToDomainMappingNewsLetter));
         }
     }
 }

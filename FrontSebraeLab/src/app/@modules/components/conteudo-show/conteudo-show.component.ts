@@ -1,5 +1,5 @@
 import { HttpEventType } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
@@ -25,6 +25,8 @@ export class ConteudoShowComponent implements OnInit {
   imgs: Image[] = [];
 
   publicacoes: any[]=[{id: '',titulo:'',image:''}];
+
+  @Input() dispositivo: string;
 
   constructor(
     private http: RequestPromiseService,

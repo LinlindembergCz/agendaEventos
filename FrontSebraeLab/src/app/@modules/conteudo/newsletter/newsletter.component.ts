@@ -1,10 +1,7 @@
-import {  Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import {  Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { RequestPromiseService } from '../../../@shared/services/request-promise.service';
-import { DomSanitizer } from '@angular/platform-browser';
-import { FileService } from '../../user/services/file.service';
-
-
+import { Newsletter } from '../../../@core/models/newsletter.model';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-newsletter',
@@ -14,17 +11,26 @@ import { FileService } from '../../user/services/file.service';
 export class NewsLetterComponent implements OnInit 
 {
 
+   inscricao: Newsletter = new Newsletter();
+
+   @Output() clickHide = new EventEmitter<void>();
+
+   @Output() clickSave = new EventEmitter<Newsletter>();
 
   constructor(
     private http: RequestPromiseService,
-    private route: ActivatedRoute,
-    private _sanitizer: DomSanitizer,
-    private fileService: FileService,
+    private messageService: MessageService,
   ) { }
 
   ngOnInit(): void 
   {
 
+  }
+
+  save(): void
+  {
+    this.clickSave.next(this.inscricao);
+    this.clickHide.next(); 
   }
 
 

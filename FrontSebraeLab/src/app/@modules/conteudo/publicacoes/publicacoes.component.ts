@@ -2,6 +2,7 @@ import { HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
 import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
 import { environment } from '../../../../environments/environment';
 import { FileService } from '../../user/services/file.service';
@@ -32,7 +33,8 @@ export class PublicacoesComponent implements OnInit {
     private http: RequestPromiseService,
     private _sanitizer: DomSanitizer,
     private fileService: FileService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private messageService: MessageService
   ) { }
   
   ngOnInit(): void { 
@@ -105,6 +107,24 @@ export class PublicacoesComponent implements OnInit {
 
   registerNewsletter()
   {
+
+  }
+
+  saveNewsletter(inscricao: any){
+
+    this.http.post(environment.services.api,environment.routes.newsletter.root,
+      inscricao ).then( () =>
+    {       
+      this.dialogNewsletter = false;
+        this.messageService.add(
+          {severity:'success', 
+           summary:'Cadastro', 
+           detail:'Registro na nossa NewsLetter realizada com sucesso!'}); 
+    }).catch( (e) =>{         
+        this.messageService.add({severity:'warn', 
+        summary:'Erro', 
+        detail:e.error.text}); 
+    });
 
   }
 

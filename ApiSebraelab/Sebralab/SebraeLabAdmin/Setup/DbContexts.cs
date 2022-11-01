@@ -7,6 +7,7 @@ using SebraeLab.Conteudo.Data;
 using SebraeLab.Evento.App.AutoMapper;
 using SebraeLab.Evento.Data;
 using Microsoft.Extensions.Logging;
+using SebraeLab.NewsLetter.Data;
 
 namespace SebraeLabAdmin.Setup
 {   
@@ -40,6 +41,14 @@ namespace SebraeLabAdmin.Setup
                             .EnableRetryOnFailure(4, TimeSpan.FromSeconds(10), null))                        
                 .LogTo( _writer.WriteLine, LogLevel.Information)
                 .EnableSensitiveDataLogging() );
+
+            builder.Services.AddDbContext<NewsLetterContext>(options =>
+           options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"), o => o
+                .MaxBatchSize(100)
+                .CommandTimeout(5)
+                .EnableRetryOnFailure(4, TimeSpan.FromSeconds(10), null))
+    .LogTo(_writer.WriteLine, LogLevel.Information)
+    .EnableSensitiveDataLogging());
 
             builder.Services.AddDbContext<BloqueadorContext>(options =>
                        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));/*, o => o

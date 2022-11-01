@@ -27,7 +27,11 @@ export const environment = {
       desativar:"ConteudoSebraeLab/Desativar",
       search: "ConteudoSebraeLab/Pesquisar?value=",
       pesquisarPorTipo:"ConteudoSebraeLab/PesquisarPorTipo"   
-    }
+    },
+    newsletter:{
+      root:"NewsLetter",
+    },
+
   }
 };
 

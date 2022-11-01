@@ -29,6 +29,9 @@
     <ProjectReference Include="..\SebraeLab.Evento.App\SebraeLab.Evento.App.csproj" />
     <ProjectReference Include="..\SebraeLab.Evento.Data\SebraeLab.Evento.Data.csproj" />
     <ProjectReference Include="..\SebraeLab.Evento.Domain\SebraeLab.Evento.Domain.csproj" />
+    <ProjectReference Include="..\SebraeLab.NewsLetter.App\SebraeLab.NewsLetter.App.csproj" />
+    <ProjectReference Include="..\SebraeLab.NewsLetter.Data\SebraeLab.NewsLetter.Data.csproj" />
+    <ProjectReference Include="..\SebraeLab.NewsLetter.Domain\SebraeLab.NewsLetter.Domain.csproj" />
     <ProjectReference Include="..\Sebraelab.Usuario.Domain\Sebraelab.Usuario.Domain.csproj" />
   </ItemGroup>
 

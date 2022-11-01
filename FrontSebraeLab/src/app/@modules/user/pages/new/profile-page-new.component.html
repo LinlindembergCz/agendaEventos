@@ -84,7 +84,5 @@
 </div>
 <p-dialog position="center" [style]="{minWidth: '65vw', maxWidth: '80vw'}" [(visible)]="showDialog" header="Termos de Uso" [modal]="true" [blockScroll]="true" [maximizable]="true" styleClass="p-fluid" (onHide)="hideModalReload()">
     <app-terms *ngIf="showDialog"></app-terms>
-    <p-footer>
-      <button pButton pRipple label="Fechar" icon="pi pi-times" class="p-button-text p-button-info" (click)="hideModalReload()"></button>
-  </p-footer>
+ 
 </p-dialog>

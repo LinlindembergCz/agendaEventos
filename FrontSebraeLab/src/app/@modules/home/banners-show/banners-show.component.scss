@@ -165,3 +165,58 @@ background: #ED4D9A;
   order: 2;
   align-self: stretch;
   flex-grow: 0;}
+
+  //Mobile
+
+  .carousel-home-index-mobile {
+    position: absolute;
+    width: 375px;
+    height: 334px;
+    left: 0px;
+    top: 72px;
+
+    mix-blend-mode: normal;
+  }
+
+  .banner-item-mobile {
+    height: 334px;
+    left: 0px;
+    top: 0px;
+  }
+
+
+  .frameCardsMobile{
+  /* LAB */
+    /* Auto layout */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 0px;
+  gap: 16px;
+
+  position: absolute;
+  width: 300px;
+  height: 668px;
+  left: 42px;
+  top: 280px;
+}
+
+.frameCardMobile{
+
+/* Frame 5583 */
+/* Auto layout */
+display: flex;
+flex-direction: column;
+align-items: center;
+padding: 40px 32px;
+gap: 13px;
+width: 300px;
+height: 212px;
+
+background: #FFFFFF;
+/* shadow XXL */
+
+box-shadow: 0px 25px 50px -12px rgba(16, 24, 40, 0.15);
+border-radius: 4px;
+
+}

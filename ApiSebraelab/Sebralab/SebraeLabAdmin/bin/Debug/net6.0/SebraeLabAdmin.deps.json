@@ -21,6 +21,9 @@
           "SebraeLab.Evento.App": "1.0.0",
           "SebraeLab.Evento.Data": "1.0.0",
           "SebraeLab.Evento.Domain": "1.0.0",
+          "SebraeLab.NewsLetter.App": "1.0.0",
+          "SebraeLab.NewsLetter.Data": "1.0.0",
+          "SebraeLab.NewsLetter.Domain": "1.0.0",
           "Sebraelab.Usuario.Domain": "1.0.0",
           "Swashbuckle.AspNetCore": "6.2.3",
           "AutoMapper": "11.0.1"
@@ -1102,6 +1105,38 @@
           "SebraeLab.Evento.Domain.dll": {}
         }
       },
+      "SebraeLab.NewsLetter.App/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Abstractions": "2.2.0",
+          "SebraeLab.Core": "1.0.0",
+          "SebraeLab.NewsLetter.Data": "1.0.0",
+          "SebraeLab.NewsLetter.Domain": "1.0.0",
+          "AutoMapper": "11.0.1"
+        },
+        "runtime": {
+          "SebraeLab.NewsLetter.App.dll": {}
+        }
+      },
+      "SebraeLab.NewsLetter.Data/1.0.0": {
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.8",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.8",
+          "Microsoft.EntityFrameworkCore.SqlServer": "6.0.8",
+          "SebraeLab.Core": "1.0.0",
+          "SebraeLab.NewsLetter.Domain": "1.0.0"
+        },
+        "runtime": {
+          "SebraeLab.NewsLetter.Data.dll": {}
+        }
+      },
+      "SebraeLab.NewsLetter.Domain/1.0.0": {
+        "dependencies": {
+          "SebraeLab.Core": "1.0.0"
+        },
+        "runtime": {
+          "SebraeLab.NewsLetter.Domain.dll": {}
+        }
+      },
       "Sebraelab.Usuario.Domain/1.0.0": {
         "dependencies": {
           "SebraeLab.Core": "1.0.0"
@@ -1948,6 +1983,21 @@
       "sha512": ""
     },
     "SebraeLab.Evento.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SebraeLab.NewsLetter.App/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SebraeLab.NewsLetter.Data/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SebraeLab.NewsLetter.Domain/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

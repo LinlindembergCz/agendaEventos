@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sebraelab-show',
@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SebraelabShowComponent implements OnInit {
 
+  @Input() dispositivo: string;
+  
   ngOnInit(): void {   
   }
 

@@ -1,10 +1,16 @@
+<head>
+    <meta name="viewport" content=
+        "width=device-width, initial-scale=1.0">
+</head>
+
 <div>  
     <app-header></app-header>
     <img src="assets/banners/banner_conteudo.jpg" width="100%" height="100%"> 
     <div class="frameAnuncioInscricao">
         <div class="botaoInscricao" (click)="showDialogNewsLetter()"><a>Inscreva-se</a></div>
     </div>
-        <div class="framecontent">       
+    
+    <div class="framecontent">       
 
             <div class="frameButtonsFiltro">
                 <div class="frameButtons">                        
@@ -40,44 +46,45 @@
                </div> 
             </div>
             
-        <p-dataView [value]="publicacoes" [paginator]="true" [rows]="12">
+     <p-dataView [value]="publicacoes" [paginator]="true" [rows]="12" >
             <p></p>
             <ng-template let-publicacao pTemplate="listItem">
                 
-                <div class="imageItem">
-                <img [src]="publicacao.image" style="width: '280px'; height:'180px'"/>     
-                <div class="framenews">
-                    <div class="p-field">
-                        {{publicacao.tipopublicacao}} 
-                    </div>
-                    <div  *ngIf="publicacao.titulo.length > 70">
-                        {{publicacao.titulo.substring(1,70)}}...
-                    </div>
-                    <div  *ngIf="publicacao.titulo.length <= 70" >
-                        {{publicacao.titulo}}
-                    </div>                               
-                    <div >
-                        <a href="/publicacao?id={{publicacao.id}}">Saiba mais</a>
-                        
-                    </div>
-                </div>          
+                <div class="imageItem card" >                   
+                    <img [src]="publicacao.image" style="width: '250px'; height:'180px'"/>                        
+                    <div class="framenews">
+                        <div class="p-field">
+                            {{publicacao.tipopublicacao}} 
+                        </div>
+                        <div  *ngIf="publicacao.titulo.length > 70">
+                            {{publicacao.titulo.substring(1,70)}}...
+                        </div>
+                        <div  *ngIf="publicacao.titulo.length <= 70" >
+                            {{publicacao.titulo}}
+                        </div>                               
+                        <div >
+                            <a href="/publicacao?id={{publicacao.id}}">Saiba mais</a>                            
+                        </div>
+                    </div>          
                 </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        
             </ng-template>
         </p-dataView>
-    
-    </div>   
+
+
+
+        
 
 </div>
 
 <p-dialog 
     header="News Letter" 
     blockScroll="false"
-    [breakpoints]="{ '715px': '89%' }" 
+    [breakpoints]="{ '515px': '89%' }" 
     [style]="{ width: '50%' }"
     [(visible)]="dialogNewsletter" 
     [modal]="true" 
     styleClass="p-fluid">
-       <app-newsletter></app-newsletter>
+       <app-newsletter (clickSave)="saveNewsletter($event)"></app-newsletter>
 </p-dialog>
 
 

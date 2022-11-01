@@ -232,7 +232,7 @@ flex-grow: 0;
     text-align: center;
 }
 
-///////////////
+
 li a:hover, .dropdown:hover .dropbtn {
     background-color: red;
   }
@@ -268,13 +268,14 @@ li a:hover, .dropdown:hover .dropbtn {
   .imgDropdown {width: 16px;
     height: 16px;
     
-    transform: rotate(-90deg);
+    //transform: rotate(-90deg);
     
-    /* Inside auto layout */
+
     flex: none;
     order: 1;
     flex-grow: 0;
 }
+
 
 .frameRealize{display: flex;
     flex-direction: row;

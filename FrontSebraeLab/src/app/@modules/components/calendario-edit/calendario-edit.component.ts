@@ -30,6 +30,9 @@ export class CalendarioEditComponent implements AfterViewInit, OnInit {
   
   @Input() ShowButtobAplly:boolean = false;
 
+  @Input() inline:boolean = true;
+  
+
   mensagens: any[]=[];
 
   diasBloqueados: Date[]=[new Date()];
@@ -54,7 +57,7 @@ export class CalendarioEditComponent implements AfterViewInit, OnInit {
   }
 
   ngAfterViewInit()
-  {    console.log( 'ngAfterViewInit' )
+  {   
        this.route.queryParams.subscribe(
           params =>{  if (params['datas'])
                       {

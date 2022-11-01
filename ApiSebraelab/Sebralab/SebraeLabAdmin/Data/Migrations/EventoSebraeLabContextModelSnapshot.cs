@@ -46,7 +46,7 @@ namespace SebraeLab.Evento.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("Bloqueadorid")
+                    b.Property<Guid?>("Bloqueadorid")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime?>("Data")
@@ -217,6 +217,46 @@ namespace SebraeLab.Evento.Data.Migrations
                     b.ToTable("EventosSebraeLab", (string)null);
                 });
 
+            modelBuilder.Entity("SebraeLab.NewsLetter.Domain.InscricaoNewsLetter", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool?>("Aceitoreceber")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("Aceitotermos")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Cnpj")
+                        .HasColumnType("varchar(20)");
+
+                    b.Property<string>("Cpf")
+                        .IsRequired()
+                        .HasColumnType("varchar(15)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("varchar(250)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("Sobrenome")
+                        .IsRequired()
+                        .HasColumnType("varchar(50)");
+
+                    b.Property<string>("Telefone")
+                        .IsRequired()
+                        .HasColumnType("varchar(20)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("NewsLetter", (string)null);
+                });
+
             modelBuilder.Entity("Sebraelab.Usuario.Domain.Usuario", b =>
                 {
                     b.Property<Guid>("Id")
@@ -239,9 +279,7 @@ namespace SebraeLab.Evento.Data.Migrations
                 {
                     b.HasOne("SebraeLab.Bloqueio.Domain.Bloqueador", "Bloqueador")
                         .WithMany("Dias")
-                        .HasForeignKey("Bloqueadorid")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("Bloqueadorid");
 
                     b.Navigation("Bloqueador");
                 });
