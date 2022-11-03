@@ -1,6 +1,14 @@
 <div>  
     <app-header></app-header>
-        <img src="assets/banners/banner_meuevento.png" width="100%" height="500px">    
+      
+        
+        <div *ngIf="!isMobile">
+            <img src="assets/banners/banner_meuevento.png" width="100%" height="500px">
+        </div>
+        <div *ngIf="isMobile">
+            <img src="assets/banners/banner_Eventos_mobile.png" width="100%" >
+        </div>
+        
     
         <div class="framBanner" *ngIf="eventslab.length > 0"> 
             <p-dataView [value]="eventslab" [paginator]="true" [rows]="1">

@@ -1,21 +1,18 @@
 <div role="header" class="p-d-flex p-flex-row p-ai-center p-jc-center" style="background: #ED4D9A;">
     
-    <div class="frameLogo">
-        
+    <div class="frameLogo">        
         <div class="frameFishLogo"><img src="/assets/imgs/fishLogo.png" alt="peixelogo"/></div>
         <div class="frameTitleLogo"><img src="/assets/imgs/logo.png" alt="logo"/></div> 
     </div>
-    <div class="p-d-flex header-top p-ai-center" >
-      
-        <div class="logo p-text-center p-jc-center p-ai-center">
-          <!--<div class="logo-img"></div>-->
-          
-        </div>
-        <div class="menu-bar" >
-          <a class="menu-link" href="javascript:void(0);">
-              <i class="pi pi-bars"></i>
-          </a>
 
+    <div class="p-d-flex header-top p-ai-center" >      
+      
+        <div *ngIf="isMobile" style="text-align:right;width:100%">
+          <button type="button" pButton icon="pi pi-list" (click)="menu.toggle($event)" style="background:#ED4D9A;border:0px;"></button>
+          <p-menu  #menu [popup]="true"  [model]="itemsMenu"></p-menu>
+        </div>
+
+        <div class="menu-bar" *ngIf="!isMobile">
           <ul class="menu-list">
               <li class="menuItem"(click)="showHome()">Home</li>
               <li class="menuItem" (click)="showQuemSomos()">Quem Somos</li>
@@ -33,8 +30,7 @@
               <li class="menuItem" (click)="showMeuEvento()">
                 <div class="frameRealize">Realize seu evento</div>
               </li>
-          </ul>
-           
-      </div>
+           </ul>           
+        </div>
     </div>
 </div>

@@ -21,7 +21,7 @@ export class BannersShowComponent implements OnInit {
 
   @Input() images: string[]=[];
   
-  @Input() dispositivo: string;
+  @Input() isMobile: boolean;
 
   imgs: Banner[] = [];
   itens: any[]=[];

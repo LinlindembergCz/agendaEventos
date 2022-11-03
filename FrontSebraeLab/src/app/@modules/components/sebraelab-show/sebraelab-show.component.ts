@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SebraelabShowComponent implements OnInit {
 
-  @Input() dispositivo: string;
+  @Input() isMobile: boolean = false;
   
   ngOnInit(): void {   
   }

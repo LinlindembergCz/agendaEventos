@@ -26,7 +26,7 @@ export class ConteudoShowComponent implements OnInit {
 
   publicacoes: any[]=[{id: '',titulo:'',image:''}];
 
-  @Input() dispositivo: string;
+  @Input() isMobile: boolean = false;
 
   constructor(
     private http: RequestPromiseService,

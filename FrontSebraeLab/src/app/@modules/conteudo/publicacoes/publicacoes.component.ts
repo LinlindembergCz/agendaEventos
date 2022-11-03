@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
+import { ApplicationStateService } from 'src/app/@bootstrap/services/application-state.service';
 import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
 import { environment } from '../../../../environments/environment';
 import { FileService } from '../../user/services/file.service';
@@ -29,12 +30,15 @@ export class PublicacoesComponent implements OnInit {
 
   dialogNewsletter:boolean = false;
 
+  isMobile:boolean;
+
   constructor(
     private http: RequestPromiseService,
     private _sanitizer: DomSanitizer,
     private fileService: FileService,
     private route: ActivatedRoute,
-    private messageService: MessageService
+    private messageService: MessageService,
+    private applicationStateService: ApplicationStateService
   ) { }
   
   ngOnInit(): void { 
@@ -42,7 +46,9 @@ export class PublicacoesComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
           this.tipoConteudo=params['tipo'];                     
           this.loadConteudos(String(tipos.indexOf(this.tipoConteudo)));           
-      });    
+      }); 
+      
+      this.isMobile = this.applicationStateService.device().isMobile()
   }
 
   loadConteudos(tipo: string) 

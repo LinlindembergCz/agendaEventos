@@ -5,9 +5,29 @@
 
 <div>  
     <app-header></app-header>
-    <img src="assets/banners/banner_conteudo.jpg" width="100%" height="100%"> 
-    <div class="frameAnuncioInscricao">
+    
+
+    <div *ngIf="!isMobile">
+        <img src="assets/banners/banner_conteudo.jpg" width="100%" height="100%"> 
+    </div>
+    <div *ngIf="isMobile">
+        <img src="assets/banners/banner_conteudo_mobile.png" width="100%" height="100%"> 
+    </div>
+
+    <div class="frameAnuncioInscricao"  *ngIf="!isMobile">
         <div class="botaoInscricao" (click)="showDialogNewsLetter()"><a>Inscreva-se</a></div>
+    </div>
+
+    <div class="frameAnuncioInscricaoMobile"  *ngIf="isMobile">
+        <div class="frameContainerTextMobile">
+            <div class="frameAssineNossaNewsLetter">
+                Assine nossa newsletter
+            </div>
+            <div class="frameTextframeAssineNossaNewsLetter">
+                Quer receber mais conteúdos imperdíveis como esses de graça? Inscreva-se para receber nossos conteúdos por email.
+            </div>
+        </div>        
+        <div class="botaoInscricaoMobile" (click)="showDialogNewsLetter()"><a>Inscreva-se</a></div>
     </div>
     
     <div class="framecontent">       

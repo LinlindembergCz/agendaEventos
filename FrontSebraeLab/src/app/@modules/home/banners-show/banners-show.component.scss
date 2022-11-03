@@ -4,12 +4,14 @@
 }
 
 .frameCard{position: absolute;
+
   width: 100%;
   height: 309px;
   left: 208px;
   top: 731px;}
 
 .banner-item {
+
     height: 756px;
     left: 0px;
     top: 0px;
@@ -17,29 +19,7 @@
     background-size: cover !important;
     background-position: center !important;
     width: 100%;
-    .details {
-      width: 100%;
-      height: 400px;
-      max-width: 1140px;
-      color: #FFF;
-      h2 {
-        color: #FFF;
-        display: block;
-      }
-      p {
-          display: block;
-      }
-      .card-text {
-          max-width: 600px;
-          background: rgba(0, 0, 0, 0.233);
-          border-radius: .6rem;
-          text-shadow: 1px 1px #727272;
-          p {
-              font-size: .9rem;
-              font-weight: normal;
-          }
-      }
-    }
+  
 }
 
 .banner-item:hover {
@@ -170,18 +150,21 @@ background: #ED4D9A;
 
   .carousel-home-index-mobile {
     position: absolute;
-    width: 375px;
+    width: 100%;
     height: 334px;
     left: 0px;
-    top: 72px;
+    top: 70px;
 
     mix-blend-mode: normal;
   }
 
   .banner-item-mobile {
+
     height: 334px;
     left: 0px;
     top: 0px;
+
+    
   }
 
 

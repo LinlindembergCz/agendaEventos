@@ -1,6 +1,14 @@
 <div>  
     <app-header></app-header>
-    <img src="assets/banners/1.jpg" width="100%" height="500px">    
+     
+    
+    <div *ngIf="!isMobile">
+        <img src="assets/banners/1.jpg" width="100%" height="500px">
+    </div>
+    <div *ngIf="isMobile">
+        <img src="assets/banners/banner_QuemSomos_Mobile.png" width="100%">
+    </div>
+
     <app-entenda-sebraelab-show></app-entenda-sebraelab-show>
     <app-espaco-show></app-espaco-show>
     <app-na-pratica-show></app-na-pratica-show>

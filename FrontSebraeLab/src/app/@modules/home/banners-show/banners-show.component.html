@@ -1,4 +1,4 @@
-<div [ngClass]="dispositivo=='desktop' ? 'carousel-home-index' : 'carousel-home-index-mobile'">
+<div [ngClass]="!isMobile ? 'carousel-home-index' : 'carousel-home-index-mobile'">
     <p-carousel 
         [value]="imgs"  
         [autoplayInterval]="3500" 
@@ -8,16 +8,16 @@
         >
         <ng-template let-item pTemplate="item">
         <div 
-        [ngClass]="dispositivo=='desktop' ? 'banner-item  p-ai-center p-jc-center' : 'banner-item-mobile  p-ai-center p-jc-center'"
+        [ngClass]="!isMobile ? 'banner-item  p-ai-center p-jc-center' : 'banner-item-mobile  p-ai-center p-jc-center'"
         
-        [ngStyle]="dispositivo=='desktop' ? {'background': 'url('+ item.image + ') no-repeat'}: {'background': 'url('+ '../../../assets/banners/banner_mobile.png' + ') no-repeat'} ">
+        [ngStyle]="!isMobile ? {'background': 'url('+ item.image + ') no-repeat'}: {'background': 'url('+ '../../../assets/banners/banner_mobile.png' + ') repeat'} ">
        
         </div>
         
         </ng-template>
     </p-carousel>
   
-    <div *ngIf="dispositivo=='desktop'">
+    <div *ngIf="!isMobile">
         <div class="LEARN">   
             LEARN 
             <div class="barLearn"></div>
@@ -37,7 +37,7 @@
         </div> 
     </div>
 
-    <div *ngIf="dispositivo=='Mobile'">
+    <div *ngIf="isMobile">
         <div class="frameCardsMobile">
             <div class="frameCardMobile" style="order:0">   
                 LEARN 

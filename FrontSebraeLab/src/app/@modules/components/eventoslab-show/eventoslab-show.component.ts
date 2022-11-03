@@ -26,7 +26,7 @@ export class EventoslabShowComponent implements OnInit {
   alleventslab: any[] = [];
   eventslab: Eventlab[] = [];
 
-  @Input() dispositivo: string;
+  @Input() isMobile: boolean = false;
   
   constructor(
     private http: RequestPromiseService,

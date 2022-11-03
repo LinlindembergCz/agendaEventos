@@ -1,7 +1,7 @@
 <div id="reserv"></div>
 
 <div class="frameMain">  
-    <div *ngIf="dispositivo=='Mobile'">
+    <div *ngIf="isMobile">
         <div class="frameTextMobile">             
             <div class="frameRealize">
                 <div class="frameTitleMobile">
@@ -14,8 +14,8 @@
             <!--<div>Saiba mais <img src="/assets/imgs/arrow-right.png" alt="Saiba mais "/></div>-->
         </div>
     </div>
-    <div [ngClass] ="dispositivo=='desktop'?'frameReserv':'frameReservMobile'" 
-    [ngStyle]="{'left': dispositivo=='desktop'?'20%':'0%'}">
+    <div [ngClass] ="!isMobile?'frameReserv':'frameReservMobile'" 
+    [ngStyle]="{'left': !isMobile?'20%':'0%'}">
         <div class="titleReserv">
             Reserve sua data
         </div> 
@@ -64,7 +64,7 @@
         </div>
     </div>
 
-    <div *ngIf="dispositivo=='desktop'">
+    <div *ngIf="!isMobile">
         <div class="frameText">
             <div class="frameRealize">
                 <div class="frameTitle">

@@ -12,7 +12,7 @@ import { EventBooking } from './model/EventBooking-model';
 })
 export class ReserveSubmitComponent implements OnInit {
 
-  @Input() dispositivo: string;
+  @Input() isMobile: boolean = false;
   
   DialogEventDateShowing: Boolean = false;
   EventDaysFormated: Array<string>;

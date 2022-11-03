@@ -1,11 +1,11 @@
 
 <div class="frameSebraelab p-jc-center " >
 
-    <div [ngClass]="dispositivo=='desktop' ? 'frameTitle':'frameTitleMobile'">
+    <div [ngClass]="!isMobile ? 'frameTitle':'frameTitleMobile'">
         O que é o <br> Sebraelab ?  
     </div>
 
-    <div [ngClass]="dispositivo=='desktop' ? 'frameText':'frameTextMobile'">
+    <div [ngClass]="!isMobile ? 'frameText':'frameTextMobile'">
         Integrado ao Ecossistema de Inovação Capixaba, o Sebraelab é um ambiente de estímulo à criatividade e à inovação objetivo de gerar novas soluções e modelos de negócio por meio de 
         conexões e trocas de experiências através de metodologias leves, práticas e acessíveis. 
     </div>

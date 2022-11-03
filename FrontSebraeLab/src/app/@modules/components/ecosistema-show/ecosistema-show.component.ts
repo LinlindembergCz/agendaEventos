@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })        
 export class EcosistemaShowComponent implements OnInit {
 
-  @Input() dispositivo: string;
+  @Input() isMobile: boolean = false;
   
   @Input() topFrameMain: any ='4514px';
   @Input() topFrameTitle: any= '4514px';
@@ -31,7 +31,7 @@ export class EcosistemaShowComponent implements OnInit {
 
   ngOnInit(): void {   
 
-    if (this.dispositivo=='desktop')
+    if (!this.isMobile)
     {
        this.topFrameMain ='4514px';
        this.topFrameTitle= '4514px';

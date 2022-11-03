@@ -7,7 +7,7 @@
         <div class="p-filed  confira">Confira as oportunidades imperdíveis<br> para seu crescimento.</div>
     </div>
 
-    <p-dataView [value]="publicacoes" [paginator]="true" [rows]="dispositivo=='desktop'? 4 : 2">
+    <p-dataView [value]="publicacoes" [paginator]="true" [rows]="!isMobile? 4 : 2">
         <ng-template let-publicacao pTemplate="listItem">
             <div class="imageItem">
             <img [src]="publicacao.image" style="width: '280px'; height:'180px'" alt="publicacao.titulo"/>     

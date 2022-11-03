@@ -11,7 +11,7 @@ import { LoaderService } from 'src/app/@bootstrap/services/loader.service';
 })
 export class ContatoSubmitComponent implements OnInit {
 
-  @Input()  dispositivo: string;
+  @Input()  isMobile: boolean;
   
   public aFormGroup: FormGroup;
   public captchaOK: boolean;

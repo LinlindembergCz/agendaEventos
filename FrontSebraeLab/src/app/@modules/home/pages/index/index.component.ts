@@ -8,14 +8,13 @@ import { ApplicationStateService } from 'src/app/@bootstrap/services/application
 })
 export class IndexComponent implements OnInit {
 
-  dispositivo: string='desktop';
+  isMobile: boolean= false;
 
   constructor(private applicationStateService: ApplicationStateService) { }
 
   ngOnInit(): void {
 
-    if (this.applicationStateService.device().isMobile())
-    this.dispositivo = 'Mobile'
+     this.isMobile = this.applicationStateService.device().isMobile()
   }
 
 }

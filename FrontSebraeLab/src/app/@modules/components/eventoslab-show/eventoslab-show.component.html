@@ -1,13 +1,13 @@
 <div id="eventoslab"></div>
 
-<div [ngClass]="dispositivo=='desktop'? 'frameMain' : 'frameMainMobile'">
+<div [ngClass]="!isMobile? 'frameMain' : 'frameMainMobile'">
       
    <div class="frameEventlab">
         <div class="frameEventslabDescription">           
-            <div [ngClass]="dispositivo=='desktop'? 'frameTitle p-field' : 'frameTitleMobile p-field'">
+            <div [ngClass]="!isMobile? 'frameTitle p-field' : 'frameTitleMobile p-field'">
                 Eventos no LAB
             </div>
-            <div [ngClass]="dispositivo=='desktop'? 'frameText p-field' : 'frameTextMobile p-field'">
+            <div [ngClass]="!isMobile? 'frameText p-field' : 'frameTextMobile p-field'">
                 Geramos conexões que propiciam parcerias e novos negócios. Estimulamos a cocriação e o aprimoramento de produtos, processos, serviços e novos modelos de negócio, além do desenvolvimento de estratégias, capacitações com metodologias inovadoras e promoção da cultura da inovação.
             </div>
         </div>
@@ -23,7 +23,7 @@
             </div>
                         
             <div class="frameEventslablist" >             
-                <p-dataView [value]="eventslab" [paginator]="true" [rows]="dispositivo=='desktop'? 4 : 1">
+                <p-dataView [value]="eventslab" [paginator]="true" [rows]="!isMobile? 4 : 1">
                     <ng-template let-eventlab pTemplate="listItem">              
                         <div class="frameEventlabItem">                         
                                 <div class="frameEventlabitemDetails">                                    

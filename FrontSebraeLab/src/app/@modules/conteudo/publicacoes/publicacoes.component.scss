@@ -189,7 +189,7 @@ border-radius: 88px;
 }
 
 .frameAnuncioInscricao{
-  //border: 1px solid;
+  border: 1px solid;
 /* Auto layout */
 //display: flex;
 flex-direction: row;
@@ -201,9 +201,38 @@ position: absolute;
 width: 100%;
 height: 98px;
 left: 0px;
-top: 402px;
+top: 440px;
 
 }
+
+.frameAnuncioInscricaoMobile{
+  //border: 1px solid;
+/* Auto layout */
+//display: flex;
+//flex-direction: row;
+//align-items: flex-end;
+//padding: 16px 64px;
+//gap: 16px;
+
+position: absolute;
+width: 100%;
+height: 130px;
+left: 0px;
+top: 290px;
+
+background: linear-gradient(99.15deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.4) 96.57%), linear-gradient(99.06deg, rgba(237, 77, 154, 0.7) 0.9%, rgba(233, 207, 46, 0.7) 96.73%);
+
+}
+
+.frameContainerTextMobile{
+  //border: 1px solid;
+width: 343px;
+height: 100px;
+left: 0px;
+
+
+}
+
 
 .botaoInscricao{
   //border: 1px solid;
@@ -214,15 +243,84 @@ top: 402px;
   padding: 8px 16px;
   gap: 8px;
   position: absolute;
-  width: 10%;
-  height: 30%;
+  width: 15%;
+  height: 35%;
   left: 83%;
-  top: 90%;
-  
+  top: 60%;  
   /* Cores da Marca/Cores principais/Amarelo */
   background: #FFF028;
   border-radius: 8px;
 
+}
+
+.botaoInscricaoMobile{
+  //border: 1px solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 8px;
+  position: absolute;
+  width: 80%;
+  height: 25%;
+  left: 10%;
+  top: 70%;  
+  /* Cores da Marca/Cores principais/Amarelo */
+  background: #FFF028;
+  border-radius: 8px;
+
+}
+
+.frameAssineNossaNewsLetter{
+  //border: 1px solid;
+  width: 218px;
+height: 28px;
+
+/* Heading/H6 */
+
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 500;
+font-size: 18px;
+line-height: 28px;
+/* identical to box height, or 156% */
+
+
+/* Tailwind/white */
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 0;
+flex-grow: 0;
+}
+
+.frameTextframeAssineNossaNewsLetter{
+  //border: 1px solid;
+  
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 19px;
+display: flex;
+align-items: center;
+
+/* Tailwind/white */
+
+color: #FFFFFF;
+
+
+/* Inside auto layout */
+
+flex: none;
+order: 1;
+align-self: stretch;
+flex-grow: 0;
 }
 
 

@@ -1,9 +1,14 @@
   
 <app-header></app-header>
-<img src="assets/banners/banner_meuevento.png" width="100%">
 
-<div class="frameAvisoEnvio">
-    
+<div *ngIf="!isMobile">
+    <img src="assets/banners/banner_meuevento.png" width="100%">
+</div>
+<div *ngIf="isMobile">
+    <img src="assets/banners/banner_facaEvento_mobile.png" width="100%">
+</div>
+
+<div class="frameAvisoEnvio">    
     <img src="assets/imgs/star.png"><label>Após o envio, avaliaremos e enviaremos a confirmação ao seu e-mail informado.</label>
 </div>
 <div class="Rectangle1059">

@@ -6,6 +6,7 @@ import { RequestPromiseService } from 'src/app/@shared/services/request-promise.
 import { environment } from '../../../environments/environment';
 import { FileService } from '../user/services/file.service';
 import {Meses} from '../../@core/enums/ListaMeses';
+import { ApplicationStateService } from 'src/app/@bootstrap/services/application-state.service';
 
 @Component({
   selector: 'app-eventos',
@@ -18,17 +19,18 @@ export class EventosComponent implements OnInit {
   eventslab: any[] = [];
   seachValue: string;
   fullCalendar: boolean = false;
-
+  isMobile:boolean;
   
   constructor(
     private http: RequestPromiseService,
-    private route: Router,
     private _sanitizer: DomSanitizer,
     private fileService: FileService,
+    private applicationStateService: ApplicationStateService
   ) { }
 
   ngOnInit(): void {      
     this.loadEventos(); 
+    this.isMobile = this.applicationStateService.device().isMobile()
   }
 
 

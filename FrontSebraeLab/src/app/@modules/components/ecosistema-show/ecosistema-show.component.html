@@ -1,5 +1,5 @@
 
-<div class="frameMain" style="top:{{topFrameMain}}" *ngIf="dispositivo=='desktop'">
+<div class="frameMain" style="top:{{topFrameMain}}" *ngIf="!isMobile">
 
     <div class="frameTitle" style="top:{{topFrameTitle}}; left:{{leftFrameTitle}}">
         Para quem
@@ -43,7 +43,7 @@
 
 
 
-<div class="frameMainMobile" style="top:{{topFrameMain}}" *ngIf="dispositivo=='Mobile'">
+<div class="frameMainMobile" style="top:{{topFrameMain}}" *ngIf="isMobile">
 
     <div class="frameTitleMobile" style="top:{{topFrameTitle}}">
         Para quem
