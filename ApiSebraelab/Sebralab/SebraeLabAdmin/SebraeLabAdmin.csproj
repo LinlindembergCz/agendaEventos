@@ -19,11 +19,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\ApiAdmin\SebraeLab\SebraeLab.Conteudo.App\SebraeLab.Conteudo.App.csproj" />
-    <ProjectReference Include="..\..\..\ApiAdmin\SebraeLab\SebraeLab.Conteudo.Data\SebraeLab.Conteudo.Data.csproj" />
     <ProjectReference Include="..\SebraeLab.Bloqueio.Data\SebraeLab.Bloqueio.Data.csproj" />
     <ProjectReference Include="..\SebraeLab.Bloqueio.Domain\SebraeLab.Bloqueio.Domain.csproj" />
     <ProjectReference Include="..\SebraeLab.Bloqui.App\SebraeLab.Bloqueio.App.csproj" />
+    <ProjectReference Include="..\SebraeLab.Conteudo.App\SebraeLab.Conteudo.App.csproj" />
+    <ProjectReference Include="..\SebraeLab.Conteudo.Data\SebraeLab.Conteudo.Data.csproj" />
     <ProjectReference Include="..\SebraeLab.Conteudo.Domain\SebraeLab.Conteudo.Domain.csproj" />
     <ProjectReference Include="..\SebraeLab.core\SebraeLab.Core.csproj" />
     <ProjectReference Include="..\SebraeLab.Evento.App\SebraeLab.Evento.App.csproj" />
@@ -32,6 +32,9 @@
     <ProjectReference Include="..\SebraeLab.NewsLetter.App\SebraeLab.NewsLetter.App.csproj" />
     <ProjectReference Include="..\SebraeLab.NewsLetter.Data\SebraeLab.NewsLetter.Data.csproj" />
     <ProjectReference Include="..\SebraeLab.NewsLetter.Domain\SebraeLab.NewsLetter.Domain.csproj" />
+    <ProjectReference Include="..\SebraeLab.Toten.App\SebraeLab.Toten.App.csproj" />
+    <ProjectReference Include="..\SebraeLab.Toten.Data\SebraeLab.Toten.Data.csproj" />
+    <ProjectReference Include="..\SebraeLab.Toten.Domain\SebraeLab.Toten.Domain.csproj" />
     <ProjectReference Include="..\Sebraelab.Usuario.Domain\Sebraelab.Usuario.Domain.csproj" />
   </ItemGroup>
 

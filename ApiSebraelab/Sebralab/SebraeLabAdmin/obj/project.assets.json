@@ -2098,6 +2098,53 @@
           "bin/placeholder/SebraeLab.NewsLetter.Domain.dll": {}
         }
       },
+      "SebraeLab.Toten.App/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Mvc.Abstractions": "2.2.0",
+          "SebraeLab.Core": "1.0.0",
+          "SebraeLab.Toten.Data": "1.0.0",
+          "SebraeLab.Toten.Domain": "1.0.0",
+          "automapper": "11.0.1"
+        },
+        "compile": {
+          "bin/placeholder/SebraeLab.Toten.App.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SebraeLab.Toten.App.dll": {}
+        }
+      },
+      "SebraeLab.Toten.Data/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "Microsoft.EntityFrameworkCore": "6.0.8",
+          "Microsoft.EntityFrameworkCore.Relational": "6.0.8",
+          "Microsoft.EntityFrameworkCore.sqlserver": "6.0.8",
+          "SebraeLab.Core": "1.0.0",
+          "SebraeLab.Toten.Domain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SebraeLab.Toten.Data.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SebraeLab.Toten.Data.dll": {}
+        }
+      },
+      "SebraeLab.Toten.Domain/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "SebraeLab.Core": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/SebraeLab.Toten.Domain.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/SebraeLab.Toten.Domain.dll": {}
+        }
+      },
       "Sebraelab.Usuario.Domain/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -5668,13 +5715,13 @@
     },
     "SebraeLab.Conteudo.App/1.0.0": {
       "type": "project",
-      "path": "../../../ApiAdmin/SebraeLab/SebraeLab.Conteudo.App/SebraeLab.Conteudo.App.csproj",
-      "msbuildProject": "../../../ApiAdmin/SebraeLab/SebraeLab.Conteudo.App/SebraeLab.Conteudo.App.csproj"
+      "path": "../SebraeLab.Conteudo.App/SebraeLab.Conteudo.App.csproj",
+      "msbuildProject": "../SebraeLab.Conteudo.App/SebraeLab.Conteudo.App.csproj"
     },
     "SebraeLab.Conteudo.Data/1.0.0": {
       "type": "project",
-      "path": "../../../ApiAdmin/SebraeLab/SebraeLab.Conteudo.Data/SebraeLab.Conteudo.Data.csproj",
-      "msbuildProject": "../../../ApiAdmin/SebraeLab/SebraeLab.Conteudo.Data/SebraeLab.Conteudo.Data.csproj"
+      "path": "../SebraeLab.Conteudo.Data/SebraeLab.Conteudo.Data.csproj",
+      "msbuildProject": "../SebraeLab.Conteudo.Data/SebraeLab.Conteudo.Data.csproj"
     },
     "SebraeLab.Conteudo.Domain/1.0.0": {
       "type": "project",
@@ -5716,6 +5763,21 @@
       "path": "../SebraeLab.NewsLetter.Domain/SebraeLab.NewsLetter.Domain.csproj",
       "msbuildProject": "../SebraeLab.NewsLetter.Domain/SebraeLab.NewsLetter.Domain.csproj"
     },
+    "SebraeLab.Toten.App/1.0.0": {
+      "type": "project",
+      "path": "../SebraeLab.Toten.App/SebraeLab.Toten.App.csproj",
+      "msbuildProject": "../SebraeLab.Toten.App/SebraeLab.Toten.App.csproj"
+    },
+    "SebraeLab.Toten.Data/1.0.0": {
+      "type": "project",
+      "path": "../SebraeLab.Toten.Data/SebraeLab.Toten.Data.csproj",
+      "msbuildProject": "../SebraeLab.Toten.Data/SebraeLab.Toten.Data.csproj"
+    },
+    "SebraeLab.Toten.Domain/1.0.0": {
+      "type": "project",
+      "path": "../SebraeLab.Toten.Domain/SebraeLab.Toten.Domain.csproj",
+      "msbuildProject": "../SebraeLab.Toten.Domain/SebraeLab.Toten.Domain.csproj"
+    },
     "Sebraelab.Usuario.Domain/1.0.0": {
       "type": "project",
       "path": "../Sebraelab.Usuario.Domain/Sebraelab.Usuario.Domain.csproj",
@@ -5740,6 +5802,9 @@
       "SebraeLab.NewsLetter.App >= 1.0.0",
       "SebraeLab.NewsLetter.Data >= 1.0.0",
       "SebraeLab.NewsLetter.Domain >= 1.0.0",
+      "SebraeLab.Toten.App >= 1.0.0",
+      "SebraeLab.Toten.Data >= 1.0.0",
+      "SebraeLab.Toten.Domain >= 1.0.0",
       "Sebraelab.Usuario.Domain >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3",
       "automapper >= 11.0.1"
@@ -5772,12 +5837,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.App\\SebraeLab.Conteudo.App.csproj": {
-              "projectPath": "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.App\\SebraeLab.Conteudo.App.csproj"
-            },
-            "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.Data\\SebraeLab.Conteudo.Data.csproj": {
-              "projectPath": "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.Data\\SebraeLab.Conteudo.Data.csproj"
-            },
             "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Bloqueio.Data\\SebraeLab.Bloqueio.Data.csproj": {
               "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Bloqueio.Data\\SebraeLab.Bloqueio.Data.csproj"
             },
@@ -5786,6 +5845,12 @@
             },
             "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Bloqui.App\\SebraeLab.Bloqueio.App.csproj": {
               "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Bloqui.App\\SebraeLab.Bloqueio.App.csproj"
+            },
+            "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.App\\SebraeLab.Conteudo.App.csproj": {
+              "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.App\\SebraeLab.Conteudo.App.csproj"
+            },
+            "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Data\\SebraeLab.Conteudo.Data.csproj": {
+              "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Data\\SebraeLab.Conteudo.Data.csproj"
             },
             "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Domain\\SebraeLab.Conteudo.Domain.csproj": {
               "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Domain\\SebraeLab.Conteudo.Domain.csproj"
@@ -5810,6 +5875,15 @@
             },
             "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.NewsLetter.Domain\\SebraeLab.NewsLetter.Domain.csproj": {
               "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.NewsLetter.Domain\\SebraeLab.NewsLetter.Domain.csproj"
+            },
+            "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.App\\SebraeLab.Toten.App.csproj": {
+              "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.App\\SebraeLab.Toten.App.csproj"
+            },
+            "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.Data\\SebraeLab.Toten.Data.csproj": {
+              "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.Data\\SebraeLab.Toten.Data.csproj"
+            },
+            "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.Domain\\SebraeLab.Toten.Domain.csproj": {
+              "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.Domain\\SebraeLab.Toten.Domain.csproj"
             },
             "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\Sebraelab.Usuario.Domain\\Sebraelab.Usuario.Domain.csproj": {
               "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\Sebraelab.Usuario.Domain\\Sebraelab.Usuario.Domain.csproj"

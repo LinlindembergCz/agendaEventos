@@ -4,169 +4,6 @@
     "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLabAdmin\\SebraeLabAdmin.csproj": {}
   },
   "projects": {
-    "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.App\\SebraeLab.Conteudo.App.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.App\\SebraeLab.Conteudo.App.csproj",
-        "projectName": "SebraeLab.Conteudo.App",
-        "projectPath": "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.App\\SebraeLab.Conteudo.App.csproj",
-        "packagesPath": "C:\\Users\\lcaraujo1\\.nuget\\packages\\",
-        "outputPath": "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.App\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\lcaraujo1\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {
-              "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.Data\\SebraeLab.Conteudo.Data.csproj": {
-                "projectPath": "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.Data\\SebraeLab.Conteudo.Data.csproj"
-              },
-              "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Domain\\SebraeLab.Conteudo.Domain.csproj": {
-                "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Domain\\SebraeLab.Conteudo.Domain.csproj"
-              },
-              "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj": {
-                "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "dependencies": {
-            "Microsoft.AspNetCore.Mvc.Abstractions": {
-              "target": "Package",
-              "version": "[2.2.0, )"
-            },
-            "automapper": {
-              "target": "Package",
-              "version": "[11.0.1, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
-    "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.Data\\SebraeLab.Conteudo.Data.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.Data\\SebraeLab.Conteudo.Data.csproj",
-        "projectName": "SebraeLab.Conteudo.Data",
-        "projectPath": "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.Data\\SebraeLab.Conteudo.Data.csproj",
-        "packagesPath": "C:\\Users\\lcaraujo1\\.nuget\\packages\\",
-        "outputPath": "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.Data\\obj\\",
-        "projectStyle": "PackageReference",
-        "configFilePaths": [
-          "C:\\Users\\lcaraujo1\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
-        ],
-        "originalTargetFrameworks": [
-          "net6.0"
-        ],
-        "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
-        },
-        "frameworks": {
-          "net6.0": {
-            "targetAlias": "net6.0",
-            "projectReferences": {
-              "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Domain\\SebraeLab.Conteudo.Domain.csproj": {
-                "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Domain\\SebraeLab.Conteudo.Domain.csproj"
-              },
-              "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj": {
-                "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj"
-              }
-            }
-          }
-        },
-        "warningProperties": {
-          "warnAsError": [
-            "NU1605"
-          ]
-        }
-      },
-      "frameworks": {
-        "net6.0": {
-          "targetAlias": "net6.0",
-          "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[6.0.8, )"
-            },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[6.0.8, )"
-            },
-            "Microsoft.EntityFrameworkCore.Relational": {
-              "target": "Package",
-              "version": "[6.0.8, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[6.0.8, )"
-            },
-            "Microsoft.EntityFrameworkCore.sqlserver": {
-              "target": "Package",
-              "version": "[6.0.8, )"
-            }
-          },
-          "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48",
-            "net481"
-          ],
-          "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
-        }
-      }
-    },
     "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Bloqueio.Data\\SebraeLab.Bloqueio.Data.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -367,6 +204,169 @@
             "automapper": {
               "target": "Package",
               "version": "[11.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.App\\SebraeLab.Conteudo.App.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.App\\SebraeLab.Conteudo.App.csproj",
+        "projectName": "SebraeLab.Conteudo.App",
+        "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.App\\SebraeLab.Conteudo.App.csproj",
+        "packagesPath": "C:\\Users\\lcaraujo1\\.nuget\\packages\\",
+        "outputPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.App\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\lcaraujo1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Data\\SebraeLab.Conteudo.Data.csproj": {
+                "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Data\\SebraeLab.Conteudo.Data.csproj"
+              },
+              "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Domain\\SebraeLab.Conteudo.Domain.csproj": {
+                "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Domain\\SebraeLab.Conteudo.Domain.csproj"
+              },
+              "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj": {
+                "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "automapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Data\\SebraeLab.Conteudo.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Data\\SebraeLab.Conteudo.Data.csproj",
+        "projectName": "SebraeLab.Conteudo.Data",
+        "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Data\\SebraeLab.Conteudo.Data.csproj",
+        "packagesPath": "C:\\Users\\lcaraujo1\\.nuget\\packages\\",
+        "outputPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\lcaraujo1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Domain\\SebraeLab.Conteudo.Domain.csproj": {
+                "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Domain\\SebraeLab.Conteudo.Domain.csproj"
+              },
+              "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj": {
+                "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.sqlserver": {
+              "target": "Package",
+              "version": "[6.0.8, )"
             }
           },
           "imports": [
@@ -972,6 +972,228 @@
         }
       }
     },
+    "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.App\\SebraeLab.Toten.App.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.App\\SebraeLab.Toten.App.csproj",
+        "projectName": "SebraeLab.Toten.App",
+        "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.App\\SebraeLab.Toten.App.csproj",
+        "packagesPath": "C:\\Users\\lcaraujo1\\.nuget\\packages\\",
+        "outputPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.App\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\lcaraujo1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj": {
+                "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj"
+              },
+              "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.Data\\SebraeLab.Toten.Data.csproj": {
+                "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.Data\\SebraeLab.Toten.Data.csproj"
+              },
+              "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.Domain\\SebraeLab.Toten.Domain.csproj": {
+                "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.Domain\\SebraeLab.Toten.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Mvc.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "automapper": {
+              "target": "Package",
+              "version": "[11.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.Data\\SebraeLab.Toten.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.Data\\SebraeLab.Toten.Data.csproj",
+        "projectName": "SebraeLab.Toten.Data",
+        "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.Data\\SebraeLab.Toten.Data.csproj",
+        "packagesPath": "C:\\Users\\lcaraujo1\\.nuget\\packages\\",
+        "outputPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\lcaraujo1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj": {
+                "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj"
+              },
+              "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.Domain\\SebraeLab.Toten.Domain.csproj": {
+                "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.Domain\\SebraeLab.Toten.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Relational": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.8, )"
+            },
+            "Microsoft.EntityFrameworkCore.sqlserver": {
+              "target": "Package",
+              "version": "[6.0.8, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.Domain\\SebraeLab.Toten.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.Domain\\SebraeLab.Toten.Domain.csproj",
+        "projectName": "SebraeLab.Toten.Domain",
+        "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.Domain\\SebraeLab.Toten.Domain.csproj",
+        "packagesPath": "C:\\Users\\lcaraujo1\\.nuget\\packages\\",
+        "outputPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\lcaraujo1\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj": {
+                "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.core\\SebraeLab.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
     "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\Sebraelab.Usuario.Domain\\Sebraelab.Usuario.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
@@ -1055,12 +1277,6 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.App\\SebraeLab.Conteudo.App.csproj": {
-                "projectPath": "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.App\\SebraeLab.Conteudo.App.csproj"
-              },
-              "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.Data\\SebraeLab.Conteudo.Data.csproj": {
-                "projectPath": "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.Data\\SebraeLab.Conteudo.Data.csproj"
-              },
               "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Bloqueio.Data\\SebraeLab.Bloqueio.Data.csproj": {
                 "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Bloqueio.Data\\SebraeLab.Bloqueio.Data.csproj"
               },
@@ -1069,6 +1285,12 @@
               },
               "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Bloqui.App\\SebraeLab.Bloqueio.App.csproj": {
                 "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Bloqui.App\\SebraeLab.Bloqueio.App.csproj"
+              },
+              "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.App\\SebraeLab.Conteudo.App.csproj": {
+                "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.App\\SebraeLab.Conteudo.App.csproj"
+              },
+              "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Data\\SebraeLab.Conteudo.Data.csproj": {
+                "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Data\\SebraeLab.Conteudo.Data.csproj"
               },
               "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Domain\\SebraeLab.Conteudo.Domain.csproj": {
                 "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Domain\\SebraeLab.Conteudo.Domain.csproj"
@@ -1093,6 +1315,15 @@
               },
               "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.NewsLetter.Domain\\SebraeLab.NewsLetter.Domain.csproj": {
                 "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.NewsLetter.Domain\\SebraeLab.NewsLetter.Domain.csproj"
+              },
+              "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.App\\SebraeLab.Toten.App.csproj": {
+                "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.App\\SebraeLab.Toten.App.csproj"
+              },
+              "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.Data\\SebraeLab.Toten.Data.csproj": {
+                "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.Data\\SebraeLab.Toten.Data.csproj"
+              },
+              "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.Domain\\SebraeLab.Toten.Domain.csproj": {
+                "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Toten.Domain\\SebraeLab.Toten.Domain.csproj"
               },
               "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\Sebraelab.Usuario.Domain\\Sebraelab.Usuario.Domain.csproj": {
                 "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\Sebraelab.Usuario.Domain\\Sebraelab.Usuario.Domain.csproj"

@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+  	<PackageReference Include="automapper" Version="11.0.1" />
+  	<PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+  	<ProjectReference Include="..\SebraeLab.core\SebraeLab.Core.csproj" />
+  	<ProjectReference Include="..\SebraeLab.Toten.Data\SebraeLab.Toten.Data.csproj" />
+  	<ProjectReference Include="..\SebraeLab.Toten.Domain\SebraeLab.Toten.Domain.csproj" />
+  </ItemGroup>
+
+
+</Project>

@@ -5554,13 +5554,13 @@
     },
     "SebraeLab.Conteudo.App/1.0.0": {
       "type": "project",
-      "path": "../../../ApiAdmin/SebraeLab/SebraeLab.Conteudo.App/SebraeLab.Conteudo.App.csproj",
-      "msbuildProject": "../../../ApiAdmin/SebraeLab/SebraeLab.Conteudo.App/SebraeLab.Conteudo.App.csproj"
+      "path": "../SebraeLab.Conteudo.App/SebraeLab.Conteudo.App.csproj",
+      "msbuildProject": "../SebraeLab.Conteudo.App/SebraeLab.Conteudo.App.csproj"
     },
     "SebraeLab.Conteudo.Data/1.0.0": {
       "type": "project",
-      "path": "../../../ApiAdmin/SebraeLab/SebraeLab.Conteudo.Data/SebraeLab.Conteudo.Data.csproj",
-      "msbuildProject": "../../../ApiAdmin/SebraeLab/SebraeLab.Conteudo.Data/SebraeLab.Conteudo.Data.csproj"
+      "path": "../SebraeLab.Conteudo.Data/SebraeLab.Conteudo.Data.csproj",
+      "msbuildProject": "../SebraeLab.Conteudo.Data/SebraeLab.Conteudo.Data.csproj"
     },
     "SebraeLab.Conteudo.Domain/1.0.0": {
       "type": "project",
@@ -5651,12 +5651,6 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.App\\SebraeLab.Conteudo.App.csproj": {
-              "projectPath": "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.App\\SebraeLab.Conteudo.App.csproj"
-            },
-            "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.Data\\SebraeLab.Conteudo.Data.csproj": {
-              "projectPath": "C:\\agendaEventos\\ApiAdmin\\SebraeLab\\SebraeLab.Conteudo.Data\\SebraeLab.Conteudo.Data.csproj"
-            },
             "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Bloqueio.Data\\SebraeLab.Bloqueio.Data.csproj": {
               "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Bloqueio.Data\\SebraeLab.Bloqueio.Data.csproj"
             },
@@ -5665,6 +5659,12 @@
             },
             "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Bloqui.App\\SebraeLab.Bloqueio.App.csproj": {
               "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Bloqui.App\\SebraeLab.Bloqueio.App.csproj"
+            },
+            "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.App\\SebraeLab.Conteudo.App.csproj": {
+              "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.App\\SebraeLab.Conteudo.App.csproj"
+            },
+            "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Data\\SebraeLab.Conteudo.Data.csproj": {
+              "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Data\\SebraeLab.Conteudo.Data.csproj"
             },
             "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Domain\\SebraeLab.Conteudo.Domain.csproj": {
               "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\SebraeLab.Conteudo.Domain\\SebraeLab.Conteudo.Domain.csproj"

@@ -257,6 +257,40 @@ namespace SebraeLab.Evento.Data.Migrations
                     b.ToTable("NewsLetter", (string)null);
                 });
 
+            modelBuilder.Entity("SebraeLab.Toten.Domain.FeedbackUsuario", b =>
+                {
+                    b.Property<Guid?>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CPFUsuario")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("EmailUsuario")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<Guid?>("IdEvento")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Nascimento")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(1)");
+
+                    b.Property<string>("NomeUsuario")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TipoVisita")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(1)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("FeedbackUsuario", (string)null);
+                });
+
             modelBuilder.Entity("Sebraelab.Usuario.Domain.Usuario", b =>
                 {
                     b.Property<Guid>("Id")

@@ -14,11 +14,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\ApiAdmin\SebraeLab\SebraeLab.Conteudo.App\SebraeLab.Conteudo.App.csproj" />
-    <ProjectReference Include="..\..\..\ApiAdmin\SebraeLab\SebraeLab.Conteudo.Data\SebraeLab.Conteudo.Data.csproj" />
     <ProjectReference Include="..\SebraeLab.Bloqueio.Data\SebraeLab.Bloqueio.Data.csproj" />
     <ProjectReference Include="..\SebraeLab.Bloqueio.Domain\SebraeLab.Bloqueio.Domain.csproj" />
     <ProjectReference Include="..\SebraeLab.Bloqui.App\SebraeLab.Bloqueio.App.csproj" />
+    <ProjectReference Include="..\SebraeLab.Conteudo.App\SebraeLab.Conteudo.App.csproj" />
+    <ProjectReference Include="..\SebraeLab.Conteudo.Data\SebraeLab.Conteudo.Data.csproj" />
     <ProjectReference Include="..\SebraeLab.Conteudo.Domain\SebraeLab.Conteudo.Domain.csproj" />
     <ProjectReference Include="..\sebraelab.core\sebraelab.core.csproj" />
     <ProjectReference Include="..\SebraeLab.Evento.App\SebraeLab.Evento.App.csproj" />

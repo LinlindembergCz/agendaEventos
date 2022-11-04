@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="automapper" Version="11.0.1" />
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.10">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+		<PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="6.0.8" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\ApiSebraelab\Sebralab\SebraeLab.core\SebraeLab.Core.csproj" />
+		<ProjectReference Include="..\..\ApiSebraelab\Sebralab\SebraeLab.Evento.App\SebraeLab.Evento.App.csproj" />
+		<ProjectReference Include="..\..\ApiSebraelab\Sebralab\SebraeLab.Toten.App\SebraeLab.Toten.App.csproj" />
+		<ProjectReference Include="..\..\ApiSebraelab\Sebralab\SebraeLab.Toten.Data\SebraeLab.Toten.Data.csproj" />
+		<ProjectReference Include="..\..\ApiSebraelab\Sebralab\SebraeLab.Toten.Domain\SebraeLab.Toten.Domain.csproj" />
+	</ItemGroup>
+
+</Project>
