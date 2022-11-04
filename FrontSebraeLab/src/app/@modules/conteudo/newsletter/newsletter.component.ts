@@ -1,4 +1,4 @@
-import {  Component, EventEmitter, OnInit, Output } from '@angular/core';
+import {  Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { RequestPromiseService } from '../../../@shared/services/request-promise.service';
 import { Newsletter } from '../../../@core/models/newsletter.model';
 import { MessageService } from 'primeng/api';
@@ -10,6 +10,8 @@ import { MessageService } from 'primeng/api';
 })
 export class NewsLetterComponent implements OnInit 
 {
+
+   @Input() isMobile:boolean = false;
 
    inscricao: Newsletter = new Newsletter();
 

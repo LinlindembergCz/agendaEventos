@@ -30,10 +30,10 @@
         <div class="botaoInscricaoMobile" (click)="showDialogNewsLetter()"><a>Inscreva-se</a></div>
     </div>
     
-    <div class="framecontent">       
+    <div class="framecontent" [ngStyle]="{'top':!isMobile?'90%':'55%'}">       
 
-            <div class="frameButtonsFiltro">
-                <div class="frameButtons">                        
+            <div class="frameButtonsFiltro p-grid">
+                <div class="frameButtons p-col-4">                        
                     <button pButton type="button" label="Notícias" 
                     [ngClass]="tipoConteudo == 'Noticia' ? 'pbuttonSelect p-button-rounded p-button-outlined' : 'pbutton p-button-rounded p-button-outlined'"
                     class="pbutton p-button-rounded p-button-outlined" 
@@ -54,57 +54,80 @@
                     [ngClass]="tipoConteudo == 'Outro' ? 'pbuttonSelect p-button-rounded p-button-outlined' : 'pbutton p-button-rounded p-button-outlined'"
                     [disabled]="tipoConteudo!='Outro'"
                     ></button>
-                 </div>
+               </div>
                 
-               <div class="framePesquisar" style="align-items:right;">
+               <div class="framePesquisar p-col-8" style="align-items:right;">
                     <span class="p-input-icon-right" >
                         <i class="pi pi-search" style="cursor: pointer"  (click)="search(seachValue)"></i>
                         <!--<i class="pi pi-spin pi-spinner"></i>-->        
                         <input type="text" pInputText placeholder="Pesquisar" style="width:'270px';background: #F1F5F9;border:'0px;'" [(ngModel)]="seachValue"> 
-                    </span>             
-    
+                    </span>  
                </div> 
             </div>
             
-     <p-dataView [value]="publicacoes" [paginator]="true" [rows]="12" >
+     <p-dataView [value]="publicacoes" [paginator]="true" [rows]="!isMobile?12:4" >
             <p></p>
             <ng-template let-publicacao pTemplate="listItem">
+               
+                    <div class="imageItem card" *ngIf="!isMobile">                   
+                        <img [src]="publicacao.image" style="width: '250px'; height:'180px'"/>                        
+                        <div class="framenews">
+                            <div class="p-field">
+                                {{publicacao.tipopublicacao}} 
+                            </div>
+                            <div  *ngIf="publicacao.titulo.length > 70">
+                                {{publicacao.titulo.substring(1,70)}}...
+                            </div>
+                            <div  *ngIf="publicacao.titulo.length <= 70" >
+                                {{publicacao.titulo}}
+                            </div>                               
+                            <div >
+                                <a href="/publicacao?id={{publicacao.id}}">Saiba mais</a>                            
+                            </div>
+                        </div>          
+                    </div>
+
+                    <div *ngIf="isMobile" > 
+                        <div class="imageItem card">                   
+                            <img [src]="publicacao.image" style="width: '250px'; height:'180px'"/>                        
+                            <div class="framenews">
+                                <div class="p-field">
+                                    {{publicacao.tipopublicacao}} 
+                                </div>
+                                <div  *ngIf="publicacao.titulo.length > 70">
+                                    {{publicacao.titulo.substring(1,70)}}...
+                                </div>
+                                <div  *ngIf="publicacao.titulo.length <= 70" >
+                                    {{publicacao.titulo}}
+                                </div>                               
+                                <div >
+                                    <a href="/publicacao?id={{publicacao.id}}">Saiba mais</a>                            
+                                </div>
+                            </div>          
+                        </div>
+                    </div>
                 
-                <div class="imageItem card" >                   
-                    <img [src]="publicacao.image" style="width: '250px'; height:'180px'"/>                        
-                    <div class="framenews">
-                        <div class="p-field">
-                            {{publicacao.tipopublicacao}} 
-                        </div>
-                        <div  *ngIf="publicacao.titulo.length > 70">
-                            {{publicacao.titulo.substring(1,70)}}...
-                        </div>
-                        <div  *ngIf="publicacao.titulo.length <= 70" >
-                            {{publicacao.titulo}}
-                        </div>                               
-                        <div >
-                            <a href="/publicacao?id={{publicacao.id}}">Saiba mais</a>                            
-                        </div>
-                    </div>          
-                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        
+                <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->        
             </ng-template>
         </p-dataView>
 
 
 
+
         
 
-</div>
-
-<p-dialog 
+    </div>
+    <p-dialog 
     header="News Letter" 
     blockScroll="false"
-    [breakpoints]="{ '515px': '89%' }" 
+    [breakpoints]="{ '350px': '89%' }" 
     [style]="{ width: '50%' }"
     [(visible)]="dialogNewsletter" 
     [modal]="true" 
     styleClass="p-fluid">
-       <app-newsletter (clickSave)="saveNewsletter($event)"></app-newsletter>
-</p-dialog>
+    <app-newsletter (clickSave)="saveNewsletter($event)" [isMobile]="isMobile"></app-newsletter>
+    </p-dialog>
+</div>
+
 
 
