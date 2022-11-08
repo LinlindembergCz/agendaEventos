@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
-import { ApplicationStateService } from 'src/app/@bootstrap/services/application-state.service';
-import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
+import { ApplicationStateService } from '../../../@bootstrap/services/application-state.service';
+import { RequestPromiseService } from '../../../@shared/services/request-promise.service';
 import { environment } from '../../../../environments/environment';
 import { FileService } from '../../user/services/file.service';
 

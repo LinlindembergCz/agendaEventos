@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Meses } from 'src/app/@core/enums/ListaMeses';
-import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
+import { Meses } from '../../../@core/enums/ListaMeses';
+import { RequestPromiseService } from '../../../@shared/services/request-promise.service';
 import { environment } from '../../../../environments/environment';
 
 class Eventlab {

@@ -10,7 +10,7 @@ import { FuncionamentoShow } from './funcionamento-show/funcionamento-show.compo
 import { CalendarioEditModule } from '../components/calendario-edit/calendario-edit.module'; 
 import { BannersShowModule } from '../home/banners-show/banners-show.module';
 import { AppDialogModule } from '../../@shared/components/dialogs/dialog.module';
-import { NgPrimeExportsModule } from 'src/app/@bootstrap/scripts/ngprime.exports';
+import { NgPrimeExportsModule } from '../../@bootstrap/scripts/ngprime.exports';
 import { ContatoSubmitModule } from '../components/contato-submit/contato-submit.module';
 
 

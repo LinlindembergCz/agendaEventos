@@ -6,8 +6,7 @@ import { DialogComponent } from './dialog.component';
 import { DialogModule } from 'primeng/dialog';
 import {ButtonModule} from 'primeng/button';
 import {PanelModule} from 'primeng/panel';
-import { NgPrimeExportsModule } from 'src/app/@bootstrap/scripts/ngprime.exports';
-
+import { NgPrimeExportsModule } from '../../../@bootstrap/scripts/ngprime.exports';
 
 @NgModule({
   declarations: [

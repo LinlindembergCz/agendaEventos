@@ -109,25 +109,27 @@
                 
                 <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->        
             </ng-template>
-        </p-dataView>
-
-
-
-
-        
+        </p-dataView>      
 
     </div>
+
+</div>
+
+<div style="left:0px;">
+
     <p-dialog 
+    position="{{isMobile? 'left' :'center'}}"
     header="News Letter" 
     blockScroll="false"
     [breakpoints]="{ '350px': '89%' }" 
-    [style]="{ width: '50%' }"
+    [style]="{ width: '70%' }"
     [(visible)]="dialogNewsletter" 
     [modal]="true" 
     styleClass="p-fluid">
     <app-newsletter (clickSave)="saveNewsletter($event)" [isMobile]="isMobile"></app-newsletter>
     </p-dialog>
 </div>
+
 
 
 

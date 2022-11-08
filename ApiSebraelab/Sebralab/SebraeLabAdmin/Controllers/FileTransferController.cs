@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.StaticFiles;
 using System.IO;
+using Microsoft.Extensions.Configuration;
+using SebraeLab.Evento.Data;
 
 namespace SebraeLabAdmin.Controllers
 {
@@ -10,10 +12,10 @@ namespace SebraeLabAdmin.Controllers
     [AllowAnonymous]
     public class FileTransferController : ControllerBase
     {
-        private string _Path = "//STFSAON006326-L//temp";
-
-        public FileTransferController()
+        private string _Path = "";////STFSAON006326-L//temp
+        public FileTransferController(IConfiguration configuration)
         {
+            this._Path = configuration.GetValue<String>("PathTransfer");
         }
 
         private void DeleteExists(string directoryfilename)

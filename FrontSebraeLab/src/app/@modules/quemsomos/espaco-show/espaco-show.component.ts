@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 
@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class EspacoShowComponent implements OnInit {
 
-
+  @Input() isMobile: boolean = false;
 
   constructor( private router: Router,
   ) { }

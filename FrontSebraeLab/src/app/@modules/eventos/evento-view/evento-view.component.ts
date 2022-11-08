@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Eventolab } from '../../../@core/models/eventolab.model';
 import { RequestPromiseService } from '../../../@shared/services/request-promise.service';
 import { environment } from '../../../../environments/environment';
-import { FileService } from 'src/app/@modules/user/services/file.service';
+import { FileService } from '../../../@modules/user/services/file.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HttpEventType } from '@angular/common/http';
 import {Meses} from '../../../@core/enums/ListaMeses';

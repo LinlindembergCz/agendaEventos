@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ApplicationStateService } from 'src/app/@bootstrap/services/application-state.service';
-import { EventBooking } from '../components/reserve-submit/model/EventBooking-model';
+import { ApplicationStateService } from '../../@bootstrap/services/application-state.service';
 @Component({
   selector: 'app-meuevento',
   templateUrl: './meuevento.component.html',

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { RequestPromiseService } from '../../../../@shared/services/request-promise.service';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../../../environments/environment';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastService } from '../../../../@bootstrap/services/toast.service';
 import { UserCreateModel, UserUpdateModel } from '../../../../@modules/user/model/user.model';

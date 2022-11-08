@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ToastService } from 'src/app/@bootstrap/services/toast.service';
+import { ToastService } from '../../../../@bootstrap/services/toast.service';
 
 @Component({
   selector: 'app-photo-input-preview',

@@ -5630,9 +5630,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\Sebralab\\Sebralab.csproj",
-      "projectName": "Sebralab",
-      "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\Sebralab\\Sebralab.csproj",
+      "projectUniqueName": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\Sebralab\\SebralabPortal.csproj",
+      "projectName": "SebralabPortal",
+      "projectPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\Sebralab\\SebralabPortal.csproj",
       "packagesPath": "C:\\Users\\lcaraujo1\\.nuget\\packages\\",
       "outputPath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\Sebralab\\obj\\",
       "projectStyle": "PackageReference",

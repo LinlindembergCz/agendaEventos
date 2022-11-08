@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
+import { RequestPromiseService } from '../../../../@shared/services/request-promise.service';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
-import { ToastService } from 'src/app/@bootstrap/services/toast.service';
-import { UserCreateModel } from 'src/app/@modules/user/model/user.model';
-import { ValidEmail } from 'src/app/@shared/validators/mail.validator';
+import { ToastService } from '../../../../@bootstrap/services/toast.service';
+import { UserCreateModel } from '../../../../@modules/user/model/user.model';
+import { ValidEmail } from '../../../..//@shared/validators/mail.validator';
 import { filter } from 'rxjs/operators';
 
 

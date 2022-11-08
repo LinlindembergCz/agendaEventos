@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IndexComponent } from './pages/index/index.component';
 import { HomeRountingModule } from './home-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { NgPrimeExportsModule } from 'src/app/@bootstrap/scripts/ngprime.exports';
+import { NgPrimeExportsModule } from '../../@bootstrap/scripts/ngprime.exports';
 import { SebraelabShowComponent } from '../components/sebraelab-show/sebraelab-show.component';
 import { ConteudoShowComponent } from '../components/conteudo-show/conteudo-show.component';
 import { EventoslabShowComponent } from '../components/eventoslab-show/eventoslab-show.component';

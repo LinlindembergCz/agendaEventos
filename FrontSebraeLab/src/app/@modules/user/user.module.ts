@@ -9,8 +9,8 @@ import { ProfilePageEditComponent } from './pages/edit/profile-page-edit.compone
 import { ForgetedComponent } from './pages/fogerted/forgeted.component';
 import { ResetComponent } from './pages/reset/reset.component';
 import {LoginComponent} from './pages/login/login.component';
-import { SharedModule } from 'src/app/@shared/shared.module';
-import { PhotoUploadComponent } from 'src/app/@shared/components/extends/photo-upload/photo-upload.component';
+import { SharedModule } from '../../@shared/shared.module';
+import { PhotoUploadComponent } from '../../@shared/components/extends/photo-upload/photo-upload.component';
 import { NgxCaptchaModule } from 'ngx-captcha';
 import { TermsComponent } from './pages/terms/terms.component';
 

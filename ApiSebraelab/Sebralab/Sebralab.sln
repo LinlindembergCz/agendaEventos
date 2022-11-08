@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Sebralab", "Sebralab\Sebralab.csproj", "{805484B6-1CF5-418E-90B8-F458466416DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SebralabPortal", "Sebralab\SebralabPortal.csproj", "{805484B6-1CF5-418E-90B8-F458466416DA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{64BDB489-BEB6-4196-95F2-B6962143B53A}"
 EndProject

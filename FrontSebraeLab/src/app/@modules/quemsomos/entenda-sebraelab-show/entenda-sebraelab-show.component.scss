@@ -6,7 +6,7 @@ position: absolute;
 width: 100%;
 //height: 1889px;
 left: 0px;
-top: 583px;
+//top: 583px;
 }
 
 .frameButtonsTop{
@@ -15,13 +15,13 @@ top: 583px;
   flex-direction: row;
   align-items: center;
   padding: 0px;
-  gap: 26px;
+  //gap: 26px;
   
   position: absolute;
   width: 90%;
   height: 60px;
   left: 100px;
-  //top: 641px;
+  top: 641px;
 }
 
 /* Component 6 */
@@ -97,33 +97,33 @@ top: 583px;
 
 
 .frameEntenda{
- // border: 1px solid;
+  //border: 1px solid;
   position: absolute;
   width: 100%;
   //height: 1521px;
   left: 0px;
-  top: 100px;
+  //top: 100px;
 }
 
 .frameTitleEntenda{
  // border: 1px solid;
-  position: absolute;
-  width: 80%;
-  height: 50px;
-  left: 10%;
-  //font-family: 'Poppins';
-  font-style: normal;
-  font-weight: 600;
-  font-size: 56px;
-  line-height: 66px;
+ position: absolute;
+ width: 80%;
+ height: 50px;
+ left: 10%;
+ //font-family: 'Poppins';
+ font-style: normal;
+ font-weight: 600;
+ 
+ line-height: 66px;
 
-/* identical to box height, or 118% */
-display: flex;
-align-items: center;
+ /* identical to box height, or 118% */
+// display: flex;
+ align-items: center;
 
-/* Cores da Marca/Tipografia/Preto */
-color: #263746;
-  //top: 743px;
+ /* Cores da Marca/Tipografia/Preto */
+ color: #263746;
+ //top: 743px;
 }
 
 
@@ -186,6 +186,29 @@ color: #263746;
   order: 1;
   align-self: stretch;
   flex-grow: 0;}
+
+
+  .frameOqueEhTextoMobile{/* Frame 5669 */
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 120%;
+  
+    color: #263746;
+  
+    //border: 1px solid;
+    /* Auto layout */
+    //display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 16px;  
+    width: 90%;
+    height: 110px; 
+    align-self: stretch;
+    flex-grow: 0;
+    
+  }
 
   .frameTextoConteudo{
    // border: 1px solid;
@@ -260,7 +283,7 @@ flex-grow: 1;
   width: 86%;
   height: 372px;
   left: 5%;
-  top: 600px; 
+  
   align-content: center;
 }
 

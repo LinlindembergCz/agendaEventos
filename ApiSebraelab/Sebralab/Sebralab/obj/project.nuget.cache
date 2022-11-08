@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "AwkhmdEtf5y5bqwfc8WINgAMMUL420Ek6BDrBfOVPp7gJLyw0YDx8Yahn2QoaqQpGtHWdJiXzsQdN64KPB2xwg==",
+  "dgSpecHash": "t5NPY/moLn8iwO7cdy1ZW3zCuXOxvOYVC2QJ27Yyfi+xAog26JklzxBVl6wQHWXIdDj+PZoUCgEOqeBN2w1wyg==",
   "success": true,
-  "projectFilePath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\Sebralab\\Sebralab.csproj",
+  "projectFilePath": "C:\\agendaEventos\\ApiSebraelab\\Sebralab\\Sebralab\\SebralabPortal.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\lcaraujo1\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\lcaraujo1\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",

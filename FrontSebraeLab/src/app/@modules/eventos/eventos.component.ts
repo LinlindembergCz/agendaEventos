@@ -1,12 +1,11 @@
 import { HttpEventType } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Router } from '@angular/router';
-import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
+import { RequestPromiseService } from './../../@shared/services/request-promise.service';
 import { environment } from '../../../environments/environment';
 import { FileService } from '../user/services/file.service';
 import {Meses} from '../../@core/enums/ListaMeses';
-import { ApplicationStateService } from 'src/app/@bootstrap/services/application-state.service';
+import { ApplicationStateService } from './../../@bootstrap/services/application-state.service';
 
 @Component({
   selector: 'app-eventos',
@@ -14,6 +13,8 @@ import { ApplicationStateService } from 'src/app/@bootstrap/services/application
   styleUrls: ['./eventos.component.scss']
 })
 export class EventosComponent implements OnInit {
+
+  public value: number=100;
 
   alleventslab: any[] = [];
   eventslab: any[] = [];

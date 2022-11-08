@@ -1,11 +1,10 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-//import { EventBooking } from '../reserve-submit/model/EventBooking-model';
+import {  Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import {  Router } from '@angular/router';
 import { CalendarOptions } from '@fullcalendar/angular'; // useful for typechecking
 import { Eventolab } from '../../../../@core/models/eventolab.model';
 import { Bloqueador } from '../../../../@core/models/bloqueador.model';
 import { RequestPromiseService } from '../../../../@shared/services/request-promise.service';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../../../environments/environment';
 import { DiasBloqueado } from '../../../../@core/models/diasBloqueados.model';
 
 
@@ -95,7 +94,6 @@ export class FullCalendarioShowComponent implements OnInit {
   loadEventos() 
   {
     let eventos :any[]=[];
-    //const colors =["orange", "green",  "blue", "red","brown"];
     const colors =["#9A1663", "#E0144C",  "#FF5858", "#EA047E","#00ABB3"];
 
     if (this.diasBloqueados)

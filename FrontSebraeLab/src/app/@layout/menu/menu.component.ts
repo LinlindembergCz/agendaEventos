@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SessionService } from '../../@bootstrap/services/session.service';
 import { ApplicationStateService } from '../../@bootstrap/services/application-state.service';
 import { MenuDataService } from '../@services/menu-data.service';
 import { MenuItem } from 'primeng/api';
-import { UserContextService } from 'src/app/@bootstrap/services/user-context.service';
+import { UserContextService } from '../../@bootstrap/services/user-context.service';
 import { Router } from '@angular/router';
 
 @Component({

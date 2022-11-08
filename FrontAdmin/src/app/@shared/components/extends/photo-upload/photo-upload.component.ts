@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ToastService } from '../../../../@bootstrap/services/toast.service';
-import { ProfilePageEditComponent } from '../../../../@modules/user/pages/edit/profile-page-edit.component';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-photo-upload',

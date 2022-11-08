@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApplicationStateService } from 'src/app/@bootstrap/services/application-state.service';
+import { ApplicationStateService } from '../../@bootstrap/services/application-state.service';
 
 @Component({
   selector: 'app-quemsomos',

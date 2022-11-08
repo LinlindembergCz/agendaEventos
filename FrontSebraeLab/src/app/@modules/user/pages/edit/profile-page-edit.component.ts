@@ -1,15 +1,14 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
+import { RequestPromiseService } from '../../../../@shared/services/request-promise.service';
 
 import { ActivatedRoute, Router } from '@angular/router';
-import { ToastService } from 'src/app/@bootstrap/services/toast.service';
-import { UserCreateModel, UserUpdateModel } from '../../model/user.model';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { ToastService } from '../../../../@bootstrap/services/toast.service';
+import {  UserUpdateModel } from '../../model/user.model';
+import { FormGroup } from '@angular/forms';
 import { environment } from '../../../../../environments/environment';
 import {FileService} from '../../services/file.service';
-import { HttpEventType, HttpHeaderResponse, HttpResponse } from '@angular/common/http';
+import {  HttpResponse } from '@angular/common/http';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ValidEmail } from 'src/app/@shared/validators/mail.validator';
 
 @Component({
   selector: 'app-profile-page-edit',

@@ -1,33 +1,34 @@
 
 
 .framBanner{
+  //border: 1px solid;
   display: flex;
-flex-direction: column;
-align-items: center;
-padding: 0px;
-gap: 32px;
-position: absolute;
-width: 90%;
-height: 404px;
-left: 64px;
-top: 641px;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px;
+ // gap: 32px;
+  position: absolute;
+  width: 100%;
+  height: 404px;
+  //left: 64px;
+  //top: 500px;
 }
   
     .frameBannerEvento{
       /* Auto layout */
-display: flex;
-flex-direction: row;
-align-items: center;
-padding: 0px 56px 0px 0px;
-gap: 56px;
-isolation: isolate;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0px 56px 0px 0px;
+      gap: 56px;
+      isolation: isolate;
 
-width: 100%;
-height: 356px;
+      width: 100%;
+      height: 356px;
 
-/* Tailwind/slate/100 */
-background: #F1F5F9;
-border-radius: 8px;
+      /* Tailwind/slate/100 */
+      background: #F1F5F9;
+      border-radius: 8px;
 
   }
 
@@ -119,19 +120,7 @@ border-radius: 8px;
   }
 
   
-  .frameEventlab{
-    left: 64px;
-    //border: 1px solid;
-    flex-direction: column;
-    align-items: center;
-    padding: 0px;
-    gap: 72px;  
-    position: absolute;
-    width: 90%;
-    height: 812px;
-    left: 64px;
-    top: 1050px;
-  }
+
   
   .frameEventslabDescription{display: flex;
     //border: 1px solid;
@@ -194,16 +183,31 @@ border-radius: 8px;
 
   }
   
-  .frameEventlabDetails{display: flex;
+
+  .frameEventlab{   
+    //border: 1px solid;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    //gap: 72px;  
+    position: absolute;
+    width: 100%;
+    height: 812px;
+    left: 10px;
+    top: 980px;
+  }
+
+  .frameEventlabDetails{
+    //border: 1px solid;
+    display: flex;
     align-items: center;
     //border: 1px solid;
     flex-direction: column;
-    align-items: flex-end;
+    //align-items: flex-end;
     padding: 0px;
     gap: 32px;  
     width: 95%;
-    height: 522px; 
-
+    //height: 522px;
   }
   
   
@@ -214,7 +218,7 @@ border-radius: 8px;
     padding: 0px;
     gap: 16px;  
     width: 95%;
-    height: 48px; 
+    height: 80px; 
 
   }
   
@@ -594,30 +598,15 @@ border-radius: 8px;
     height: 24px;
     
     
-    /* Inside auto layout */
-    flex: none;
-    order: 2;
-    flex-grow: 0;
+
   }
   
   .framePesquisar{
-    /* Busca */
+    padding: 8px 16px;
+    width: 305px;
+    height: 48px;
 
-/* Auto layout */
-//display: flex;
-//flex-direction: row;
-//justify-content: space-between;
-//align-items: center;
-padding: 8px 16px;
-//gap: 2px;
-
-width: 305px;
-height: 48px;
-
-/* Tailwind/slate/100 */
-background: #F1F5F9;
-border-radius: 88px;
-
-/* Inside auto layout */
+    background: #F1F5F9;
+    border-radius: 88px;
 
 }

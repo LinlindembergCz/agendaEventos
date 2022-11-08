@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
+import { RequestPromiseService } from '../../../@shared/services/request-promise.service';
 import { environment } from '../../../../environments/environment';
-import { LoaderService } from 'src/app/@bootstrap/services/loader.service';
+import { LoaderService } from '../../../@bootstrap/services/loader.service';
 
 @Component({
   selector: 'app-contato-submit',

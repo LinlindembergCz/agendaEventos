@@ -4,7 +4,7 @@ import { CalendarOptions } from '@fullcalendar/angular'; // useful for typecheck
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Bloqueador } from '../../@core/models/bloqueador.model';
 import { RequestPromiseService } from '../../@shared/services/request-promise.service';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-agenda-list',

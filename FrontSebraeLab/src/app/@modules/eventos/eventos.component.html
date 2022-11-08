@@ -1,6 +1,5 @@
 <div>  
-    <app-header></app-header>
-      
+    <app-header></app-header>      
         
         <div *ngIf="!isMobile">
             <img src="assets/banners/banner_meuevento.png" width="100%" height="500px">
@@ -9,16 +8,20 @@
             <img src="assets/banners/banner_Eventos_mobile.png" width="100%" >
         </div>
         
-    
         <div class="framBanner" *ngIf="eventslab.length > 0"> 
             <p-dataView [value]="eventslab" [paginator]="true" [rows]="1">
-                <ng-template let-evento pTemplate="listItem">                  
+                <ng-template let-evento pTemplate="listItem">  
+
+                    <div *ngIf="evento.picture!='' && isMobile">                       
+                        <img [src]="evento.picture" width="100%" height="300px"/>
+                    </div> 
+
                    <div class="p-grid">
-                        <div class="p-col-6" *ngIf="evento.picture!=''">                       
+                        <div class="p-col-6" *ngIf="evento.picture!='' && !isMobile">                       
                             <img [src]="evento.picture" width="100%" height="300px"/>
                         </div> 
                         
-                        <div class="frameBannerDetails p-col-6">
+                        <div [ngClass]="isMobile?'p-col-12':'p-col-6'">
                             <div> 
                                 <h2>{{evento.datainicio}} {{getMonthDescription(evento.data)}}</h2>
                             </div>
@@ -31,7 +34,7 @@
                                     <button pButton type="button" 
                                     label="Inscreva-se " 
                                     class="p-button-outlined" 
-                                    style="background:#FFF028;color:#FFFFFF;border:0px;width: 150px;height: 44px;">
+                                    style="background:#FFF028;color:#626060;border:0px;width: 150px;height: 44px;">
                                     </button>
                                 </a>
                             </div>          
@@ -39,39 +42,48 @@
                     </div>
                 </ng-template>
             </p-dataView>    
-        </div>
-       
-        
+        </div>       
       
-     <div class="frameEventlab" > 
-   
-            <div class="frameEventlabDetails">                
-                 <div class="framebuttons">                           
-                     <button pButton type="button" label="Esta semana" class="p-button-rounded p-button-outlined" (click)="selectThisWeek()" ></button> 
-                     <button pButton type="button" label="Próxima semana" class="p-button-rounded p-button-outlined" (click)="selectNextWeek()" ></button>
-                     <button pButton type="button" label="Este mês" class="p-button-rounded p-button-outlined" (click)="selectThisMonth()" ></button>
-                     <button pButton type="button" label="próximo mês" class="p-button-rounded p-button-outlined" (click)="selectNextMonth()" ></button>
-                     <button pButton type="button" label="Agenda completa" class="p-button-rounded p-button-outlined" (click)="showCalendar()" ></button>
-                     <div class="framePesquisar" style="align-items:right;">
-                        <span class="p-input-icon-right" >
-                            <i class="pi pi-search" style="cursor: pointer" (click)="search(seachValue)"></i>
-                              
-                            <input type="text" pInputText placeholder="Pesquisar" style="width:'270px';background: #F1F5F9;border:'0px;'" [(ngModel)]="seachValue"> 
-                        </span>        
-                   </div> 
-                 </div>    
+        
+        
+        <div class="frameEventlab">    
+               
+            <div class="frameEventlabDetails"> 
+                <div class="framebuttons">                       
+                    <div>
+                        <button pButton type="button" label="Esta semana" class="p-button-rounded p-button-outlined" (click)="selectThisWeek()" ></button> 
+                        <button pButton type="button" label="Próxima semana" class="p-button-rounded p-button-outlined" (click)="selectNextWeek()" ></button>
+                    </div>    
+                    <div>                   
+                      <button pButton type="button" label="Este mês" class="p-button-rounded p-button-outlined" (click)="selectThisMonth()" ></button>
+                      <button pButton type="button" label="Próximo mês" class="p-button-rounded p-button-outlined" (click)="selectNextMonth()" ></button>
+                    </div> 
+                    <div>  
+                       <button pButton type="button" label="Agenda completa" class="p-button-rounded p-button-outlined" (click)="showCalendar()" ></button>
+                    </div>  
+                </div>   
+
+                <div class="framePesquisar" style="align-items:right;">
+                    <span class="p-input-icon-right" >
+                        <i class="pi pi-search" style="cursor: pointer" (click)="search(seachValue)"></i>
+                          
+                        <input type="text" pInputText placeholder="Pesquisar" style="width:'270px';background: #F1F5F9;border:'0px;'" [(ngModel)]="seachValue"> 
+                    </span>        
+                </div> 
                    
 
-                <div class="p-d-flex p-ai-flex p-jc-center" *ngIf="fullCalendar">
-                    <div class="p-d-flex p-ai-center p-jc-center">
-                        <div class="p-d-fluid " style="width:'1100px';">
+        
+                    <div class="p-d-flex p-ai-center p-jc-center" *ngIf="fullCalendar" style="width: 100%">
+                        <div class="p-d-fluid " [ngStyle]="{'width': !isMobile?'100%':'auto'}">                            
                             <app-fullcalendario-show></app-fullcalendario-show>            
                         </div>  
                     </div>  
-                </div> 
+
+
+
                  
                              
-             <div class="frameEventslablist" *ngIf="eventslab.length > 0 && !fullCalendar">      
+                <div class="frameEventslablist" *ngIf="eventslab.length > 0 && !fullCalendar">      
                     <p-dataView [value]="eventslab" [paginator]="true" [rows]="12">
                              <ng-template let-evento pTemplate="listItem">              
                                  <div class="frameEventlabItem">     
@@ -108,7 +120,7 @@
                     </p-dataView>
                 </div>            
              </div> 
-    </div>
+        </div>
      
 
 </div>

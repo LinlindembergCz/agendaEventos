@@ -2,10 +2,8 @@ import { HttpEventType } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
-import { RequestPromiseService } from 'src/app/@shared/services/request-promise.service';
+import { RequestPromiseService } from '../../../@shared/services/request-promise.service';
 import { environment } from '../../../../environments/environment';
-
-import { Publicacao } from '../../../@core/models/publicacao.model';
 import { FileService } from '../../user/services/file.service';
 
 

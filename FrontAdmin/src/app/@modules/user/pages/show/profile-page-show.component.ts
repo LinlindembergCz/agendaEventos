@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RequestPromiseService } from '../../../../@shared/services/request-promise.service';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../../../environments/environment';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserUpdateModel } from '../../model/user.model';
 @Component({

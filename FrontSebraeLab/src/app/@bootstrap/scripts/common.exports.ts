@@ -2,7 +2,8 @@ import { CommonModule } from '@angular/common';
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
-import { SharedModule } from 'src/app/@shared/shared.module';
+
+import { SharedModule } from '../../@shared/shared.module';
 import { NgPrimeExportsModule } from './ngprime.exports';
 
 @NgModule({
