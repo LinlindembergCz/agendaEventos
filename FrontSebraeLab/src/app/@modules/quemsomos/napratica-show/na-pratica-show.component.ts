@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 
 @Component({
@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NaPraticaShowComponent implements OnInit {
 
-
+  @Input() isMobile: boolean = false;
+  
   selectedLetra: string = 'L';
 
   constructor(

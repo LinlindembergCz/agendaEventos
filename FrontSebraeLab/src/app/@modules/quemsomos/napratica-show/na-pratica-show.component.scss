@@ -7,6 +7,7 @@
 }
 
 .frameMainBody{
+  
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -15,22 +16,19 @@
   position: absolute;
   width: 70%;
   height: 900px;
-  left: 100px;
+  //left: 100px;
   top: 136px;
 }
 
 .frameNaPratica{
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  //align-items: flex-start;
   padding: 0px;
   gap: 56px;
   width: 100%;
   height: 294px;
-  /* Inside auto layout */
-  flex: none;
-  order: 0;
-  flex-grow: 0;
+
 }
 
 .frameTitleNaPratica{
@@ -65,7 +63,20 @@ color: #263746;
   /* or 30px */
   /* Cores da Marca/Tipografia/Preto */
   color: #263746;
+}
 
+.frameTextoNaPraticaMobile{
+  width: 100%;
+  //height: 209px;
+  /* Body / Big */
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size:  18px;
+  line-height: 120%;
+  /* or 30px */
+  /* Cores da Marca/Tipografia/Preto */
+  color: #263746;
 }
 
 .frameLetrasLAB{
@@ -98,6 +109,21 @@ color: #263746;
   background: #F8FAFC;
   
 }
+
+.frameListLetrasLAB2{display: flex;
+
+  flex-direction: row;
+  align-items: flex-start;
+  //padding: 0px;
+  gap: 16px;
+  
+  width: 100px;
+  height: 502px;
+  
+  background: #F8FAFC;
+  
+}
+
 
   .frameLetraL{
    
@@ -222,8 +248,8 @@ flex-grow: 1;
   align-items: flex-start;
   padding: 0px;
   gap: 32px;
-  width: 996px;
-  height: 388px;
+  width: 100%;
+  //height: 388px;
   /* Inside auto layout */
   flex: none;
   order: 1;
@@ -258,7 +284,7 @@ flex-grow: 1;
   padding: 0px;
   gap: 56px;
 
-  width: 996px;
+  width: 100%;
   height: 132px;
 
 
