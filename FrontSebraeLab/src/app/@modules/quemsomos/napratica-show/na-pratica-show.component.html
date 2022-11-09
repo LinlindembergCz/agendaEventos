@@ -1,10 +1,10 @@
 <div class="frameMain" >
   <div class="frameMainBody" [ngStyle]="{'left': !isMobile? '100px':'5px','width': !isMobile? '70%':'100%' }">
         <div class="frameNaPratica">
-            <div class="frameTitleNaPratica">
+            <div [ngClass]="!isMobile?'frameTitleNaPratica':'frameTitleNaPraticaMobile'">
                 NA PRÁTICA
             </div>
-            <div class="frameTextoNaPraticaMobile">
+            <div [ngClass]="!isMobile?'frameTextoNaPratica':'frameTextoNaPraticaMobile'">
                 <p>Os empreendedores podem participar ou coordenar eventos que buscam a promoção dos três pilares do conceito sebraelab: LEARN, ATTEND e BUSINESS.</p>
 
                 <p>Entenda o que são esses pilares e as metodologias que cada um traz com o objetivo de desenvolver as perspectivas do aprendizado, da participação e dos negócios.</p>

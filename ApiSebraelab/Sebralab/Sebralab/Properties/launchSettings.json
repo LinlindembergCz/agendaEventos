@@ -20,7 +20,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     }*/
-      "SebraelabPortal": {
+    "SebraelabPortal": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "swagger",

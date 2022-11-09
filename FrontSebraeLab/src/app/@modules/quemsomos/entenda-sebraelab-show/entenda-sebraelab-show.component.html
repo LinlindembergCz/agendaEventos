@@ -1,6 +1,6 @@
 
 
-<div class="frame" >
+
     <div class="frameButtonsTop" *ngIf="!isMobile" >
         <div class="frameButton"><div class="frameMolduraButtonPink">Entenda o Sebraelab </div></div> 
         <div class="frameButton"><div class="frameMolduraButtonYellow">Na prática LAB </div> </div>
@@ -72,26 +72,19 @@
         <div class="frameImageEstrutura" [ngStyle]="{'top': !isMobile?'600px':'null'}">
             <img src="./assets/imgs/estrutura.jpg" width="100%" *ngIf="!isMobile"/>
             <img src="./assets/imgs/Estrutura_mobile.png" width="100%" *ngIf="isMobile"/>            
-        </div>
-        
-       
-       <app-ecosistema-show
-        topFrameMain="1121px"
-        topFrameTitle= "1214px"
-        topFrameText="1305px"
-        topframeSociedade= "1307px"
-        topFrameEmpreendedores ="1416px"
-        topFrameAmbientes= "1382px"
-        topFrameInstituicoes ="1382px"
-        topFrameColaboradores= "1307px"
-        topFrameGoverno="1450px"        
-        [isMobile]="isMobile"
-        >
-       </app-ecosistema-show>
+        </div>       
+ 
 
     </div>
 
+  <div [ngClass]="!isMobile ? 'frameEcosistema':'frameEcosistemaMobile'">
+        <app-ecosistema-show topFrameMain="!isMobile?1180px:3600px" 
+        topframeTitle="!isMobile?1180px:950px" 
+        topframeText="!isMobile?1180px:1000px" 
 
-</div>
+        [isMobile]="isMobile">       
+        </app-ecosistema-show>
+  </div>
+
 <br>
 

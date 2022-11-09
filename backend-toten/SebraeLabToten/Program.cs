@@ -21,11 +21,14 @@ if (app.Environment.IsDevelopment())
 }
 
 
-app.UseHttpsRedirection();
+
 
 //app.UseAuthorization();
 
 app.UseCors(cors => cors.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+
+app.UseHttpsRedirection();
+
 
 app.MapGet("/", () => "Hello World!");
 

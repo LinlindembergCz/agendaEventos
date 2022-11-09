@@ -6,7 +6,16 @@
     <app-conteudo-show [isMobile]="this.isMobile"></app-conteudo-show>   
     <app-eventoslab-show [isMobile]="this.isMobile"></app-eventoslab-show>  
     <app-reserve-submit [isMobile]="this.isMobile"></app-reserve-submit>
-    <app-ecosistema-show [isMobile]="this.isMobile"></app-ecosistema-show> 
+   
+    
+
+    <div [ngClass]="!isMobile ? 'frameEcosistema':'frameEcosistemaMobile'">
+        <app-ecosistema-show topFrameMain="!isMobile?1180px:3600px" 
+        topframeTitle="!isMobile?1180px:950px" 
+        topframeText="!isMobile?1180px:1000px" 
+        [isMobile]="isMobile">       
+        </app-ecosistema-show>
+  </div>
 </div>
 
 <div class="Rodape">

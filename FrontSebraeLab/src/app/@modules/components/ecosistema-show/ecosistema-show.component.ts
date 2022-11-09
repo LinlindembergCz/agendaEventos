@@ -31,9 +31,9 @@ export class EcosistemaShowComponent implements OnInit {
 
   ngOnInit(): void {   
 
-    if (!this.isMobile)
+   /* if (!this.isMobile)
     {
-       this.topFrameMain ='4514px';
+       //this.topFrameMain ='4514px';
        this.topFrameTitle= '4514px';
        this.topFrameText ='4605px';
        this.topframeSociedade= '4607px';
@@ -52,7 +52,7 @@ export class EcosistemaShowComponent implements OnInit {
        this.leftFrameInstituicoes ='742px';
        this.leftFrameColaboradores= '1024px';
        this.leftFrameGoverno ='1024px';
-    }
+    }*/
     
   }
 
