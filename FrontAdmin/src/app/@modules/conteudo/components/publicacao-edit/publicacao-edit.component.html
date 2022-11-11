@@ -6,7 +6,7 @@
         <div class="frameEventoDetails p-grid p-fluid">                
             <div class="voltarparaconteudo" style="cursor: pointer;">              
                 <a href="javascript:history.back()">
-                    <img src="../../../../../assets/imgs/chevron-return.png" >voltar para conteúdo 
+                    <img src="assets/imgs/chevron-return.png" >voltar para conteúdo 
                 </a>
             </div>
             
@@ -50,7 +50,7 @@
                  </div>        
                  <div class="frameTituloTopico" style="text-align:center;">
                      <div style="font-size: 16px;"><label>Tamanho 600px de largura e 315px de altura</label></div>
-                     <img [src]="picture?picture:'../../../../../assets/imgs/semfoto.jpg'" style="width:'900px';height:'237px'"/>
+                     <img [src]="picture?picture:'assets/imgs/semfoto.jpg'" style="width:'900px';height:'237px'"/>
                      
                      <app-photo-upload (onUpload)="onUpload($event)" origem="conteudos" 
                      [fileUrl]="picture" [imageName]="conteudo.id">

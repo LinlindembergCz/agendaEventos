@@ -4,9 +4,26 @@ export const environment = {
   FrameworkVersion: "5.8.4",
   VersionName: "Black Cat",
   services: {
-    zipcode: "https://homologacao-web.senacrs.com.br/zipcode/api",
-    api: "https://desenvolvimento.senacrs.com.br/empresarioOpinaApi/api",
-    auth: 'https://desenvolvimento.senacrs.com.br/Auth',
+    zipcode: "http://",
+    api: "http://localhost:90/api",
+    auth: 'http://',
+  },
+  routes:{
+    eventoSebraeLab:{
+      root:"EventoSebraeLab",
+      publicar:"EventoSebraeLab/Publicar",
+      bloqueio:"EventoSebraeLab/Bloqueio", 
+      diasBloqueados:"EventoSebraeLab/DiasBloqueados", 
+      search:  "EventoSebraeLab/Pesquisar?value=",
+      alocacao:  "EventoSebraeLab/Disponivel" 
+    },
+    conteudoSebraeLab:{
+      root:"ConteudoSebraeLab",
+      publicar:"ConteudoSebraeLab/Publicar",
+      ativar: "ConteudoSebraeLab/Ativar",
+      desativar:"ConteudoSebraeLab/Desativar",
+      search: "ConteudoSebraeLab/Pesquisar?value="      
+    }
   }
 };
 

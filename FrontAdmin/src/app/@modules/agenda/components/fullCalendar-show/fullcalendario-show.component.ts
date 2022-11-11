@@ -7,7 +7,7 @@ import { RequestPromiseService } from '../../../../@shared/services/request-prom
 import { environment } from '../../../../../environments/environment';
 import { DiasBloqueado } from '../../../../@core/models/diasBloqueados.model';
 
-
+import{tiposEventos} from '../../../../@core/enums/tipoevento.type';
 export class EventBooking {
   Days?: Date[]=[];
 }
@@ -25,7 +25,7 @@ export class FullCalendarioShowComponent implements OnInit {
   };
   header: any;
 
-  tiposEvento:any[]=[];
+  tiposEvento:any[]=tiposEventos
 
   motivoBloqueio: string='motivo do bloqueio';
 
@@ -45,13 +45,12 @@ export class FullCalendarioShowComponent implements OnInit {
   ngOnInit(): void {   
 
     this.bloqueio = new Bloqueador();
-
-    this.loadTipoEventos().then ( ()=> {
+  
       this.loadDiasBloqueados().then( ()=>{
+        console.log('loadEventos');
            this.loadEventos(); 
            this.loadBloqueio();
       })         
- }) 
   }
 
   ShowNovoEvento()
@@ -59,11 +58,7 @@ export class FullCalendarioShowComponent implements OnInit {
     this.router.navigate(['/novoevento']);
   }
 
-  loadTipoEventos():Promise<any> 
-  {
-    return this.http.get<any>("../../../assets/data", "tipoEventos.json").
-    then(x => { this.tiposEvento = x; }); 
-  }
+
 
   loadBloqueio():Promise<any> 
   {
@@ -71,11 +66,10 @@ export class FullCalendarioShowComponent implements OnInit {
     then(b=>{        
       if (b)
       {
-        this.bloqueio = b[0]; 
-        this.motivoBloqueio = this.bloqueio.motivo
-      } 
-      
-      });
+            this.bloqueio = b[0];
+            this.motivoBloqueio = this.bloqueio.motivo        
+      }       
+    });
   }
 
   loadDiasBloqueados():Promise<any> 

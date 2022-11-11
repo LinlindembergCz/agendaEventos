@@ -125,7 +125,7 @@ export class PublicacoesComponent implements OnInit {
         this.messageService.add(
           {severity:'success', 
            summary:'Cadastro', 
-           detail:'Registro na nossa NewsLetter realizada com sucesso!'}); 
+           detail:'Inscrição realizada com sucesso!'}); 
     }).catch( (e) =>{         
         this.messageService.add({severity:'warn', 
         summary:'Erro', 

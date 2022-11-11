@@ -25,16 +25,6 @@ namespace SebraeLabAdmin.Controllers
         [AllowAnonymous]
         public async Task<ActionResult<IEnumerable<NewsLetterViewModel>>> Get() =>
            await _serviceNewsLetter.GetAll();
-     
-
-        // GET api/<EventoSebraeLabController>/5
-        [HttpGet("{id}")]
-        [AllowAnonymous]
-        public async Task<ActionResult<NewsLetterViewModel>> Get(Guid id)
-        {
-            return await _serviceNewsLetter.GetById(id);
-        }
-
    
        // POST api/<EventoSebraeLabController>
         [HttpPost]
@@ -53,29 +43,9 @@ namespace SebraeLabAdmin.Controllers
  
         }
 
-        // PUT api/<EventoSebraeLabController>/5
-        [HttpPut("{id}")]
-        [AllowAnonymous]
-        public async Task<IActionResult> Put(Guid id, NewsLetterViewModel newsLetterViewModel)
-        {
-            try
-            {         
-               await _serviceNewsLetter.Update(newsLetterViewModel);
-                return Ok(new { msg = "newsletter alterado com sucesso!" });
-            }
-            catch (Exception e)
-            {
-                return new ObjectResult("Falhou! Mensagem: " + e.Message);
-            }
-        }
 
-        // DELETE api/<EventoSebraeLabController>/5
 
-        [HttpDelete("{id}")]
-        [AllowAnonymous]
-        public void Delete(Guid id)
-        {
-        }
+
 
 
 

@@ -7,6 +7,10 @@ import { Router } from '@angular/router';
 import { RequestPromiseService } from '../../../../@shared/services/request-promise.service';
 import { environment } from '../../../../../environments/environment';
 
+import{tiposEventos} from '../../../../@core/enums/tipoevento.type';
+
+
+
 @Component({
   selector: 'app-evento-create',
   templateUrl: './evento-create.component.html',
@@ -19,7 +23,7 @@ export class EventoCreateComponent implements OnInit, AfterViewInit {
 
   diasBloqueados: Date[]=[new Date()];
 
-  tiposEvento:any[]=[];
+  tiposEvento:any[]= tiposEventos;
   tipoEvento:any= {name: "Palestra", code: "0"};
 
   constructor(private messageService: MessageService,
@@ -29,13 +33,9 @@ export class EventoCreateComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
 
-    this.evento = new Eventolab();
-    
-    this.http.get<any>("../../../assets/data", "tipoEventos.json").
-    then(x => { this.tiposEvento = x; });     
-    
-    this.loadDiasBloqueados();
-    
+    this.evento = new Eventolab();    
+       
+    this.loadDiasBloqueados();   
 
   }
 
@@ -77,10 +77,16 @@ export class EventoCreateComponent implements OnInit, AfterViewInit {
   async save()
   {       
       //Convert o array em string
-      this.evento.dias.forEach( d=> d.option = JSON.stringify(d.option) );
-      this.evento.tipoevento = this.tipoEvento.name;     
+      let eventoModel = {...this.evento};
+      eventoModel.dias = [...this.evento.dias];
+      eventoModel.dias.forEach( d=> 
+      {          
+          d.option = JSON.stringify(d.option); //Array.from([...d.option]).reduce( (prev, curr) => prev + ','+ curr);
+      } );
 
-      this.http.post<Eventolab>(environment.services.api,environment.routes.eventoSebraeLab.root, this.evento).
+      eventoModel.tipoevento = this.tipoEvento.name;     
+
+      this.http.post<Eventolab>(environment.services.api,environment.routes.eventoSebraeLab.root, eventoModel ).
       then( () =>
       {
           this.router.navigate(['/agenda']);            

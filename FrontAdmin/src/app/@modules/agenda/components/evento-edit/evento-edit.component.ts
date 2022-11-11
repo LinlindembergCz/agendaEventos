@@ -9,7 +9,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 import { HttpEventType, HttpHeaderResponse, HttpResponse } from '@angular/common/http';
 import { FileService } from '../../../../@shared/services/file.service';
-
+import{tiposEventos} from '../../../../@core/enums/tipoevento.type';
 
 @Component({
   selector: 'app-evento-edit',
@@ -26,7 +26,7 @@ export class EventoEditComponent implements OnInit, AfterViewInit {
   
   picture: SafeResourceUrl;
 
-  tiposEvento:any[]=[];
+  tiposEvento:any[]= tiposEventos;
   tipoEvento:any={};
 
   constructor(private messageService: MessageService,
@@ -57,11 +57,7 @@ export class EventoEditComponent implements OnInit, AfterViewInit {
           this.evento = e;
 
           this.download(this.evento.id); 
-
-          this.http.get<any>("../../../assets/data", "tipoEventos.json").
-           then(x => { this.tiposEvento = x;        
-            this.tipoEvento = this.tiposEvento.find(x=>x.name== e.tipoevento) 
-          });   
+  
         });
       });    
   }

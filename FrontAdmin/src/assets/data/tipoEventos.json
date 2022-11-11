@@ -1,4 +1,4 @@
-[
+export const tiposArquivos = [
     {"name": "Palestra", "code": "0"},
     
     {"name": "Workshop", "code": "1"},
