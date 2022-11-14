@@ -60,6 +60,7 @@ export class ReserveSubmitComponent implements OnInit {
 
   showDialogEventDate()
   {
+    console.log("showDialogEventDate")
     this.DialogEventDateShowing = true;
   }
 

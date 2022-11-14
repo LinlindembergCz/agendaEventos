@@ -10,6 +10,7 @@
 }
 
 .frameReserv{
+ // border: 1px solid;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -45,11 +46,12 @@
 
 }
 
-.titleReserv{width: 283px;
+.titleReserv{
+  width: 283px;
   height: 42px;
   
   /* Heading/H3 */
-  font-family: 'Poppins';
+  //font-family: 'Poppins';
   font-style: normal;
   font-weight: 600;
   font-size: 32px;
@@ -62,11 +64,7 @@
   /* Tailwind/white */
   color: #FFFFFF;
   
-  
-  /* Inside auto layout */
-  flex: none;
-  order: 0;
-  flex-grow: 0;
+ 
 }
 
 .frameText{display: flex;
@@ -90,13 +88,9 @@ flex-direction: column;
 align-items: flex-start;
 padding: 0px;
 gap: 24px;
-width: 343px;
-height: 300px;
-/* Inside auto layout */
-flex: none;
-order: 0;
-align-self: stretch;
-flex-grow: 0;
+width: 100%;
+height: 320px;
+
 }
 
 .frameRealize{display: flex;
@@ -104,7 +98,7 @@ flex-grow: 0;
   align-items: flex-start;
   padding: 0px;
   gap: 24px;  
-  width: 50%;
+  width: 100%;
   height: 390px; 
   /* Inside auto layout */
   flex: none;
@@ -137,7 +131,7 @@ flex-grow: 0;
   order: 0;
   flex-grow: 0;
 
-  font-family: 'Poppins';
+  //font-family: 'Poppins';
   font-style: normal;
   font-weight: 600;
   font-size: 40px;
@@ -165,7 +159,7 @@ flex-grow: 0;
   width: 546px;
   height: 300px;  
   /* Body / Big */
-  font-family: 'PT Serif';
+  //font-family: 'PT Serif';
   font-style: normal;
   font-weight: 400;
   font-size: 25px;
@@ -179,7 +173,7 @@ flex-grow: 0;
   width: 350px;
   height: 300px;  
   /* Body / Big */
-  font-family: 'PT Serif';
+  //font-family: 'PT Serif';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -190,17 +184,13 @@ flex-grow: 0;
 
 }
 
-.frameInputs{display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.frameInputs{//display: flex;
+  //flex-direction: column;
+  //align-items: flex-start;
   padding: 0px;
   gap: 24px; 
   width: 354px;
   height: 489px; 
-  /* Inside auto layout */
-  flex: none;
-  order: 1;
-  flex-grow: 0;
 }
 
 .frameInput{display: flex;
@@ -221,7 +211,7 @@ flex-grow: 0;
 .titleInput{width: 354px;
   height: 24px;
   
-  font-family: 'Poppins';
+  //font-family: 'Poppins';
   font-style: bold;
   font-weight: 500;
   font-size: 16px;

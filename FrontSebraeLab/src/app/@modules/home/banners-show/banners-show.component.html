@@ -1,7 +1,7 @@
 <div [ngClass]="!isMobile ? 'carousel-home-index' : 'carousel-home-index-mobile'">
     <p-carousel 
         [value]="imgs"  
-        [autoplayInterval]="3500" 
+        [autoplayInterval]="!isMobile ?3500:0" 
         [circular]="true" 
         styleClass="carousel-responsive" 
         [showIndicators]="false"
@@ -10,7 +10,7 @@
         <div 
         [ngClass]="!isMobile ? 'banner-item  p-ai-center p-jc-center' : 'banner-item-mobile  p-ai-center p-jc-center'"
         
-        [ngStyle]="!isMobile ? {'background': 'url('+ item.image + ') no-repeat'}: {'background': 'url('+ '../../../assets/banners/banner_mobile.png' + ') repeat'} ">
+        [ngStyle]="!isMobile ? {'background': 'url('+ item.image + ') no-repeat'}: {'background': 'url('+ './assets/banners/banner_mobile.png' + ') repeat'} ">
        
         </div>
         

@@ -20,10 +20,7 @@ namespace sebraelab.core.comunication
                 "TESTE", 
                 "TESTE DE ENVIO DE EMAIL");
 
-            SmtpClient client = new SmtpClient("smtp.office365.com", 587);
-            client.EnableSsl = true;
-            NetworkCredential cred = new NetworkCredential("lcaraujo1@stefanini.com", "Stefanini@2022");
-            client.Credentials = cred;
+            SmtpClient client = new SmtpClient("10.9.4.9", 2527);
 
             // inclui as credenciais
             client.UseDefaultCredentials = true;

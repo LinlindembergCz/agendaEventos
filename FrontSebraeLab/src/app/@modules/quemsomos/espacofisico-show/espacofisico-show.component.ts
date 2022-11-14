@@ -32,32 +32,32 @@ export class EspacoFisicoShowComponent implements OnInit {
   ngOnInit(): void {   
     this.images =  [
                       {
-                          "previewImageSrc": "../../../../assets/imgs/fisico1.png",
-                          "thumbnailImageSrc": "../../../../assets/imgs/fisico1.png",
+                          "previewImageSrc": "assets/imgs/fisico1.png",
+                          "thumbnailImageSrc": "assets/imgs/fisico1.png",
                           "alt": "img1",
                           "title": "Title 1"
                       },
                       {
-                          "previewImageSrc": "../../../../assets/imgs/fisico2.png",
-                          "thumbnailImageSrc": "../../../../assets/imgs/fisico2.png",
+                          "previewImageSrc": "assets/imgs/fisico2.png",
+                          "thumbnailImageSrc": "assets/imgs/fisico2.png",
                           "alt": "img2",
                           "title": "Title 2"
                       },
                       {
-                          "previewImageSrc": "../../../../assets/imgs/fisico3.png",
-                          "thumbnailImageSrc": "../../../../assets/imgs/fisico3.png",
+                          "previewImageSrc": "assets/imgs/fisico3.png",
+                          "thumbnailImageSrc": "assets/imgs/fisico3.png",
                           "alt": "img2",
                           "title": "Title 2"
                       },                     
                       {
-                          "previewImageSrc": "../../../../assets/imgs/fisico4.png",
-                          "thumbnailImageSrc": "../../../../assets/imgs/fisico4.png",
+                          "previewImageSrc": "assets/imgs/fisico4.png",
+                          "thumbnailImageSrc": "assets/imgs/fisico4.png",
                           "alt": "img2",
                           "title": "Title 2"
                       },
                       {
-                          "previewImageSrc": "../../../../assets/imgs/fisico5.png",
-                          "thumbnailImageSrc": "../../../../assets/imgs/fisico5.png",
+                          "previewImageSrc": "assets/imgs/fisico5.png",
+                          "thumbnailImageSrc": "ssets/imgs/fisico5.png",
                           "alt": "img2",
                           "title": "Title 2"
                       },

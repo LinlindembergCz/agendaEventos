@@ -127,7 +127,7 @@ background: #ED4D9A;
   height: 54px;
   
   /* Body / Normal */
-  font-family: 'PT Serif';
+ // font-family: 'PT Serif';
   font-style: normal;
   font-weight: 400;
   font-size: 18px;
@@ -149,6 +149,7 @@ background: #ED4D9A;
   //Mobile
 
   .carousel-home-index-mobile {
+    border: 1px solid;
     position: absolute;
     width: 100%;
     height: 334px;

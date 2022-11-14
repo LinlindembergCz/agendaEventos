@@ -2,7 +2,7 @@
   //border: 1px solid;
   position: absolute;
   width: 100%;
-  height: 1004px;
+  height: 100%;
   left: 5px;
   top: 2456px;
   align-items: center;
@@ -16,7 +16,7 @@
     //border: 1px solid;
     position: absolute;
     width: 100%;
-    height: 1004px;
+    height: 100%;
     left: 5px;
     top: 2600px;
     align-items: center;
@@ -53,7 +53,7 @@
   gap: 72px;  
   //position: absolute;
   width: 100%;
-  height: 812px;
+  height: 100%;
   left: 64px;
   top: 2600px;
 }
@@ -79,7 +79,7 @@
   width: 50%;
   height: 82px;  
   
-  font-family: 'Poppins';
+  //font-family: 'Poppins';
   font-style: normal;
   font-weight: 600;
   font-size: 56px;
@@ -97,7 +97,7 @@
   width: 80%;
   height: 82px;  
   
-  font-family: 'Poppins';
+  //font-family: 'Poppins';
   font-style: normal;
   font-weight: 600;
   font-size: 40px;
@@ -109,11 +109,11 @@
 
 
 .frameText{
-  //border: 1px solid;
+ // border: 1px solid;
   width: 80%;
 height: 120px;
 /* Body / Big */
-font-family: 'PT Serif';
+//font-family: 'PT Serif';
 font-style: normal;
 font-weight: 400;
 font-size: 20px;
@@ -130,7 +130,7 @@ color: #334155;
   width: 80%;
 height: 120px;
 /* Body / Big */
-font-family: 'PT Serif';
+//font-family: 'PT Serif';
 font-style: normal;
 font-weight: 400;
 font-size: 16px;
@@ -150,7 +150,7 @@ color: #334155;
   padding: 0px;
   gap: 32px;  
   width: 100%;
-  height: 522px; 
+  height: 100%; 
 
 }
 
@@ -161,7 +161,7 @@ color: #334155;
   align-items: flex-start;
   padding: 0px;
   gap: 16px;  
-  width: 1312px;
+  width: 100%;
   height: 48px; 
   /* Inside auto layout */
   flex: none;
@@ -181,13 +181,15 @@ color: #334155;
 }
 
 
-.frameEventlabGroup{display: flex;
+.frameEventlabGroup{
+  //border: 1px solid;
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 0px;
   gap: 20px;  
-  width: 1312px;
-  height: 386px; 
+  width: 100%;
+  height: 100%; 
   /* Inside auto layout */
   flex: none;
   order: 1;
@@ -195,14 +197,16 @@ color: #334155;
   flex-grow: 0;
 }
 
-.frameEventslablist{display: flex;
+.frameEventslablist{
+ // border: 1px solid;
+  display: flex;
   //order: 1px solid;
   flex-direction: column;
   align-items: flex-start;
   padding: 0px;
   //gap: 20px;  
   width: 100%;
-  height: 386px;  
+  height: 100%;  
 
 }
 
@@ -213,8 +217,8 @@ color: #334155;
   padding: 0px;
   //gap: 30px;
   
-  width: 1312px;
-  height: 183px;
+  width: 100%;
+  height: 100%;
   
   
   /* Inside auto layout */
@@ -224,7 +228,11 @@ color: #334155;
   flex-grow: 0;
 }
 
-.frameEventlabItem{box-sizing: border-box;
+.frameEventlabItem{
+ //border: 1px solid;
+  
+  box-sizing: border-box;
+
   /* Auto layout */
   display: flex;
   flex-direction: column;
@@ -518,7 +526,6 @@ flex-grow: 1;
   height: 40px;
   order: 1;
   align-self: stretch;
-
   
   font-family: 'Poppins';
   font-style: normal;

@@ -38,7 +38,7 @@
             <ng-template let-periodo pTemplate="listItem">
                 <div style="height: 100px">
                     <div class="frameDataPeriodo">
-                        <img src="../../assets/imgs/akar-icons_clock.png"> {{periodo.data}}
+                        <img src="./assets/imgs/akar-icons_clock.png"> {{periodo.data}}
                     </div>
                     <div class="frameOptionsPeriodo">
                         <p-checkbox name="{{periodo.name}}" value="Manhã" label="Manhã" [(ngModel)]="periodos[periodo.index].option"></p-checkbox>

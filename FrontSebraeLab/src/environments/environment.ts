@@ -10,7 +10,7 @@ export const environment = {
   services: {
     zipcode: "",
     api: "http://localhost:1901/api",
-    auth: 'https://desenvolvimento.senacrs.com.br/Auth',
+    auth: "",
   },
   routes:{
     eventoSebraeLab:{
