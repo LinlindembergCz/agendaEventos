@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -12,11 +13,18 @@ export class NaPraticaShowComponent implements OnInit {
   
   selectedLetra: string = 'L';
 
-  constructor(
+  constructor( private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {   
- 
+   
+    this.route.fragment.forEach(banner=>{
+      if (banner =="bannersLEARN") this.selectLetra("L");
+      if (banner =="bannersATTEND") this.selectLetra("A");
+      if (banner =="bannersBUSINESS") this.selectLetra("B");
+    })
+
+
   }
 
   selectLetra(letra: string)

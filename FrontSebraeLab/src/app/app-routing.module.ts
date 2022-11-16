@@ -78,7 +78,8 @@ const routes: Routes = [
 const config: ExtraOptions = {
   useHash: false,
   enableTracing: false,
-  onSameUrlNavigation: 'reload'
+  onSameUrlNavigation: 'reload',
+  anchorScrolling: 'enabled',
 };
 
 @NgModule({

@@ -13,15 +13,20 @@
             </div>
 
             <div class="frameLetrasLAB" *ngIf="!isMobile">
-                <div class="frameListLetrasLAB">
+                
+                <div id="bannersLEARN" style="height:0px"></div>
+                <div id="bannersATTEND"  style="height:0px"></div>
+                <div id="bannersBUSINESS"  style="height:0px"></div>
+
+                <div class="frameListLetrasLAB" id="banners">
                     <div class="frameLetraL">
-                        <div class="frameLetra" (click)="selectLetra('L')" >L</div>
+                        <div class="frameLetra" (click)="selectLetra('L')" id="bannerLEARN">L</div>
                     </div>
                     <div class="frameLetraA">
-                        <div class="frameLetra" (click)="selectLetra('A')" >A</div>
+                        <div class="frameLetra" (click)="selectLetra('A')" id="bannerATTEND">A</div>
                     </div>
                     <div class="frameLetraB">
-                        <div class="frameLetra" (click)="selectLetra('B')" >B</div>
+                        <div class="frameLetra" (click)="selectLetra('B')" id="bannerBUSINESS">B</div>
                     </div>
                 </div>
                 <div class="frameSignificadoLetra">
@@ -88,7 +93,11 @@
 
             <!--MOBILE-->
 
-            <div *ngIf="isMobile">
+            <div *ngIf="isMobile" >
+                <div id="bannersLEARN" style="height:0px"></div>
+                <div id="bannersATTEND"  style="height:0px"></div>
+                <div id="bannersBUSINESS"  style="height:0px"></div>
+                
                 <div class="p-grid" style="gap: 16px;">                    
                     <div class="frameLetraL p-col-3">
                         <div class="frameLetra" (click)="selectLetra('L')" >L</div>
