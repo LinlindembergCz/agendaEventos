@@ -8,7 +8,30 @@ import { DomSanitizer } from '@angular/platform-browser';
 import { HttpEventType } from '@angular/common/http';
 import {Meses} from '../../../@core/enums/ListaMeses';
 
+class EventolabModel {
+  id: string;
+  titulo: string ;
+  subtitulo: string;
+  descricaoevento: string;
+  numeroparticipantes: number;
+  tipoevento: string;
+  linksparainscricao: string;
+  nomecompleto:string;
+  email: string;
+  instituicao: string;
+  contato:string;
+  status:string;
+  publicaosite:boolean;
 
+  horainicial?: string ;
+  horafinal?: string;
+  datainicial?: string;
+  datafinal?: string;
+  data? : string;
+
+  qtdDias?:number;
+  
+}
 
 @Component({
   selector: 'app-evento-view',
@@ -17,7 +40,7 @@ import {Meses} from '../../../@core/enums/ListaMeses';
 })
 export class EventoViewComponent implements OnInit , AfterViewInit
 {
-  evento: Eventolab=new Eventolab();
+  evento: EventolabModel=new EventolabModel();
   picture: any;
   private fileUrl: string = "";
 
@@ -37,7 +60,19 @@ export class EventoViewComponent implements OnInit , AfterViewInit
                                        {
                                           this.http.get<Eventolab>(environment.services.api,
                                           `${environment.routes.eventoSebraeLab.root}/${params['id']}`).then( e=> {  
-                                            this.evento = e 
+                                            this.evento = {...e};
+
+                                            let startEvent: any = e.dias[0];//primeiro evento
+                                            let endEvent: any = e.dias[e.dias.length - 1];//ultimo evnto               
+                                            let startDay : string = startEvent?.data;//data inicial
+                                            let endDay: string = endEvent?.data;//data final  
+
+                                            this.evento.horainicial= startEvent?.horainicio;
+                                            this.evento.horafinal= endEvent?.horafim;
+                                            this.evento.data = startDay;
+                                            this.evento.datainicial=  startDay?.substring(8,10); //primeiro dia
+                                            this.evento.datafinal= endDay?.substring(8,10); //ultimo dia
+                                            this.evento.qtdDias = e.dias.length;
 
                                             this.download(e.id);
                                           

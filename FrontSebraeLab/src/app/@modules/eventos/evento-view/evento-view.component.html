@@ -3,15 +3,21 @@
 <div class="framePrevisualizacao">
     <div class="voltarparaconteudo" style="cursor: pointer;">              
         <a href="javascript:history.back()">
-            <img src="../../../../../assets/imgs/chevron-return.png" >voltar 
+            <img src="assets/imgs/chevron-return.png" >voltar 
         </a>
     </div>
     <div class="frameBanner">
         <img [src]="picture" width="1087px" height="500px"/>
         <div class="frameBannerEvento">            
             <div class="frameBannerDetails p-grid">
-                <div class="p-col-12"> 
-                    <div class="frameBannerDatas">29> 30</div><h2>{{getMonthDescription(evento.dias[0].data)}}</h2>
+                <div class="p-grid">                    
+                    <div ><h2>{{evento.datainicial}}</h2></div>                 
+                    <div *ngIf="(evento.datainicial != evento.datafinal)">
+                        <h2> > {{evento.datafinal}}</h2>
+                    </div>         
+                    <div>
+                        <h2 style="color: #ED4D9A;">&nbsp;&nbsp;&nbsp;{{getMonthDescription(evento.data)}}</h2>
+                    </div>                    
                 </div>
                 <div class="frameBannerDetailsConteudoHoras p-col-12">08:30 - 12:30</div>
                 <div class="frameBannerDetailsConteudoTitulo p-col-12">{{evento.titulo}}</div>
@@ -33,31 +39,15 @@
                 </div>          
             </div>
          </div>   
-         
-
     </div>
     <p></p><p></p>
     <div class="p-grid">
-        <div class="p-col-5">
-            <div class="frameColuna1Descricao" [innerHTML]="evento.descricaoevento">                    
-            </div> 
-            <div>
-                <a href="{{evento.linksparainscricao}}" target="_blank">
-                    <button pButton type="button" 
-                    label="Inscreva-se " 
-                    class="p-button-outlined" 
-                    style="background:#FFF028;color:black;border:0px;width: 100px;height: 44px;">
-                    </button>
-                 </a>
-            </div>
-            <div class="frameOrganizador">
-                <h2>Sobre o organizador</h2>
-                <h3>{{evento.nomecompleto}}</h3>
-           </div>
-           <button pButton type="button"  label="Entre em contato" class="p-button-outlined"></button>
+        <div class="p-col-5">        
+                <div class="frameColuna1Descricao" [innerHTML]="evento.descricaoevento" >                    
+                </div>          
         </div>
         <div class="p-col-2"></div>
-        <div class="p-col-5">
+        <div class="p-col-5" >
             Localizacao
             <div>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1573.1460644727042!2d-40.299348074082765!3d-20.31710753356827!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb83dba8fb6fbf9%3A0x2401255a85fb5a11!2sSebrae!5e0!3m2!1spt-BR!2sbr!4v1661954760069!5m2!1spt-BR!2sbr" width="416px" height="272px" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -71,21 +61,33 @@
             <div>
                 <h2>Compartilhe</h2>
                 <div class="p-grid">
-                    <div class="p-col-2" style="cursor: pointer;" (click)="shareFacebook()"><img src="../../../../../assets/imgs/icon-facebook.png"></div>    
-                    <div class="p-col-2" style="cursor: pointer;" (click)="shareTwitter(evento.titulo)"><img src="../../../../../assets/imgs/icon-twitter.png"></div>   
-                    <div class="p-col-2" style="cursor: pointer;" (click)="shareWhats(evento.titulo)"><img src="../../../../../assets/imgs/icon-zap.png"></div>  
-                    <div class="p-col-2" style="cursor: pointer;" (click)="shareTelegram(evento.titulo)"><img src="../../../../../assets/imgs/icon-telegram.png"></div>  
-                    <div class="p-col-2" style="cursor: pointer;" (click)="shareLinkIn()"><img src="../../../../../assets/imgs/icon-linkIn.png"></div> 
+                    <div class="p-col-2" style="cursor: pointer;" (click)="shareFacebook()"><img src="assets/imgs/icon-facebook.png"></div>    
+                    <div class="p-col-2" style="cursor: pointer;" (click)="shareTwitter(evento.titulo)"><img src="assets/imgs/icon-twitter.png"></div>   
+                    <div class="p-col-2" style="cursor: pointer;" (click)="shareWhats(evento.titulo)"><img src="assets/imgs/icon-zap.png"></div>  
+                    <div class="p-col-2" style="cursor: pointer;" (click)="shareTelegram(evento.titulo)"><img src="assets/imgs/icon-telegram.png"></div>  
+                    <div class="p-col-2" style="cursor: pointer;" (click)="shareLinkIn()"><img src="assets/imgs/icon-linkIn.png"></div> 
                 </div>
             </div>
-        </div>
+        </div> 
+        
 
-
-    
     </div>
 
 
+    <div class=" p-col-12">
+        <h2>Sobre o organizador</h2>
+        <h3>{{evento.nomecompleto}}</h3>
+        <button pButton type="button"  label="Entre em contato" class="p-button-outlined"></button>
+    </div>
+    
+
+
+
 </div>
+
+
+
+
 
 
 

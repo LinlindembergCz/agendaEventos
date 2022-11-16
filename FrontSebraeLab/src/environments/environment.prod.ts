@@ -9,23 +9,24 @@ export const environment = {
     auth: 'http://',
   },
   routes:{
-    eventoSebraeLab:{
-      root:"EventoSebraeLab",
-      publicar:"EventoSebraeLab/Publicar",
-      diasBloqueados:"EventoSebraeLab/DiasBloqueados",
-      search:  "EventoSebraeLab/Pesquisar?value=",
-      alocacao:  "EventoSebraeLab/Disponivel" 
-    },
-    conteudoSebraeLab:{
-      root:"ConteudoSebraeLab",
-      publicar:"ConteudoSebraeLab/Publicar",
-      ativar: "ConteudoSebraeLab/Ativar",
-      desativar:"ConteudoSebraeLab/Desativar",
-      search: "ConteudoSebraeLab/Pesquisar?value=",
-      pesquisarPorTipo:"ConteudoSebraeLab/PesquisarPorTipo"   
-    },
-    newsletter:{
-      root:"NewsLetter",
-    },
-};
+            eventoSebraeLab:{
+              root:"EventoSebraeLab",
+              publicar:"EventoSebraeLab/Publicar",
+              diasBloqueados:"EventoSebraeLab/DiasBloqueados",
+              search:  "EventoSebraeLab/Pesquisar?value=",
+              alocacao:  "EventoSebraeLab/Disponivel" 
+            },
+            conteudoSebraeLab:{
+              root:"ConteudoSebraeLab",
+              publicar:"ConteudoSebraeLab/Publicar",
+              ativar: "ConteudoSebraeLab/Ativar",
+              desativar:"ConteudoSebraeLab/Desativar",
+              search: "ConteudoSebraeLab/Pesquisar?value=",
+              pesquisarPorTipo:"ConteudoSebraeLab/PesquisarPorTipo"   
+            },
+            newsletter:{
+              root:"NewsLetter",
+            }
+         }
+}
 

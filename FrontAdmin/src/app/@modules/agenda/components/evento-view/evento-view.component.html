@@ -30,16 +30,12 @@
         <img [src]="picture" width="100%" height="500px"/>
         <div class="frameBannerEvento">            
             <div class="frameBannerDetails p-grid">
-                <div class="p-grid"> 
-                    
-                        <div ><h2>{{evento.datainicial}}</h2></div>      
-                    
-                  
+                <div class="p-grid">                    
+                    <div ><h2>{{evento.datainicial}}</h2></div>                 
                     <div *ngIf="(evento.datainicial != evento.datafinal)">
                         <h2> > {{evento.datafinal}}</h2>
-                    </div>                          
-                   
-                     <div>
+                    </div>         
+                    <div>
                         <h2 style="color: #ED4D9A;">&nbsp;&nbsp;&nbsp;{{getMonthDescription(evento.data)}}</h2>
                     </div>                    
                 </div>
