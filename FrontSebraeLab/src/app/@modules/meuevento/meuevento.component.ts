@@ -12,7 +12,7 @@ export class MeuEventoComponent implements AfterViewInit , OnInit  {
   
    selectedPeriodos: any[]=[];
 
-   isMobile:boolean;
+  @Input() isMobile:boolean;
 
   constructor(
     private router: Router,

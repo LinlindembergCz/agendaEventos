@@ -1,4 +1,4 @@
-import { Component,OnInit, } from '@angular/core';
+import { Component,Input,OnInit, } from '@angular/core';
 
 @Component({
     selector: 'app-funcionamento-show',
@@ -7,6 +7,8 @@ import { Component,OnInit, } from '@angular/core';
   })
 export class FuncionamentoShow implements OnInit  {
     
+  @Input() isMobile:boolean;
+  
     overlays: any[];
     ngOnInit() {
 

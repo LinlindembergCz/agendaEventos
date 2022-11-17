@@ -16,6 +16,8 @@ interface TipoEvento {
   })
 export class EventoSubmit implements AfterViewInit, OnInit  {
 
+    @Input() isMobile:boolean = false;
+
     showDialogErro: boolean = false;
     messageDialogErro: string ='';
     showDialogSucesso: boolean = false;
@@ -48,7 +50,6 @@ export class EventoSubmit implements AfterViewInit, OnInit  {
 
     constructor(
         private http: RequestPromiseService,
-        private router: Router,
         private route: ActivatedRoute
       ) { }
     

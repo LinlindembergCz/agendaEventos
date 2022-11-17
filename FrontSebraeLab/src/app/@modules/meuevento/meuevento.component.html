@@ -11,21 +11,31 @@
 <div class="frameAvisoEnvio">    
     <img src="assets/imgs/star.png"><label>Após o envio, avaliaremos e enviaremos a confirmação ao seu e-mail informado.</label>
 </div>
-<div class="Rectangle1059">
+
+<div class="frameContainerCalendar" *ngIf="!isMobile">
     <div class="frameCalendar">
         <app-calendario-edit (clickSelect)="selectDate($event)"></app-calendario-edit>
     </div>
 </div>
-<div class="frameCrieSeuEvento" style="border: 1px solid;">
+<div class="frameCrieSeuEvento" *ngIf="!isMobile">
     <label>CRIE SEU EVENTO</label>
     <div class="frameTimeline">        
         <app-evento-submit [periodos]="selectedPeriodos"></app-evento-submit>
     </div>       
 </div>
-<div class="frameFuncionamento" >
-    <app-funcionamento-show></app-funcionamento-show>   
-    <app-contato-submit></app-contato-submit>    
+
+
+<div class="frameContainerCalendar" *ngIf="isMobile">
+    <div class="frameTimelineMobile">        
+        <app-evento-submit [periodos]="selectedPeriodos" [isMobile]="isMobile"></app-evento-submit>
+    </div>       
 </div>
+
+<div class="frameFuncionamento" >
+    <app-funcionamento-show [isMobile]="isMobile"></app-funcionamento-show>   
+   <app-contato-submit [isMobile]="isMobile"></app-contato-submit>    
+</div>
+
  
 
     

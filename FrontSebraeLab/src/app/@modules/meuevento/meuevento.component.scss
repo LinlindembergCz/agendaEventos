@@ -1,10 +1,23 @@
-.Rectangle1059{
+.frameContainerCalendar{
     //border: 1px solid;
     position: absolute;
     width: 97%;
     height: 800px;
     left: 20px;
-    top: 741px;
+    top: 641px;
+    /* Tailwind/slate/100 */
+    background: #F1F5F9;
+    border-radius: 16px;
+    align-items: center;
+}
+
+.frameContainerCalendarMobile{
+    //border: 1px solid;
+    position: absolute;
+    width: 97%;
+    height: 350px;
+    left: 20px;
+    top: 641px;
     /* Tailwind/slate/100 */
     background: #F1F5F9;
     border-radius: 16px;
@@ -86,8 +99,27 @@
     position: absolute;
     width: 482px;
     height: 700px;
-    left: 516px;
-    top: 770px;
+    left: 716px;
+    top: 670px;
+    /* Heading/H3 */
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 42px;
+    /* identical to box height, or 131% */
+    /* Cores da Marca/Tipografia/Preto */
+    color: #263746;
+}
+
+.frameCrieSeuEvento{
+    //border: 1px solid;
+    /* CRIE SEU EVENTO */
+    position: absolute;
+    width: 482px;
+    height: 700px;
+    left: 716px;
+    top: 670px;
     /* Heading/H3 */
     font-family: 'Poppins';
     font-style: normal;
@@ -136,7 +168,7 @@
 
         position: absolute;
         width: 97%;
-        height: 70px;
+        height: 18%;
         left: 20px;
 
         background: #DFFFDC;

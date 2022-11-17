@@ -14,10 +14,6 @@
 
             <div class="frameLetrasLAB" *ngIf="!isMobile">
                 
-                <div id="bannersLEARN" style="height:0px"></div>
-                <div id="bannersATTEND"  style="height:0px"></div>
-                <div id="bannersBUSINESS"  style="height:0px"></div>
-
                 <div class="frameListLetrasLAB" id="banners">
                     <div class="frameLetraL">
                         <div class="frameLetra" (click)="selectLetra('L')" id="bannerLEARN">L</div>
@@ -30,9 +26,8 @@
                     </div>
                 </div>
                 <div class="frameSignificadoLetra">
-                    <div class="frameLetraSelecionada">
-                        
-                        <div class="frameTextoLetraSelecionada" *ngIf="selectedLetra=='L'">       
+                    <div class="frameLetraSelecionada">                        
+                        <div class="frameTextoLetraSelecionada" *ngIf="selectedLetra=='L'" id="bannersLEARN">       
                             <img src="assets/imgs/letraL.png"/>  
                             <div class="frameTextoLetraSelecionadaCabecalho">
                                 Focado na concentração, esse pilar estimula a troca de experiências e de conhecimento, além de atividades práticas que permitam um aprendizado validado.
@@ -53,7 +48,7 @@
                             </div>  
                         </div>     
                         
-                        <div class="frameTextoLetraSelecionada" *ngIf="selectedLetra=='A'">       
+                        <div class="frameTextoLetraSelecionada" *ngIf="selectedLetra=='A'" id="bannersATTEND">       
                             <img src="assets/imgs/letraA.png"/>  
                             <div class="frameTextoLetraSelecionadaCabecalho">
                                 Busca estimular a produção, com atividades de criação participativa e colaborativa, trazendo para o processo criativo a troca de ideias entre profissionais e clientes.                            </div>
@@ -70,7 +65,7 @@
                                 Atividades que estimulam a transformação de ideias em modelos de negócios inovadores. Maratona de negócios, Startup Weekend.</div>  
                         </div> 
 
-                        <div class="frameTextoLetraSelecionada" *ngIf="selectedLetra=='B'">       
+                        <div class="frameTextoLetraSelecionada" *ngIf="selectedLetra=='B'" id="bannersBUSINESS">       
                             <img src="assets/imgs/letraB.png"/>  
                             <div class="frameTextoLetraSelecionadaCabecalho">
                                 Baseado em conexão, busca potencializar relacionamentos e contatos de negócios, aconselhamentos em modelos de mercado.</div>
@@ -94,9 +89,7 @@
             <!--MOBILE-->
 
             <div *ngIf="isMobile" >
-                <div id="bannersLEARN" style="height:0px"></div>
-                <div id="bannersATTEND"  style="height:0px"></div>
-                <div id="bannersBUSINESS"  style="height:0px"></div>
+
                 
                 <div class="p-grid" style="gap: 16px;">                    
                     <div class="frameLetraL p-col-3">
@@ -110,7 +103,7 @@
                     </div>
                 </div>
 
-                <div class="frameTextoLetraSelecionada p-grid" *ngIf="selectedLetra=='L'">       
+                <div class="frameTextoLetraSelecionada p-grid" *ngIf="selectedLetra=='L'" id="bannersLEARN">       
                     <img src="assets/imgs/letraL.png"/>  
                     <div class="p-col-12">
                         Focado na concentração, esse pilar estimula a troca de experiências e de conhecimento, além de atividades práticas que permitam um aprendizado validado.
@@ -129,7 +122,7 @@
                     </div>
                 </div>  
 
-                <div class="frameTextoLetraSelecionada  p-grid" *ngIf="selectedLetra=='A'">       
+                <div class="frameTextoLetraSelecionada  p-grid" *ngIf="selectedLetra=='A'" id="bannersATTEND">       
                     <img src="assets/imgs/letraA.png"/>  
                     <div class="p-col-12">
                         Busca estimular a produção, com atividades de criação participativa e colaborativa, trazendo para o processo criativo a troca de ideias entre profissionais e clientes.                            
@@ -148,7 +141,7 @@
                     </div>  
                 </div> 
 
-                <div class="frameTextoLetraSelecionada  p-grid" *ngIf="selectedLetra=='B'">       
+                <div class="frameTextoLetraSelecionada  p-grid" *ngIf="selectedLetra=='B'" id="bannersBUSINESS">       
                     <img src="assets/imgs/letraB.png"/>  
                     <div class="p-col-12">
                         Baseado em conexão, busca potencializar relacionamentos e contatos de negócios, aconselhamentos em modelos de mercado.

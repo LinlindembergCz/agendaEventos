@@ -1,9 +1,9 @@
 <div style="align-items: center;">
-    <p-calendar 
+    <p-calendar [inline]="true" 
     inputId="text" 
     id="text" 
     [showIcon]="true"
-    [inline]="true" 
+    
     selectionMode="multiple"
     dayNamesShort="['Dom', 'Seg', 'Ter', 'Qa', 'Qi', 'Sex', 'Sab']"
     [(ngModel)]="eventBooking.Days"                 
@@ -33,7 +33,7 @@
         <span class="p-float-label">
             <p-messages [(value)]="mensagens"></p-messages>
         </span>
-    <div style="width: 380px; height: 350px; overflow-y: auto;">
+    <div style="width: 380px; height: 100%; overflow-y: auto;">
         <p-dataView [value]="periodos">
             <ng-template let-periodo pTemplate="listItem">
                 <div style="height: 100px">
