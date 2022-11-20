@@ -17,10 +17,10 @@ namespace SebraeLab.Toten.App.Validator
                .NotNull()
                .WithMessage("Por favor, informe sua participação");
 
-            RuleFor(c => c.Nascimento)
+            RuleFor(c => c.Telefone)
                .NotEmpty()
                .NotNull()
-               .WithMessage("Por favor, selecione o mês do seu nascimento");
+               .WithMessage("Por favor, informe o telefone");
 
             RuleFor(c => c.EmailUsuario)
              .NotEqual(String.Empty)

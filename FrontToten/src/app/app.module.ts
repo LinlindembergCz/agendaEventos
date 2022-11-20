@@ -1,44 +1,71 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { APP_BASE_HREF } from '@angular/common';
-import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
-import { NgBrazil } from 'ng-brazil'
-import { TextMask } from 'ng-brazil';
-import { CustomFormsModule } from 'ng2-validation'
+import { APP_BOOTSTRAP_LISTENER, APP_INITIALIZER, CUSTOM_ELEMENTS_SCHEMA, LOCALE_ID, NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-import { MenuComponent } from './navegacao/menu/menu.component';
-import { HomeComponent } from './@feedback/home/home.component';
-import { FooterComponent } from './navegacao/footer/footer.component';
-import { SucessoComponent } from './@feedback/sucesso/sucesso.component';
-import { rootRouterConfig } from './app.routes';
-import { CadastroComponent } from './@feedback/cadastro/cadastro.component';
+import { UserIdleModule } from 'angular-user-idle';
+import { TranslateModule } from '@ngx-translate/core';
+import { UserIdleSettings, TranslateSettings } from './@bootstrap/scripts/global.const';
+import { AuthGuard } from './@bootstrap/security/auth.guard';
 
-import { HttpClientModule } from '@angular/common/http';
+import { BeforeLoaderProvider } from './@bootstrap/providers/before-loader.provider';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BootstrapModule } from './@bootstrap/bootstrap.module';
+import { AuthInterceptor } from './@bootstrap/security/auth.interceptor';
+import { MenuComponent } from './@layout/menu/menu.component';
+import { LayoutComponent } from './@layout/layout.component';
+import { BreadcrumpComponent } from './@layout/breadcrump/breadcrump.component';
+import { ApplicationStateService } from './@bootstrap/services/application-state.service';
+import { DEFAULT_CURRENCY_CODE } from '@angular/core';
+import ptBR from '@angular/common/locales/pt';
+import { registerLocaleData } from '@angular/common';
+import { BlankComponent } from './@layout/blank/blank.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
+import { SucessoComponent } from './@modules/sucesso/sucesso.component';
+import { HomeComponent } from './@modules/home/home.component';
+import { CadastroComponent } from './@modules/cadastro/cadastro.component';
 
+registerLocaleData(ptBR);
 
 @NgModule({
   declarations: [
     AppComponent,
+    //HeaderComponent,
+    LayoutComponent,
+    BreadcrumpComponent,
+    BlankComponent,
     MenuComponent,
-    HomeComponent,
-    FooterComponent,
-    SucessoComponent,
-    CadastroComponent
+   //FooterComponent
+   HomeComponent,
+   SucessoComponent,
+   CadastroComponent
   ],
   imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    TextMask.TextMaskModule,
-    NgBrazil, 
-    CustomFormsModule,
-    HttpClientModule,
-    [RouterModule.forRoot(rootRouterConfig, { useHash: false})]
+    BootstrapModule,
+    UserIdleModule.forRoot(UserIdleSettings()),
+    TranslateModule.forRoot(TranslateSettings()),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
-    {provide: APP_BASE_HREF, useValue: '/'}
+    AuthGuard,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: BeforeLoaderProvider,
+      deps: [ApplicationStateService],
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true
+    },
+    {provide: DEFAULT_CURRENCY_CODE, useValue: 'BRL'},
+    {
+      provide: LOCALE_ID,
+      useValue: "pt-BR"
+    }
+  ],
+  schemas: [
+    CUSTOM_ELEMENTS_SCHEMA
   ],
   bootstrap: [AppComponent]
 })

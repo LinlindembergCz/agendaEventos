@@ -259,7 +259,7 @@ namespace SebraeLab.Evento.Data.Migrations
 
             modelBuilder.Entity("SebraeLab.Toten.Domain.FeedbackUsuario", b =>
                 {
-                    b.Property<Guid?>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
@@ -272,14 +272,13 @@ namespace SebraeLab.Evento.Data.Migrations
                     b.Property<string>("EmailUsuario")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid?>("IdEvento")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("Nascimento")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(1)");
+                    b.Property<string>("IdEvento")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NomeUsuario")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Telefone")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("TipoVisita")

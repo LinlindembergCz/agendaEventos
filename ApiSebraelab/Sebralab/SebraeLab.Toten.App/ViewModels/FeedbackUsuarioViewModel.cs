@@ -1,27 +1,35 @@
 ﻿using SebraeLab.Toten.App.Validator;
 using SebraeLab.Toten.Domain.Enum;
 using System.ComponentModel.DataAnnotations;
+using System.Text.Json.Serialization;
 
 namespace SebraeLab.Toten.App.ViewModels
 {
     public class FeedbackUsuarioViewModel
     {
+        [Key]
+        //public Guid? Id { get; set; }
+
+        [JsonPropertyName("nome")]
+        public string? NomeUsuario { get; set; }
+        [JsonPropertyName("email")]
+        public string? EmailUsuario { get; set; }
+        [JsonPropertyName("cpf")]
+        public string? CPFUsuario { get; set; }
+        [JsonPropertyName("tipo")]
+        public string TipoVisita { get; set; }
+
+        [JsonPropertyName("telefone")]
+        public string Telefone { get; set; }
+        [JsonPropertyName("idevento")]
+        public Guid? IdEvento { get; set; }
+        [JsonPropertyName("dateTime")]
+        public DateTime DateTime { get; set; }
+
         public FeedbackUsuarioViewModel()
         {
             DateTime = DateTime.Now;
         }
-
-        [Key]
-        public Guid? Id { get; set; }
-        public string? NomeUsuario { get; set; }
-        public string? EmailUsuario { get; set; }
-        public string? CPFUsuario { get; set; }
-        public TipoEventoEnum TipoVisita { get; set; }
-        public MesEnum Nascimento { get; set; }
-        public Guid? IdEvento { get; set; }
-        public DateTime DateTime { get; set; }
-
-
         public bool EhValido()
         {
             var validator = new ValidatorFeedbackUsuario();

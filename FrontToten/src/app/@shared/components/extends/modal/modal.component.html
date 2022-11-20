@@ -1,0 +1,39 @@
+<div class="modal animated" tabindex="-1" role="dialog" aria-hidden="true" [ngClass]="{
+        'modal-to-center': setedModal && modal.to === 'modal',
+        'modal-to-left': setedModal && modal.to === 'left',
+        'modal-to-right': setedModal && modal.to === 'right',
+        'modal-to-down': setedModal && modal.to === 'down'
+    }" title=" {{modal.title}}">
+    <div class="modal-backdrop fade" (click)="closeBackdrop()"></div>
+    <div class="modal-dialog modal-dialog-centered" role="document" title=" {{modal.title}}">
+        <div class="modal-content">
+            <div class="modal-header not-selectable">
+                <h4 class="modal-title pull-left" *ngIf="setedModal && modal.title">
+                    {{modal.title}}
+                </h4>
+                <button type="button" class="close pull-right" 
+                        aria-label="Fechar" (click)="close()">
+                        <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-footer actions" *ngIf="setedModal && modal.headerAction">
+                <ng-content select="[header]"></ng-content>
+            </div>
+            <div class="modal-body">               
+                <ng-content select="[body]"></ng-content>        
+                <ng-template #body></ng-template>        
+            </div>
+            <div class="modal-footer" *ngIf="setedModal && modal.footerAction && !modal.headerAction">
+                <ng-content select="[footer]"></ng-content>
+                <button title=" {{modal.labelClose}}" class="btn btn-outline-secondary" data-dismiss="modal" (click)="close()" *ngIf="modal.labelClose">
+                    <i [className]='modal.iconClose'></i>
+                    {{modal.labelClose}}
+                </button>
+                <button title="{{modal.labelAction}}" class="btn btn-outline-warning btn-save" (click)="action()" *ngIf="modal.labelAction && !modal.noAction">
+                    <i [className]='modal.iconAction'></i>
+                    {{modal.labelAction}}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

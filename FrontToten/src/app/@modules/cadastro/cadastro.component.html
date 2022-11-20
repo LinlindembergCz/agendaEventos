@@ -1,0 +1,107 @@
+
+
+
+
+
+<div class="frameMain p-d-flex p-ai-center p-jc-center container-max-widths">
+       
+         <div class="frame-container form-group p-grid" style="align-items:center;">
+
+            <form novalidate (ngSubmit)="adicionarUsuario()" [formGroup]="cadastroForm">
+
+                <div class="form-group col-md-12" style="width:600px">
+
+                    <div class="form-group col-md-12">
+                        <select class="form-select font" style="text-align:center" formControlName="idevento" aria-label="Floating label select example" id="idevento" >
+                            <option value="" data-default disabled selected> Lista de eventos: </option>
+                            <option *ngFor="let item of itens" value="{{item.id}}">{{item.titulo}}</option>
+                        </select>
+                        <span class="text-danger" *ngIf="displayMessage.idevento">
+                            <p [innerHTML]="displayMessage.idevento"></p>
+                        </span>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <label>Nome</label>
+                        <input pInputText id="nome" type="text" placeholder="" formControlName="nome" [ngClass]="{'is-invalid': displayMessage.nome }" style="width: 100%;"/>
+                        <span class="text-danger" *ngIf="displayMessage.nome">
+                            <p [innerHTML]="displayMessage.nome"></p>
+                        </span>
+                    </div>
+
+
+                    <div class="form-group col-md-12">
+                        <label>CPF</label>
+                        <input pInputText id="cpf" type="text" placeholder="(Apenas números)" formControlName="cpf" cpf  [ngClass]="{'is-invalid': displayMessage.cpf }" style="width: 100%;"/>
+                        <span class="text-danger" *ngIf="displayMessage.cpf">
+                            <p [innerHTML]="displayMessage.cpf"></p>
+                        </span>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <label>E-mail:</label>
+                        <input pInputText id="email" type="text" placeholder="(exemplo@exemplo.com.br)" formControlName="email" [ngClass]="{'is-invalid': displayMessage.email }" style="width: 100%;"/>
+                        <span class="text-danger" *ngIf="displayMessage.email">
+                            <p [innerHTML]="displayMessage.email"></p>
+                        </span>
+                    </div>
+                    
+                    <div class="form-group col-md-12">
+                        <label>Telefone</label>
+                        <input pInputText id="telefone" type="text" placeholder="(DDD + números)" formControlName="telefone" [ngClass]="{'is-invalid': displayMessage.telefone }" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');" style="width: 100%;"/>     
+                        <span class="text-danger" *ngIf="displayMessage.telefone">
+                            <p [innerHTML]="displayMessage.telefone"></p>
+                        </span>
+                    </div>
+
+                    <div class="form-group col-md-12">
+                        <label> Motivo da participação:</label>
+                        <select class="form-select font" style="text-align:center" formControlName="tipo" aria-label="Floating label select example" id="tipo">
+                            <option value="" data-default disabled selected> Escolha uma das opções abaixo: </option>
+                            <option value="1">Visita técnica</option>
+                            <option value="2">Orientação</option>
+                            <option value="3">Capacitação</option>
+                            <option value="4">Coworking</option>
+                            <option value="5">Outro</option>
+                        </select>
+                        <span class="text-danger" *ngIf="displayMessage.tipo">
+                            <p [innerHTML]="displayMessage.tipo"></p>
+                        </span>
+                    </div>
+
+                    <div class="form-group col-md-12" *ngIf="cadastroForm.value.tipo == '5'">
+                        <label>Qual o motivo?</label>
+                        <input pInputText id="outromotivo" type="text" formControlName="outromotivo" style="width: 100%;border-color: red"/>     
+                    </div>
+
+
+                    <div class="form-group col-md-12">
+                        <textarea pInputTextarea readonly="true" style="width:100%" rows="5">
+Estou ciente e concordo que poderei receber notícias,informações e comunicados do Sebraelab, seus realizadores, 
+patrocinadores, apoiadores e demais parceiros do evento,por qualquer meio de comunicação informado no formulário (e-mail, telefone, endereço), 
+sendo possível posterior remoção de cadastro, de acordo com a Lei Geral de Proteção de Dados (LGPD).
+                        </textarea>
+                    </div>
+                    <div class="form-group col-md-12">
+                        <p-inputSwitch  formControlName="aceitelgpd" ></p-inputSwitch>
+                        <div>Li e aceito os termos acima.</div>
+                         
+                    </div>
+                </div>
+    
+                <div class="form-group">
+                    <br><div class="col-md-12 col-md-offset-2" style="text-align:center" >
+                        <span><button class="btn btn-warning" id="Registrar" 
+                            style="--bs-btn-padding-y: .70rem; --bs-btn-padding-x: 1.40rem; --bs-btn-font-size: 1.40rem;"
+                            [disabled]="!cadastroForm.valid || (cadastroForm.value.tipo == '5' && cadastroForm.value.outromotivo=='')" type="submit">Enviar</button></span>                        
+                    </div>
+                </div>
+
+            </form>
+    </div>
+</div>
+
+
+
+
+

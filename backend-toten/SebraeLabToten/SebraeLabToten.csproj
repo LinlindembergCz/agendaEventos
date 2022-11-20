@@ -25,4 +25,6 @@
 		<ProjectReference Include="..\..\ApiSebraelab\Sebralab\SebraeLab.Toten.Domain\SebraeLab.Toten.Domain.csproj" />
 	</ItemGroup>
 
+	<ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JsonSchema="" /></VisualStudio></ProjectExtensions>
+
 </Project>

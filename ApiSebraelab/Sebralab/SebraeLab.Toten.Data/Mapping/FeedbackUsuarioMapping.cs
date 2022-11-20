@@ -11,11 +11,11 @@ namespace SebraeLab.Toten.Data.Mapping
         {
             builder.HasKey(c => c.Id);
 
-            builder.Property(p => p.TipoVisita)
-                .HasConversion(new ConversorTipoFeedback());
+            builder.Property(p => p.TipoVisita).IsRequired()
+               .HasConversion(new ConversorTipoFeedback());
 
-            builder.Property(p => p.Nascimento)
-              .HasConversion(new ConversorNascimentoFeedback());
+           // builder.Property(p => p.Nascimento)
+           //   .HasConversion(new ConversorNascimentoFeedback());
 
             builder.ToTable("FeedbackUsuario");
         }
