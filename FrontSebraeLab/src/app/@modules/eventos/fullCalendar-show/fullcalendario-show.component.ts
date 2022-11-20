@@ -51,7 +51,7 @@ export class FullCalendarioShowComponent implements OnInit {
 
   loadTipoEventos():Promise<any> 
   {
-    return this.http.get<any>("../../../assets/data", "tipoEventos.json").
+    return this.http.get<any>("assets/data", "tipoEventos.json").
     then(x => { this.tiposEvento = x; }); 
   }
 

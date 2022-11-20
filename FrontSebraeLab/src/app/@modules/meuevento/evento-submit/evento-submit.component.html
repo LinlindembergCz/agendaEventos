@@ -6,7 +6,13 @@
 
     <p-accordionTab [selected]="activeIndex==0 || loadAllTabs" [disabled]="activeIndex!=0">
       <ng-template pTemplate="header">
-        <img src="./assets/imgs/tab1_active.png"/>
+        <div *ngIf="activeIndex==0">
+          <img src="./assets/imgs/tab1_active.png"/>
+       </div>
+
+        <div *ngIf="activeIndex>0">
+         <img src="./assets/imgs/tab1_inactive.png"/>
+       </div>
       </ng-template>
       <ng-template pTemplate="content">
         <div>
@@ -35,12 +41,15 @@
     </p-accordionTab>
     <p-accordionTab [selected]="activeIndex==1 || loadAllTabs" [disabled]="activeIndex!=1">
       <ng-template pTemplate="header">
-        <div *ngIf="activeIndex>=1">
+          <div *ngIf="activeIndex==1">
             <img src="./assets/imgs/tab2_active.png"/>
-        </div>
-        <div *ngIf="activeIndex<1">
-          <img src="./assets/imgs/tab2_inactive.png"/>
-      </div>
+          </div>
+          <div *ngIf="activeIndex<1">
+            <img src="./assets/imgs/tab2_inactive.png"/>
+          </div>
+          <div *ngIf="activeIndex>1">
+            <img src="./assets/imgs/tab2_activeinactive.png"/>
+          </div>
       </ng-template>
       <ng-template pTemplate="content">
 
@@ -91,11 +100,14 @@
     <p-accordionTab [selected]="activeIndex==2 || loadAllTabs" [disabled]="activeIndex!=2">
       <ng-template pTemplate="header">
         <div *ngIf="activeIndex==2">
-            <img src="./assets/imgs/tab3_active.png"/>
-        </div>
-        <div *ngIf="activeIndex!=2">
-            <img src="./assets/imgs/tab3_inactive.png"/>
-        </div>    
+          <img src="./assets/imgs/tab3_active.png"/>
+      </div>
+      <div *ngIf="activeIndex<2">
+        <img src="./assets/imgs/tab3_inactive.png"/>
+      </div>
+      <div *ngIf="activeIndex>2">
+        <img src="./assets/imgs/tab3_activeinactive.png"/>
+      </div>    
       </ng-template>
       <ng-template pTemplate="content">
         <div>
@@ -127,10 +139,17 @@
     </p-accordionTab>
   </div>
 
-   <div *ngIf="isMobile">
+   <div *ngIf="isMobile">   
       <p-accordionTab [selected]="activeIndex==0 || loadAllTabs" [disabled]="activeIndex!=0">
          <ng-template pTemplate="header">
-           <img src="./assets/imgs/tab1_active.png"/>
+          <div *ngIf="activeIndex==0">
+             <img src="./assets/imgs/tab1_active.png"/>
+          </div>
+
+           <div *ngIf="activeIndex>0">
+            <img src="./assets/imgs/tab1_inactive.png"/>
+          </div>
+
          </ng-template>
          <ng-template pTemplate="content">
               <div style="text-align:center">
@@ -147,11 +166,14 @@
 
       <p-accordionTab [selected]="activeIndex==1 || loadAllTabs" [disabled]="activeIndex!=1">
         <ng-template pTemplate="header">
-          <div *ngIf="activeIndex>=1">
+          <div *ngIf="activeIndex==1">
             <img src="./assets/imgs/tab2_active.png"/>
           </div>
           <div *ngIf="activeIndex<1">
             <img src="./assets/imgs/tab2_inactive.png"/>
+          </div>
+          <div *ngIf="activeIndex>1">
+            <img src="./assets/imgs/tab2_activeinactive.png"/>
           </div>
         </ng-template>
         <ng-template pTemplate="content">
@@ -181,11 +203,14 @@
       </p-accordionTab>
       <p-accordionTab [selected]="activeIndex==2 || loadAllTabs" [disabled]="activeIndex!=2">
         <ng-template pTemplate="header">
-          <div *ngIf="activeIndex>=2">
+          <div *ngIf="activeIndex==2">
               <img src="./assets/imgs/tab3_active.png"/>
           </div>
           <div *ngIf="activeIndex<2">
             <img src="./assets/imgs/tab3_inactive.png"/>
+          </div>
+          <div *ngIf="activeIndex>2">
+            <img src="./assets/imgs/tab3_activeinactive.png"/>
           </div>
         </ng-template>
         <ng-template pTemplate="content">

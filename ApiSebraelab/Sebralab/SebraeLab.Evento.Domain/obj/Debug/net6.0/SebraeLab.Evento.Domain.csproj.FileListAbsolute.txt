@@ -1,3 +1,4 @@
+C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.Evento.Domain\obj\Debug\net6.0\SebraeLab.Evento.Domain.AssemblyInfo.cs
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.Evento.Domain\bin\Debug\net6.0\SebraeLab.Evento.Domain.deps.json
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.Evento.Domain\bin\Debug\net6.0\SebraeLab.Evento.Domain.dll
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.Evento.Domain\bin\Debug\net6.0\SebraeLab.Evento.Domain.pdb
@@ -6,7 +7,6 @@ C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.Evento.Domain\bin\Debug\net6.0\
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.Evento.Domain\obj\Debug\net6.0\SebraeLab.Evento.Domain.csproj.AssemblyReference.cache
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.Evento.Domain\obj\Debug\net6.0\SebraeLab.Evento.Domain.GeneratedMSBuildEditorConfig.editorconfig
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.Evento.Domain\obj\Debug\net6.0\SebraeLab.Evento.Domain.AssemblyInfoInputs.cache
-C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.Evento.Domain\obj\Debug\net6.0\SebraeLab.Evento.Domain.AssemblyInfo.cs
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.Evento.Domain\obj\Debug\net6.0\SebraeLab.Evento.Domain.csproj.CoreCompileInputs.cache
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.Evento.Domain\obj\Debug\net6.0\SebraeLab.Evento.Domain.csproj.CopyComplete
 C:\agendaEventos\ApiSebraelab\Sebralab\SebraeLab.Evento.Domain\obj\Debug\net6.0\SebraeLab.Evento.Domain.dll
