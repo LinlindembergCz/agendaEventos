@@ -36,7 +36,7 @@ export class EventoSubmit implements AfterViewInit, OnInit  {
     tiposEnvento:TipoEvento[];
     optionDate: string;
     tipoEvento: any;
-    nomeEvento: string;
+    nomeEvento: string='';
     numeroParticipantes: number;
     descricao: string;
     linkinscricao: string;
@@ -128,7 +128,7 @@ export class EventoSubmit implements AfterViewInit, OnInit  {
             {
                 if (!disponivel)                      
                 {
-                    this.mensagem=`Não é possível reservar o evento nesta data e hora ( ${p.data} - ${p.horaInicio} - ${p.horaFim} ) `                      
+                    this.mensagem=`Já existe um outro evento alocado, escolha outro período!`                      
                     this.showWarn(this.mensagem);
                 } else {
                     this.mensagem = '';

@@ -50,7 +50,7 @@
                
             <div class="frameEventlabDetails"> 
                 <div class="framebuttons">                       
-                    <div>
+                   <!-- <div>
                         <button pButton type="button" label="Esta semana" class="p-button-rounded p-button-outlined" (click)="selectThisWeek()" ></button> 
                         <button pButton type="button" label="Próxima semana" class="p-button-rounded p-button-outlined" (click)="selectNextWeek()" ></button>
                     </div>    
@@ -60,7 +60,14 @@
                     </div> 
                     <div>  
                        <button pButton type="button" label="Agenda completa" class="p-button-rounded p-button-outlined" (click)="showCalendar()" ></button>
-                    </div>  
+                    </div>-->
+                        
+                        <button pButton type="button" label="Esta semana" class="p-button-rounded p-button-outlined" (click)="selectThisWeek()"></button> 
+                        <button pButton type="button" label="Próxima semana" class="p-button-rounded p-button-outlined" (click)="selectNextWeek()" ></button>
+                        <button pButton type="button" label="Este mês" class="p-button-rounded p-button-outlined" (click)="selectThisMonth()"></button>
+                        <button pButton type="button" label="próximo mês" class="p-button-rounded p-button-outlined" (click)="selectNextMonth()" ></button>
+                        <button pButton type="button" label="Agenda completa" class="p-button-rounded p-button-outlined" (click)="showCalendar()" ></button>
+
                 </div>   
 
                 <div class="framePesquisar" style="align-items:right;">

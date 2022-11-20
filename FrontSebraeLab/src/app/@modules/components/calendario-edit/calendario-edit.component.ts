@@ -125,7 +125,7 @@ export class CalendarioEditComponent implements AfterViewInit, OnInit {
         {
             if (!disponivel)                      
             {                               
-                this.messageService.add({severity:'warn', summary:'Indisponibilidade', detail:`Não é possível reservar o evento nesta data e hora ( ${periodo.data} - ${periodo.horaInicio} - ${periodo.horaFim} ) `});
+                this.messageService.add({severity:'warn', summary:'Indisponibilidade', detail:`Já existe um outro evento alocado, escolha outro período!`});
             }
         }); 
     

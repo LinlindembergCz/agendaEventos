@@ -26,7 +26,10 @@ export class MeuEventoComponent implements AfterViewInit , OnInit  {
 
   ngAfterViewInit()
   {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (!this.isMobile)
+    window.scrollTo(0, 540);
+    else
+    window.scrollTo(0, 550);
   }
 
   selectDate(periodos: any[]): void {

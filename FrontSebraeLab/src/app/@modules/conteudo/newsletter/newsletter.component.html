@@ -1,5 +1,5 @@
 <div class="frameMain">
-    <img src="../../../../assets//imgs/newsletter.jpg" width="100%"/>
+    <img src="assets//imgs/newsletter.jpg" width="100%"/>
 
         <div class="p-grid">
             <div  [ngClass]="isMobile?'p-field p-col-12':'p-field p-col-6'">
@@ -50,7 +50,7 @@ de acordo com a Lei Geral de Proteção de Dados (LGPD).
                 <div>Aceito receber informações e conteúdos do Sebrae e do Sebraelab em meu e-mail.</div>
              
             </div>  
-            <div class="p-col-12" style="text-align:center;" *ngIf="inscricao.aceitoreceber && inscricao.aceitotermos">
+            <div class="p-col-12" style="text-align:center;" *ngIf="inscricao.aceitoreceber">
                 <button pButton type="button" style="background:#FFF028;color:black;border:0px;" label="Confirmar" class="buttonConfirmar paAnterior p-button-outlined" (click)="save()"></button>
             </div> 
         </div>

@@ -20,6 +20,9 @@ export class ReserveSubmitComponent implements OnInit {
   EventHoraInico: Array<string>;
   EventHoraFim: Array<string> ;
 
+  nomeEvento: string;
+  numeroparticipantes: number;
+
   mensagem: string;
   diasEvento: string = '';
 
@@ -122,8 +125,8 @@ export class ReserveSubmitComponent implements OnInit {
                     options: [ JSON.stringify(this.EventPeriodo)],
                     horasinicio: [ JSON.stringify(this.EventHoraInico)],
                     horasfim: [ JSON.stringify(this.EventHoraFim)],
-                    nomeevento:'MEU EVENTO',
-                    numeroparticipantes:'30'
+                    nomeevento: this.nomeEvento,
+                    numeroparticipantes: this.numeroparticipantes
                   } 
      } ); 
   }

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Location  } from '@angular/common';
 
 
 @Component({
@@ -13,7 +14,8 @@ export class NaPraticaShowComponent implements OnInit {
   
   selectedLetra: string = 'L';
 
-  constructor( private route: ActivatedRoute
+  constructor( private route: ActivatedRoute,
+    private location: Location
   ) { }
 
   ngOnInit(): void {   
@@ -22,6 +24,8 @@ export class NaPraticaShowComponent implements OnInit {
       if (banner =="bannersLEARN") this.selectLetra("L");
       if (banner =="bannersATTEND") this.selectLetra("A");
       if (banner =="bannersBUSINESS") this.selectLetra("B");
+
+      this.location.path() + '#'+ banner; 
     })
 
 

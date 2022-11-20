@@ -60,12 +60,12 @@
        
             <div class="p-field">
                 <div class="titleInput" >Nome do evento</div>
-                <input type="text" pInputText [style]="{'width':'354px','height': '48px'}" enabled="true" />
+                <input type="text" pInputText [style]="{'width':'354px','height': '48px'}" enabled="true" [(ngModel)]="nomeEvento"/>
             </div>
 
             <div class="frameInput p-field"  >
                 <div class="titleInput"  >Número de participantes</div>
-                <p-inputNumber [min]="0" [max]="30" [style]="{'width':'354px','height': '48px'}" ></p-inputNumber>
+                <p-inputNumber [min]="0" [max]="30" [style]="{'width':'354px','height': '48px'}" [(ngModel)]="numeroparticipantes"></p-inputNumber>
             </div>       
        
             <div class="titleInput"  >Capacidade máxima para 50 inscritos.</div>
@@ -73,7 +73,7 @@
               
             <div class="frameButton">        
                 <button pButton type="button" label="Iniciar Agendamento" class="buttonIniciarAgendamento p-button-outlined" 
-                (click)="showDialogEventDate()"
+             
                 (click)="showMeuEvento()"></button>
             </div>            
         </div>
