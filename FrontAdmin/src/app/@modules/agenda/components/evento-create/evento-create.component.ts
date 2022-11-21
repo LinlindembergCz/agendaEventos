@@ -8,6 +8,7 @@ import { RequestPromiseService } from '../../../../@shared/services/request-prom
 import { environment } from '../../../../../environments/environment';
 
 import{tiposEventos} from '../../../../@core/enums/tipoevento.type';
+import { ApplicationStateService } from '../../../../@bootstrap/services/application-state.service';
 
 
 
@@ -26,13 +27,21 @@ export class EventoCreateComponent implements OnInit, AfterViewInit {
   tiposEvento:any[]= tiposEventos;
   tipoEvento:any= {name: "Palestra", code: "0"};
 
+  isMobile : boolean = false;
+
   constructor(private messageService: MessageService,
     private http :RequestPromiseService,
-    private router: Router
+    private router: Router,
+    private applicationStateService: ApplicationStateService
+
+
     ) { }
 
   ngOnInit(): void {
 
+    this.isMobile =  (this.applicationStateService.device().isMobile() ||
+    this.applicationStateService.device().isTablet());
+    
     this.evento = new Eventolab();    
        
     this.loadDiasBloqueados();   

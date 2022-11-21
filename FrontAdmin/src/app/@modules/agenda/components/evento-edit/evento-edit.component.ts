@@ -10,6 +10,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { HttpEventType, HttpHeaderResponse, HttpResponse } from '@angular/common/http';
 import { FileService } from '../../../../@shared/services/file.service';
 import{tiposEventos} from '../../../../@core/enums/tipoevento.type';
+import { ApplicationStateService } from '../../../../@bootstrap/services/application-state.service';
 
 @Component({
   selector: 'app-evento-edit',
@@ -17,6 +18,7 @@ import{tiposEventos} from '../../../../@core/enums/tipoevento.type';
   styleUrls: ['./evento-edit.component.scss']
 })
 export class EventoEditComponent implements OnInit, AfterViewInit {
+
 
 
   indexComponent:number=0;
@@ -29,14 +31,20 @@ export class EventoEditComponent implements OnInit, AfterViewInit {
   tiposEvento:any[]= tiposEventos;
   tipoEvento:any={};
 
+  isMobile : boolean = false;
+
   constructor(private messageService: MessageService,
     private http :RequestPromiseService,
     private router: Router,
     private route: ActivatedRoute,
     private fileService: FileService,
+    private applicationStateService: ApplicationStateService
     ) { }
 
   ngOnInit(): void {
+
+    this.isMobile =  (this.applicationStateService.device().isMobile() ||
+                      this.applicationStateService.device().isTablet());
 
     this.evento = new Eventolab();
 

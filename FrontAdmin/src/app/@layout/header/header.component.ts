@@ -28,21 +28,36 @@ export class HeaderComponent implements OnInit {
 
   loadImage: boolean = false;
 
-  private fileUrl: string = "";
+  itemsMenu:  MenuItem[]=  [ 
+    {label: '',items: [{label:'Home',command: () => {this.showHome();}}]},
+
+
+    {label: '________________________',
+     items: [{label:'Agenda',command: () => {this.showAgenda();}}]
+    },
+
+    {label: '________________________',
+     items: [{label:'Conteudos',command: () => {this.showConteudo();}}]
+    },
+
+                   
+ ];
 
   constructor(
-    private state: ApplicationStateService,
     private router: Router,
     private userContext: UserContextService,
     public menu: MenuDataService,
     private http: RequestPromiseService,
+    private applicationStateService: ApplicationStateService,
   ) {
     this.user = this.userContext.user$.getValue();
+ 
   }
 
   ngOnInit() {
-   this.state.isSmResolution().subscribe(x => {
-    this.isMobile = this.state.device().isMobile();
+   this.applicationStateService.isSmResolution().subscribe(x => {
+    this.isMobile =  (this.applicationStateService.device().isMobile() ||
+    this.applicationStateService.device().isTablet());
    })
 
    this.items = [

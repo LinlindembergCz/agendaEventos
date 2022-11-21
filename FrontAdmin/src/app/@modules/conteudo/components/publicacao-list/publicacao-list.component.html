@@ -1,6 +1,6 @@
-<p-dataView [value]="publicacoes" [paginator]="true" [rows]="6">
+<p-dataView [value]="publicacoes" [paginator]="true" [rows]="5">
     <ng-template let-publicacao pTemplate="listItem">                            
-        <p-card  styleClass="p-card-shadow" [style]="{'width': '55rem', 'margin-bottom': '0.5em', 'background-color':'#F8FAFC' }">
+        <p-card  styleClass="p-card-shadow" [ngStyle]="{'width': !isMobile?'55rem':'100%', 'margin-bottom': '0.5em', 'background-color':'#F8FAFC' }">
             <div>                                   
                 {{publicacao.titulo}}                                     
             </div>                                      

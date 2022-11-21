@@ -5,6 +5,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { Bloqueador } from '../../@core/models/bloqueador.model';
 import { RequestPromiseService } from '../../@shared/services/request-promise.service';
 import { environment } from '../../../environments/environment';
+import { ApplicationStateService } from '../../@bootstrap/services/application-state.service';
 
 @Component({
   selector: 'app-agenda-list',
@@ -17,21 +18,24 @@ export class AgendaComponent implements OnInit {
     initialView: 'dayGridMonth'
   };
 
-  _router: Router;
+  isMobile: boolean = false;
 
   constructor(
     private http: RequestPromiseService,
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
-    private router: Router,
+    private applicationStateService: ApplicationStateService,
     
     ){
-      this._router = router;
+
     }
 
-  ngOnInit(): void {    
 
-  }
+    ngOnInit(): void {
+  
+       this.isMobile =  (this.applicationStateService.device().isMobile() ||
+                         this.applicationStateService.device().isTablet());
+    }
 
   bloquear(bloqueador: Bloqueador)
   {   

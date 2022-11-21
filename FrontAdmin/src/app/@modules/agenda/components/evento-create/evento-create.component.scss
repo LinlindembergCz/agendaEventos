@@ -1,17 +1,17 @@
 .frameMain{
     /* Novo evento */
-
+//border: 1px solid;
 /* Auto layout */
 display: flex;
 flex-direction: column;
-align-items: flex-start;
-padding: 24px 32px;
-gap: 60px;
+//align-items: flex-start;
+//padding: 24px 32px;
+//gap: 60px;
 
 position: absolute;
-width: 976px;
+width: 80%;
 //height: 1692px;
-left: 232px;
+left: 10px;
 top: 149px;
 
 background: #FFFFFF;
@@ -28,7 +28,7 @@ align-items: flex-start;
 padding: 0px;
 gap: 16px;
 
-width: 912px;
+width: 100%;
 //height: 101px;
 
 
@@ -66,21 +66,7 @@ flex: none;
 flex-grow: 0;
 }
 
-.voltarparaconteudo{
-    font-family: 'Poppins';
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-line-height: 150%;
-
-/* identical to box height, or 24px */
-text-align: center;
-
-/* Cores da Marca/Cores principais/Rosa */
-color: #ED4D9A;
-}
-
-.linha{width: 912px;
+.linha{width: 100%;
     height: 3px;
     
     /* Cores da Marca/Cores principais/Rosa */
@@ -97,13 +83,13 @@ color: #ED4D9A;
 .frameImagemCapa{/* Frame 5948 */
 
     /* Auto layout */
-    display: flex;
+    //display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
     gap: 32px;
     
-    width: 912px;
+    width: 100%;
     //height: 98px;
     
     
@@ -124,7 +110,7 @@ align-items: flex-end;
 padding: 0px;
 gap: 48px;
 
-width: 912px;
+width: 100%;
 //height: 1325px;
 
 
@@ -170,7 +156,7 @@ align-items: center;
 padding: 0px;
 gap: 32px;
 
-width: 912px;
+width: 100%;
 //height: 76px;
 
 
@@ -213,7 +199,7 @@ flex-direction: row;
 //padding: 16px 0px;
 //gap: 8px;
 
-width: 912px;
+width: 100%;
 //height: 104px;
 
 
@@ -274,7 +260,7 @@ align-items: flex-start;
 padding: 0px;
 gap: 32px;
 
-width: 912px;
+width: 100%;
 //height: 76px;
 
 
@@ -289,13 +275,13 @@ flex-grow: 0;
     /* Campo de texto vazio */
 
 /* Auto layout */
-display: flex;
+//display: flex;
 //flex-direction: column;
 align-items: flex-start;
 padding: 0px;
 gap: 32px;
 
-width: 912px;
+width: 100%;
 //height: 309px;
 
 
@@ -316,7 +302,7 @@ align-items: flex-start;
 padding: 0px;
 gap: 32px;
 
-width: 912px;
+width: 100%;
 //height: 426px;
 
 

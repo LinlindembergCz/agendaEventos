@@ -30,13 +30,11 @@ display: flex;
 flex-direction: column;
 align-items: flex-start;
 padding: 0px;
-gap: 16px;
+//gap: 16px;
 
-width: 368px;
+width: 100%;
 height: 578px;
 /* Inside auto layout */
-flex: none;
-order: 2;
 align-self: stretch;
 flex-grow: 0;
 }
@@ -49,7 +47,7 @@ flex-grow: 0;
     align-items: center;
     padding: 0px;
     gap: 16px;    
-    width: 368px;
+    width: 100%;
     height:100px;   
     /* Inside auto layout */
     flex: none;

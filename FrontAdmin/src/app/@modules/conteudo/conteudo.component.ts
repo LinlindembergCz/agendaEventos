@@ -4,6 +4,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 import { RequestPromiseService } from '../../@shared/services/request-promise.service';
 import { environment } from '../../../environments/environment';
 import { FileService } from '../../@shared/services/file.service';
+import { ApplicationStateService } from '../../@bootstrap/services/application-state.service';
 
 
 
@@ -23,12 +24,15 @@ export class ConteudoComponent implements OnInit, AfterViewInit{
 
   picture: any;
 
+  isMobile: boolean = false;
+
   constructor(private router: Router,
     private http: RequestPromiseService,
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
     private fileServicePublicados: FileService,
     private fileServiceRascunho: FileService,
+    private applicationStateService: ApplicationStateService,
     )
   {}
 
@@ -37,7 +41,8 @@ export class ConteudoComponent implements OnInit, AfterViewInit{
   }
 
   ngOnInit(): void {
-    
+    this.isMobile =  (this.applicationStateService.device().isMobile() ||
+    this.applicationStateService.device().isTablet());
   }
 
   loadConteudos(): void {

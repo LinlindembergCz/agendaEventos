@@ -9,7 +9,7 @@
       
         <div *ngIf="isMobile" style="text-align:right;width:100%">
           <button type="button" pButton icon="pi pi-list" (click)="menu.toggle($event)" style="background:#ED4D9A;border:0px;"></button>
-          <p-menu  #menu [popup]="true"  [model]="itemsMenu"></p-menu>
+          MENU<p-menu  #menu [popup]="true"  [model]="itemsMenu"></p-menu>
         </div>
 
         <div class="menu-bar" *ngIf="!isMobile">

@@ -2,8 +2,8 @@
 <app-header></app-header> 
 
 
-<div class="frameMain">
-    <div class="frameNovoEvento">
+<div class="frameMain" [ngStyle]="{'left': !isMobile ? '20%':'5%', 'width': !isMobile ?'70%':'90%'}">
+    <div class="frameNovoEvento" >
         <div class="voltarparaconteudo" style="cursor: pointer;">              
             <a href="javascript:history.back()">
                 <img src="assets/imgs/chevron-return.png" >voltar para a agenda 
@@ -24,10 +24,10 @@
             IMAGEM: {{evento.imagempersonalida}} Imagem personalizada desativada (será utilizada uma imagem padrão como capa do evento).
         </div>
         
-        <div *ngIf="evento.imagempersonalida" style="align-items:center;">
+        <div *ngIf="evento.imagempersonalida" style="text-align: center" >
                 <label>Imagem de Capa</label>
                 <label>Tamanho 600px de largura e 315px de altura</label>               
-                <img [src]="picture" style="width:'900px';height:'237px'"/>
+                <img [src]="picture" [ngStyle]="{'width':!isMobile?'600px':'100%', 'height':'315px'}"/>
                 <app-photo-upload (onUpload)="onUpload($event)" origem="eventos" [fileUrl]="picture" [imageName]="evento.id"></app-photo-upload>
         </div>
        
@@ -40,19 +40,11 @@
         </div>
 
         <div class="frameEventoDetails p-grid p-fluid">                 
-            <div class="frameTituloEvento p-col-12">
-                <div class="p-col-10">
-                    <span class="p-float-label">
-                        <input id="float-input" type="text" pInputText  [(ngModel)]="evento.titulo"> 
-                        <label for="float-input">Título do evento</label>
-                    </span>
-                </div>
-                <div class="p-col-2">
-                    <span class="p-float-label">
-                        <p-inputNumber [(ngModel)]="evento.numeroparticipantes"></p-inputNumber>
-                        <label for="float-input">Nº de participantes</label>
-                    </span>                    
-                </div>                
+            <div class="p-col-12">   
+                <span class="p-float-label">
+                    <input id="float-input" type="text" pInputText  [(ngModel)]="evento.titulo"> 
+                    <label for="float-input">Título do evento</label>
+                </span>            
             </div>
             <div class="p-col-12">
                 <span class="p-float-label">
@@ -60,10 +52,16 @@
                     <label for="float-input">Subtítulo do evento</label>
                 </span>
             </div> 
+            <div class="p-col-12">
+                <span class="p-float-label">
+                    <p-inputNumber [(ngModel)]="evento.numeroparticipantes" style="width: 50px"></p-inputNumber>
+                    <label for="float-input">Nº de participantes</label>
+                </span>                    
+            </div>  
 
             <div *ngFor="let dia of evento.dias">
-                <div class="frameEventoDias p-col-12">
-                    <div class="p-col-3">
+                <div class="frameEventoDias p-grid p-col-12">
+                    <div class="p-col-12">
                        <p-calendar dateFormat="dd-mm-yy" 
                                 showIcon="true" 
                                 placeholder="Dia do evento" 
@@ -71,23 +69,23 @@
                                 [readonlyInput]="true"
                                 [(ngModel)]="dia.data"></p-calendar>
                     </div>
-                    <div class="p-col-5">    
+                    <div class="p-col-12">    
                         <p-checkbox name="manha" value="Manhã" label="Manhã" [(ngModel)]="dia.option"></p-checkbox>&nbsp;
                         <p-checkbox name="tarde" value="Tarde" label="Tarde" [(ngModel)]="dia.option"></p-checkbox>&nbsp;
                         <p-checkbox name="noite" value="Noite" label="Noite" [(ngModel)]="dia.option"></p-checkbox>&nbsp;
                         <p-checkbox name="diainteiro" value="Dia inteiro" label="Dia Inteiro" [(ngModel)]="dia.option"></p-checkbox>
                     </div>
-                    <div class="p-col-2"> 
-                        <span style="width: '70px'">
+                    <div class="p-col-6"> 
+                     
                             <label >Hora Início</label>
                             <p-inputMask   mask="99:99" name="horainicio" [(ngModel)]="dia.horainicio"></p-inputMask>                          
-                        </span>
+                        
                     </div>
-                    <div class="p-col-2"> 
-                        <span  style="width: '70px'">
+                    <div class="p-col-6"> 
+                     
                             <label >Hora Fim</label>
                             <p-inputMask   mask="99:99" name="horafim" [(ngModel)]="dia.horafim"></p-inputMask>                            
-                        </span>
+                        
                     </div>
                 </div>
             </div>
@@ -116,7 +114,7 @@
             </div>
 
             <div class="frameEventoDescricao p-col-12">                
-                <p-editor [style]="{'height':'500px', 'width':'900px'}" [(ngModel)]="evento.descricaoevento">
+                <p-editor [style]="{'height':'500px', 'width':'100%'}" [(ngModel)]="evento.descricaoevento">
                 </p-editor>                
            </div>            
         </div>

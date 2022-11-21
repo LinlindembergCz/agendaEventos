@@ -2,18 +2,18 @@
     PROXIMO EVENTOS
 </div>
 
-<div class="frameEventlabList">    
+<div class="frameEventlabList" >    
     
     <span class="p-input-icon-right " >
         <i class="pi pi-search" style="cursor: pointer" (click)="search(seachValue)"></i>
-        <input type="text" pInputText  placeholder="Search" style="width:'350px'" [(ngModel)]="seachValue">         
+        <input type="text" pInputText  placeholder="Search" style="width:'100%'" [(ngModel)]="seachValue">         
     </span>
 
     <label> ">" dias Consecutivos , ... dias Alternados</label>
 
     <p-dataView [value]="eventslab" [paginator]="true" [rows]="4">
         <ng-template let-eventlab pTemplate="listItem">                                       
-            <div class="frameEventlabitemDetails " style="cursor: pointer;" 
+            <div class="frameEventlabitemDetails " style="cursor: pointer" 
                 (click)="showAlterarEvento(eventlab.id)"
                 onmouseover="this.style.background='#EAF7FC';" 
                 onmouseout="this.style.background='white';">                  

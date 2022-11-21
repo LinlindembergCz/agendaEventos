@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RequestPromiseService } from '../../../../../app/@shared/services/request-promise.service';
 import { environment } from '../../../../../environments/environment';
@@ -13,6 +13,8 @@ import { environment } from '../../../../../environments/environment';
 export class PublicacaoListComponent implements OnInit 
 {
   publicacoes: any[]=[];
+
+  @Input() isMobile:boolean = false;
 
   constructor(
     private http: RequestPromiseService,
