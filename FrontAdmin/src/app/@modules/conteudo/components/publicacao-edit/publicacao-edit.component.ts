@@ -10,6 +10,7 @@ import { Publicacao } from '../../../../@core/models/publicacao.model';
 import {TiposPublicacao} from '../../../../@core/enums/tiposPublicacao';
 import { HttpEventType, HttpResponse } from '@angular/common/http';
 import { FileService } from '../../../../@shared/services/file.service';
+import { ApplicationStateService } from 'src/app/@bootstrap/services/application-state.service';
 
 @Component({
   selector: 'app-publicacao-edit',
@@ -23,11 +24,14 @@ export class PublicacaoEditComponent implements OnInit, AfterViewInit {
   conteudo:  Publicacao = new Publicacao(); 
   picture: any;
 
+  isMobile:boolean= false;
+
   constructor(private messageService: MessageService,
     private http :RequestPromiseService,
     private router: Router,
     private route: ActivatedRoute,
     private fileService: FileService,
+    private applicationStateService: ApplicationStateService
     ) { }
 
   ngOnInit(): void {
@@ -41,6 +45,9 @@ export class PublicacaoEditComponent implements OnInit, AfterViewInit {
           this.tipoPublicacao= { name: e.tipopublicacao }
        });
       });      
+
+      this.isMobile =  (this.applicationStateService.device().isMobile() ||
+      this.applicationStateService.device().isTablet());
   }
 
   ngAfterViewInit()

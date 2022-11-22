@@ -1,8 +1,8 @@
 <app-header></app-header> 
 
-<div class="frameMain">
+<div class="frameMain" [ngStyle]="{'left': !isMobile ? '10%':'0%', 'width': !isMobile ?'80%':'100%'}">
 
-    <div class="frameSobreEvento">
+    <div class="frameSobre">
         <div class="frameEventoDetails p-grid p-fluid"> 
             <div class="voltarparaconteudo" style="cursor: pointer;">              
                 <a href="javascript:history.back()">
@@ -10,9 +10,9 @@
                 </a>
             </div>
             
-            <div class="p-grid p-col-12">   
-                <div class="frameTituloNovoEvento p-col-6" ><h2>Nova publicação</h2></div>
-                <div class="frameTituloNovoEvento p-col-6" >
+            <div class="p-grid ">   
+                <div class="frameTituloNovo p-col-12" ><h2>Nova publicação</h2></div>
+                <div class="frameTituloNovo p-col-12" >
                     <h2>
                         <span class="p-float-label">
                             <p-dropdown optionLabel="name"  [options]="tiposPublicacao" 
@@ -65,8 +65,8 @@
                 </div>    
             </div>
 
-            <div class="frameEventoDescricao p-col-12">                
-                <p-editor [style]="{'height':'500px', 'width':'900px'}" [(ngModel)]="conteudo.descricao">
+            <div class="frameDescricao p-col-12">                
+                <p-editor [style]="{'height':'300px', 'width':'100%'}" [(ngModel)]="conteudo.descricao">
                 </p-editor>
            </div>      
            <div class="p-col-12">

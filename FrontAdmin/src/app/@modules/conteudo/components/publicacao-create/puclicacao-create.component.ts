@@ -9,6 +9,7 @@ import { environment } from '../../../../../environments/environment';
 import {Publicacao} from '../../../../@core/models/publicacao.model';
 
 import {TiposPublicacao} from '../../../../@core/enums/tiposPublicacao';
+import { ApplicationStateService } from 'src/app/@bootstrap/services/application-state.service';
          TiposPublicacao
 @Component({
   selector: 'app-publicacao-create',
@@ -22,13 +23,17 @@ export class PublicacaoCreateComponent implements OnInit, AfterViewInit {
   tiposPublicacao : typeof TiposPublicacao = TiposPublicacao;
   tipoPublicacao: any={ name: "Selecionar" }  
 
+  isMobile:boolean= false;
+
   constructor(private messageService: MessageService,
     private http :RequestPromiseService,
-    private router: Router
+    private router: Router,
+    private applicationStateService: ApplicationStateService
     ) { }
 
   ngOnInit(): void {
-
+    this.isMobile =  (this.applicationStateService.device().isMobile() ||
+    this.applicationStateService.device().isTablet());
   }
 
   ngAfterViewInit()
