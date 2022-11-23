@@ -57,7 +57,9 @@
           <div><label>Nome completo</label></div>
           <input type="text" pInputText 
           [style]="{'width':'100%','height': '48px'}" 
-          placeholder="Escreva seu nome completo" [(ngModel)]="nomecompleto" />
+          placeholder="Escreva seu nome completo" [(ngModel)]="nomecompleto" 
+          maxlength="50"
+          />
         </div>
 
         <div class="p-field">
@@ -66,7 +68,9 @@
           [style]="{'width':'100%','height': '48px'}" 
           pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" 
           placeholder="Escreva seu e-mail de contato" 
-          [(ngModel)]="email">
+          [(ngModel)]="email"
+          maxlength="100"
+          >
           
         </div>
 

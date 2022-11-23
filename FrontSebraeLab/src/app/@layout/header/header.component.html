@@ -3,13 +3,21 @@
     <div class="frameLogo">        
         <div class="frameFishLogo"><img src="assets/imgs/fishLogo.png" alt="peixelogo"/></div>
         <div class="frameTitleLogo"><img src="assets/imgs/logo.png" alt="logo"/></div> 
+        
     </div>
 
     <div class="p-d-flex header-top p-ai-center" >      
       
+      <div *ngIf="isMobile" class="frameRealize" (click)="showMeuEvento()" style="cursor: pointer;">
+        Realize seu evento
+      </div>
+
         <div *ngIf="isMobile" style="text-align:right;width:100%">
-          <button type="button" pButton icon="pi pi-list" (click)="menu.toggle($event)" style="background:#ED4D9A;border:0px;"></button>
-          MENU<p-menu  #menu [popup]="true"  [model]="itemsMenu"></p-menu>
+         
+          <div>
+             <button type="button" pButton icon="pi pi-list" (click)="menu.toggle($event)" style="background:#ED4D9A;border:0px;"></button>
+             <p-menu  #menu [popup]="true"  [model]="itemsMenu"></p-menu>
+           </div>
         </div>
 
         <div class="menu-bar" *ngIf="!isMobile">

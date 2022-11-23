@@ -6,6 +6,7 @@ import { environment } from '../../../../environments/environment';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HttpEventType } from '@angular/common/http';
 import { FileService } from '../../../@modules/user/services/file.service';
+import { ApplicationStateService } from '../../../@bootstrap/services/application-state.service';
 
 
 
@@ -20,15 +21,25 @@ export class PublicacaoViewComponent implements OnInit , AfterViewInit
   picture: any ="";
   private fileUrl: string = "";
 
+  isDesktop: boolean = false;
+  isMobile: boolean = false;
+  isTablet: boolean = false;
+
   constructor(
     private http: RequestPromiseService,
     private route: ActivatedRoute,
     private _sanitizer: DomSanitizer,
     private fileService: FileService,
+    private applicationStateService: ApplicationStateService,
   ) { }
 
   ngOnInit(): void 
   {
+
+    this.isDesktop = this.applicationStateService.device().isDesktop();
+    this.isMobile =  this.applicationStateService.device().isMobile();
+    this.isTablet = this.applicationStateService.device().isTablet();
+
      this.route.queryParams.subscribe(params => {
                                        if (params['id'])
                                        {

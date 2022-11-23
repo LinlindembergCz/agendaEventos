@@ -7,6 +7,7 @@ import { FileService } from '../../../@modules/user/services/file.service';
 import { DomSanitizer } from '@angular/platform-browser';
 import { HttpEventType } from '@angular/common/http';
 import {Meses} from '../../../@core/enums/ListaMeses';
+import { ApplicationStateService } from '../../../@bootstrap/services/application-state.service';
 
 class EventolabModel {
   id: string;
@@ -42,6 +43,11 @@ export class EventoViewComponent implements OnInit , AfterViewInit
 {
   evento: EventolabModel=new EventolabModel();
   picture: any;
+
+  isDesktop: boolean = false;
+  isMobile: boolean = false;
+  isTablet: boolean = false;
+
   private fileUrl: string = "";
 
   constructor(
@@ -49,11 +55,15 @@ export class EventoViewComponent implements OnInit , AfterViewInit
     private route: ActivatedRoute,
     private _sanitizer: DomSanitizer,
     private fileService: FileService,
+    private applicationStateService: ApplicationStateService,
   ) { }
 
   ngOnInit(): void 
   {
-   
+       this.isDesktop = this.applicationStateService.device().isDesktop();
+    this.isMobile =  this.applicationStateService.device().isMobile();
+    this.isTablet = this.applicationStateService.device().isTablet();
+    
 
     this.route.queryParams.subscribe(params => {
                                        if (params['id'])
@@ -133,15 +143,16 @@ export class EventoViewComponent implements OnInit , AfterViewInit
   {
     let uri = window.location.href;
     window.open("https://www.linkedin.com/shareArticle?mini=true&url=" + encodeURIComponent(uri), "_blank")
-  }
-
-
-
-  
-  
+  }  
 
   shareMail()  {
     let uri = window.location.href;
     window.open("mailto:?subject=Representa+ - Veja este Projeto&body=Veja este projeto no Representa+: " + encodeURIComponent(uri), "_blank")
+  }
+
+  canPublish(): boolean
+  {
+   
+    return  (this.evento.status=='Rascunho') && (this.evento.publicaosite)
   }
 }

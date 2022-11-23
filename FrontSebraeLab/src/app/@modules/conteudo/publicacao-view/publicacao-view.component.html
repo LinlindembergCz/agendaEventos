@@ -1,4 +1,4 @@
-<app-header></app-header>
+<!--<app-header></app-header>
 <div class="frameMain">
 
     <div class="framePreVisualizacao">
@@ -52,4 +52,53 @@
 
     </div>
 
+</div>-->
+
+
+<app-header></app-header> 
+<div [ngClass]="isMobile?'frameMainMobile':'frameMain'">
+
+    <div class="frameConteudo">
+        <div class="framePublicacao" >
+            <div class="framePublicacao2">
+                <div class="frameCorpo p-grid">
+                    <div class="frameTitulo p-col-12">
+                        {{publicacao.titulo}}
+                         
+                    </div>
+                    <div class="frameSubTitulo p-col-12">
+                        {{publicacao.subtitulo}}
+                    </div>
+                    <div class="frameCorpoConteudo p-col-12" >
+                       <div class="frameImage">
+                            <img [src]="picture" width="100%"/>     
+                            <div class="frameLegenda">
+                                {{publicacao.legenda}}
+                            </div>
+                        </div>                                 
+                    </div>
+
+                    <div class="p-col-12" [innerHTML]="publicacao.descricao">                    
+                    </div>  
+
+                    <div class="botaopersonalizado" *ngIf="publicacao.personalizadoativado">
+                        <h2>{{publicacao.titulochamada}}</h2>
+                         <p></p>
+                        <a href="{{publicacao.linkredirecionamento}}" target="_blank">
+                            <button pButton type="button" 
+                            label="{{publicacao.titulobotao}}" 
+                            class="p-button-outlined" 
+                            style="background:#E03C8B;color:#FFFFFF;border:0px;width: 100px;height: 44px;">
+                            </button>
+                        </a>
+                        <outlet></outlet>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
+

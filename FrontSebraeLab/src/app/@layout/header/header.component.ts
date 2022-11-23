@@ -25,8 +25,6 @@ export class HeaderComponent implements OnInit {
 
   loadImage: boolean = false;
 
-  private fileUrl: string = "";
-
   itemsMenu:  MenuItem[]=  [ 
                       {label: '',items: [{label:'Home',command: () => {this.showHome();}}]},
     
@@ -62,7 +60,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
    this.state.isSmResolution().subscribe(x => {
-    this.isMobile = this.state.device().isMobile();
+    this.isMobile = this.state.device().isMobile()|| this.state.device().isTablet();
    })
    this.download(); 
 
@@ -141,24 +139,7 @@ export class HeaderComponent implements OnInit {
 
   download(extention : string = ".jpg") {
    
-   /* if (!this.loadImage && this.userContext.user$.value && this.picture == this.semfoto)
-    {
-      this.loadImage = true;
-      this.fileUrl = this.userContext.user$.value.userName+extention;
-
-      this.fileService.download(this.fileUrl).subscribe((event) => {
-        if (event.type === HttpEventType.Response)
-        {
-          this.downloadFile(event);
-        }
-      }, (erro)=>{ if (extention==".jpg") this.download(".png") }
-      );
-    }*/
   }
 
-  private downloadFile(data: HttpResponse<Blob>) {
-      const downloadedFile = new Blob([data.body], { type: data.body.type });
-      const urlToBlob = window.URL.createObjectURL(downloadedFile);
-      this.picture =  this._sanitizer.bypassSecurityTrustResourceUrl(urlToBlob);
-  }
+
 }
