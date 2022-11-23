@@ -1,7 +1,9 @@
 
 <app-header></app-header> 
-<img src="./assets/banners/Banner_conteudo.png" width="100%"/>
-<div class="frameMain">
+<img src="./assets/banners/Banner_conteudo.png" width="100%" *ngIf="isDesktop"/>
+<img src="./assets/banners/Banner_conteudo_mobile.png" width="100%" *ngIf="!isDesktop"/>
+
+<div class="frameMain" [ngStyle]="{'padding': isDesktop ?'64px':'0px'}">
     <div class="frameGerenciadorConteudo p-grid">
         <div class="frameTitleGerenciadorConteudo">
             Gerenciador de conteúdos
@@ -10,7 +12,7 @@
      
     </div>
     <p></p>
-
+    
     <div class="frameConteudo">
         <div class="frameButtonsFiltro">
             <div class="frameButtons">                        
@@ -18,13 +20,15 @@
                 <button pButton type="button" label="Ebooks" class="pbutton p-button-rounded p-button-outlined" (click)="applyFilter('Ebook')" ></button>
                 <button pButton type="button" label="Editais" class="pbutton p-button-rounded p-button-outlined" (click)="applyFilter('Edital')" ></button>
                 <button pButton type="button" label="Outros" class="pbutton p-button-rounded p-button-outlined" (click)="applyFilter('Outro')" ></button>
+ 
+            </div>
+            <div class="frameButtons" style="padding: 10px;">
                 <span class="p-input-icon-right" >
                     <i class="pi pi-search" style="cursor: pointer"  (click)="search(seachValue)"></i>
                     <!--<i class="pi pi-spin pi-spinner"></i>-->        
                     <input type="text" pInputText placeholder="Pesquisar" style="width:'270px';background: #F1F5F9;border:'0px;'" [(ngModel)]="seachValue"> 
-                </span>   
+                </span>  
             </div>
-            
 
         </div>
         <p></p>
@@ -34,13 +38,13 @@
                     <p-dataView [value]="rascunhos" [rows]="4" [paginator]="true" [loading]="false">
                         <ng-template let-rascunho pTemplate="listItem">     
                                                    
-                            <div *ngIf="!isMobile">
+                            <div *ngIf="!isDesktop">
                                 <p-card  styleClass="p-card-shadow" [style]="{'width': '79rem', 'margin-bottom': '0.5em', 'background-color':'#F8FAFC' }">
                                     <div class="p-grid p-col-12">
-                                            <div class="p-col-3" *ngIf="rascunho.picture!=null && rascunho.picture!=''">
-                                                <img [src]="rascunho.picture" style="width:'200px';height:'120px';border: '0px';">
+                                            <div class="p-col-4" *ngIf="rascunho.picture!=null && rascunho.picture!=''">
+                                                <img [src]="rascunho.picture" style="height:'120px';border: '0px';">
                                             </div>
-                                            <div class="p-col-7" >                                   
+                                            <div class="p-col-6" >                                   
                                                 <div>
                                                     {{rascunho.titulo}} 
                                                 </div>                                                                            
@@ -53,19 +57,38 @@
                                 </p-card>
                             </div>
 
+                            <div *ngIf="!isTablet">
+                                <p-card  styleClass="p-card-shadow" [style]="{'width': '100%', 'margin-bottom': '0.5em', 'background-color':'#F8FAFC' }">
+                                    <div class="p-grid p-col-12">
+                                            <div class="p-col-4" *ngIf="rascunho.picture!=null && rascunho.picture!=''">
+                                                <img [src]="rascunho.picture" style="width:100%;border:'0px';">
+                                            </div>
+                                            <div class="p-col-6" >                                   
+                                                <div>
+                                                    {{rascunho.titulo}} 
+                                                </div>                                                                            
+                                            </div>   
+                                            <div class="p-col-2">
+                                                <button pButton type="button"  label="Excluir" class="p-button-outlined" (click)="removeConteudo(rascunho.id)"></button>&nbsp;
+                                                <button pButton type="button"  label="Continuar" class="frameNovoContinuar p-button-outlined" (click)="showEditConteudo(rascunho.id)"></button>
+                                            </div>              
+                                    </div>                                 
+                                </p-card>
+                            </div>
+                            
                             <div *ngIf="isMobile"> 
                                 <p-card  styleClass="p-card-shadow" [ngStyle]="{'width': '100%', 'margin-bottom': '0.5em', 'background-color':'#F8FAFC' }">
-                                    <div class="p-grid p-col-12" >
-                                        <div class="p-col-5"  *ngIf="rascunho.picture!=null && rascunho.picture!=''">
-                                            <img [src]="rascunho.picture" style="width:'200px';height:'120px';border:'0px';">
-                                        </div>
-                                        <div class="p-col-4" >                                     
-                                             {{rascunho.titulo}} 
-                                       </div>   
-                                       <div class="p-col-3">
-                                        <button pButton type="button"  label="Excluir" class="p-button-outlined" (click)="removeConteudo(rascunho.id)"></button>&nbsp;
-                                        <button pButton type="button"  label="Continuar" class="frameNovoContinuar p-button-outlined" (click)="showEditConteudo(rascunho.id)"></button>
-                                    </div>             
+                                    <div class="p-grid" >
+                                        <div class="p-col-12"  *ngIf="rascunho.picture!=null && rascunho.picture!=''">
+                                            <img [src]="rascunho.picture" style="width:100%;height:'120px';border:'0px';">
+                                        </div>                          
+                                        <div class="p-col-12" >                                     
+                                                {{rascunho.titulo}} 
+                                        </div>    
+                                        <div class="p-col-12" >
+                                            <button pButton type="button"  label="Excluir" class="p-button-outlined" (click)="removeConteudo(rascunho.id)"></button>&nbsp;
+                                            <button pButton type="button"  label="Continuar" class="frameNovoContinuar p-button-outlined" (click)="showEditConteudo(rascunho.id)"></button>
+                                       </div>  
                                    </div>                               
                                 </p-card>
                             </div>
@@ -91,39 +114,56 @@
                     <p-dataView [value]="publicados" [rows]="4" [paginator]="true" [loading]="false">
                         <ng-template let-publicado pTemplate="listItem">                            
                           
-                           <div *ngIf="!isMobile">
+                           <div *ngIf="isDesktop">
                                 <p-card  styleClass="p-card-shadow" [style]="{'width': '79rem', 'margin-bottom': '0.5em', 'background-color':'#F8FAFC' }">
-                                    <div class="p-grid p-col-12">
-                                        <div class="p-col-3" *ngIf="publicado.picture!=null && publicado.picture!=''">
-                                            <img [src]="publicado.picture" style="width:'200px';height:'120px';border:'0px';">
+                                    <div class="p-grid p-col-12" >
+                                        <div class="p-col-4" *ngIf="publicado.picture!=null && publicado.picture!=''">
+                                            <img [src]="publicado.picture" style="width:100%;border:'0px';">
                                         </div>
-                                        <div class="p-col-7" >                                   
+                                        <div class="p-col-6" >                                   
                                             <div>
-                                                {{publicado.titulo}} 
+                                               {{publicado.titulo}} 
                                             </div>                                                                            
+                                        </div>   
+                                        <div class="p-col-2" >
+                                            <button pButton type="button"  label="Desativar" class="p-button-outlined" (click)="inactiveConteudo(publicado.id)"></button>&nbsp;
+                                            <button pButton type="button"  label="Editar" class="frameNovoContinuar p-button-outlined" (click)="showEditConteudo(publicado.id)"></button>
+                                        </div>              
+                                    </div>                               
+                                </p-card>
+                            </div>
+
+                            <div *ngIf="isTablet">
+                                <p-card  styleClass="p-card-shadow" [style]="{'width': '100%', 'margin-bottom': '0.5em', 'background-color':'#F8FAFC' }">
+                                    <div class="p-grid p-col-12">
+                                        <div class="p-col-4" *ngIf="publicado.picture!=null && publicado.picture!=''">
+                                            <img [src]="publicado.picture" style="width:100%;border:'0px';">
+                                        </div>
+                                        <div class="p-col-6" >                                
+                                            {{publicado.titulo}}                                                                                                                     
                                         </div>   
                                         <div class="p-col-2">
                                             <button pButton type="button"  label="Desativar" class="p-button-outlined" (click)="inactiveConteudo(publicado.id)"></button>&nbsp;
                                             <button pButton type="button"  label="Editar" class="frameNovoContinuar p-button-outlined" (click)="showEditConteudo(publicado.id)"></button>
                                         </div>              
-                                </div>                               
+                                    </div>                               
                                 </p-card>
                             </div>
 
                             <div *ngIf="isMobile"> 
                                 <p-card  styleClass="p-card-shadow" [ngStyle]="{'width': '100%', 'margin-bottom': '0.5em', 'background-color':'#F8FAFC' }">
-                                    <div class="p-grid p-col-12" >
-                                        <div class="p-col-5"  *ngIf="publicado.picture!=null && publicado.picture!=''">
-                                            <img [src]="publicado.picture" style="width:'200px';height:'120px';border:'0px';">
-                                        </div>
-                                        <div class="p-col-4" >                                     
+                                   <div class="p-grid " >
+                                        <div class="p-col-12"  *ngIf="publicado.picture!=null && publicado.picture!=''">
+                                            <img [src]="publicado.picture" style="width:'100%';height:'120px';border:'0px';">
+                                        </div>                          
+                                        <div class="p-col-12" >                                     
                                              {{publicado.titulo}} 
-                                       </div>   
-                                        <div class="p-col-3" >
+                                        </div>    
+                                        <div class="p-col-12" >
                                             <button pButton type="button"  label="Desativar" class="p-button-outlined" (click)="inactiveConteudo(publicado.id)"></button>&nbsp;
                                             <button pButton type="button"  label="Editar" class="frameNovoContinuar p-button-outlined" (click)="showEditConteudo(publicado.id)"></button>
-                                        </div>              
-                                   </div>                               
+                                        </div>  
+                                   </div>                            
                                 </p-card>
                             </div>  
 

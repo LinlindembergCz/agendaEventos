@@ -18,7 +18,10 @@ export class AgendaComponent implements OnInit {
     initialView: 'dayGridMonth'
   };
 
+  
+  isDesktop: boolean = false;
   isMobile: boolean = false;
+  isTablet: boolean = false;
 
   constructor(
     private http: RequestPromiseService,
@@ -33,8 +36,9 @@ export class AgendaComponent implements OnInit {
 
     ngOnInit(): void {
   
-       this.isMobile =  (this.applicationStateService.device().isMobile() ||
-                         this.applicationStateService.device().isTablet());
+      this.isDesktop = this.applicationStateService.device().isDesktop();
+      this.isMobile =  this.applicationStateService.device().isMobile();
+      this.isTablet = this.applicationStateService.device().isTablet();
     }
 
   bloquear(bloqueador: Bloqueador)

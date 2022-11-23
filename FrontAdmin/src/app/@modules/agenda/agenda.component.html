@@ -1,8 +1,10 @@
 
 <app-header></app-header> 
-<img src="assets/banners/BannerAgenda.png" width="100%"/>
 
-<div *ngIf="!isMobile" >
+<img src="assets/banners/BannerAgenda.png"  width="100%" *ngIf="isDesktop"/>
+<img src="./assets/banners/BannerAgenda_mobile.png" width="100%" *ngIf="!isDesktop"/>
+
+<div *ngIf="isDesktop" >
 
     <div class="frameProximoEvento">    
         <app-evento-list></app-evento-list>    
@@ -22,7 +24,7 @@
 </div>
 
 
-<div *ngIf="isMobile" >
+<div *ngIf="!isDesktop" >
     <p-panel header="Eventos" [toggleable]="true"> 
         <app-evento-list></app-evento-list>    
     </p-panel>

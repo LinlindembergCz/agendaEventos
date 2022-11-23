@@ -24,7 +24,10 @@ export class ConteudoComponent implements OnInit, AfterViewInit{
 
   picture: any;
 
+  isDesktop: boolean = false;
   isMobile: boolean = false;
+  isTablet: boolean = false;
+
 
   constructor(private router: Router,
     private http: RequestPromiseService,
@@ -41,8 +44,9 @@ export class ConteudoComponent implements OnInit, AfterViewInit{
   }
 
   ngOnInit(): void {
-    this.isMobile =  (this.applicationStateService.device().isMobile() ||
-    this.applicationStateService.device().isTablet());
+    this.isDesktop = this.applicationStateService.device().isDesktop();
+    this.isMobile =  this.applicationStateService.device().isMobile();
+    this.isTablet = this.applicationStateService.device().isTablet();
   }
 
   loadConteudos(): void {

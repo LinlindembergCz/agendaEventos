@@ -1,5 +1,5 @@
 <app-header></app-header> 
-<div class="frameMain">
+<div [ngClass]="isMobile?'frameMainMobile':'frameMain'">
 
     <div class="framePreVisualizacao">
 
@@ -9,7 +9,7 @@
             </a>
         </div>
         <div class="framePublicar p-grid">   
-            <div class="p-col-8">
+            <div class="p-col-12">
                 <div class="PreVisualizar">Pré-visualização</div>
                 <div class="TextPreVisualizar">O conteúdo aparecerá desse modo no site, confira todo conteúdo antes de publicar.</div>
             </div>   
@@ -55,6 +55,7 @@
                             style="background:#E03C8B;color:#FFFFFF;border:0px;width: 100px;height: 44px;">
                             </button>
                         </a>
+                        <outlet></outlet>
                     </div>
                 </div>
             </div>
@@ -63,7 +64,7 @@
 
     </div>
 
-    <div class="frameVisualizacaoFoot p-grid">
+   <!-- <div class="frameVisualizacaoFoot p-grid">
         <div class="p-col-8">
             <div class="PreVisualizar">Pré-visualização</div>
             <div class="TextPreVisualizar">O conteúdo aparecerá desse modo no site, confira todo conteúdo antes de publicar.</div>
@@ -74,7 +75,7 @@
                 (click)="publish(publicacao.id)"></button>
             </div>
         </div>
-    </div>
+    </div>-->
 </div>
 
 <p-confirmDialog #cd  [breakpoints]="{'560px': '75vw', '640px': '100vw'}" [style]="{width: '40vw'}">

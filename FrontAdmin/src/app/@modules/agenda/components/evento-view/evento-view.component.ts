@@ -142,7 +142,7 @@ export class EventoViewComponent implements OnInit , AfterViewInit
   canPublish(): boolean
   {
    
-    return true// (this.evento.status=='Rascunho') && (this.evento.publicaosite)
+    return  (this.evento.status=='Rascunho') && (this.evento.publicaosite)
   }
 
 

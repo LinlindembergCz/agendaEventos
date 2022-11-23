@@ -1,11 +1,11 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Publicacao } from '../../../../@core/models/publicacao.model';
-import { RequestPromiseService } from '../../../../../app/@shared/services/request-promise.service';
+import { RequestPromiseService } from '../../../../@shared/services/request-promise.service';
 import { environment } from '../../../../../environments/environment';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { DomSanitizer } from '@angular/platform-browser';
-import { FileService } from 'src/app/@shared/services/file.service';
+import { FileService } from '../../../../@shared/services/file.service';
+import { ApplicationStateService } from '../../../../@bootstrap/services/application-state.service';
 
 @Component({
   selector: 'app-publicacao-view',
@@ -17,18 +17,29 @@ export class PublicacaoViewComponent implements OnInit , AfterViewInit
   publicacao: Publicacao=new Publicacao();
   picture: any;
 
+  isDesktop: boolean = false;
+  isMobile: boolean = false;
+  isTablet: boolean = false;
+
   constructor(
     private http: RequestPromiseService,
     private router: Router,
     private route: ActivatedRoute,
     private messageService: MessageService,
     private confirmationService: ConfirmationService,
-    private _sanitizer: DomSanitizer,
     private fileService: FileService,
+    private applicationStateService: ApplicationStateService,
   ) { }
 
   ngOnInit(): void 
   {
+
+
+    this.isDesktop = this.applicationStateService.device().isDesktop();
+    this.isMobile =  this.applicationStateService.device().isMobile();
+    this.isTablet = this.applicationStateService.device().isTablet();
+
+
      this.route.queryParams.subscribe(params => {
                                        if (params['id'])
                                        {
@@ -81,5 +92,11 @@ export class PublicacaoViewComponent implements OnInit , AfterViewInit
   {    
     this.fileService.downloadSecurity('conteudos',id , extention).add(()=>{ 
       this.picture = this.fileService.bypassSecurityTrustResourceUrl;})      
+  }
+
+  redirect(url:string)
+  {
+    this.router.navigateByUrl(url);
+
   }
 }
