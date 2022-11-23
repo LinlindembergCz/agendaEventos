@@ -24,19 +24,19 @@
         <div class="frameEventoDetails p-grid p-fluid">                 
             <div class="p-col-12">   
                 <span class="p-float-label">
-                    <input id="float-input" type="text" pInputText  [(ngModel)]="evento.titulo"> 
+                    <input id="float-input" type="text" pInputText  [(ngModel)]="evento.titulo" maxlength="250"> 
                     <label for="float-input">Título do evento</label>
                 </span>            
             </div>
             <div class="p-col-12">
                 <span class="p-float-label">
-                    <input id="float-input" type="text" pInputText  [(ngModel)]="evento.subtitulo"> 
+                    <input id="float-input" type="text" pInputText  [(ngModel)]="evento.subtitulo" maxlength="250"> 
                     <label for="float-input">Subtítulo do evento</label>
                 </span>
             </div> 
             <div class="p-col-12">
                 <span class="p-float-label">
-                    <p-inputNumber [(ngModel)]="evento.numeroparticipantes" style="width: 50px"></p-inputNumber>
+                    <p-inputNumber [(ngModel)]="evento.numeroparticipantes" style="width: 50px" maxlength="2"></p-inputNumber>
                     <label for="float-input">Nº de participantes</label>
                 </span>                    
             </div>   
@@ -86,14 +86,16 @@
                    </div>    
                  <div class="p-col-6">
                     <span class="p-float-label">
-                        <input type="text" pInputText style="width: '90%'"  [(ngModel)]="evento.linksparainscricao" />
+                        <input type="text" pInputText style="width: '90%'" 
+                        maxlength="500"
+                        [(ngModel)]="evento.linksparainscricao" />
                         <label for="float-input">Link para inscrições(opcional)</label>
                     </span>                      
                  </div>                 
             </div>
 
             <div class="frameEventoDescricao p-col-12">                
-                <p-editor [style]="{'height':'500px', 'width':'100%'}" [(ngModel)]="evento.descricaoevento">
+                <p-editor [style]="{'height':'300px', 'width':'100%'}" [(ngModel)]="evento.descricaoevento">
                 </p-editor>                
            </div>             
         </div>
@@ -105,25 +107,32 @@
            
             <div class="p-field p-col-12">
                 <span class="p-float-label">
-                    <input type="text" pInputText style="width: 100%;" [(ngModel)]="evento.nomecompleto"/>
+                    <input type="text" pInputText style="width: 100%;"  maxlength="50" 
+                    [(ngModel)]="evento.nomecompleto"/>
                     <label for="float-input">Nome completo</label>
                 </span>  
             </div>
             <div class="p-field p-col-12">
                 <span class="p-float-label">
-                    <input type="text" pInputText style="width: 100%;" [(ngModel)]="evento.email"/>
+                   <input type="email" pInputText [style]="{'width':'100%'}" 
+                    pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" 
+                    [(ngModel)]="evento.email"
+                    maxlength="100">
                     <label for="float-input">E-mail</label>
                 </span>  
             </div>                 
             <div class="p-field p-col-12">
                 <span class="p-float-label">
-                    <input type="text" pInputText style="width: 100%;" [(ngModel)]="evento.instituicao"/>
+                    <input type="text" pInputText style="width: 100%;"
+                    maxlength="50"
+                    [(ngModel)]="evento.instituicao"/>
                     <label for="float-input">Instituição</label>
                 </span>  
             </div>                 
             <div class="p-field p-col-12">
                 <span class="p-float-label">
-                    <input type="text" pInputText style="width: 100%;" [(ngModel)]="evento.contato"/>
+                    <!--<input type="text" pInputText style="width: 100%;" [(ngModel)]="evento.contato" />-->
+                    <p-inputMask   mask="(99)99999-9999"  [(ngModel)]="evento.contato"></p-inputMask>
                     <label for="float-input">Contato</label>
                 </span>  
             </div>
@@ -134,7 +143,10 @@
            
        </div> 
        <div class="p-col-12" style="text-align: right;">
-           <button pButton class="p-button-lg p-button-raised p-button-outlined p-mr-10">Cancelar</button>&nbsp;&nbsp;
+
+        <a href="javascript:history.back()">   
+           <button pButton class="p-button-lg p-button-raised p-button-outlined p-mr-10" >Cancelar</button>&nbsp;&nbsp;
+        </a>
            <button pButton class="p-button-lg p-button-raised p-button-warning p-mr-10" (click)="save()">Salvar</button>
        </div>
     </div>

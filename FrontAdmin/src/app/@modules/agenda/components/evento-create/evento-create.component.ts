@@ -19,7 +19,6 @@ import { ApplicationStateService } from '../../../../@bootstrap/services/applica
 })
 export class EventoCreateComponent implements OnInit, AfterViewInit {
 
-  //indexComponent:number=0;
   evento: Eventolab; 
 
   diasBloqueados: Date[]=[new Date()];
@@ -98,15 +97,18 @@ export class EventoCreateComponent implements OnInit, AfterViewInit {
       this.http.post<Eventolab>(environment.services.api,environment.routes.eventoSebraeLab.root, eventoModel ).
       then( () =>
       {
-          this.router.navigate(['/agenda']);            
-          this.messageService.add({severity:'success', 
-                                    summary:'Cadastro', 
-                                    detail:'O evento foi cadastrado com sucesso!'}); 
+        this.router.navigate(['/agenda']);            
+        this.messageService.add(
+          {
+            severity:'success', 
+            summary:'Cadastro', 
+            detail:'O evento foi cadastrado com sucesso!'
+          }); 
       }).catch( (e) =>{         
-            this.messageService.add({severity:'warn', 
-            summary:'Erro', 
-            detail:e.error.text}); 
-      });
+                        this.messageService.add({severity:'warn', 
+                        summary:'Erro', 
+                        detail:e.error.text}); 
+                      });
 
   }
 
