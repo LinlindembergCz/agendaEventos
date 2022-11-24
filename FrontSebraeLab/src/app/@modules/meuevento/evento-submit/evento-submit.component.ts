@@ -1,7 +1,9 @@
 import {AfterViewInit, Component,Input,OnInit, } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
+import { Eventolab } from '../../../@core/models/eventolab.model';
+import { environment } from '../../../../environments/environment';
 import { RequestPromiseService } from '../../../@shared/services/request-promise.service';
+import { EventolabDias } from 'src/app/@core/models/eventolab-dias.model';
 
 
 interface TipoEvento {
@@ -156,11 +158,44 @@ Descrição: ${this.descricao} %0D%0A %0D%0A
 Período: %0D%0A
 ${this.diasEvento}`;
      
-                  window.open(`mailto:?subject=${"Reservar: "+this.nomeEvento}&body=${_body}&to=sebraeLab@es.sebrae.com.br`, "_blank")
+window.open(`mailto:?subject=${"Reservar: "+this.nomeEvento}&body=${_body}&to=sebraeLab@es.sebrae.com.br`, "_blank")
              
             }  
 
         })
+
+       /* let eventoModel = {
+            titulo : this.nomeEvento,
+            subtitulo: this.nomeEvento,
+            numeroparticipantes: this.numeroParticipantes,
+            tipoevento: this.tipoEvento.name,
+            linksparainscricao:this.linkinscricao,
+            descricaoevento:this.descricao,
+            nomecompleto:this.nomecompleto,
+            email:this.email,
+            instituicao:this.instituicao,
+            contato:this.contato,
+            imagempersonalida: false,
+            publicaosite : false,   
+            dias: [],                              
+            status: 'Rascunho'
+        }        
+            
+        this.periodos.forEach( d =>{
+            eventoModel.dias.push( {
+                data: new Date(d.data),
+                horainicio: d.horaInicio,
+                horafim: d.horaFim,
+                option: JSON.stringify(d.option),
+                status: ""
+                } );
+        });           
+                                
+        console.log( eventoModel );
+
+        this.http.post<Eventolab>(environment.services.api,environment.routes.eventoSebraeLab.root, eventoModel ).
+        then( () =>{}).catch( (e) =>{ });
+        */
 
 
             

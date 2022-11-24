@@ -56,6 +56,23 @@ namespace SebraeLab.Controllers
         public async Task<ActionResult<bool>> Available([FromQuery] string Data, string horainicio, string horafinal) =>
         await _serviceEventoSebraeLab.Available(Data, horainicio, horafinal);
 
+        // POST api/<EventoSebraeLabController>
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> Post(EventoSebraeLabViewModel eventosebraelabViewModel)
+        {
+            try
+            {
+                await _serviceEventoSebraeLab.Add(eventosebraelabViewModel);
+                return Ok(new { msg = "evento salvo com sucesso!" });
+            }
+            catch (Exception e)
+            {
+                return new ObjectResult("Falhou! Mensagem: " + e.Message);
+            }
+
+        }
+
 
     }
 }

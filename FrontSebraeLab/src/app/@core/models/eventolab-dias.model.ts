@@ -4,5 +4,6 @@ export class EventolabDias {
     horainicio: string;
     horafim: string;
     option: string;
+    status: string;
 
   }
