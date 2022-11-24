@@ -14,7 +14,8 @@ export class IndexComponent implements OnInit {
 
   ngOnInit(): void {
 
-     this.isMobile = this.applicationStateService.device().isMobile()
+     this.isMobile = this.applicationStateService.device().isMobile()||
+     this.applicationStateService.device().isTablet()
   }
 
 }

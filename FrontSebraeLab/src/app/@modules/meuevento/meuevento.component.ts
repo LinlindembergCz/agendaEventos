@@ -21,7 +21,8 @@ export class MeuEventoComponent implements AfterViewInit , OnInit  {
   ) { }
 
   ngOnInit(): void {   
-    this.isMobile = this.applicationStateService.device().isMobile()
+    this.isMobile = this.applicationStateService.device().isMobile()||
+    this.applicationStateService.device().isTablet();
   }
 
   ngAfterViewInit()

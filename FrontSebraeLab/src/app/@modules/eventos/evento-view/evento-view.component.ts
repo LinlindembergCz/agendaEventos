@@ -119,6 +119,7 @@ export class EventoViewComponent implements OnInit , AfterViewInit
 
 
   shareFacebook() {
+    console.log('shareFacebook')
     let uri = window.location.href.toString();
     window.open("https://www.facebook.com/sharer/sharer.php?u=" + encodeURIComponent(uri)+"&src=sdkpreparse","_blank")
   }
