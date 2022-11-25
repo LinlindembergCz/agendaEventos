@@ -19,8 +19,11 @@ export class RequestPromiseService {
 
 
   private showErrorStatusCode = (status: number, error: any) => {
-    //console.log(error);
+    console.log(error);
     switch (status) {
+      case 0:
+        this.toastr.addSingle("warn","",'O Servidor não responde!');
+        break;
       case 400:
         if(error.errors !== undefined && error.errors !== null) {
           let porperties = Object.getOwnPropertyNames(error.errors);
@@ -49,6 +52,9 @@ export class RequestPromiseService {
       case 500:
         this.toastr.addSingle("error","Erro de processamento",'As informações não estão coesas e geraram erro na aplicação.');
         break;
+        case 503:
+          this.toastr.addSingle("error","Erro de processamento",'No momento o Serviço se encontra indisponível!');
+          break;
     }
   }
 
@@ -77,6 +83,8 @@ export class RequestPromiseService {
         this.http.get<T>(`${url}/${path}`).toPromise()
         .catch((response) => {
           this.showErrorStatusCode(response.status, response.error);
+          return response;
+          
         })
         .then(
           (data: T) => {

@@ -29,65 +29,47 @@
         <div class="botaoInscricaoMobile" (click)="showDialogNewsLetter()"><a>Inscreva-se</a></div>
     </div>
     
-    <div class="framecontent" [ngStyle]="{'top':!isMobile?'90%':'55%'}">       
+    <div class="framecontent" [ngStyle]="{'top':!isMobile?'90%':'55%'}">    
 
-            <div class="frameButtonsFiltro p-grid">
-                <div class="frameButtons p-col-4">                        
-                    <button pButton type="button" label="Notícias" 
-                    [ngClass]="tipoConteudo == 'Noticia' ? 'pbuttonSelect p-button-rounded p-button-outlined' : 'pbutton p-button-rounded p-button-outlined'"
-                    class="pbutton p-button-rounded p-button-outlined" 
-                    [disabled]="tipoConteudo!='Noticia'"
-                     ></button> 
+        <div class="frameButtonsFiltro p-grid">
+            <div class="frameButtons p-col-4">                        
+                <button pButton type="button" label="Notícias" 
+                [ngClass]="tipoConteudo == 'Noticia' ? 'pbuttonSelect p-button-rounded p-button-outlined' : 'pbutton p-button-rounded p-button-outlined'"
+                class="pbutton p-button-rounded p-button-outlined" 
+                [disabled]="tipoConteudo!='Noticia'"
+                ></button> 
 
-                    <button pButton type="button" label="Ebooks" 
-                    [ngClass]="tipoConteudo == 'Ebook' ? 'pbuttonSelect p-button-rounded p-button-outlined' : 'pbutton p-button-rounded p-button-outlined'"
-                    [disabled]="tipoConteudo!='Ebook'"
-                    ></button>
+                <button pButton type="button" label="Ebooks" 
+                [ngClass]="tipoConteudo == 'Ebook' ? 'pbuttonSelect p-button-rounded p-button-outlined' : 'pbutton p-button-rounded p-button-outlined'"
+                [disabled]="tipoConteudo!='Ebook'"
+                ></button>
 
-                    <button pButton type="button" label="Editais" 
-                    [ngClass]="tipoConteudo == 'Edital' ? 'pbuttonSelect p-button-rounded p-button-outlined' : 'pbutton p-button-rounded p-button-outlined'"
-                    [disabled]="tipoConteudo!='Edital'"
-                    ></button>
+                <button pButton type="button" label="Editais" 
+                [ngClass]="tipoConteudo == 'Edital' ? 'pbuttonSelect p-button-rounded p-button-outlined' : 'pbutton p-button-rounded p-button-outlined'"
+                [disabled]="tipoConteudo!='Edital'"
+                ></button>
 
-                    <button pButton type="button" label="Outros" 
-                    [ngClass]="tipoConteudo == 'Outro' ? 'pbuttonSelect p-button-rounded p-button-outlined' : 'pbutton p-button-rounded p-button-outlined'"
-                    [disabled]="tipoConteudo!='Outro'"
-                    ></button>
-               </div>
-                
-               <div class="framePesquisar p-col-8" style="align-items:right;">
-                    <span class="p-input-icon-right" >
-                        <i class="pi pi-search" style="cursor: pointer"  (click)="search(seachValue)"></i>
-                        <!--<i class="pi pi-spin pi-spinner"></i>-->        
-                        <input type="text" pInputText placeholder="Pesquisar" style="width:'270px';background: #F1F5F9;border:'0px;'" [(ngModel)]="seachValue"> 
-                    </span>  
-               </div> 
+                <button pButton type="button" label="Outros" 
+                [ngClass]="tipoConteudo == 'Outro' ? 'pbuttonSelect p-button-rounded p-button-outlined' : 'pbutton p-button-rounded p-button-outlined'"
+                [disabled]="tipoConteudo!='Outro'"
+                ></button>
             </div>
             
-     <p-dataView [value]="publicacoes" [paginator]="true" [rows]="!isMobile?12:4" >
-            <p></p>
-            <ng-template let-publicacao pTemplate="listItem">
-               
-                    <div class="imageItem card" *ngIf="!isMobile">                   
-                        <img [src]="publicacao.image" style="width: '250px'; height:'180px'"/>                        
-                        <div class="framenews">
-                            <div class="p-field">
-                                {{publicacao.tipopublicacao}} 
-                            </div>
-                            <div  *ngIf="publicacao.titulo.length > 70">
-                                {{publicacao.titulo.substring(1,70)}}...
-                            </div>
-                            <div  *ngIf="publicacao.titulo.length <= 70" >
-                                {{publicacao.titulo}}
-                            </div>                               
-                            <div >
-                                <a href="./publicacao?id={{publicacao.id}}">Saiba mais</a>                            
-                            </div>
-                        </div>          
-                    </div>
-
-                    <div *ngIf="isMobile" > 
-                        <div class="imageItem card">                   
+            <div class="framePesquisar p-col-8" style="align-items:right;">
+                <span class="p-input-icon-right" >
+                    <i class="pi pi-search" style="cursor: pointer"  (click)="search(seachValue)"></i>
+                    <!--<i class="pi pi-spin pi-spinner"></i>-->        
+                    <input type="text" pInputText placeholder="Pesquisar" style="width:'270px';background: #F1F5F9;border:'0px;'" [(ngModel)]="seachValue"> 
+                </span>  
+            </div> 
+        </div>
+            
+     
+        <p-dataView [value]="publicacoes" [paginator]="true" [rows]="!isMobile?12:4" >
+                <p></p>
+                <ng-template let-publicacao pTemplate="listItem">
+                
+                        <div class="imageItem card" *ngIf="!isMobile">                   
                             <img [src]="publicacao.image" style="width: '250px'; height:'180px'"/>                        
                             <div class="framenews">
                                 <div class="p-field">
@@ -104,11 +86,32 @@
                                 </div>
                             </div>          
                         </div>
-                    </div>
-                
-                <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->        
-            </ng-template>
-        </p-dataView>      
+
+                        <div *ngIf="isMobile" > 
+                            <div class="imageItem card">                   
+                                <img [src]="publicacao.image" style="width: '250px'; height:'180px'"/>                        
+                                <div class="framenews">
+                                    <div class="p-field">
+                                        {{publicacao.tipopublicacao}} 
+                                    </div>
+                                    <div  *ngIf="publicacao.titulo.length > 70">
+                                        {{publicacao.titulo.substring(1,70)}}...
+                                    </div>
+                                    <div  *ngIf="publicacao.titulo.length <= 70" >
+                                        {{publicacao.titulo}}
+                                    </div>                               
+                                    <div >
+                                        <a href="./publicacao?id={{publicacao.id}}">Saiba mais</a>                            
+                                    </div>
+                                </div>          
+                            </div>
+                        </div>
+                    
+                    <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->        
+                </ng-template>
+            </p-dataView> 
+
+          
 
     </div>
 

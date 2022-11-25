@@ -10,6 +10,7 @@ import { NgxCaptchaModule } from 'ngx-captcha';
 import { EventosComponent } from './eventos.component';
 import { FullCalendarioShowModule } from './fullCalendar-show/fullcalendario-show.module';
 import { NgPrimeExportsModule } from '../../@bootstrap/scripts/ngprime.exports';
+import { SharedModule } from '../../@shared/shared.module';
 
 
 
@@ -23,8 +24,8 @@ import { NgPrimeExportsModule } from '../../@bootstrap/scripts/ngprime.exports';
     NgxCaptchaModule,
     NgPrimeExportsModule,
     HeaderModule,  
-    FullCalendarioShowModule
-    
+    FullCalendarioShowModule,
+    SharedModule    
   ],
   providers: []
 })

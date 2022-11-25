@@ -1,1 +1,7 @@
-<ggm-t-page-error errorCode="500" errorMessage="Você encontrou um BUG em nosso sistema..." linkHome="true"></ggm-t-page-error>
+
+
+
+<ggm-t-page-error errorCode="{{codeErro}}" 
+errorMessage="{{textErro !='' ? textErro : 'OPA, Algo deu errado no servidor!'}}" 
+linkHome="true">
+</ggm-t-page-error>

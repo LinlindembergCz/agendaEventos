@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using SebraeLab.Evento.Domain;
 using SebraeLab.Core.Data;
 using SebraeLab.Bloqueio.Domain;
+using SebraeLab.Core.Exceptions;
 
 namespace SebraeLab.Evento.Data
 {
@@ -16,6 +17,14 @@ namespace SebraeLab.Evento.Data
         public DbSet<EventoSebraeLab> Eventos { get; set; }
 
         public DbSet<DiaEventoSebraeLab> Dias { get; set; }
+
+        public void HealthCheckDB()
+        {
+            if (!Database.CanConnect())
+            {
+                throw new DBConnectException("503");
+            }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

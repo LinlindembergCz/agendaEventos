@@ -34,7 +34,9 @@ import { PhotoInputPreviewComponent } from './components/templates/photo-input-p
     ProfileComponent,
     PasswordComponent,
     PhotoInputPreviewComponent,
-    PhotoUploadComponent
+    PhotoUploadComponent,
+    InternalServerErrorComponent,
+    PageNotFoundComponent
   ],
   imports: [
     CommonModule,

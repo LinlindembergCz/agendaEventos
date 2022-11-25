@@ -1,14 +1,19 @@
-<div>  
-    <app-header></app-header>      
-        
+
+    <app-header></app-header>    
+        <div *ngIf="deuRuim">
+            <app-internal-server-error [codeErro]="codeErro" [textErro]="textErro"></app-internal-server-error>
+        </div>
+    
+        <div *ngIf="!deuRuim">  
+
         <div *ngIf="!isMobile">
             <img src="assets/banners/banner_meuevento.png" width="100%" height="500px">
         </div>
         <div *ngIf="isMobile">
-            <img src="assets/banners/banner_Eventos_mobile.png" width="100%" >
+            <img src="assets/banners/banner_Eventos_mobile.png" width="100%"  >
         </div>
         
-        <div class="framBanner" *ngIf="eventslab.length > 0"> 
+        <div class="framBanner" *ngIf="eventslab.length > 0" > 
             <p-dataView [value]="eventslab" [paginator]="true" [rows]="1">
                 <ng-template let-evento pTemplate="listItem">  
 
@@ -23,7 +28,8 @@
                         
                         <div [ngClass]="isMobile?'p-col-12':'p-col-6'">
                             <div> 
-                                <h2>{{evento.datainicio}} {{getMonthDescription(evento.data)}}</h2>
+                                <h2>{{evento.datainicio}}</h2>
+                                <h2 style="color: #ED4D9A;"> {{getMonthDescription(evento.data)}}</h2>
                             </div>
                             <div class="frameBannerDetailsConteudoHoras ">{{evento.horainicio}} -{{evento.horafim}}</div>
                             <div class="frameBannerDetailsConteudoTitulo">{{evento.titulo}}</div>
@@ -42,59 +48,46 @@
                     </div>
                 </ng-template>
             </p-dataView>    
-        </div>       
+        </div>  
       
         
         
-        <div class="frameEventlab">    
-               
+        <div class="frameEventlab" >    
             <div class="frameEventlabDetails"> 
-                <div class="framebuttons">                       
-                   <!-- <div>
-                        <button pButton type="button" label="Esta semana" class="p-button-rounded p-button-outlined" (click)="selectThisWeek()" ></button> 
-                        <button pButton type="button" label="Próxima semana" class="p-button-rounded p-button-outlined" (click)="selectNextWeek()" ></button>
-                    </div>    
-                    <div>                   
-                      <button pButton type="button" label="Este mês" class="p-button-rounded p-button-outlined" (click)="selectThisMonth()" ></button>
-                      <button pButton type="button" label="Próximo mês" class="p-button-rounded p-button-outlined" (click)="selectNextMonth()" ></button>
-                    </div> 
-                    <div>  
-                       <button pButton type="button" label="Agenda completa" class="p-button-rounded p-button-outlined" (click)="showCalendar()" ></button>
-                    </div>-->
-                        
+                <div class="framebuttons">            
+                       
                         <button pButton type="button" label="Esta semana" class="p-button-rounded p-button-outlined" (click)="selectThisWeek()"></button> 
                         <button pButton type="button" label="Próxima semana" class="p-button-rounded p-button-outlined" (click)="selectNextWeek()" ></button>
                         <button pButton type="button" label="Este mês" class="p-button-rounded p-button-outlined" (click)="selectThisMonth()"></button>
                         <button pButton type="button" label="próximo mês" class="p-button-rounded p-button-outlined" (click)="selectNextMonth()" ></button>
                         <button pButton type="button" label="Agenda completa" class="p-button-rounded p-button-outlined" (click)="showCalendar()" ></button>
+               </div>   
 
-                </div>   
-
-                <div class="framePesquisar" style="align-items:right;">
+                <div class="framePesquisar" style="align-items:right">
                     <span class="p-input-icon-right" >
                         <i class="pi pi-search" style="cursor: pointer" (click)="search(seachValue)"></i>
                           
                         <input type="text" pInputText placeholder="Pesquisar" style="width:'270px';background: #F1F5F9;border:'0px;'" [(ngModel)]="seachValue"> 
-                    </span>        
+                    </span>                        
                 </div> 
-                   
 
-        
-                    <div class="p-d-flex p-ai-center p-jc-center" *ngIf="fullCalendar" style="width: 100%">
-                        <div class="p-d-fluid " [ngStyle]="{'width': !isMobile?'100%':'auto'}">                            
-                            <app-fullcalendario-show></app-fullcalendario-show>            
-                        </div>  
+                <div>
+                    <p-progressSpinner *ngIf="loading" [style]="{width: '50px', height: '50px'}" 
+                    styleClass="custom-spinner" strokeWidth="8" 
+                    fill="var(--surface-ground)" animationDuration=".8s">
+                    </p-progressSpinner>  
+                </div>
+                        
+                <div class="p-d-flex p-ai-center p-jc-center" *ngIf="fullCalendar" style="width: 100%">
+                    <div class="p-d-fluid " [ngStyle]="{'width': !isMobile?'100%':'auto'}">                            
+                        <app-fullcalendario-show></app-fullcalendario-show>            
                     </div>  
-
-
-
-                 
+                </div>                   
                              
-                <div class="frameEventslablist" *ngIf="eventslab.length > 0 && !fullCalendar">      
+                <div class="frameEventslablist" *ngIf="eventslab.length > 0 && !fullCalendar"> 
                     <p-dataView [value]="eventslab" [paginator]="true" [rows]="12">
                              <ng-template let-evento pTemplate="listItem">              
-                                 <div class="frameEventlabItem">     
-      
+                                 <div class="frameEventlabItem">       
                                         <div class="frameEventlabitemDetails">                                    
                                              <div class="frameEventlabitemDetailsCenter">
                                                 <div style="text-align:center;">
@@ -105,7 +98,7 @@
                                                         <div class="frameDateDays"> {{evento.datainicio}}</div> 
                                                     </div>    
                                                     <div class="frameDate">
-                                                        <h3>{{getMonthDescription(evento.data)}}</h3>
+                                                        <h3 style="color: #ED4D9A;">{{getMonthDescription(evento.data)}}</h3>
                                                      </div>                                                                                
                                                  </div>                                                                     
 
@@ -116,7 +109,7 @@
                                                  </div>        
                                              </div>                                         
                                              <div class="frameEventlabSubscribe">
-                                                <a href="./evento?id={{evento.id}}">Inscreva-se ></a>            
+                                                <a href="./evento?id={{evento.id}}">Saiba mais ></a>            
                                               
                                              </div>                      
                                          </div>
@@ -128,9 +121,9 @@
                 </div>            
              </div> 
         </div>
-     
+    </div>
 
-</div>
+
 
 
 

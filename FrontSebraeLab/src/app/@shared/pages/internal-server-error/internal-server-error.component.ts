@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-internal-server-error',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./internal-server-error.component.scss'],
 })
 export class InternalServerErrorComponent implements OnInit {
+
+  @Input() codeErro: string='';
+  @Input() textErro: string='';
 
   constructor() { }
 

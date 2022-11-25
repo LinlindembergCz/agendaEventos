@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using SebraeLab.NewsLetter.Domain;
 using SebraeLab.Core.Data;
 using System.Collections.Generic;
-
+using SebraeLab.Core.Exceptions;
 
 namespace SebraeLab.NewsLetter.Data
 {
@@ -15,6 +15,14 @@ namespace SebraeLab.NewsLetter.Data
         : base(options) { }
 
         public DbSet<InscricaoNewsLetter> NewsLetter { get; set; }
+
+        public void HealthCheckDB()
+        {
+            if (!Database.CanConnect())
+            {
+                throw new DBConnectException("503");
+            }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

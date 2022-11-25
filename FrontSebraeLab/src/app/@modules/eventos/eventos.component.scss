@@ -10,6 +10,7 @@
   position: absolute;
   width: 100%;
   height: 404px;
+  order: 0;
   //left: 64px;
   //top: 500px;
 }
@@ -194,6 +195,7 @@
     width: 100%;
     height: 812px;
     left: 10px;
+    order: 1;
     top: 980px;
   }
 
@@ -228,33 +230,16 @@
   
 
   
-  /*
-  .button{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    padding: 16px 24px;
-    gap: 8px;
-    width: 416px;
-    height: 57px;
-    background: #FFF028;
-    border-radius: 8px;
-    flex: none;
-    order: 2;
-    flex-grow: 0;
-  }*/
-  
+ 
   .frameEventlabGroup{display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
     gap: 20px;  
     width: 95%;
-    height: 386px; 
+    //height: 386px; 
     /* Inside auto layout */
     flex: none;
-    order: 1;
     align-self: stretch;
     flex-grow: 0;
   }
@@ -330,10 +315,8 @@
     width: 317px;
     height: 107px; 
     /* Inside auto layout */
-    flex: none;
-    order: 0;
     align-self: stretch;
-    flex-grow: 0;}
+}
   
   .thisWeek{display: flex;
     flex-direction: row;
@@ -346,10 +329,7 @@
     /* Cores da Marca/Cores principais/Rosa */
     background: #ED4D9A;
     border-radius: 24px;  
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+
   }
   
   .nextWeek{display: flex;
@@ -363,10 +343,7 @@
     /* Cores da Marca/Cores pasteis/Rosa pastel */
     border: 2px solid #FBD3DA;
     border-radius: 24px;  
-    /* Inside auto layout */
-    flex: none;
-    order: 1;
-    flex-grow: 0;
+
   }
   
   .thisMonth{box-sizing: border-box;
@@ -383,9 +360,6 @@
     border: 2px solid #FBD3DA;
     border-radius: 24px;  
     /* Inside auto layout */
-    flex: none;
-    order: 2;
-    flex-grow: 0;
   }
   
   .nextMonth{box-sizing: border-box;
@@ -405,10 +379,7 @@
     border: 2px solid #FBD3DA;
     border-radius: 24px;
     
-    /* Inside auto layout */
-    flex: none;
-    order: 3;
-    flex-grow: 0;
+   
   }
   
   .AllCalendar{box-sizing: border-box;
@@ -428,10 +399,7 @@
     border: 2px solid #FBD3DA;
     border-radius: 24px;
     
-    /* Inside auto layout */
-    flex: none;
-    order: 4;
-    flex-grow: 0;
+
   }
   
   .frameDate{display: flex;
@@ -442,10 +410,6 @@
     gap: 4px;  
     width: 93px;
     height: 30px;  
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
   }
   
   .frameDateDays{display: flex;
@@ -468,10 +432,6 @@
     background: #F8FAFC;
     border-radius: 50px;
     
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
   }
   
   .frameDays{display: flex;
@@ -481,10 +441,6 @@
   gap: 4px;
   width: 252px;
   height: 107px;
-  /* Inside auto layout */
-  flex: none;
-  order: 2;
-  flex-grow: 1;
   }
   
   .frameHour{display: flex;
@@ -495,10 +451,7 @@
     gap: 4px;  
     width: 252px;
     height: 107px;    
-    /* Inside auto layout */
-    flex: none;
-    order: 2;
-    flex-grow: 1;
+
   }
   
   .eventlabBAR{width: 107px;
@@ -507,10 +460,6 @@
     /* Cores da Marca/Cores principais/Laranja */
     border: 1px solid #F89E5A;
     transform: rotate(90deg);
-    /* Inside auto layout */
-    flex: none;
-    order: 1;          
-    flex-grow: 0;
   }
   
   .eventlabName{width: 252px;
@@ -523,10 +472,7 @@
     /* identical to box height */  
     /* Cores da Marca/Variações da Marca/Laranja/4 */
     color: #C45F13; 
-    /* Inside auto layout */
-    flex: none;
-    order: 1; 
-    flex-grow: 0;
+
   }
   
   .eventlabSummary{width: 252px;
@@ -538,11 +484,8 @@
     line-height: 21px;  
     /* Tailwind/slate/600 */
     color: #475569; 
-    /* Inside auto layout */
-    flex: none;
-    order: 2;
     align-self: stretch;
-    flex-grow: 0;
+
   }
   
   .eventlabtime{width: 93px;
@@ -555,10 +498,7 @@
     line-height: 21px;  
     /* Cores da Marca/Cores pasteis/Cinza */
     color: #525F6B; 
-    /* Inside auto layout */
-    flex: none;
-    order: 0;
-    flex-grow: 0;
+
   }
   
   .frameEventlabSubscribe{
@@ -569,7 +509,6 @@
     gap: 16px;
     width: 417px;
     height: 40px;
-    order: 1;
     align-self: stretch;
   
     
@@ -579,9 +518,7 @@
     font-size: 16px;
     line-height: 24px;  
     color: #C45F13; 
-    flex: none;
-    order: 0;
-    flex-grow: 0;}
+   }
   
   .confira{display: flex;
     ///border: 1px solid;
@@ -592,9 +529,6 @@
     
     width: 227px;
     height: 24px;
-    
-    
-
   }
   
   .framePesquisar{

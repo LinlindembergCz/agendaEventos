@@ -21,6 +21,12 @@ export class EventosComponent implements OnInit {
   seachValue: string;
   fullCalendar: boolean = false;
   isMobile:boolean;
+
+  loading: boolean = false;
+
+  deuRuim:boolean = false;
+  codeErro: string ='';
+  textErro: string ='';
   
   constructor(
     private http: RequestPromiseService,
@@ -29,7 +35,8 @@ export class EventosComponent implements OnInit {
     private applicationStateService: ApplicationStateService
   ) { }
 
-  ngOnInit(): void {      
+  ngOnInit(): void {   
+ 
     this.loadEventos(); 
     this.isMobile = this.applicationStateService.device().isMobile()
   }
@@ -37,26 +44,45 @@ export class EventosComponent implements OnInit {
 
   loadEventos() 
   { 
+    this.loading= true;
     this.http.get<any[]>(environment.services.api,environment.routes.eventoSebraeLab.root).
-    then((x: any) => 
+    then(( r : any) => 
     { 
-      this.fillEventos( x ).then( ()=>{ 
-        this.selectThisMonth();  
-      })       
+      console.log( r );
+      
+      this.loading= false;
+      if (r.name || r.name=="HttpErrorResponse")
+      {
+        this.deuRuim = true;
+        this.codeErro = r.status;
+        this.textErro = r.message;
+      }
+
+      this.fillEventos( r ).then( ()=>{ this.selectThisMonth(); })       
                                 
-    }); 
+    }).catch( (e: any) =>{
+      this.loading= false;
+      this.deuRuim = true;
+      this.codeErro =e.status;
+      this.textErro = e.message;
+    }) 
   }
 
   search( value: string )
   {
-    //f ( value ==='')
-    //   this.loadEventos()
-    //else
-    this.http.get<any[]>(environment.services.api,
-                      `${environment.routes.eventoSebraeLab.search}${value}`).
-      then(x => {  this.fillEventos( x ).then( ()=>{ 
-        this.selectThisMonth();  
-      })  });
+    console.log( value );
+    if (  value ===undefined )
+        this.loadEventos()
+    else
+    {
+        this.loading= true;
+        this.http.get<any[]>(environment.services.api,
+                          `${environment.routes.eventoSebraeLab.search}${value}`).
+          then(x => {  this.loading= false;
+                      this.fillEventos( x ).then( ()=>{ this.selectThisMonth(); })  
+                    }).
+          catch( ()=>{ this.loading= false;});
+    }
   }
 
   async fillEventos( eventos: any[]): Promise<any[]> 
@@ -103,7 +129,6 @@ export class EventosComponent implements OnInit {
     return Meses[new Date(data).getMonth()]
   }
 
-
   getWeek( data: Date)
   {
     let currentdate: any = data;    
@@ -111,7 +136,6 @@ export class EventosComponent implements OnInit {
     var numberOfDays = Math.floor((currentdate - oneJan) / (24 * 60 * 60 * 1000));
     return Math.ceil(( currentdate.getDay() + (7 - currentdate.getDay() ) + numberOfDays) / 7);
   }
-
 
   selectThisWeek()
   {  

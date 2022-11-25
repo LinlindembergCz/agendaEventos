@@ -22,7 +22,7 @@ export class ConteudoShowComponent implements OnInit {
 
   imgs: Image[] = [];
 
-  publicacoes: any[]=[{id: '',titulo:'',image:''}];
+  publicacoes: any[]=[];
 
   @Input() isMobile: boolean = false;
 

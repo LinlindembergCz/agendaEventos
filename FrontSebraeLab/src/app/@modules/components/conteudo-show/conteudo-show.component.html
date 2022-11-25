@@ -6,31 +6,33 @@
         </div>  
         <div class="p-filed confira">Confira as oportunidades imperdíveis<br> para seu crescimento.</div>
     </div>
+    
+    <div *ngIf="publicacoes.length > 0">
+        <p-dataView [value]="publicacoes" [paginator]="true" [rows]="!isMobile? 4 : 2">
+            <ng-template let-publicacao pTemplate="listItem">
+                <div class="imageItem">
+                    <img [src]="publicacao.image" style="width: '280px'; height:'180px'" alt="publicacao.titulo"/>     
+                    <div class="framenews">
+                        <div class="p-field">
+                            {{publicacao.tipopublicacao}} 
+                        </div>
 
-    <p-dataView [value]="publicacoes" [paginator]="true" [rows]="!isMobile? 4 : 2">
-        <ng-template let-publicacao pTemplate="listItem">
-            <div class="imageItem">
-            <img [src]="publicacao.image" style="width: '280px'; height:'180px'" alt="publicacao.titulo"/>     
-            <div class="framenews">
-                <div class="p-field">
-                    {{publicacao.tipopublicacao}} 
-                </div>
-
-                <div  *ngIf="publicacao.titulo.length > 70">
-                    {{publicacao.titulo.substring(1,70)}}...
-                </div>
-                <div  *ngIf="publicacao.titulo.length <= 70" >
-                    {{publicacao.titulo}}
-                </div>
-            
-                <div class="p-field">
-                    <a href="./publicacao?id={{publicacao.id}}">Saiba mais</a>
-                    <router-outlet></router-outlet> 
-                </div>
-            </div>          
-            </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        
-        </ng-template>
-    </p-dataView>
+                        <div  *ngIf="publicacao.titulo.length > 70">
+                            {{publicacao.titulo.substring(1,70)}}...
+                        </div>
+                        <div  *ngIf="publicacao.titulo.length <= 70" >
+                            {{publicacao.titulo}}
+                        </div>
+                    
+                        <div class="p-field">
+                            <a href="./publicacao?id={{publicacao.id}}">Saiba mais</a>
+                            <router-outlet></router-outlet> 
+                        </div>
+                    </div>          
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;        
+            </ng-template>
+        </p-dataView>
+    </div>
 
     <div>
         <a href="publicacoes?tipo=Noticia">Acessar conteúdos <img src="assets/imgs/arrow-right.png" alt="direita"/></a>
