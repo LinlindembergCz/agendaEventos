@@ -12,6 +12,8 @@ namespace SebraeLab.Toten.Domain
         public string? Telefone { get; private set; }
         public string? IdEvento { get; private set; }
         public DateTime DateTime { get; private set; }
+        public string? OutroMotivo  { get; private set; }
+        public bool AceiteLGPD { get; private set; }
 
         public FeedbackUsuario()
         { }
@@ -22,7 +24,10 @@ namespace SebraeLab.Toten.Domain
               TipoEventoEnum tipovisita,
               string telefone,
               string idevento,
-              DateTime datetime)
+              DateTime datetime,
+              string outromotivo,
+              bool aceitelgpd
+              )
         {
             NomeUsuario = nomeusuario;
             EmailUsuario = emailusuario;
@@ -31,6 +36,8 @@ namespace SebraeLab.Toten.Domain
             Telefone = telefone;
             IdEvento = idevento;
             DateTime = datetime;
+            OutroMotivo = outromotivo;
+            AceiteLGPD = aceitelgpd;
         }
     }
 }

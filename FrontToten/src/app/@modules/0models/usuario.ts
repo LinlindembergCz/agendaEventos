@@ -6,4 +6,7 @@ export interface Usuario {
     telefone: string;
     tipo: string;
     idevento: string;
+    outromotivo: string;
+    aceitelgpd:boolean;
+
 }

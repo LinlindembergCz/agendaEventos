@@ -14,6 +14,25 @@ namespace SebraeLab.Toten.Data.Mapping
             builder.Property(p => p.TipoVisita)
                 .HasConversion(new ConversorTipoFeedback());
 
+            builder.Property(c => c.NomeUsuario)
+               .IsRequired()
+               .HasColumnType("varchar(250)");
+
+            builder.Property(c => c.EmailUsuario)
+              .IsRequired()
+              .HasColumnType("varchar(250)");
+
+            builder.Property(c => c.CPFUsuario)
+              .IsRequired()
+              .HasColumnType("varchar(20)");
+
+            builder.Property(c => c.Telefone)
+             .IsRequired()
+             .HasColumnType("varchar(20)");
+
+            builder.Property(c => c.OutroMotivo)
+                   .HasColumnType("varchar(250)");
+
             builder.ToTable("FeedbackUsuario");
         }
     }

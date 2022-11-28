@@ -30,7 +30,6 @@
     "FileSaver": "^0.10.0",
     "angular-user-idle": "^2.2.4",
     "angular2-text-mask": "^9.0.0",
-    "chart.js": "^2.9.4",
     "file-saver": "^2.0.5",
     "guid-typescript": "^1.0.9",
     "json-server": "^0.15.1",

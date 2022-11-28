@@ -26,6 +26,12 @@ namespace SebraeLab.Toten.App.ViewModels
         [JsonPropertyName("dateTime")]
         public DateTime DateTime { get; set; }
 
+        [JsonPropertyName("outromotivo")]
+        public string? OutroMotivo { get; private set; }
+
+        [JsonPropertyName("aceitelgpd")]
+        public bool AceiteLGPD { get; private set; }
+
         public FeedbackUsuarioViewModel()
         {
             DateTime = DateTime.Now;

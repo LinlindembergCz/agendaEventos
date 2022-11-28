@@ -8,6 +8,7 @@ import { Eventolab } from '../0models/eventolab.model';
 import { ValidationMessages, GenericValidator, DisplayMessage } from './generic-form-validation';
 import { Observable, fromEvent, merge } from 'rxjs';
 import { RequestPromiseService  } from '../../@shared/services/request-promise.service';
+import { environment } from 'src/environments/environment';
 
 
 
@@ -78,6 +79,7 @@ export class CadastroComponent implements OnInit, AfterViewInit {
       telefone: ['', [Validators.required]],   
       idevento : ['', [Validators.required]], 
       outromotivo: ['', []],
+      aceitelgpd:[false,[Validators.required]],
        
     });
 
@@ -106,10 +108,11 @@ export class CadastroComponent implements OnInit, AfterViewInit {
                                 telefone: this.cadastroForm.value.telefone,
                                 idevento: this.cadastroForm.value.idevento,
                                 dateTime: Date.now,
-                                outromotivo: this.cadastroForm.value.outromotivo
+                                outromotivo: this.cadastroForm.value.outromotivo,
+                                aceitelgpd: this.cadastroForm.value.aceitelgpd                            
                               }
 
-      this.http.post<any>("http://localhost:5251/api","TotenControllers", modelUsuario).then( () =>
+      this.http.post<any>(environment.services.api,"TotenControllers", modelUsuario).then( () =>
       {
           this.router.navigate(['sucesso']); 
           this.formResult = "Cadastrado com sucesso!";      
@@ -124,6 +127,6 @@ export class CadastroComponent implements OnInit, AfterViewInit {
 
   loadEventos() 
   { 
-      this.http.get<any[]>("http://localhost:5251/api","TotenControllers").then(x => {this.itens = x});
+      this.http.get<any[]>(environment.services.api,"TotenControllers").then(x => {this.itens = x});
   }
 }
