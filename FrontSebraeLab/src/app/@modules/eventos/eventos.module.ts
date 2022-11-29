@@ -24,6 +24,7 @@ import { SharedModule } from '../../@shared/shared.module';
     NgxCaptchaModule,
     NgPrimeExportsModule,
     HeaderModule,  
+    FooterModule,
     FullCalendarioShowModule,
     SharedModule    
   ],

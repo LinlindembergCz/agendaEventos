@@ -51,12 +51,12 @@ export class EventoListComponent implements OnInit {
   loadEventos() 
   { 
       this.http.get<Eventolab[]>(environment.services.api,environment.routes.eventoSebraeLab.root).
-      then(x => { this.fillEventos( x )
-                   //.sort(function (a, b) 
-              //{
-             //   return (a.dateStart > b.dateStart) ?1:(a.dateStart < b.dateStart)?-1:0;
-             // }); 
-             });
+      then(x => {         
+        if (x.length > 0) 
+        {
+           this.fillEventos( x )
+        }
+      });
   }
 
   search( value: string )
@@ -66,7 +66,10 @@ export class EventoListComponent implements OnInit {
     else
     this.http.get<any[]>(environment.services.api,
                       `${environment.routes.eventoSebraeLab.search}${value}`).
-      then(x => {  this.fillEventos( x ) });
+      then(x => {  
+        
+        this.fillEventos( x )
+       });
   }
 
   fillEventos( eventos: Eventolab[])

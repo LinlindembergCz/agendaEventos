@@ -1,12 +1,10 @@
 <div role="header" class="p-d-flex p-flex-row p-ai-center p-jc-center" style="background: #ED4D9A;">
-    
-    <div class="frameLogo" (click)="showHome()" style="cursor: pointer">        
-        <div class="frameFishLogo"><img src="assets/imgs/fishLogo.png" alt="peixelogo"/></div>
-        <div class="frameTitleLogo"><img src="assets/imgs/logo.png" alt="logo"/></div> 
-        
+
+    <div class="frameLogo" (click)="showHome()" [ngStyle]="{'width': isMobile ? '138px':'300px', 'cursor':'pointer'}">        
+        <img src="assets/imgs/LogoSebrae.png" alt="peixelogo"/>        
     </div>
 
-    <div class="p-d-flex header-top p-ai-center" >      
+    <div class="p-d-flex header-top p-ai-center">      
       
       <div *ngIf="isMobile" class="frameRealize" (click)="showMeuEvento()" style="cursor: pointer;">
         Realize seu evento
@@ -20,7 +18,7 @@
            </div>
         </div>
 
-        <div class="menu-bar" *ngIf="!isMobile">
+        <div class="menu-bar" *ngIf="!isMobile" >
           <ul class="menu-list">
               <li class="menuItem"(click)="showHome()">Home</li>
               <li class="menuItem" (click)="showQuemSomos()">Quem Somos</li>
@@ -35,6 +33,7 @@
               </li>
               <li class="menuItem" (click)="showEventos()">Eventos</li>
               <li class="menuItem" (click)="showContato()">Contato</li>
+              <li >|</li>
               <li class="menuItem" (click)="showMeuEvento()">
                 <div class="frameRealize">Realize seu evento</div>
               </li>

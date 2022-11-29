@@ -18,14 +18,14 @@
         <div>
           <div class="frameInput p-field">
             <div><label>Nome do evento</label></div>
-            <input type="text" pInputText [style]="{'width':'100%','height': '48px'}" placeholder="Nome do evento" [(ngModel)]="nomeEvento"/>
+            <input type="text" pInputText [style]="{'width':'100%','height': '40px'}" placeholder="Nome do evento" [(ngModel)]="nomeEvento"/>
           </div>
           <div class="frameInput p-field">
             <div><label>Número de participantes</label></div>
               <input type="text" pInputText 
               oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
 
-              placeholder="Nº de Participantes" [style]="{'width':'100%','height': '48px'}" [(ngModel)]="numeroParticipantes"/>
+              placeholder="Nº de Participantes" [style]="{'width':'100%','height': '40px'}" [(ngModel)]="numeroParticipantes"/>
           </div>
 
           <div *ngIf="numeroParticipantes>50"><label style="color:red">Capacidade máxima para 50 inscritos.</label></div>
@@ -56,7 +56,7 @@
         <div class="p-field">
           <div><label>Nome completo</label></div>
           <input type="text" pInputText 
-          [style]="{'width':'100%','height': '48px'}" 
+          [style]="{'width':'100%','height': '40px'}" 
           placeholder="Escreva seu nome completo" [(ngModel)]="nomecompleto" 
           maxlength="50"
           />
@@ -65,7 +65,7 @@
         <div class="p-field">
           <div><label>E-mail</label></div>
           <input type="email" pInputText 
-          [style]="{'width':'100%','height': '48px'}" 
+          [style]="{'width':'100%','height': '40px'}" 
           pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" 
           placeholder="Escreva seu e-mail de contato" 
           [(ngModel)]="email"
@@ -77,7 +77,7 @@
         <div class="p-field">
           <div><label>Institutição</label></div>
           <input type="text" pInputText 
-          [style]="{'width':'100%','height': '48px'}"
+          [style]="{'width':'100%','height': '40px'}"
           placeholder="Escreva o nome da sua instituição"
           [(ngModel)]="instituicao"
           />
@@ -86,7 +86,7 @@
         <div class="p-field">
           <div><label>Contato</label></div>
           <p-inputMask  mask="(99)99999-9999"  
-          [style]="{'width':'100%','height': '48px'}"
+          [style]="{'width':'100%','height': '40px'}"
           placeholder="(xx)xxxxx-xxxx"
           [(ngModel)]="contato"
           ></p-inputMask>
@@ -117,15 +117,15 @@
         <div>
             <div><label>Tipo de evento</label></div>
             <p-dropdown [options]="tiposEnvento" [(ngModel)]="tipoEvento" optionLabel="name" placeholder="Escolha tipo de evento"
-            [style]="{'width':'100%','height': '48px'}"  ></p-dropdown>
+             ></p-dropdown>
         </div>
         <div>
           <div><label>Descrição do evento</label></div>
-          <textarea [style]="{'width':'100%','height': '186px'}" placeholder="conte para nós sobre o seu evento" [(ngModel)]="descricao"></textarea>
+          <textarea [style]="{'width':'100%','height': '90px'}" placeholder="conte para nós sobre o seu evento" [(ngModel)]="descricao"></textarea>
         </div>
         <div>
           <div><label>Link para inscrições</label></div>
-          <input type="text" pInputText [style]="{'width':'100%','height': '48px'}"
+          <input type="text" pInputText [style]="{'width':'100%','height': '40px'}"
             placeholder="Insira link das inscrições" [(ngModel)]="linkinscricao"/>
         </div>
         <div>
@@ -184,14 +184,14 @@
           <div>
             <div class="frameInput p-field">
               <div><label>Nome do evento</label></div>
-              <input type="text" pInputText [style]="{'width':'100%','height': '48px'}" placeholder="Nome do evento" [(ngModel)]="nomeEvento"/>
+              <input type="text" pInputText [style]="{'width':'100%','height': '40px'}" placeholder="Nome do evento" [(ngModel)]="nomeEvento"/>
             </div>
             <div class="frameInput p-field">
               <div><label>Número de participantes</label></div>
                 <input type="text" pInputText 
                 oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
   
-                placeholder="Nº de Participantes" [style]="{'width':'100%','height': '48px'}" [(ngModel)]="numeroParticipantes"/>
+                placeholder="Nº de Participantes" [style]="{'width':'100%','height': '40px'}" [(ngModel)]="numeroParticipantes"/>
             </div>
   
             <div *ngIf="numeroParticipantes>50"><label style="color:red">Capacidade máxima para 50 inscritos.</label></div>
@@ -222,14 +222,14 @@
           <div class="p-field">
             <div><label>Nome completo</label></div>
             <input type="text" pInputText 
-            [style]="{'width':'100%','height': '48px'}" 
+            [style]="{'width':'100%','height': '40px'}" 
             placeholder="Escreva seu nome completo" [(ngModel)]="nomecompleto" />
           </div>
   
           <div class="p-field">
             <div><label>E-mail</label></div>
             <input type="email" pInputText 
-            [style]="{'width':'100%','height': '48px'}" 
+            [style]="{'width':'100%','height': '40px'}" 
             pattern="[a-zA-Z0-9!#$%&'*+\/=?^_`{|}~.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*" 
             placeholder="Escreva seu e-mail de contato" 
             [(ngModel)]="email">
@@ -239,7 +239,7 @@
           <div class="p-field">
             <div><label>Institutição</label></div>
             <input type="text" pInputText 
-            [style]="{'width':'100%','height': '48px'}"
+            [style]="{'width':'100%','height': '40px'}"
             placeholder="Escreva o nome da sua instituição"
             [(ngModel)]="instituicao"
             />
@@ -248,7 +248,7 @@
           <div class="p-field">
             <div><label>Contato</label></div>
             <p-inputMask  mask="(99)99999-9999"  
-            [style]="{'width':'100%','height': '48px'}"
+            [style]="{'width':'100%','height': '40px'}"
             placeholder="(xx)xxxxx-xxxx"
             [(ngModel)]="contato"
             ></p-inputMask>
@@ -276,7 +276,7 @@
           <div>
               <div><label>Tipo de evento</label></div>
               <p-dropdown [options]="tiposEnvento" [(ngModel)]="tipoEvento" optionLabel="name" placeholder="Escolha tipo de evento"
-              [style]="{'width':'100%','height': '48px'}"  ></p-dropdown>
+              [style]="{'width':'100%','height': '40px'}"  ></p-dropdown>
           </div>
           <div>
             <div><label>Descrição do evento</label></div>
@@ -284,7 +284,7 @@
           </div>
           <div>
             <div><label>Link para inscrições</label></div>
-            <input type="text" pInputText [style]="{'width':'100%','height': '48px'}"
+            <input type="text" pInputText [style]="{'width':'100%','height': '40px'}"
               placeholder="Insira link das inscrições" [(ngModel)]="linkinscricao"/>
           </div>
           <div>

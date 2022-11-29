@@ -1,3 +1,4 @@
+<div *ngIf="publicacoes.length >0">
 <p-dataView [value]="publicacoes" [paginator]="true" [rows]="5">
     <ng-template let-publicacao pTemplate="listItem">                            
         <p-card  styleClass="p-card-shadow" [ngStyle]="{'width': !isMobile?'55rem':'100%', 'margin-bottom': '0.5em', 'background-color':'#F8FAFC' }">
@@ -7,3 +8,4 @@
         </p-card>
     </ng-template>
 </p-dataView> 
+</div>

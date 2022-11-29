@@ -18,6 +18,7 @@ import { NewsLetterModule } from '../newsletter/newletter.module';
     NgxCaptchaModule,
     NgPrimeExportsModule,
     HeaderModule,
+    FooterModule,
     NewsLetterModule
    ],
   providers: []
