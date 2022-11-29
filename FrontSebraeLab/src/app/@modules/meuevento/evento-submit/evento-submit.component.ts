@@ -52,7 +52,8 @@ export class EventoSubmit implements AfterViewInit, OnInit  {
 
     constructor(
         private http: RequestPromiseService,
-        private route: ActivatedRoute
+        private route: ActivatedRoute,
+        private router: Router
       ) { }
     
     ngOnInit() {
@@ -169,7 +170,9 @@ export class EventoSubmit implements AfterViewInit, OnInit  {
                                                     name: this.nomecompleto,      
                                                     from: this.email
                                                 }).
-                                                then((r:any)=>{console.log(r)}).
+                                                then((r:any)=>{
+                                                    this.router.navigate(['']);
+                                                }).
                                                 catch((e)=>{console.log(e)}); 
      
             }  
