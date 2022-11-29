@@ -8,18 +8,18 @@ namespace SebraeLabAdmin.Setup
     public static class Mappers
     {
 
-        public static void RegisterMappers(this IServiceCollection services)
+        public static void RegisterMappers(this WebApplicationBuilder builder)
         {
-            services.AddAutoMapper(typeof(DomainToViewModelMappingEvento),
+            builder.Services.AddAutoMapper(typeof(DomainToViewModelMappingEvento),
                                         typeof(ViewModelToDomainMappingEvento));
 
-            services.AddAutoMapper(typeof(DomainToViewModelMappingConteudo),
+            builder.Services.AddAutoMapper(typeof(DomainToViewModelMappingConteudo),
                                            typeof(ViewModelToDomainMappingConteudo));
 
-            services.AddAutoMapper(typeof(DomainToViewModelMappingBloqueio),
+            builder.Services.AddAutoMapper(typeof(DomainToViewModelMappingBloqueio),
                                           typeof(ViewModelToDomainMappingBloqueio));
 
-            services.AddAutoMapper(typeof(DomainToViewModelMappingNewsLetter),
+            builder.Services.AddAutoMapper(typeof(DomainToViewModelMappingNewsLetter),
                                    typeof(ViewModelToDomainMappingNewsLetter));
         }
     }

@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using SebraeLab.Bloqueio.Domain;
 using Newtonsoft.Json.Linq;
+using Microsoft.Data.SqlClient;
+using System.Data.Common;
 
 namespace SebraeLab.Evento.App.Services
 {
@@ -23,14 +25,17 @@ namespace SebraeLab.Evento.App.Services
         }
         public async Task<EventoSebraeLabViewModel> GetById(Guid id)
         {
+            _repository.UnitOfWork.HealthCheckDB();
             return _mapper.Map<EventoSebraeLabViewModel>(await _repository.GetById(id));
         }
         public async Task<List<EventoSebraeLabViewModel>> GetAll(bool onlypublished = false)
         {
+            _repository.UnitOfWork.HealthCheckDB();
             return _mapper.Map<List<EventoSebraeLabViewModel>>(await _repository.GetAll(onlypublished));
         }
         public async Task<List<EventoSebraeLabViewModel>> Search(string value , bool onlypublished = false)
         {
+            _repository.UnitOfWork.HealthCheckDB();
             return _mapper.Map<List<EventoSebraeLabViewModel>>(await _repository.Search(value, onlypublished));
         }
         public async  Task<bool> Available(string Data, string horainicio, string horafinal, string id)
@@ -55,7 +60,9 @@ namespace SebraeLab.Evento.App.Services
         }
         public async Task<bool> Add(EventoSebraeLabViewModel eventosebraelabViewModel)
         {
-            if( eventosebraelabViewModel.EhValido())
+            _repository.UnitOfWork.HealthCheckDB();
+
+            if ( eventosebraelabViewModel.EhValido())
             { 
                 verifyAvailable(eventosebraelabViewModel);
                 var evento = _mapper.Map<EventoSebraeLab>(eventosebraelabViewModel);
@@ -71,6 +78,8 @@ namespace SebraeLab.Evento.App.Services
         }
         public async Task<bool> Update(EventoSebraeLabViewModel eventosebraelabViewModel)
         {
+            _repository.UnitOfWork.HealthCheckDB();
+
             if (eventosebraelabViewModel.EhValido())
             { 
                 verifyAvailable(eventosebraelabViewModel, eventosebraelabViewModel.Id.ToString() );
@@ -86,6 +95,7 @@ namespace SebraeLab.Evento.App.Services
         }
         public async Task<bool> Publish(Guid id)
         {
+
             EventoSebraeLab evento = await _repository.GetById(id);
             evento.Publish();
             _repository.Update(evento);

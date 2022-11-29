@@ -2,8 +2,8 @@ using SebraeLabAdmin.Setup;
 
 var builder = WebApplication.CreateBuilder(args);
 
-Mappers.RegisterMappers(builder.Services);
-DependencyInjection.RegisterServices(builder.Services);
+Mappers.RegisterMappers(builder);
+DependencyInjection.RegisterServices(builder);
 DbContexts.RegisterDbContexts(builder);
 builder.Services.AddControllers();
 

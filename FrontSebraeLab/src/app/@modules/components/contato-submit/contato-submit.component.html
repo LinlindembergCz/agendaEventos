@@ -19,20 +19,20 @@
             <div class="frameFormSendeMessage fluid">
                 <div class="frameInputs">
                     <div class="frameInput">
-                        <div class="titleInput">Nome do evento</div>
-                        <input type="text" pInputText [style]="{'width':'100%','height': '48px'}"  />
+                        <div class="titleInput">Nome</div>
+                        <input type="text" pInputText [style]="{'width':'100%','height': '48px'}" [(ngModel)]="nome" />
                     </div>
                     <div class="frameInput">
                         <div class="titleInput">E-mail</div>
-                        <input type="text" pInputText [style]="{'width':'100%','height': '48px'}"  />
+                        <input type="text" pInputText [style]="{'width':'100%','height': '48px'}" [(ngModel)]="email" />
                     </div>
                     <div class="frameInputTextArea">
                         <div class="titleInput">Mensagem</div>
-                        <textarea [style]="{'width':'100%','height': '186px'}">
+                        <textarea [style]="{'width':'100%','height': '186px'}" [(ngModel)]="mensagem">
                         </textarea>
                     </div>
                 </div>
-                <div class="sendeMesssage">Enviar Messagem</div>   
+                <div class="sendeMesssage" (click)="sendEmail()" style="cursor: pointer">Enviar Messagem</div>   
             </div>
         </div>        
     </div>

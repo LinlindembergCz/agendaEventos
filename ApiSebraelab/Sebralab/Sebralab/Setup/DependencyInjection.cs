@@ -13,30 +13,38 @@ using SebraeLab.Bloqueio.Data.Repository;
 using SebraeLab.Bloqueio.Data;
 using SebraeLab.NewsLetter.App.Services;
 using SebraeLab.NewsLetter.Data.Repository;
+using Microsoft.Extensions.Configuration;
+using SebraeLab.Core.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace SebraeLabAdmin.Setup
 {
     public static class DependencyInjection
     {
-        public static void RegisterServices(this IServiceCollection services)
+        public static IAppConfig AppConfig { get; private set; }
+        public static void RegisterServices(this WebApplicationBuilder builder)
         {
-            services.AddScoped<ISenderEmail, SenderEmail>();
+            AppConfig = new AppConfigDev(builder.Configuration);
 
-            services.AddScoped<IEventoSebraeLabRepository, EventoSebraeLabRepository>();
-            services.AddScoped<IEventoSebraeLabAppService, EventoSebraeLabAppService>();
+            builder.Services.AddSingleton(AppConfig);
 
-            services.AddScoped<IConteudoSebraeLabRepository, ConteudoSebraeLabRepository>();
-            services.AddScoped<IConteudoSebraeLabAppService, ConteudoSebraeLabAppService>();
+            builder.Services.AddScoped<ISenderEmail, SenderEmail>();
 
-            services.AddScoped<IBloqueadorRepository, BloqueadorRepository>();
-            services.AddScoped<IBloqueadorAppService, BloqueadorAppService>();
+            builder.Services.AddScoped<IEventoSebraeLabRepository, EventoSebraeLabRepository>();
+            builder.Services.AddScoped<IEventoSebraeLabAppService, EventoSebraeLabAppService>();
 
-            services.AddScoped<INewsLetterRepository, NewsLetterRepository>();
-            services.AddScoped<INewsLetterAppService, NewsLetterAppService>();
+            builder.Services.AddScoped<IConteudoSebraeLabRepository, ConteudoSebraeLabRepository>();
+            builder.Services.AddScoped<IConteudoSebraeLabAppService, ConteudoSebraeLabAppService>();
 
-            services.AddScoped<EventoSebraeLabContext>();
-            services.AddScoped<ConteudoSebraeLabContext>();
-            services.AddScoped<BloqueadorContext>();
+            builder.Services.AddScoped<IBloqueadorRepository, BloqueadorRepository>();
+            builder.Services.AddScoped<IBloqueadorAppService, BloqueadorAppService>();
+
+            builder.Services.AddScoped<INewsLetterRepository, NewsLetterRepository>();
+            builder.Services.AddScoped<INewsLetterAppService, NewsLetterAppService>();
+
+            builder.Services.AddScoped<EventoSebraeLabContext>();
+            builder.Services.AddScoped<ConteudoSebraeLabContext>();
+            builder.Services.AddScoped<BloqueadorContext>();
 
 
         }

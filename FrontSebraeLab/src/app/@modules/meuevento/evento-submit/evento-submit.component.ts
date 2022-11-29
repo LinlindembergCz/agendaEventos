@@ -31,7 +31,7 @@ export class EventoSubmit implements AfterViewInit, OnInit  {
     loadAllTabs:boolean = false;
     activeIndex:number=0;
 
-    mensagem: string;
+    mensagemErro: string;
     diasEvento: string = '';
 
     events: any[];
@@ -70,34 +70,39 @@ export class EventoSubmit implements AfterViewInit, OnInit  {
        this.loadAllTabs = false
 
        this.route.queryParams.subscribe(
-        params =>{  if (params['nomeevento'])
+        params =>{  
+                    if (params['nomeevento'])
                     {
                         this.nomeEvento =params['nomeevento'];
                     }
+
                     if (params['numeroparticipantes'])
                     {
                         this.numeroParticipantes =params['numeroparticipantes'];
                     }
-                  })
+                 })
     }
 
-    showSuccess(msg: string ) {
+    showSuccess(msg: string ) 
+    {
         this.showDialogSucesso = false
         this.messageDialogSucesso = msg;
         this.showDialogSucesso = true;
-     }
+    }
     
-       showError(msg: string ) {
+    showError(msg: string ) 
+    {
         this.showDialogErro = false
         this.messageDialogErro = msg;
         this.showDialogErro = true;
-     }
+    }
     
-      showWarn(msg: string ) {
+    showWarn(msg: string ) 
+    {
         this.showDialogAtencao = false
         this.messageDialogAtencao = msg;
         this.showDialogAtencao = true;
-      }
+    }
     
     onTabOpen(e:any)
     {
@@ -115,7 +120,7 @@ export class EventoSubmit implements AfterViewInit, OnInit  {
        this.activeIndex = index-1;
     }
 
-   async verifyAvailability( periodos: any[]):Promise<void>
+    async verifyAvailability( periodos: any[]):Promise<void>
     {
        this.showDialogAtencao= false;
        this.diasEvento = '';
@@ -130,10 +135,10 @@ export class EventoSubmit implements AfterViewInit, OnInit  {
             {
                 if (!disponivel)                      
                 {
-                    this.mensagem=`Já existe um outro evento alocado, escolha outro período!`                      
-                    this.showWarn(this.mensagem);
+                    this.mensagemErro=`Já existe um outro evento alocado, escolha outro período!`                      
+                    this.showWarn(this.mensagemErro);
                 } else {
-                    this.mensagem = '';
+                    this.mensagemErro = '';
                 }
             })            
        }      
@@ -141,25 +146,32 @@ export class EventoSubmit implements AfterViewInit, OnInit  {
 
     send()
     {
-        this.verifyAvailability(this.periodos).finally( ()=>{
-
-            if ( this.mensagem=='' )
+        this.verifyAvailability(this.periodos).finally( ()=>
+        {
+            if ( this.mensagemErro=='' )
             {
                this.periodos.forEach( p=> {this.diasEvento = this.diasEvento +` ${p.data} de ${p.horaInicio} a ${p.horaFim} %0D%0A`; })
+ 
+               let _body = `<html><body><h1>Tipo de evento:</h1> ${this.tipoEvento.name} <br>
+                            <h1>Titulo do Evento:</h1> ${this.nomeEvento}<br>
+                            <h1>Vagas: </h1>${this.numeroParticipantes} <br>
+                            <h1>Link inscrição:</h1> ${this.linkinscricao} <br>
+                            <h1>Nome :</h1> ${this.nomecompleto} <br>
+                            <h1>Email:</h1> ${this.email} <br>
+                            <h1>Instituição:</h1> ${this.instituicao} <br>
+                            <h1>Descrição:</h1> ${this.descricao} <br><br>
+                            <h1>Período:</h1> <br>
+                            ${this.diasEvento}</body></html>`;
+
+                        this.http.post<Eventolab>(environment.services.api,environment.routes.meuevento.root, 
+                                                {   subject: "Reservar: "+this.nomeEvento,       
+                                                    body: _body,      
+                                                    name: this.nomecompleto,      
+                                                    from: this.email
+                                                }).
+                                                then((r:any)=>{console.log(r)}).
+                                                catch((e)=>{console.log(e)}); 
      
-let _body = `Tipo de evento: ${this.tipoEvento.name} %0D%0A
-Titulo do Evento: ${this.nomeEvento}%0D%0A
-Vagas: ${this.numeroParticipantes} %0D%0A
-Link inscrição: ${this.linkinscricao} %0D%0A
-Nome : ${this.nomecompleto} %0D%0A
-Email: ${this.email} %0D%0A
-Instituição: ${this.instituicao} %0D%0A
-Descrição: ${this.descricao} %0D%0A %0D%0A
-Período: %0D%0A
-${this.diasEvento}`;
-     
-window.open(`mailto:?subject=${"Reservar: "+this.nomeEvento}&body=${_body}&to=sebraeLab@es.sebrae.com.br`, "_blank")
-             
             }  
 
         })
@@ -195,12 +207,7 @@ window.open(`mailto:?subject=${"Reservar: "+this.nomeEvento}&body=${_body}&to=se
 
         this.http.post<Eventolab>(environment.services.api,environment.routes.eventoSebraeLab.root, eventoModel ).
         then( () =>{}).catch( (e) =>{ });
-        */
-
-
-            
- }
-
-
+        */            
+    }
 
 }

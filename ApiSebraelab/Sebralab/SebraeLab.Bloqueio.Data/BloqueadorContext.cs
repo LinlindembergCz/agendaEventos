@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SebraeLab.Core.Data;
 using SebraeLab.Bloqueio.Domain;
+using SebraeLab.Core.Exceptions;
 
 namespace SebraeLab.Bloqueio.Data
 {
@@ -17,7 +18,13 @@ namespace SebraeLab.Bloqueio.Data
 
         public DbSet<DiaBloqueado> Dias { get; set; }
 
-
+        public void HealthCheckDB()
+        {
+            if (!Database.CanConnect())
+            {
+                throw new DBConnectException("503");
+            }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -23,6 +23,10 @@ export class ContatoSubmitComponent implements OnInit {
   public siteKey: string = "6LcE2WUdAAAAAHuCbcgIzzdE0N0nRCa0DyVr18Tg";
   private checksum: string = "";
 
+  nome: string = "";
+  email: string= "";
+  mensagem: string="";
+
 
   constructor(private formBuilder: FormBuilder, private http :RequestPromiseService, private loader: LoaderService) {}
 
@@ -46,7 +50,15 @@ export class ContatoSubmitComponent implements OnInit {
 
   sendEmail()
   {
-     if (this.captchaOK)
+        this.http.post(environment.services.api,environment.routes.meuevento.root, 
+          {   subject: "Fale conosco",       
+              body: this.mensagem,      
+              name: this.nome,     
+              from: this.email
+          }).
+          then((r:any)=>{console.log("Enviado com sucesso!")}).
+          catch((e)=>{console.log("Deu ruim!")}); 
+     /*if (this.captchaOK)
      {
         let obj: any = {
                          subject :this.aFormGroup.controls["sender_subject"].value,
@@ -60,7 +72,7 @@ export class ContatoSubmitComponent implements OnInit {
         this.http.post(environment.services.api,"message/send/sugestion",obj).finally(() => {
           this.loader.end();
         });
-     }
+     }*/
   }
 
   CountChars($event)

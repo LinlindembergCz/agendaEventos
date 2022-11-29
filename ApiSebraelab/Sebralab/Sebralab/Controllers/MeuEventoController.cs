@@ -8,18 +8,14 @@ namespace Sebralab.Controllers
     [Route("api/meuevento")]
     public class MeuEventoController : ControllerBase
     {
-        private readonly ILogger<MeuEventoController> _logger;
         private ISenderEmail _service;
-
-        public MeuEventoController(ILogger<MeuEventoController> logger
-            , ISenderEmail service)
+        public MeuEventoController( ISenderEmail service)
         {
-            _logger = logger;
-            _service = service;
+           _service = service;
         }
 
         [HttpPost]
-        public async Task<bool> SendSugestion(MessengerEntity command) => 
-            await _service.SendMail(command);
+        public async Task<bool> SendEmailEvento(MessengerEntity command) => 
+            await _service.SendEmailEvento(command);
     }
 }

@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SebraeLab.Conteudo.Domain;
 using SebraeLab.Core.Data;
-
+using SebraeLab.Core.Exceptions;
 
 namespace SebraeLab.Conteudo.Data
 {
@@ -16,6 +16,13 @@ namespace SebraeLab.Conteudo.Data
 
         public DbSet<ConteudoSebraeLab> Conteudos { get; set; }
 
+        public void HealthCheckDB()
+        {
+            if (!Database.CanConnect())
+            {
+                throw new DBConnectException();
+            }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

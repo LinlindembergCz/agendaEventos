@@ -9,6 +9,8 @@ namespace sebraelab.core.comunication
 {
     public interface ISenderEmail
     {
-        Task<bool> SendMail(MessengerEntity command);
+        Task<bool> SendEmailEvento(MessengerEntity command);
+        Task<bool> SendEmailContato(MessengerEntity command);
+        
     }
 }

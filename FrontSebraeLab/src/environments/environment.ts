@@ -31,6 +31,9 @@ export const environment = {
     newsletter:{
       root:"NewsLetter",
     },
+    meuevento:{
+      root:"meuevento"
+    }
 
   }
 };
