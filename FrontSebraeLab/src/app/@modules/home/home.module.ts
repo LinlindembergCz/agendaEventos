@@ -1,12 +1,12 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { IndexComponent } from './pages/index/index.component';
+import { IndexComponent } from './page/index/index.component';
 import { HomeRountingModule } from './home-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgPrimeExportsModule } from '../../@bootstrap/scripts/ngprime.exports';
-import { SebraelabShowComponent } from '../components/sebraelab-show/sebraelab-show.component';
-import { ConteudoShowComponent } from '../components/conteudo-show/conteudo-show.component';
-import { EventoslabShowComponent } from '../components/eventoslab-show/eventoslab-show.component';
+import { SebraelabShowComponent } from './sebraelab-show/sebraelab-show.component';
+import { ConteudoShowComponent } from './conteudo-show/conteudo-show.component';
+import { EventoslabShowComponent } from './eventoslab-show/eventoslab-show.component';
 import { ReserveSubmitComponent } from '../components/reserve-submit/reserve-submit.component';
 import { EventDateComponent } from '../components/reserve-submit/components/eventDate-show.component'; 
 import { CalendarioEditModule } from '../components/calendario-edit/calendario-edit.module'; 

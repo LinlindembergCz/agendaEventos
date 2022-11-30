@@ -20,6 +20,7 @@ import { NgPrimeExportsModule } from '../../../@bootstrap/scripts/ngprime.export
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    FooterModule,
     HeaderModule,
     BannersShowModule,
     NgPrimeExportsModule,

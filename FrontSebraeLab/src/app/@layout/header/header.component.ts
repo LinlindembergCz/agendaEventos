@@ -83,7 +83,15 @@ export class HeaderComponent implements OnInit {
 
   showContato()
   {
-    this.router.navigate(['contato']);
+    this.router.navigate(['']).then(() => {
+    
+
+      setTimeout(function() {
+        window.scrollTo(0, 5000)
+      }, 500);
+
+    })
+    
   }
 
   showMeuEvento()

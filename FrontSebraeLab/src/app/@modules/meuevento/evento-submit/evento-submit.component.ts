@@ -31,6 +31,7 @@ export class EventoSubmit implements AfterViewInit, OnInit  {
     loadAllTabs:boolean = false;
     activeIndex:number=0;
 
+    mensagemEnvio:string='Enviar';
     mensagemErro: string;
     diasEvento: string = '';
 
@@ -136,7 +137,7 @@ export class EventoSubmit implements AfterViewInit, OnInit  {
             {
                 if (!disponivel)                      
                 {
-                    this.mensagemErro=`Já existe um outro evento alocado, escolha outro período!`                      
+                    this.mensagemErro=`Já existe um outro evento alocado entre este período!`                      
                     this.showWarn(this.mensagemErro);
                 } else {
                     this.mensagemErro = '';
@@ -144,39 +145,57 @@ export class EventoSubmit implements AfterViewInit, OnInit  {
             })            
        }      
     }
+    
+    montarCorpoMensagem()
+    {
+        return `<html><body><b>Tipo de evento:</b> ${this.tipoEvento.name}<br>
+                <b>Titulo do Evento:</b> ${this.nomeEvento}<br>
+                <b>Vagas: </b>${this.numeroParticipantes} <br>
+                <b>Link inscrição:</b> ${this.linkinscricao} <br>
+                <b>Nome :</b> ${this.nomecompleto} <br>
+                <b>Email:</b> ${this.email} <br>
+                <b>Instituição:</b> ${this.instituicao} <br>
+                <b>Descrição:</b> ${this.descricao} <br><br>
+                <b>Período:</b> <br>
+                ${this.diasEvento}
+                </body></html>`;
+    }
 
     send()
     {
+        this.mensagemEnvio = 'Enviando...';
+
         this.verifyAvailability(this.periodos).finally( ()=>
         {
             if ( this.mensagemErro=='' )
             {
-               this.periodos.forEach( p=> {this.diasEvento = this.diasEvento +` ${p.data} de ${p.horaInicio} a ${p.horaFim} %0D%0A`; })
+                this.periodos.forEach( p=> { this.diasEvento = this.diasEvento +` ${p.data} de ${p.horaInicio} a ${p.horaFim} <br>`; })
  
-               let _body = `<html><body><h1>Tipo de evento:</h1> ${this.tipoEvento.name} <br>
-                            <h1>Titulo do Evento:</h1> ${this.nomeEvento}<br>
-                            <h1>Vagas: </h1>${this.numeroParticipantes} <br>
-                            <h1>Link inscrição:</h1> ${this.linkinscricao} <br>
-                            <h1>Nome :</h1> ${this.nomecompleto} <br>
-                            <h1>Email:</h1> ${this.email} <br>
-                            <h1>Instituição:</h1> ${this.instituicao} <br>
-                            <h1>Descrição:</h1> ${this.descricao} <br><br>
-                            <h1>Período:</h1> <br>
-                            ${this.diasEvento}</body></html>`;
+                let _body = this.montarCorpoMensagem();
 
-                        this.http.post<Eventolab>(environment.services.api,environment.routes.meuevento.root, 
-                                                {   subject: "Reservar: "+this.nomeEvento,       
-                                                    body: _body,      
-                                                    name: this.nomecompleto,      
-                                                    from: this.email
-                                                }).
-                                                then((r:any)=>{
-                                                    this.router.navigate(['']);
-                                                }).
-                                                catch((e)=>{console.log(e)}); 
-     
-            }  
-
+                this.http.post<Eventolab>(environment.services.api,environment.routes.meuevento.agendar, 
+                { subject: "Reservar: "+this.nomeEvento,body: _body,name: this.nomecompleto,from: this.email,to:''}).
+                then(
+                    (r:any)=>
+                    {   console.log(r)
+                        if (r)
+                        {                          
+                            this.showSuccess( "Avaliaremos e enviaremos a confirmação ao seu e-mail informado.");
+                            this.router.navigate(['']);
+                        }    
+                        else 
+                        {
+                            this.showWarn("Algo deu errado, tente novamente mais tarde!");
+                        }
+                    }
+                ).catch(
+                (e)=>{ 
+                        console.log(e)
+                        this.showError( "Algo deu errado, tente novamente mais tarde!" );
+                     }
+                ).finally( () => this.mensagemEnvio = 'Enviar');
+             }
+             else this.mensagemEnvio = 'Enviar';
         })
 
        /* let eventoModel = {

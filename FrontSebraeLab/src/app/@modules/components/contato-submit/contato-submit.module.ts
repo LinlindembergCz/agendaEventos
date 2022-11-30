@@ -5,6 +5,7 @@ import { ContatoSubmitComponent } from './contato-submit.component';
 import { NgxCaptchaModule } from 'ngx-captcha';
 
 import { FooterModule } from '../../../@layout/footer/footer.module';
+import { NgPrimeExportsModule } from '../../../@bootstrap/scripts/ngprime.exports';
 
 
 
@@ -18,6 +19,7 @@ import { FooterModule } from '../../../@layout/footer/footer.module';
     FormsModule,
     ReactiveFormsModule,
     NgxCaptchaModule,
+    NgPrimeExportsModule, 
 
     
   ],

@@ -25,6 +25,8 @@ export class ContatoSubmitComponent implements OnInit {
 
   nome: string = "";
   email: string= "";
+  body: string="";
+
   mensagem: string="";
 
 
@@ -50,14 +52,22 @@ export class ContatoSubmitComponent implements OnInit {
 
   sendEmail()
   {
-        this.http.post(environment.services.api,environment.routes.meuevento.root, 
+    this.mensagem = 'Enviando...';
+        this.http.post(environment.services.api,environment.routes.meuevento.faleconosco, 
           {   subject: "Fale conosco",       
-              body: this.mensagem,      
+              body: this.body,      
               name: this.nome,     
-              from: this.email
+              from: this.email,
+              to:''
           }).
-          then((r:any)=>{console.log("Enviado com sucesso!")}).
-          catch((e)=>{console.log("Deu ruim!")}); 
+          then((r:any)=>{
+            console.log(r)
+            if (r)
+            {
+              this.mensagem = "Enviado com sucesso!";              
+            }
+            }).
+          catch((e)=>{this.mensagem = ''; console.log("Deu ruim!")}); 
      /*if (this.captchaOK)
      {
         let obj: any = {

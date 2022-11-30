@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppDialogModule } from '../../../@shared/components/dialogs/dialog.module';
 import { NgxCaptchaModule } from 'ngx-captcha';
-import {ReserveSubmitComponent} from '../reserve-submit/reserve-submit.component';
+import {ReserveSubmitComponent} from './reserve-submit.component';
 import { NgPrimeExportsModule } from '../../../@bootstrap/scripts/ngprime.exports';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
