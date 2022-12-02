@@ -1,11 +1,6 @@
-
-
-
-
-
 <div class="frameMain p-d-flex p-ai-center p-jc-center container-max-widths">
        
-         <div class="frame-container form-group p-grid" style="align-items:center;">
+    <div class="frame-container form-group p-grid" style="align-items:center;">
 
             <form novalidate (ngSubmit)="adicionarUsuario()" [formGroup]="cadastroForm">
 
@@ -96,9 +91,9 @@ sendo possível posterior remoção de cadastro, de acordo com a Lei Geral de Pr
                             [disabled]="!cadastroForm.valid || (cadastroForm.value.tipo == '5' && cadastroForm.value.outromotivo=='')" type="submit">Enviar</button></span>                        
                     </div>
                 </div>
-
             </form>
     </div>
+
 </div>
 
 

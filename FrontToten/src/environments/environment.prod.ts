@@ -5,7 +5,7 @@ export const environment = {
   VersionName: "Black Cat",
   services: {
     zipcode: "",
-    api: "http://localhost:5251/api",
+    api: "http://essrvdes-h01:92/api",
     auth: '',
   },
   routes:{
