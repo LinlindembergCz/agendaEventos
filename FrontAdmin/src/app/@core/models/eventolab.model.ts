@@ -7,7 +7,7 @@ export class  Eventolab
     subtitulo: string;
     numeroparticipantes: number;
     tipoevento: string;
-    linksparainscricao: string;
+    linksparainscricao: string ='http://';
     descricaoevento:string;
     nomecompleto:string;
     email: string;
@@ -17,4 +17,9 @@ export class  Eventolab
     publicaosite:boolean;
     dias: EventolabDias[]=[];
     status: string = 'Rascunho';
+
+     Eventolab()
+    {
+
+    }
 }

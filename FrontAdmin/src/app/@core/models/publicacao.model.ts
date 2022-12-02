@@ -11,6 +11,6 @@ export class  Publicacao
     personalizadoativado: boolean= false;
     titulochamada: string;
     titulobotao: string;
-    linkredirecionamento: string;
+    linkredirecionamento: string='http://';
 }
 
