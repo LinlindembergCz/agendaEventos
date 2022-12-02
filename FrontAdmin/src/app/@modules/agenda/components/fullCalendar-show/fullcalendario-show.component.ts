@@ -40,7 +40,9 @@ export class FullCalendarioShowComponent implements OnInit {
   constructor(
     private http: RequestPromiseService,
     private router: Router   
-    ){}   
+    ){
+     
+    }   
 
   ngOnInit(): void {   
 
@@ -91,6 +93,7 @@ export class FullCalendarioShowComponent implements OnInit {
   loadEventos() 
   {
     let eventos :any[]=[];
+    let _router : Router = this.router;
     const colors =["#9A1663", "#E0144C",  "#FF5858", "#EA047E","#00ABB3"];
 
     if (this.diasBloqueados)
@@ -106,7 +109,8 @@ export class FullCalendarioShowComponent implements OnInit {
                       d.dias.forEach( x=>{
                               let data =  String(x.data).substring(0,10)
                               eventos.push( 
-                              {                           
+                              {                 
+                                id: d.id,           
                                 title: `${x.horainicio} - ${x.horafim}`,
                                 date: data,
                                 color: colors[this.tiposEvento.findIndex(x=>x.name==d.tipoevento)]                                    
@@ -116,19 +120,30 @@ export class FullCalendarioShowComponent implements OnInit {
                         })
           }).finally(
             ()=>{
-             this.options = { height: '550px',
+            this.options = {
+                              height: '550px',
                               headerToolbar: {left: 'prev',center: 'title',right: 'next'},
                               editable: false,
                               selectable:true,
                               selectMirror: true,
                               dayMaxEvents: true,
                               locale:['pt-BR'],                            
-                              events: eventos,                  
-                              };
+                              events: eventos,           
+                              eventClick: 
+                              function($event:any)
+                              { 
+                                  _router.navigate([`/alterarevento`], 
+                                  { queryParams: { id: $event.event._def.publicId } } );
+                              } 
+                            };
             
             }
           )
   }
+
+
+
+
 
   showDialogEventDate()
   {
@@ -179,6 +194,8 @@ export class FullCalendarioShowComponent implements OnInit {
     }, 10000)
     
   }
+
+
 
 
 

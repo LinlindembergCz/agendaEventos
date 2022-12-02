@@ -84,7 +84,8 @@ export class FullCalendarioShowComponent implements OnInit {
                       let data =  String(x.data).substring(0,10)
                       let titulo : string =  d.titulo;               
 
-                      eventos.push( {                           
+                      eventos.push( {  
+                        id: d.id,                         
                         title: titulo,
                         date: data,
                         color: colors[this.tiposEvento.findIndex(x=>x.name==d.tipoevento)] })
@@ -99,7 +100,8 @@ export class FullCalendarioShowComponent implements OnInit {
                               selectMirror: true,
                               dayMaxEvents: true,
                               locale:['pt-BR'],
-                              events: eventos,                  
+                              events: eventos,   
+                                             
                               };                              
             }
           )
