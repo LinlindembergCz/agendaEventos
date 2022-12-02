@@ -1,14 +1,9 @@
-﻿using Microsoft.Extensions.Configuration;
-using SebraeLab.Core.DomainObjects;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using SebraeLab.Core.DomainObjects;
 using System.Net;
 using System.Net.Mail;
-using System.Text;
-using System.Threading.Tasks;
+
 using SebraeLab.Core.Configuration;
-using SebraeLab.Core.Configuration.Mailing;
+
 
 namespace sebraelab.core.comunication
 {
@@ -20,14 +15,14 @@ namespace sebraelab.core.comunication
             Configuration = config;
         }
 
-        private async void SendMail(MessengerEntity command)
+        private async Task<bool> SendMail(MessengerEntity command)
         {
             try
             {
                 var mailingConfig = Configuration.Mailing;
 
-                MailMessage mail = new MailMessage(command.from,
-                                                   command.to,
+                MailMessage mail = new MailMessage(command.From,
+                                                   command.To,
                                                    command.Subject,
                                                    command.Body);
 
@@ -44,10 +39,13 @@ namespace sebraelab.core.comunication
 
                 smtpClient.Send(mail);
 
+                return true;
+
             }
             catch (Exception ex)
             {
-                throw new NotImplementedException(ex.Message);
+                return false;
+                throw new Exception(ex.Message);
                 //throw new EmailNaoEnviadoException(mail, ex);
             }
         }
@@ -56,9 +54,9 @@ namespace sebraelab.core.comunication
         {
             try
             {
-                command.to = Configuration.Mailing.MailTo;
-                SendMail(command);
-                return true;
+                command.To = Configuration.Mailing.MailTo;
+                
+                return SendMail(command).Result;
             }
             catch (Exception ex)
             {
@@ -72,9 +70,8 @@ namespace sebraelab.core.comunication
         {
             try
             {
-                command.to = Configuration.Mailing.MailTo;
-                SendMail(command);
-                return true;
+                command.To = Configuration.Mailing.MailTo;                
+                return SendMail(command).Result; 
             }
             catch (Exception ex)
             {

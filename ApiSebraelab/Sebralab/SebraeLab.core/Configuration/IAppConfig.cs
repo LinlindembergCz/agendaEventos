@@ -11,6 +11,7 @@ namespace SebraeLab.Core.Configuration
         //IAuthConfig Auth { get; }
         //IDatabaseConfig Database { get; }
         IMailingConfig Mailing { get; }
+        IInfoConfig Info { get; }
 
         //IFileSystemConfig FileSystem { get; }
         //ILogConfig Log { get; }
