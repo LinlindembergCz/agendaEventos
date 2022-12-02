@@ -4,8 +4,8 @@ export const environment = {
   FrameworkVersion: "5.8.4",
   VersionName: "Black Cat",
   services: {
-    zipcode: "http://",
-    api: "http://localhost:90/api",
+    zipcode: "http://",    
+    api: "http://essrvdes-h01:90/api",
     auth: 'http://',
   },
   routes:{

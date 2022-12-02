@@ -11,7 +11,7 @@
 
     <label> ">" dias Consecutivos , ... dias Alternados</label>
 
-    <div *nfIf="eventslab.length > 0">
+    <div *ngIf="eventslab.length > 0">
         <p-dataView [value]="eventslab" [paginator]="true" [rows]="4">
             <ng-template let-eventlab pTemplate="listItem">                                       
                 <div class="frameEventlabitemDetails " style="cursor: pointer" 

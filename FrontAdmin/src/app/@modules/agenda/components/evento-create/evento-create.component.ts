@@ -75,7 +75,7 @@ export class EventoCreateComponent implements OnInit, AfterViewInit {
   verifyAvailability(data: string, horainicio: string, horafim:string ):Promise<boolean>
   {
     let url = environment.routes.eventoSebraeLab.alocacao+
-    `?Data=${new Date(data).toISOString().slice(0, 10)}
+    `?Data=${new Date(data).toLocaleDateString('PT-BR')}
     &horainicio=${horainicio}
     &horafinal=${horafim}`;
 

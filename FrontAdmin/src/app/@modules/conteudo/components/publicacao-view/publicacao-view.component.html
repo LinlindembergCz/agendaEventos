@@ -9,16 +9,18 @@
             </a>
         </div>
         <div class="framePublicar p-grid">   
-            <div class="p-col-12">
+            <div class="p-col-12 p-grid">
                 <div class="PreVisualizar">Pré-visualização</div>
-                <div class="TextPreVisualizar">O conteúdo aparecerá desse modo no site, confira todo conteúdo antes de publicar.</div>
-            </div>   
-            <div class="frameBotaoPublicar p-col-2">
-                <div *ngIf="publicacao.status=='Rascunho'">
-                    <button pButton type="button"  label="Publicar" class="buttonPublicar p-button-outlined"              
-                    (click)="publish(publicacao.id)"></button>
+                <div class="TextPreVisualizar">O conteúdo aparecerá desse modo no site, confira todo conteúdo antes de publicar.
+               
                 </div>
-            </div>
+                <div  *ngIf="publicacao.status=='Rascunho'">
+                    <button pButton type="button"  label="Publicar" class="buttonPublicar p-button-outlined"              
+                (click)="publish(publicacao.id)"></button>
+                </div>
+                
+                
+            </div>   
         </div>
     </div>
 

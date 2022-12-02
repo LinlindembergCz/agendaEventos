@@ -66,8 +66,11 @@ export class FullCalendarioShowComponent implements OnInit {
     then(b=>{        
       if (b)
       {
-            this.bloqueio = b[0];
-            this.motivoBloqueio = this.bloqueio.motivo        
+            if (b[0])
+            {
+              this.bloqueio = b[0];
+              this.motivoBloqueio = this.bloqueio.motivo    
+            }    
       }       
     });
   }
@@ -97,7 +100,8 @@ export class FullCalendarioShowComponent implements OnInit {
     }  
 
     this.http.get<Eventolab[]>(environment.services.api,environment.routes.eventoSebraeLab.root).then
-    ( e=>{        
+    ( e=>{     
+      console.log( e )   
           e.forEach( d=>{       
                       d.dias.forEach( x=>{
                               let data =  String(x.data).substring(0,10)

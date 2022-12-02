@@ -102,9 +102,9 @@ height: 65px;
 
 .TextPreVisualizar{
     //border: 1px solid;
-
-    width: 100%;
-    height: 27px;
+    flex-direction: column;
+    width: 50%;
+    //height: 27px;
 
     /* Body / Normal */
     font-family: 'PT Serif';

@@ -90,7 +90,7 @@ export class EventoListComponent implements OnInit {
                         subtitulo:e.subtitulo, 
                         horainicial: startEvent?.horainicio ,
                         horafinal: endEvent?.horafim, 
-                        data: startDay,
+                        data: new Date(startDay).toLocaleDateString('PT-BR'),
                         datainicial:  startDay?.substring(8,10), //primeiro dia
                         datafinal: endDay?.substring(8,10), //ultimo dia
                         dias: e.dias.length,

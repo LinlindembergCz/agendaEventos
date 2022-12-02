@@ -46,7 +46,7 @@
                     </div>                    
                 </div>
                 
-                <div class="frameBannerDetailsConteudoHoras p-col-12">08:30 - 12:30</div>
+                <div class="frameBannerDetailsConteudoHoras p-col-12">{{evento.horainicial}} - {{evento.horafinal}} </div>
                 <div class="frameBannerDetailsConteudoTitulo p-col-12">{{evento.titulo}}</div>
                 <div class="frameBannerDetailsConteudoDescricao p-col-12">{{evento.subtitulo}}
                    
@@ -111,7 +111,7 @@
                 <div *ngIf="(evento.datainicial != evento.datafinal)">
                     <h2> > {{evento.datafinal}}</h2>
                 </div>  
-                <div><h2>08:30 - 12:30</h2></div>        
+                <div><h2>{{evento.horainicial}} - {{evento.horafinal}} </h2></div>        
                 <div>
                     <h2 style="color: #ED4D9A;">&nbsp;&nbsp;&nbsp;{{getMonthDescription(evento.data)}}</h2>
                 </div>     
