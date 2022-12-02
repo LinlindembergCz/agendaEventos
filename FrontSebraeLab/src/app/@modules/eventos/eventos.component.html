@@ -28,10 +28,15 @@
                         
                         <div [ngClass]="isMobile?'p-col-12':'p-col-6'">
                             <div> 
-                                <h2>{{evento.datainicio}}</h2>
+                                <div class="frameDate" *ngIf="evento.datainicio!=evento.datafim">
+                                    <div class="frameDateDays"> {{evento.datainicio}}<div style=" color: #C45F13;">></div>{{evento.datafim}}</div> 
+                                </div>   
+                                <div class="frameDate" *ngIf="evento.datainicio==evento.datafim">
+                                    <div class="frameDateDays"> {{evento.datainicio}}</div> 
+                                </div>
                                 <h2 style="color: #ED4D9A;"> {{getMonthDescription(evento.data)}}</h2>
                             </div>
-                            <div class="frameBannerDetailsConteudoHoras ">{{evento.horainicio}} -{{evento.horafim}}</div>
+                            <div class="frameBannerDetailsConteudoHoras " *ngFor="let d of evento.dias">{{formatDatePTBR(d.data)}} de {{d.horainicio}} até {{d.horafim}}</div>
                             <div class="frameBannerDetailsConteudoTitulo">{{evento.titulo}}</div>
                             <div class="frameBannerDetailsConteudoDescricao">{{evento.subtitulo}}</div>
                             <p></p>
@@ -103,7 +108,7 @@
                                                  </div>                                                                     
 
                                                  <div class="frameHour">
-                                                     <div class="eventlabTime">{{evento.horainicio}} - {{evento.horafim}}</div><br>
+                                                    <!-- <div class="eventlabTime">{{evento.horainicio}} - {{evento.horafim}}</div><br>-->
                                                      <div class=" eventlabName">{{evento.titulo}}</div><br>
                                                      <div class="eventlabSummary">{{evento.subtitulo}}</div><br>
                                                  </div>        

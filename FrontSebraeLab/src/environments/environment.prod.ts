@@ -5,8 +5,8 @@ export const environment = {
   VersionName: "Black Cat",
   services: {
     zipcode: "http://",
-    api: "http://localhost:91/api",
-    auth: 'http://',
+    api: "http://essrvdes-h01:91/api",
+    auth: 'http://'
   },
   routes:{
             eventoSebraeLab:{

@@ -104,7 +104,7 @@ export class EventosComponent implements OnInit {
                                 datainicio: new Date(e.dias[0].data).getDate(), 
                                 datafim: new Date(e.dias[e.dias.length-1].data).getDate() ,
                                 picture: '',//,
-                                dias: e.dias.length,
+                                dias: e.dias,
                                 linksparainscricao: e.linksparainscricao
                               });
 
@@ -191,6 +191,11 @@ export class EventosComponent implements OnInit {
   showCalendar()
   {
     this.fullCalendar = true;
+  }
+
+  formatDatePTBR(d:Date)
+  {
+     return new Date(d).toLocaleDateString('PT-BR');
   }
 
 }

@@ -94,7 +94,7 @@ export class CalendarioEditComponent implements AfterViewInit, OnInit {
                                   {
                                     index: i, 
                                     name:'periodo'+i, 
-                                    data:d.toLocaleDateString(), 
+                                    data: d.toLocaleDateString('PT-BR'), 
                                     horaInicio:this.eventBooking.HoursStart[i], 
                                     horaFim:this.eventBooking.HoursEnd[i],
                                     option: this.eventBooking.Options[i]
@@ -114,6 +114,7 @@ export class CalendarioEditComponent implements AfterViewInit, OnInit {
 
   verifyAvailability( periodo: any )
   {
+    console.log(periodo);
     if ( (periodo.horaInicio && periodo.horaInicio!='' && periodo.horaInicio!='__:__') && 
          (periodo.horaFim    && periodo.horaFim!=''    && periodo.horaFim!='__:__') )
     {

@@ -3,7 +3,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  left: 7px;
+  left: 0px;
   top: 3470px;  
   //opacity: 0.08;
   //transform: rotate(-90deg);
@@ -128,6 +128,7 @@ height: 320px;
 }
 
 .frameTitleMobile{
+  text-align: center;
   width: 100%;
   height: 25px; 
   /* Inside auto layout */
@@ -174,6 +175,7 @@ height: 320px;
 }
 
 .TextMobile{
+  text-align: center;
   width: 100%;
   height: 300px;  
   /* Body / Big */

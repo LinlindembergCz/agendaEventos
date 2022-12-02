@@ -29,6 +29,8 @@ export class ContatoSubmitComponent implements OnInit {
 
   mensagem: string="";
 
+  info: any;
+
 
   constructor(private formBuilder: FormBuilder, private http :RequestPromiseService, private loader: LoaderService) {}
 
@@ -42,6 +44,10 @@ export class ContatoSubmitComponent implements OnInit {
       sender_message: ['', Validators.required]
     });
 
+    this.http.get(environment.services.api,environment.routes.meuevento.info).then ( (i)=>
+    {
+      this.info = i;
+    })
   }
 
   handleSuccess($event)
