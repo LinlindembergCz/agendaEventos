@@ -29,7 +29,7 @@ namespace SebraeLab.Evento.Data.Repository
         public async Task<List<EventoSebraeLab>> GetAll(bool onlypublished = false)
         {
             return await _context.Eventos.
-                Include(e => e.Dias).
+                Include(e => e.Dias.OrderBy(o=> o.Data)).
                 Where(e=>  
                           ( onlypublished? e.Status== StatusEvento.Publicado && e.Publicaosite==true : true ) &&
                            (onlypublished ? e.Dias.Any(d => d.Data >= DateTime.Today) : true)
