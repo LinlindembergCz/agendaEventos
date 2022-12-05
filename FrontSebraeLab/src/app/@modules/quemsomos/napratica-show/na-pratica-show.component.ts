@@ -33,10 +33,7 @@ export class NaPraticaShowComponent implements AfterViewInit, OnInit {
       if (banner =="bannersATTEND") this.selectLetra("A");
       if (banner =="bannersBUSINESS") this.selectLetra("B");
 
-      if (!this.isMobile)
-      window.scrollTo(0, 3300);
-      else
-      window.scrollTo(0, 3300);
+
       //this.location.path() + '#'+ banner; 
     })
 
@@ -46,6 +43,11 @@ export class NaPraticaShowComponent implements AfterViewInit, OnInit {
   selectLetra(letra: string)
   {
     this.selectedLetra = letra;
+
+    if (!this.isMobile)
+    window.scrollTo(0, 3300);
+    else
+    window.scrollTo(0, 3300);
   }
 
 
