@@ -29,7 +29,8 @@ export const environment = {
             },
             meuevento:{
               agendar:"meuevento/agendar",
-              faleconosco: "meuevento/faleconosco"
+              faleconosco: "meuevento/faleconosco",
+              info: "meuevento/info"
             }
          }
 }
